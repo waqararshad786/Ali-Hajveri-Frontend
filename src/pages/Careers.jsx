@@ -74,7 +74,7 @@ const JobCard = ({ job, index, saved, onSave }) => (
         </div>
 
         <div className="flex-1 min-w-0">
-          <h3 className="font-[Plus_Jakarta_Sans] font-extrabold text-[#0F4C5C] text-base sm:text-lg leading-tight mb-1.5 group-hover:text-[#29B6F6] transition-colors duration-300">
+          <h3 className="font-extrabold text-[#0F4C5C] text-base sm:text-lg leading-tight mb-1.5 group-hover:text-[#29B6F6] transition-colors duration-300">
             {job.title}
           </h3>
           <p className="text-xs sm:text-sm text-[#0A3A47]/70 font-semibold flex items-center gap-1.5 truncate">
@@ -352,7 +352,7 @@ const Careers = () => {
               </span>
             </div>
 
-            <h1 className="font-[Plus_Jakarta_Sans] text-3xl sm:text-4xl md:text-5xl font-black text-white leading-[1.05] tracking-tight mb-4 [text-shadow:_0_2px_12px_rgba(0,0,0,0.6)]">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-white leading-[1.05] tracking-tight mb-4 [text-shadow:_0_2px_12px_rgba(0,0,0,0.6)]">
               Your Next{" "}
               <span className="bg-gradient-to-r from-[#4FC3F7] via-[#FFD54F] to-[#29B6F6] bg-clip-text text-transparent bg-[length:200%_100%] animate-[gradientShift_4s_ease_infinite]">
                 Chapter
@@ -660,7 +660,7 @@ const Careers = () => {
                 <FaUsers className="text-[#FFB300] text-2xl" />
               </div>
 
-              <h2 className="font-[Plus_Jakarta_Sans] text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-4 leading-tight">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-4 leading-tight">
                 Don't See The Right Fit?{" "}
                 <span className="bg-gradient-to-r from-[#4FC3F7] via-[#FFD54F] to-[#4FC3F7] bg-clip-text text-transparent bg-[length:200%_100%] animate-[gradientShift_4s_ease_infinite]">
                   Submit Your CV

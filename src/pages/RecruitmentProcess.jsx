@@ -332,7 +332,7 @@ const RecruitmentProcess = () => {
         .animate-slideUp { animation: slideUp 0.5s ease-out forwards; }
         .animate-fadeIn { animation: fadeIn 0.3s ease-out forwards; }
         .animate-marquee-left { animation: marquee-left 40s linear infinite; }
-        .animate-marquee-left:hover { animation-play-state: paused; }
+        {/* .animate-marquee-left:hover { animation-play-state: paused; } */}
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
       `}</style>

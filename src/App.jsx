@@ -40,6 +40,7 @@ import AdminResetPassword from "./pages/AdminResetPassword";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminJobs from "./pages/AdminJobs";
 import AdminApplications from "./pages/AdminApplications";
+import AdminJobApplications from "./pages/AdminJobApplications"; // ✅ NAYA
 import AdminMessages from "./pages/AdminMessages";
 import AdminProfile from "./pages/AdminProfile";
 
@@ -63,7 +64,10 @@ function App() {
                   <Route path="/country/:name" element={<CountryDetail />} />
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-                  <Route path="/terms-conditions" element={<TermsConditions />} />
+                  <Route
+                    path="/terms-conditions"
+                    element={<TermsConditions />}
+                  />
                   <Route path="/faq" element={<Faq />} />
                   <Route path="/submit-cv" element={<SubmitCV />} />
                   <Route path="/careers" element={<Careers />} />
@@ -124,6 +128,11 @@ function App() {
             <Route path="dashboard" element={<AdminDashboard />} />
             <Route path="jobs" element={<AdminJobs />} />
             <Route path="applications" element={<AdminApplications />} />
+            <Route
+              path="job-applications"
+              element={<AdminJobApplications />}
+            />{" "}
+            {/* ✅ NAYA */}
             <Route path="messages" element={<AdminMessages />} />
             <Route path="profile" element={<AdminProfile />} />
           </Route>

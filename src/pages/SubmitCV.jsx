@@ -91,7 +91,7 @@ const SectionHeader = ({ number, title, subtitle }) => (
       </span>
     </div>
     <div>
-      <h2 className="font-[Plus_Jakarta_Sans] text-lg sm:text-xl font-extrabold text-[#0F4C5C] leading-tight">
+      <h2 className="text-lg sm:text-xl font-extrabold text-[#0F4C5C] leading-tight">
         {title}
       </h2>
       {subtitle && (
@@ -330,7 +330,7 @@ const SubmitCV = () => {
               ))}
             </div>
 
-            <h1 className="font-[Plus_Jakarta_Sans] text-3xl sm:text-4xl font-extrabold text-[#0F4C5C] mb-4">
+            <h1 className="text-3xl sm:text-4xl font-extrabold text-[#0F4C5C] mb-4">
               CV Submitted{" "}
               <span className="bg-gradient-to-r from-[#22C55E] to-[#16A34A] bg-clip-text text-transparent">
                 Successfully!
@@ -422,7 +422,7 @@ const SubmitCV = () => {
             </span>
           </div>
 
-          <h1 className="font-[Plus_Jakarta_Sans] text-3xl sm:text-4xl md:text-6xl font-extrabold text-white leading-tight mb-5 [text-shadow:_0_2px_12px_rgba(0,0,0,0.6)]">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-white leading-tight mb-5 [text-shadow:_0_2px_12px_rgba(0,0,0,0.6)]">
             Submit Your{" "}
             <span className="relative inline-block">
               <span className="bg-gradient-to-r from-[#4FC3F7] via-[#FFD54F] to-[#4FC3F7] bg-clip-text text-transparent bg-[length:200%_100%] animate-[gradientShift_4s_ease_infinite]">
@@ -1003,7 +1003,7 @@ const SubmitCV = () => {
               Why Choose Us
               <span className="w-6 h-px bg-[#29B6F6]" />
             </span>
-            <h2 className="font-[Plus_Jakarta_Sans] text-2xl sm:text-3xl font-extrabold text-[#0F4C5C]">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0F4C5C]">
               Trusted By Thousands Of Workers
             </h2>
           </div>

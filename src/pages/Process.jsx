@@ -86,9 +86,24 @@ const PROCESS_PAGES = [
 ];
 
 const OVERVIEW_STATS = [
-  { icon: FaLayerGroup, value: "3", label: "Core Processes", color: "text-[#4FC3F7]" },
-  { icon: FaClock, value: "8–10", label: "Weeks Average", color: "text-[#FFB300]" },
-  { icon: FaShieldAlt, value: "100%", label: "Compliance", color: "text-[#22C55E]" },
+  {
+    icon: FaLayerGroup,
+    value: "3",
+    label: "Core Processes",
+    color: "text-[#4FC3F7]",
+  },
+  {
+    icon: FaClock,
+    value: "8–10",
+    label: "Weeks Average",
+    color: "text-[#FFB300]",
+  },
+  {
+    icon: FaShieldAlt,
+    value: "100%",
+    label: "Compliance",
+    color: "text-[#22C55E]",
+  },
   { icon: FaGlobe, value: "25+", label: "Countries", color: "text-[#8B5CF6]" },
 ];
 
@@ -248,7 +263,6 @@ const Process = () => {
         .animate-float { animation: float 4s ease-in-out infinite; }
         .animate-slideUp { animation: slideUp 0.5s ease-out forwards; }
         .animate-marquee-left { animation: marquee-left 45s linear infinite; }
-        .animate-marquee-left:hover { animation-play-state: paused; }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
       `}</style>
@@ -594,25 +608,27 @@ const Process = () => {
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {WHY_THREE_PROCESSES.map(({ icon: Icon, title, desc, color }, idx) => (
-              <div
-                key={title}
-                className="group relative bg-gradient-to-b from-[#E1F5FE] to-white rounded-2xl p-4.5 border border-[#4FC3F7]/20 hover:border-[#4FC3F7]/60 hover:shadow-[0_20px_45px_rgba(79,195,247,0.15)] hover:-translate-y-1.5 transition-all duration-300 overflow-hidden animate-slideUp"
-                style={{ animationDelay: `${idx * 0.05}s` }}
-              >
-                <span className="absolute inset-x-0 top-0 h-0.5 rounded-t-2xl bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500" />
+            {WHY_THREE_PROCESSES.map(
+              ({ icon: Icon, title, desc, color }, idx) => (
+                <div
+                  key={title}
+                  className="group relative bg-gradient-to-b from-[#E1F5FE] to-white rounded-2xl p-4.5 border border-[#4FC3F7]/20 hover:border-[#4FC3F7]/60 hover:shadow-[0_20px_45px_rgba(79,195,247,0.15)] hover:-translate-y-1.5 transition-all duration-300 overflow-hidden animate-slideUp"
+                  style={{ animationDelay: `${idx * 0.05}s` }}
+                >
+                  <span className="absolute inset-x-0 top-0 h-0.5 rounded-t-2xl bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500" />
 
-                <div className="w-10 h-10 rounded-xl bg-white shadow-[0_6px_18px_rgba(15,76,92,0.08)] flex items-center justify-center mb-3 group-hover:bg-[#4FC3F7]/10 transition-colors">
-                  <Icon className={`${color} text-base`} />
+                  <div className="w-10 h-10 rounded-xl bg-white shadow-[0_6px_18px_rgba(15,76,92,0.08)] flex items-center justify-center mb-3 group-hover:bg-[#4FC3F7]/10 transition-colors">
+                    <Icon className={`${color} text-base`} />
+                  </div>
+                  <h3 className="font-[Plus_Jakarta_Sans] text-sm sm:text-base font-extrabold text-[#0F4C5C] mb-1.5">
+                    {title}
+                  </h3>
+                  <p className="text-[#0A3A47]/80 text-[11px] sm:text-xs leading-relaxed">
+                    {desc}
+                  </p>
                 </div>
-                <h3 className="font-[Plus_Jakarta_Sans] text-sm sm:text-base font-extrabold text-[#0F4C5C] mb-1.5">
-                  {title}
-                </h3>
-                <p className="text-[#0A3A47]/80 text-[11px] sm:text-xs leading-relaxed">
-                  {desc}
-                </p>
-              </div>
-            ))}
+              ),
+            )}
           </div>
         </div>
       </section>

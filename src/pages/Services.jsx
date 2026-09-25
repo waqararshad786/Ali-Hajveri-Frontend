@@ -1031,13 +1031,13 @@ const Services = () => {
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
 
         .section-tight {
-          padding-top: 3rem;
-          padding-bottom: 3rem;
+          padding-top: 2rem;
+          padding-bottom: 2rem;
         }
         @media (min-width: 640px) {
           .section-tight {
-            padding-top: 3.5rem;
-            padding-bottom: 3.5rem;
+            padding-top: 2.5rem;
+            padding-bottom: 2.5rem;
           }
         }
 
@@ -1047,8 +1047,6 @@ const Services = () => {
         @keyframes marquee-left { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
         .animate-marquee-left { animation: marquee-left 40s linear infinite; }
         .animate-marquee-left-slow { animation: marquee-left 85s linear infinite; }
-        .animate-marquee-left:hover,
-        .animate-marquee-left-slow:hover { animation-play-state: paused; }
 
         @keyframes float-slow { 0%, 100% { transform: translate(0, 0) scale(1); } 33% { transform: translate(20px, -20px) scale(1.1); } 66% { transform: translate(-10px, 15px) scale(0.9); } }
         .animate-float-slow { animation: float-slow 12s ease-in-out infinite; }

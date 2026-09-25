@@ -1,4 +1,4 @@
-// src/pages/AdminApplications.jsx
+// src/pages/admin/AdminJobApplications.jsx
 import React, { useState, useEffect } from "react";
 import {
   FaUser, FaEnvelope, FaPhone, FaMapMarkerAlt, FaBriefcase,
@@ -6,15 +6,15 @@ import {
   FaExclamationTriangle, FaEye, FaEnvelopeOpen, FaReply,
   FaGraduationCap, FaPassport, FaGlobe, FaWhatsapp, FaFileAlt,
   FaDatabase, FaDownload, FaExternalLinkAlt,
-  FaFilePdf, FaFileWord, FaPaperPlane, FaSpinner,
+  FaFilePdf, FaFileWord, FaUserCheck, FaPaperPlane, FaSpinner,
 } from "react-icons/fa";
-import { cvApi, API_URL } from "../api/api";
+import { applicationsApi, API_URL } from "../api/api";
 
 /* ============================================================
    STATUS COLORS
 ============================================================ */
 const STATUS_COLORS = {
-  new: "bg-blue-100 text-blue-700 border-blue-300",
+  pending: "bg-blue-100 text-blue-700 border-blue-300",
   reviewed: "bg-yellow-100 text-yellow-700 border-yellow-300",
   shortlisted: "bg-green-100 text-green-700 border-green-300",
   rejected: "bg-red-100 text-red-700 border-red-300",
@@ -22,10 +22,10 @@ const STATUS_COLORS = {
 };
 
 /* ============================================================
-   CV FILE URL HELPER
+   ✅ APPLICATION FILE URL HELPER
 ============================================================ */
-const getCvFileUrl = (cv, download = false) => {
-  if (!cv || !cv._id) return "";
+const getAppFileUrl = (app, download = false) => {
+  if (!app || !app._id) return "";
 
   const token = (() => {
     try {
@@ -37,12 +37,12 @@ const getCvFileUrl = (cv, download = false) => {
     }
   })();
 
-  const rawPath = cv.fileUrl || cv.filePath;
+  const rawPath = app.cvUrl || app.fileUrl || app.filePath;
   if (rawPath && /^https?:\/\//i.test(rawPath)) {
     return rawPath;
   }
 
-  const base = `${API_URL}/cv/${cv._id}/file`;
+  const base = `${API_URL}/applications/${app._id}/file`;
   const params = new URLSearchParams();
   if (token) params.set("token", token);
   if (download) params.set("download", "1");
@@ -54,10 +54,10 @@ const getCvFileUrl = (cv, download = false) => {
 /* ============================================================
    FILE TYPE CHECK
 ============================================================ */
-const getFileType = (cv) => {
-  if (!cv) return "other";
-  const mime = cv.mimeType || "";
-  const name = (cv.fileName || "").toLowerCase();
+const getFileType = (app) => {
+  if (!app) return "other";
+  const mime = app.cvMimeType || app.mimeType || "";
+  const name = (app.cvFileName || app.fileName || "").toLowerCase();
 
   if (mime.includes("pdf") || name.endsWith(".pdf")) return "pdf";
   if (
@@ -98,8 +98,11 @@ const InfoTile = ({ icon: Icon, label, value, link }) => (
   </div>
 );
 
-const AdminApplications = () => {
-  const [cvs, setCvs] = useState([]);
+/* ============================================================
+   PAGE
+============================================================ */
+const AdminJobApplications = () => {
+  const [apps, setApps] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [toast, setToast] = useState(null);
@@ -114,17 +117,17 @@ const AdminApplications = () => {
   const [sendingReply, setSendingReply] = useState(false);
 
   useEffect(() => {
-    fetchCVs();
+    fetchApps();
   }, []);
 
-  const fetchCVs = async () => {
+  const fetchApps = async () => {
     setLoading(true);
     setError("");
     try {
-      const data = await cvApi.getAll();
-      setCvs(data.cvs || []);
+      const data = await applicationsApi.getAll();
+      setApps(data.applications || data || []);
     } catch (err) {
-      console.error("❌ Failed To Fetch CVs:", err);
+      console.error("❌ Failed To Fetch Applications:", err);
       setError(err.message || "Failed To Load Applications");
       showToast(err.message || "Failed To Load", "error");
     }
@@ -138,9 +141,9 @@ const AdminApplications = () => {
 
   const handleStatusChange = async (id, status) => {
     try {
-      await cvApi.updateStatus(id, status);
+      await applicationsApi.updateStatus(id, status);
       showToast(`Marked As ${status}`);
-      fetchCVs();
+      fetchApps();
       if (selected && selected._id === id) {
         setSelected({ ...selected, status });
       }
@@ -151,11 +154,11 @@ const AdminApplications = () => {
 
   const handleDelete = async (id) => {
     try {
-      await cvApi.delete(id);
+      await applicationsApi.delete(id);
       setConfirmDelete(null);
       setSelected(null);
       showToast("Application Deleted", "error");
-      fetchCVs();
+      fetchApps();
     } catch (error) {
       showToast(error.message || "Failed To Delete", "error");
     }
@@ -164,8 +167,8 @@ const AdminApplications = () => {
   /* ============================================================
      ✅ OPEN REPLY MODAL
   ============================================================ */
-  const openReply = (cv) => {
-    setReplyTo(cv);
+  const openReply = (app) => {
+    setReplyTo(app);
     setReplyText("");
   };
 
@@ -185,16 +188,16 @@ const AdminApplications = () => {
       return;
     }
 
-    /* ✅ Save reply info pehle */
+    /* ✅ Save reply info pehle — replyTo null karne se pehle */
     const currentReplyToId = replyTo._id;
     const currentReplyText = replyText.trim();
 
     setSendingReply(true);
     try {
-      await cvApi.reply(currentReplyToId, currentReplyText);
+      await applicationsApi.reply(currentReplyToId, currentReplyText);
       showToast("Reply Sent Successfully!");
 
-      /* ✅ 1. MODAL BAND karo */
+      /* ✅ 1. MODAL BAND karo — SABSE PEHLE */
       setReplyTo(null);
       setReplyText("");
 
@@ -202,7 +205,7 @@ const AdminApplications = () => {
       setSelected(null);
 
       /* ✅ 3. Data Refresh */
-      await fetchCVs();
+      await fetchApps();
     } catch (error) {
       showToast(error.message || "Failed To Send Reply", "error");
     } finally {
@@ -210,26 +213,28 @@ const AdminApplications = () => {
     }
   };
 
-  const filtered = cvs.filter((cv) => {
+  const filtered = apps.filter((app) => {
     const term = search.trim().toLowerCase();
     const matchesSearch =
       !term ||
-      cv.fullName?.toLowerCase().includes(term) ||
-      cv.email?.toLowerCase().includes(term) ||
-      cv.phone?.toLowerCase().includes(term) ||
-      cv.position?.toLowerCase().includes(term) ||
-      cv.country?.toLowerCase().includes(term);
-    const matchesFilter = filter === "all" || cv.status === filter;
+      app.fullName?.toLowerCase().includes(term) ||
+      app.email?.toLowerCase().includes(term) ||
+      app.phone?.toLowerCase().includes(term) ||
+      app.jobTitle?.toLowerCase().includes(term) ||
+      app.position?.toLowerCase().includes(term) ||
+      app.country?.toLowerCase().includes(term);
+    const matchesFilter =
+      filter === "all" || (app.status || "pending") === filter;
     return matchesSearch && matchesFilter;
   });
 
   const counts = {
-    all: cvs.length,
-    new: cvs.filter((c) => c.status === "new").length,
-    reviewed: cvs.filter((c) => c.status === "reviewed").length,
-    shortlisted: cvs.filter((c) => c.status === "shortlisted").length,
-    rejected: cvs.filter((c) => c.status === "rejected").length,
-    replied: cvs.filter((c) => c.status === "replied").length,
+    all: apps.length,
+    pending: apps.filter((a) => (a.status || "pending") === "pending").length,
+    reviewed: apps.filter((a) => a.status === "reviewed").length,
+    shortlisted: apps.filter((a) => a.status === "shortlisted").length,
+    rejected: apps.filter((a) => a.status === "rejected").length,
+    replied: apps.filter((a) => a.status === "replied").length,
   };
 
   return (
@@ -250,26 +255,26 @@ const AdminApplications = () => {
       <div className="mb-6">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div>
-            <div className="inline-flex items-center gap-2 mb-1.5 bg-[#4FC3F7]/10 border border-[#4FC3F7]/30 rounded-full px-3 py-1">
-              <FaFileAlt className="text-[#29B6F6] text-[9px]" />
+            <div className="inline-flex items-center gap-2 mb-1.5 bg-[#22C55E]/10 border border-[#22C55E]/30 rounded-full px-3 py-1">
+              <FaUserCheck className="text-[#22C55E] text-[9px]" />
               <span className="text-[#0F4C5C] text-[9px] font-bold tracking-widest uppercase">
-                CV Submissions
+                Job Applications
               </span>
             </div>
             <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[#0F4C5C]">
-              Job{" "}
+              Careers{" "}
               <span className="bg-gradient-to-r from-[#4FC3F7] via-[#FFD54F] to-[#4FC3F7] bg-clip-text text-transparent bg-[length:200%_100%] animate-[gradientShift_4s_ease_infinite]">
                 Applications
               </span>
             </h1>
             <p className="text-[#0A3A47]/60 text-xs mt-0.5">
-              {cvs.length} {cvs.length === 1 ? "Application" : "Applications"}{" "}
-              Received
+              {apps.length} {apps.length === 1 ? "Application" : "Applications"}{" "}
+              From Careers Page
             </p>
           </div>
 
           <button
-            onClick={fetchCVs}
+            onClick={fetchApps}
             disabled={loading}
             className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0F4C5C] hover:text-[#29B6F6] border border-[#4FC3F7]/25 hover:border-[#4FC3F7]/60 px-3.5 py-2 rounded-full transition-all disabled:opacity-50"
           >
@@ -292,7 +297,7 @@ const AdminApplications = () => {
           </div>
 
           <div className="flex items-center gap-2 flex-wrap">
-            {["all", "new", "reviewed", "shortlisted", "rejected", "replied"].map((f) => (
+            {["all", "pending", "reviewed", "shortlisted", "rejected", "replied"].map((f) => (
               <button
                 key={f}
                 onClick={() => setFilter(f)}
@@ -365,10 +370,10 @@ const AdminApplications = () => {
             </div>
 
             <form onSubmit={handleSendReply} className="p-5 sm:p-6 space-y-4">
-              {/* Original CV Preview */}
+              {/* Original Application Preview */}
               <div>
                 <p className="text-[10px] font-bold text-[#0A3A47]/60 uppercase tracking-wider mb-2">
-                  Applied For: {replyTo.position}
+                  Applied For: {replyTo.jobTitle || replyTo.position}
                 </p>
                 <div className="text-xs text-[#0A3A47]/75 leading-relaxed bg-[#F8FAFC] border border-[#4FC3F7]/15 rounded-xl p-3 max-h-32 overflow-y-auto">
                   <p className="mb-1">
@@ -417,7 +422,9 @@ const AdminApplications = () => {
                     type="button"
                     onClick={() =>
                       setReplyText(
-                        `Dear ${replyTo.fullName},\n\nThank You For Submitting Your CV For The Position Of "${replyTo.position}".\n\nWe Have Received Your Application And Our Team Is Currently Reviewing Your Profile. We Will Get Back To You Shortly Regarding The Next Steps.\n\nBest Regards,\nAli Hajveri International (Pvt.) Ltd.`
+                        `Dear ${replyTo.fullName},\n\nThank You For Your Application For The Position Of "${
+                          replyTo.jobTitle || replyTo.position
+                        }".\n\nWe Have Received Your CV And Our Team Is Currently Reviewing Your Profile. We Will Get Back To You Shortly Regarding The Next Steps.\n\nBest Regards,\nAli Hajveri International (Pvt.) Ltd.`
                       )
                     }
                     className="text-[10px] font-bold text-[#0F4C5C] bg-[#E1F5FE] hover:bg-[#4FC3F7]/20 border border-[#4FC3F7]/30 px-3 py-1.5 rounded-full transition-all"
@@ -428,7 +435,9 @@ const AdminApplications = () => {
                     type="button"
                     onClick={() =>
                       setReplyText(
-                        `Dear ${replyTo.fullName},\n\nCongratulations! Your Profile Has Been Shortlisted For The Position Of "${replyTo.position}".\n\nOur Team Will Contact You Soon To Schedule An Interview. Please Keep Your Documents Ready.\n\nBest Regards,\nAli Hajveri International (Pvt.) Ltd.`
+                        `Dear ${replyTo.fullName},\n\nCongratulations! Your Profile Has Been Shortlisted For The Position Of "${
+                          replyTo.jobTitle || replyTo.position
+                        }".\n\nOur Team Will Contact You Soon To Schedule An Interview. Please Keep Your Documents Ready.\n\nBest Regards,\nAli Hajveri International (Pvt.) Ltd.`
                       )
                     }
                     className="text-[10px] font-bold text-[#0F4C5C] bg-[#E1F5FE] hover:bg-[#4FC3F7]/20 border border-[#4FC3F7]/30 px-3 py-1.5 rounded-full transition-all"
@@ -439,7 +448,9 @@ const AdminApplications = () => {
                     type="button"
                     onClick={() =>
                       setReplyText(
-                        `Dear ${replyTo.fullName},\n\nThank You For Your Interest In The Position Of "${replyTo.position}".\n\nAfter Careful Review, We Regret To Inform You That Your Application Has Not Been Shortlisted At This Time. We Will Keep Your CV On File For Future Opportunities.\n\nBest Regards,\nAli Hajveri International (Pvt.) Ltd.`
+                        `Dear ${replyTo.fullName},\n\nThank You For Your Interest In The Position Of "${
+                          replyTo.jobTitle || replyTo.position
+                        }".\n\nAfter Careful Review, We Regret To Inform You That Your Application Has Not Been Shortlisted At This Time. We Will Keep Your CV On File For Future Opportunities.\n\nBest Regards,\nAli Hajveri International (Pvt.) Ltd.`
                       )
                     }
                     className="text-[10px] font-bold text-[#0F4C5C] bg-[#E1F5FE] hover:bg-[#4FC3F7]/20 border border-[#4FC3F7]/30 px-3 py-1.5 rounded-full transition-all"
@@ -529,7 +540,7 @@ const AdminApplications = () => {
                     {selected.fullName}
                   </h3>
                   <p className="text-[10px] text-[#0A3A47]/60 font-semibold">
-                    Applied For {selected.position}
+                    Applied For {selected.jobTitle || selected.position}
                   </p>
                 </div>
               </div>
@@ -570,29 +581,35 @@ const AdminApplications = () => {
                   icon={FaMapMarkerAlt}
                   label="Location"
                   value={`${selected.city ? selected.city + ", " : ""}${
-                    selected.country
+                    selected.country || ""
                   }`}
                 />
                 <InfoTile
                   icon={FaBriefcase}
                   label="Position"
-                  value={selected.position}
+                  value={selected.jobTitle || selected.position}
                 />
-                <InfoTile
-                  icon={FaUser}
-                  label="Category"
-                  value={selected.category}
-                />
-                <InfoTile
-                  icon={FaGraduationCap}
-                  label="Education"
-                  value={selected.education || "—"}
-                />
-                <InfoTile
-                  icon={FaBriefcase}
-                  label="Experience"
-                  value={selected.experience || "—"}
-                />
+                {selected.category && (
+                  <InfoTile
+                    icon={FaUser}
+                    label="Category"
+                    value={selected.category}
+                  />
+                )}
+                {selected.education && (
+                  <InfoTile
+                    icon={FaGraduationCap}
+                    label="Education"
+                    value={selected.education}
+                  />
+                )}
+                {selected.experience && (
+                  <InfoTile
+                    icon={FaBriefcase}
+                    label="Experience"
+                    value={selected.experience}
+                  />
+                )}
                 {selected.passport && (
                   <InfoTile
                     icon={FaPassport}
@@ -603,7 +620,11 @@ const AdminApplications = () => {
                 <InfoTile
                   icon={FaGlobe}
                   label="Applied On"
-                  value={new Date(selected.createdAt).toLocaleDateString()}
+                  value={
+                    selected.createdAt
+                      ? new Date(selected.createdAt).toLocaleDateString()
+                      : "—"
+                  }
                 />
               </div>
 
@@ -650,7 +671,9 @@ const AdminApplications = () => {
 
                 {(() => {
                   const hasFile =
+                    !!selected.cvFileName ||
                     !!selected.fileName ||
+                    !!selected.cvUrl ||
                     !!selected.fileUrl ||
                     !!selected.filePath;
 
@@ -665,9 +688,11 @@ const AdminApplications = () => {
                     );
                   }
 
-                  const openUrl = getCvFileUrl(selected, false);
-                  const downloadUrl = getCvFileUrl(selected, true);
+                  const openUrl = getAppFileUrl(selected, false);
+                  const downloadUrl = getAppFileUrl(selected, true);
                   const fileType = getFileType(selected);
+                  const fileName =
+                    selected.cvFileName || selected.fileName || "Resume";
 
                   return (
                     <div className="space-y-3">
@@ -691,7 +716,7 @@ const AdminApplications = () => {
                         </span>
                         <div className="flex-1 min-w-0">
                           <p className="text-xs font-bold text-[#0F4C5C] truncate">
-                            {selected.fileName}
+                            {fileName}
                           </p>
                           <p className="text-[10px] text-[#0A3A47]/60 font-semibold uppercase">
                             {fileType === "pdf"
@@ -699,9 +724,6 @@ const AdminApplications = () => {
                               : fileType === "word"
                               ? "Word Document"
                               : "Document"}
-                            {selected.fileSize
-                              ? ` • ${(selected.fileSize / 1024).toFixed(1)} KB`
-                              : ""}
                           </p>
                         </div>
 
@@ -789,7 +811,7 @@ const AdminApplications = () => {
                   </a>
                 )}
 
-                {selected.status === "new" && (
+                {(!selected.status || selected.status === "pending") && (
                   <button
                     onClick={() => handleStatusChange(selected._id, "reviewed")}
                     className="inline-flex items-center gap-1.5 text-xs font-bold text-yellow-700 bg-yellow-50 border border-yellow-300 px-4 py-2 rounded-full hover:bg-yellow-100 hover:-translate-y-0.5 transition-all"
@@ -866,30 +888,30 @@ const AdminApplications = () => {
             {error}
           </p>
           <button
-            onClick={fetchCVs}
+            onClick={fetchApps}
             className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#29B6F6] hover:text-[#0F4C5C] border border-[#4FC3F7]/40 hover:border-[#4FC3F7]/80 px-4 py-2 rounded-full transition-all"
           >
             <FaSync className="text-[10px]" />
             Try Again
           </button>
         </div>
-      ) : cvs.length === 0 ? (
+      ) : apps.length === 0 ? (
         <div className="text-center py-16 bg-white rounded-2xl border border-[#4FC3F7]/20 animate-slideUp">
-          <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[#4FC3F7]/10 flex items-center justify-center">
-            <FaDatabase className="text-[#29B6F6] text-xl" />
+          <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[#22C55E]/10 flex items-center justify-center">
+            <FaUserCheck className="text-[#22C55E] text-xl" />
           </div>
           <h3 className="font-bold text-[#0F4C5C] text-lg mb-2">
-            No Applications Yet
+            No Job Applications Yet
           </h3>
           <p className="text-[#0A3A47]/70 text-sm max-w-md mx-auto mb-5">
             Jab Koi Candidate{" "}
-            <strong className="text-[#0F4C5C]">Submit CV</strong> Form Bharega,
-            Uska Data Yahan Aayega.
+            <strong className="text-[#0F4C5C]">Careers Page</strong> Se Job Apply
+            Karega, Uska Data Yahan Aayega.
           </p>
           <div className="inline-flex items-center gap-2 bg-[#E1F5FE] border border-[#4FC3F7]/30 rounded-xl px-4 py-2.5">
             <FaCheckCircle className="text-[#29B6F6] text-xs" />
             <span className="text-[11px] font-semibold text-[#0F4C5C]">
-              Backend Connected — Waiting For Submissions
+              Backend Connected — Waiting For Applications
             </span>
           </div>
         </div>
@@ -917,146 +939,155 @@ const AdminApplications = () => {
         </div>
       ) : (
         <div className="grid gap-3">
-          {filtered.map((cv) => (
-            <div
-              key={cv._id}
-              className="group relative bg-white rounded-2xl border border-[#4FC3F7]/20 hover:border-[#4FC3F7]/50 p-4 transition-all duration-300 hover:shadow-[0_14px_35px_rgba(79,195,247,0.15)] overflow-hidden animate-slideUp"
-            >
-              <span className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-[#4FC3F7] via-[#FFD54F] to-[#4FC3F7] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+          {filtered.map((app) => {
+            const status = app.status || "pending";
+            return (
+              <div
+                key={app._id || app.id}
+                className="group relative bg-white rounded-2xl border border-[#4FC3F7]/20 hover:border-[#4FC3F7]/50 p-4 transition-all duration-300 hover:shadow-[0_14px_35px_rgba(79,195,247,0.15)] overflow-hidden animate-slideUp"
+              >
+                <span className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-[#4FC3F7] via-[#FFD54F] to-[#4FC3F7] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
 
-              <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
-                <div className="flex items-start gap-3 flex-1 min-w-0">
-                  <span className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#4FC3F7] to-[#29B6F6] flex items-center justify-center flex-shrink-0 shadow-[0_6px_16px_rgba(79,195,247,0.35)]">
-                    <FaUser className="text-white text-sm" />
-                  </span>
-                  <div className="min-w-0">
-                    <h3 className="font-bold text-[#0F4C5C] text-base truncate">
-                      {cv.fullName}
-                    </h3>
-                    <div className="flex flex-wrap items-center gap-3 text-xs text-[#0A3A47]/70 mt-0.5">
-                      <a
-                        href={`mailto:${cv.email}`}
-                        className="flex items-center gap-1 hover:text-[#29B6F6]"
-                      >
-                        <FaEnvelope className="text-[10px]" />
-                        {cv.email}
-                      </a>
-                      <a
-                        href={`tel:${cv.phone}`}
-                        className="flex items-center gap-1 hover:text-[#29B6F6]"
-                      >
-                        <FaPhone className="text-[10px]" />
-                        {cv.phone}
-                      </a>
+                <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
+                  <div className="flex items-start gap-3 flex-1 min-w-0">
+                    <span className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#4FC3F7] to-[#29B6F6] flex items-center justify-center flex-shrink-0 shadow-[0_6px_16px_rgba(79,195,247,0.35)]">
+                      <FaUser className="text-white text-sm" />
+                    </span>
+                    <div className="min-w-0">
+                      <h3 className="font-bold text-[#0F4C5C] text-base truncate">
+                        {app.fullName}
+                      </h3>
+                      <div className="flex flex-wrap items-center gap-3 text-xs text-[#0A3A47]/70 mt-0.5">
+                        <a
+                          href={`mailto:${app.email}`}
+                          className="flex items-center gap-1 hover:text-[#29B6F6]"
+                        >
+                          <FaEnvelope className="text-[10px]" />
+                          {app.email}
+                        </a>
+                        <a
+                          href={`tel:${app.phone}`}
+                          className="flex items-center gap-1 hover:text-[#29B6F6]"
+                        >
+                          <FaPhone className="text-[10px]" />
+                          {app.phone}
+                        </a>
+                      </div>
                     </div>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <span
+                      className={`text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full border ${
+                        STATUS_COLORS[status] || STATUS_COLORS.pending
+                      }`}
+                    >
+                      {status}
+                    </span>
+                    <span className="text-[10px] text-[#0A3A47]/50 font-semibold whitespace-nowrap">
+                      {app.createdAt
+                        ? new Date(app.createdAt).toLocaleDateString()
+                        : ""}
+                    </span>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2">
-                  <span
-                    className={`text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full border ${
-                      STATUS_COLORS[cv.status] || STATUS_COLORS.new
+                <div className="flex flex-wrap gap-2 mb-3">
+                  <span className="text-[10px] font-bold text-[#0F4C5C] bg-[#E1F5FE] border border-[#4FC3F7]/30 px-2.5 py-1 rounded-full">
+                    {app.jobTitle || app.position}
+                  </span>
+                  {app.country && (
+                    <span className="text-[10px] font-bold text-[#0F4C5C] bg-[#E1F5FE] border border-[#4FC3F7]/30 px-2.5 py-1 rounded-full">
+                      {app.country}
+                    </span>
+                  )}
+                  {app.category && (
+                    <span className="text-[10px] font-bold text-[#0F4C5C] bg-[#E1F5FE] border border-[#4FC3F7]/30 px-2.5 py-1 rounded-full">
+                      {app.category}
+                    </span>
+                  )}
+                  {app.experience && (
+                    <span className="text-[10px] font-bold text-[#0F4C5C] bg-[#E1F5FE] border border-[#4FC3F7]/30 px-2.5 py-1 rounded-full">
+                      {app.experience}
+                    </span>
+                  )}
+                </div>
+
+                <div className="flex flex-wrap items-center gap-2 pt-3 border-t border-[#4FC3F7]/15">
+                  <button
+                    onClick={() => setSelected(app)}
+                    className="inline-flex items-center gap-1.5 text-[11px] font-bold text-[#0F4C5C] bg-[#E1F5FE] hover:bg-[#4FC3F7]/20 border border-[#4FC3F7]/30 px-3 py-1.5 rounded-full transition-all"
+                  >
+                    <FaEye className="text-[9px]" />
+                    View Details
+                  </button>
+
+                  {/* ✅ REPLY BUTTON — Opens Reply Modal */}
+                  <button
+                    onClick={() => openReply(app)}
+                    className="inline-flex items-center gap-1.5 text-[11px] font-bold text-white bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] px-3 py-1.5 rounded-full shadow-[0_6px_16px_rgba(79,195,247,0.3)] hover:-translate-y-0.5 transition-all"
+                  >
+                    <FaReply className="text-[9px]" />
+                    Reply
+                  </button>
+
+                  {status === "pending" && (
+                    <button
+                      onClick={() => handleStatusChange(app._id, "reviewed")}
+                      className="inline-flex items-center gap-1.5 text-[11px] font-bold text-yellow-700 bg-yellow-50 border border-yellow-300 px-3 py-1.5 rounded-full transition-all hover:bg-yellow-100"
+                    >
+                      <FaEnvelopeOpen className="text-[9px]" />
+                      Reviewed
+                    </button>
+                  )}
+
+                  <button
+                    onClick={() =>
+                      status !== "shortlisted" &&
+                      handleStatusChange(app._id, "shortlisted")
+                    }
+                    disabled={status === "shortlisted"}
+                    className={`inline-flex items-center gap-1.5 text-[11px] font-bold px-3 py-1.5 rounded-full transition-all ${
+                      status === "shortlisted"
+                        ? "bg-green-500 text-white border-2 border-green-600 shadow-[0_6px_16px_rgba(34,197,94,0.4)] cursor-default"
+                        : "text-green-700 bg-green-50 border border-green-300 hover:bg-green-100 hover:-translate-y-0.5"
                     }`}
                   >
-                    {cv.status}
-                  </span>
-                  <span className="text-[10px] text-[#0A3A47]/50 font-semibold whitespace-nowrap">
-                    {new Date(cv.createdAt).toLocaleDateString()}
-                  </span>
+                    <FaCheckCircle className="text-[9px]" />
+                    {status === "shortlisted" ? "Shortlisted ✓" : "Shortlist"}
+                  </button>
+
+                  <button
+                    onClick={() =>
+                      status !== "rejected" &&
+                      handleStatusChange(app._id, "rejected")
+                    }
+                    disabled={status === "rejected"}
+                    className={`inline-flex items-center gap-1.5 text-[11px] font-bold px-3 py-1.5 rounded-full transition-all ${
+                      status === "rejected"
+                        ? "bg-red-500 text-white border-2 border-red-600 shadow-[0_6px_16px_rgba(239,68,68,0.4)] cursor-default"
+                        : "text-red-700 bg-red-50 border border-red-300 hover:bg-red-100 hover:-translate-y-0.5"
+                    }`}
+                  >
+                    <FaTimes className="text-[9px]" />
+                    {status === "rejected" ? "Rejected ✓" : "Reject"}
+                  </button>
+
+                  <button
+                    onClick={() => setConfirmDelete(app._id)}
+                    className="ml-auto inline-flex items-center gap-1.5 text-[11px] font-bold text-red-500 bg-red-50 border border-red-200 px-3 py-1.5 rounded-full transition-all hover:bg-red-100"
+                  >
+                    <FaTrash className="text-[9px]" />
+                    Delete
+                  </button>
                 </div>
               </div>
-
-              <div className="flex flex-wrap gap-2 mb-3">
-                <span className="text-[10px] font-bold text-[#0F4C5C] bg-[#E1F5FE] border border-[#4FC3F7]/30 px-2.5 py-1 rounded-full">
-                  {cv.position}
-                </span>
-                <span className="text-[10px] font-bold text-[#0F4C5C] bg-[#E1F5FE] border border-[#4FC3F7]/30 px-2.5 py-1 rounded-full">
-                  {cv.country}
-                </span>
-                <span className="text-[10px] font-bold text-[#0F4C5C] bg-[#E1F5FE] border border-[#4FC3F7]/30 px-2.5 py-1 rounded-full">
-                  {cv.category}
-                </span>
-                {cv.experience && (
-                  <span className="text-[10px] font-bold text-[#0F4C5C] bg-[#E1F5FE] border border-[#4FC3F7]/30 px-2.5 py-1 rounded-full">
-                    {cv.experience}
-                  </span>
-                )}
-              </div>
-
-              <div className="flex flex-wrap items-center gap-2 pt-3 border-t border-[#4FC3F7]/15">
-                <button
-                  onClick={() => setSelected(cv)}
-                  className="inline-flex items-center gap-1.5 text-[11px] font-bold text-[#0F4C5C] bg-[#E1F5FE] hover:bg-[#4FC3F7]/20 border border-[#4FC3F7]/30 px-3 py-1.5 rounded-full transition-all"
-                >
-                  <FaEye className="text-[9px]" />
-                  View Full CV
-                </button>
-
-                {/* ✅ REPLY BUTTON — Opens Reply Modal */}
-                <button
-                  onClick={() => openReply(cv)}
-                  className="inline-flex items-center gap-1.5 text-[11px] font-bold text-white bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] px-3 py-1.5 rounded-full shadow-[0_6px_16px_rgba(79,195,247,0.3)] hover:-translate-y-0.5 transition-all"
-                >
-                  <FaReply className="text-[9px]" />
-                  Reply
-                </button>
-
-                {cv.status === "new" && (
-                  <button
-                    onClick={() => handleStatusChange(cv._id, "reviewed")}
-                    className="inline-flex items-center gap-1.5 text-[11px] font-bold text-yellow-700 bg-yellow-50 border border-yellow-300 px-3 py-1.5 rounded-full transition-all hover:bg-yellow-100"
-                  >
-                    <FaEnvelopeOpen className="text-[9px]" />
-                    Reviewed
-                  </button>
-                )}
-
-                <button
-                  onClick={() =>
-                    cv.status !== "shortlisted" &&
-                    handleStatusChange(cv._id, "shortlisted")
-                  }
-                  disabled={cv.status === "shortlisted"}
-                  className={`inline-flex items-center gap-1.5 text-[11px] font-bold px-3 py-1.5 rounded-full transition-all ${
-                    cv.status === "shortlisted"
-                      ? "bg-green-500 text-white border-2 border-green-600 shadow-[0_6px_16px_rgba(34,197,94,0.4)] cursor-default"
-                      : "text-green-700 bg-green-50 border border-green-300 hover:bg-green-100 hover:-translate-y-0.5"
-                  }`}
-                >
-                  <FaCheckCircle className="text-[9px]" />
-                  {cv.status === "shortlisted" ? "Shortlisted ✓" : "Shortlist"}
-                </button>
-
-                <button
-                  onClick={() =>
-                    cv.status !== "rejected" &&
-                    handleStatusChange(cv._id, "rejected")
-                  }
-                  disabled={cv.status === "rejected"}
-                  className={`inline-flex items-center gap-1.5 text-[11px] font-bold px-3 py-1.5 rounded-full transition-all ${
-                    cv.status === "rejected"
-                      ? "bg-red-500 text-white border-2 border-red-600 shadow-[0_6px_16px_rgba(239,68,68,0.4)] cursor-default"
-                      : "text-red-700 bg-red-50 border border-red-300 hover:bg-red-100 hover:-translate-y-0.5"
-                  }`}
-                >
-                  <FaTimes className="text-[9px]" />
-                  {cv.status === "rejected" ? "Rejected ✓" : "Reject"}
-                </button>
-
-                <button
-                  onClick={() => setConfirmDelete(cv._id)}
-                  className="ml-auto inline-flex items-center gap-1.5 text-[11px] font-bold text-red-500 bg-red-50 border border-red-200 px-3 py-1.5 rounded-full transition-all hover:bg-red-100"
-                >
-                  <FaTrash className="text-[9px]" />
-                  Delete
-                </button>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       )}
     </>
   );
 };
 
-export default AdminApplications;
+export default AdminJobApplications;

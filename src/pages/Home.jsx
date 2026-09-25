@@ -178,7 +178,7 @@ const Home = () => {
   return (
     <>
       {/* ============ HERO ============ */}
-      <section className="relative mt-[-2rem] pt-44 sm:pt-28 md:pt-32 lg:pt-36 pb-16 sm:pb-20 overflow-hidden bg-gradient-to-b from-white via-[#E1F5FE] to-white">
+      <section className="relative mt-[-2rem] pt-44 sm:pt-28 md:pt-32 lg:pt-36 pb-12 sm:pb-16 overflow-hidden bg-gradient-to-b from-white via-[#E1F5FE] to-white">
         <div className="absolute -top-32 -right-40 w-[280px] sm:w-[380px] md:w-[480px] h-[280px] sm:h-[380px] md:h-[480px] rounded-full bg-[#4FC3F7]/10 blur-3xl animate-pulse-slow" />
         <div className="absolute top-40 -left-40 w-[220px] sm:w-[300px] md:w-[380px] h-[220px] sm:h-[300px] md:h-[380px] rounded-full bg-[#FFD54F]/10 blur-3xl" />
         <div className="absolute bottom-0 left-1/3 w-[180px] sm:w-[220px] md:w-[260px] h-[180px] sm:h-[220px] md:h-[260px] rounded-full bg-[#4FC3F7]/8 blur-3xl" />
@@ -279,7 +279,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="relative z-10 mt-12 sm:mt-16">
+        <div className="relative z-10 mt-10 sm:mt-14">
           <div className="bg-white pt-6 sm:pt-8 pb-6 sm:pb-8 border-t border-[#4FC3F7]/15">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4 sm:mb-5">
               <p className="text-center text-[#0F4C5C] text-[10px] sm:text-xs font-bold tracking-widest uppercase">
@@ -707,7 +707,7 @@ const Home = () => {
                     </p>
                   </div>
 
-                  <div className="space-y-2 max-w-xs mx-auto">
+                  <div className="space-y-2 max-w-md mx-auto">
                     <div className="flex items-center gap-2.5">
                       <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#4FC3F7]" />
                       <p className="text-[#0A3A47]/85 text-[11px] sm:text-xs font-semibold leading-snug">
@@ -717,9 +717,8 @@ const Home = () => {
 
                     <div className="flex items-center gap-2.5">
                       <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#4FC3F7]" />
-                      <p className="text-[#0A3A47]/85 text-[11px] sm:text-xs font-semibold leading-snug">
-                        Ministry Of Overseas Pakistanis &amp; Human Resource
-                        Development
+                      <p className="text-[#0A3A47]/85 text-[11px] sm:text-xs font-semibold leading-snug whitespace-nowrap">
+                        Ministry Of Overseas Pakistanis &amp; Human Resource Development
                       </p>
                     </div>
 
@@ -822,9 +821,9 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-7 sm:gap-9 items-stretch">
+          <div className="grid lg:grid-cols-[5.5fr_4.5fr] gap-7 sm:gap-9 items-stretch">
             <div className="reveal-up order-2 lg:order-1">
-              <div className="h-full max-h-[260px] sm:max-h-[300px] lg:max-h-[340px] overflow-y-auto no-scrollbar bg-gradient-to-b from-white via-[#E1F5FE] to-white rounded-2xl sm:rounded-3xl border border-[#4FC3F7]/20 shadow-[0_8px_28px_rgba(15,76,92,0.06)] hover:shadow-[0_18px_44px_rgba(79,195,247,0.12)] hover:border-[#4FC3F7]/40 transition-all duration-300 p-5 sm:p-6 relative">
+              <div className="h-full bg-gradient-to-b from-white via-[#E1F5FE] to-white rounded-2xl sm:rounded-3xl border border-[#4FC3F7]/20 shadow-[0_8px_28px_rgba(15,76,92,0.06)] hover:shadow-[0_18px_44px_rgba(79,195,247,0.12)] hover:border-[#4FC3F7]/40 transition-all duration-300 p-5 sm:p-6 relative">
                 <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F]" />
                 <p className="text-[#0A3A47] text-sm sm:text-base leading-relaxed mb-4">
                   Proudly, <span className="font-semibold text-[#0F4C5C]">Ali Hajveri International (Private) Limited</span> Provides Professional Manpower Recruitment And HR Consultancy Services To Employers Across International Markets. We Specialize In Sourcing Skilled, Semi-Skilled And Unskilled Pakistani Manpower For A Wide Range Of Industries And Job Categories Across Gulf, Asian And Other Countries.
@@ -852,7 +851,7 @@ const Home = () => {
             </div>
 
             <div className="relative order-1 lg:order-2 reveal-up group">
-              <div className="relative h-full max-h-[260px] sm:max-h-[300px] lg:max-h-[340px] min-h-[220px] rounded-2xl sm:rounded-3xl overflow-hidden">
+              <div className="relative h-full min-h-[220px] rounded-2xl sm:rounded-3xl overflow-hidden">
                 <img src="/src/assets/map-img-2.png" alt="International Recruitment" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" onError={(e) => { e.target.style.display = "none"; }} />
                 <span className="img-shine" />
               </div>
@@ -995,13 +994,13 @@ const Home = () => {
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
 
         .section-tight {
-          padding-top: 3rem;
-          padding-bottom: 3rem;
+          padding-top: 2rem;
+          padding-bottom: 2rem;
         }
         @media (min-width: 640px) {
           .section-tight {
-            padding-top: 3.5rem;
-            padding-bottom: 3.5rem;
+            padding-top: 2.5rem;
+            padding-bottom: 2.5rem;
           }
         }
 
@@ -1010,7 +1009,6 @@ const Home = () => {
 
         @keyframes marquee-left { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
         .animate-marquee-left { animation: marquee-left 40s linear infinite; }
-        .animate-marquee-left:hover { animation-play-state: paused; }
 
         @keyframes float-slow { 0%, 100% { transform: translate(0, 0) scale(1); } 33% { transform: translate(20px, -20px) scale(1.1); } 66% { transform: translate(-10px, 15px) scale(0.9); } }
         .animate-float-slow { animation: float-slow 12s ease-in-out infinite; }

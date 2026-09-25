@@ -11,6 +11,7 @@ import {
   FaHome,
   FaSignOutAlt,
   FaTimes,
+  FaUserCheck,
   FaArrowRight,
 } from "react-icons/fa";
 import { logout, getCurrentUser } from "../../data/adminAuth";
@@ -40,6 +41,13 @@ const AdminSidebar = ({ open, onClose, stats }) => {
       link: "/admin/jobs",
       badge: stats?.totalJobs,
     },
+      {
+    icon: FaUserCheck,               // ✅ NAYA ITEM
+    title: "Job Applications",       // ← Careers wali
+    link: "/admin/job-applications",
+    badge: stats?.newJobApplications,
+    badgeColor: "bg-[#22C55E]",
+  },
     {
       icon: FaClipboardList,
       title: "Applications",

@@ -461,7 +461,7 @@ const Faq = () => {
                 </span>
               </div>
 
-              <h1 className="font-[Plus_Jakarta_Sans] text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-[1.15] mb-4 [text-shadow:_0_2px_12px_rgba(0,0,0,0.6)]">
+              <h1 className="font-[Plus_Jakarta_Sans] text-2xl sm:text-3xl md:text-4xl font-extrabold text-white leading-[1.15] mb-4 [text-shadow:_0_2px_12px_rgba(0,0,0,0.6)]">
                 Frequently Asked{" "}
                 <span className="relative inline-block">
                   <span className="bg-gradient-to-r from-[#4FC3F7] via-[#FFD54F] to-[#4FC3F7] bg-clip-text text-transparent bg-[length:200%_100%] animate-[gradientShift_4s_ease_infinite]">
@@ -696,7 +696,7 @@ const Faq = () => {
                 <FaHeadset className="text-[#8B5CF6] text-xl" />
               </div>
 
-              <h3 className="font-[Plus_Jakarta_Sans] text-xl sm:text-2xl font-extrabold text-[#0F4C5C] mb-2">
+              <h3 className="font-[Plus_Jakarta_Sans] text-lg sm:text-xl font-extrabold text-[#0F4C5C] mb-2">
                 Still Have Questions?
               </h3>
               <p className="text-[#0A3A47]/75 text-sm sm:text-base max-w-md mx-auto mb-5">
@@ -738,7 +738,7 @@ const Faq = () => {
                 </span>
               </div>
 
-              <h2 className="font-[Plus_Jakarta_Sans] text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-4 leading-tight">
+              <h2 className="font-[Plus_Jakarta_Sans] text-xl sm:text-2xl md:text-3xl font-extrabold text-white mb-4 leading-tight">
                 Recruiting Pakistani Talent For{" "}
                 <span className="bg-gradient-to-r from-[#4FC3F7] via-[#FFD54F] to-[#4FC3F7] bg-clip-text text-transparent bg-[length:200%_100%] animate-[gradientShift_4s_ease_infinite]">
                   International Opportunities

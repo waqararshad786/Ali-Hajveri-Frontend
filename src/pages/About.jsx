@@ -51,7 +51,7 @@ const TRUST_ITEMS = [
 ];
 
 const LICENSE_STEPS = [
-  { num: "01", title: "Open Beoe Website", desc: "Visit The Official Bureau Of Emigration & Overseas Employment Portal." },
+  { num: "01", title: "Open BEOE Website", desc: "Visit The Official Bureau Of Emigration & Overseas Employment Portal." },
   { num: "02", title: "Find 'Verify Oep License'", desc: "Locate The License Verification Section On The Portal." },
   { num: "03", title: "Enter Our License Number", desc: `Enter License #${COMPANY_INFO.license} In The Search Field.` },
   { num: "04", title: "Confirm Our Details", desc: "Verify Our Company Name, Address, And Active Status Appear." },
@@ -502,144 +502,143 @@ const About = () => {
       </section>
 
       {/* ============ 9. LICENSE & CEO ============ */}
-       <section className="section-tight relative bg-white overflow-hidden">
-              <div className="absolute top-0 right-0 w-56 h-56 bg-[#4FC3F7]/8 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
-              <div className="absolute bottom-0 left-0 w-72 h-72 bg-[#0F4C5C]/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3" />
-      
-              <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid md:grid-cols-2 gap-6 sm:gap-8 items-stretch">
-                  {/* ===== LICENSE CARD ===== */}
-                  <div className="relative group reveal-up">
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#4FC3F7]/20 to-transparent rounded-2xl sm:rounded-3xl rotate-2 scale-[1.01] hidden sm:block" />
-                    <div className="relative bg-gradient-to-br from-white via-[#E1F5FE] to-white rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-[0_12px_36px_rgba(15,76,92,0.08)] border border-[#4FC3F7]/20 hover:border-[#4FC3F7]/50 hover:shadow-[0_18px_44px_rgba(79,195,247,0.15)] transition-all duration-300 h-full flex flex-col items-center justify-between overflow-hidden">
-                      <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F]" />
-      
-                      <div className="absolute top-4 right-4 bg-white/95 backdrop-blur rounded-full px-3 py-1.5 shadow-[0_8px_20px_rgba(15,76,92,0.10)] border border-[#4FC3F7]/25 flex items-center gap-1.5 z-10">
-                        <FaCheckCircle className="text-[#22C55E] text-xs" />
-                        <span className="text-[#0F4C5C] text-[10px] font-bold tracking-wide">
-                          Verified
-                        </span>
-                      </div>
-      
-                      {/* License Image */}
-                      <div className="relative w-full flex-1 flex items-center justify-center py-3 sm:py-4">
-                        <div className="absolute inset-0 bg-[#4FC3F7]/5 blur-2xl rounded-full" />
-                        <img
-                          src="/src/assets/license-1.png"
-                          alt="Overseas Employment License"
-                          className="relative w-[80%] max-h-[260px] sm:max-h-[340px] object-contain rounded-xl drop-shadow-[0_12px_28px_rgba(15,76,92,0.15)] group-hover:scale-[1.02] transition-transform duration-500"
-                          onError={(e) => {
-                            e.target.style.display = "none";
-                          }}
-                        />
-                      </div>
-      
-                      {/* ===== FULL LICENSE DETAILS ===== */}
-                      <div className="w-full mt-3 border-t border-[#4FC3F7]/20 pt-4">
-                        <div className="text-center mb-3">
-                          <p className="text-[10px] sm:text-[11px] font-bold text-[#0A3A47]/60 uppercase tracking-widest mb-1">
-                            License No.
-                          </p>
-                          <p className="text-[#29B6F6] font-extrabold text-sm sm:text-base tracking-wide">
-                            OP&HRD/5224/LHR/2026
-                          </p>
-                        </div>
-      
-                        <div className="space-y-2 max-w-xs mx-auto">
-                          <div className="flex items-center gap-2.5">
-                            <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#4FC3F7]" />
-                            <p className="text-[#0A3A47]/85 text-[11px] sm:text-xs font-semibold leading-snug">
-                              Bureau Of Immigration &amp; Overseas Employment (BEOE)
-                            </p>
-                          </div>
-      
-                          <div className="flex items-center gap-2.5">
-                            <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#4FC3F7]" />
-                            <p className="text-[#0A3A47]/85 text-[11px] sm:text-xs font-semibold leading-snug">
-                              Ministry Of Overseas Pakistanis &amp; Human Resource
-                              Development
-                            </p>
-                          </div>
-      
-                          <div className="flex items-center gap-2.5">
-                            <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#4FC3F7]" />
-                            <p className="text-[#0A3A47]/85 text-[11px] sm:text-xs font-semibold leading-snug">
-                              Government Of Pakistan
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+      <section className="section-tight relative bg-white overflow-hidden">
+        <div className="absolute top-0 right-0 w-56 h-56 bg-[#4FC3F7]/8 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
+        <div className="absolute bottom-0 left-0 w-72 h-72 bg-[#0F4C5C]/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3" />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8 items-stretch">
+            {/* ===== LICENSE CARD ===== */}
+            <div className="relative group reveal-up">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#4FC3F7]/20 to-transparent rounded-2xl sm:rounded-3xl rotate-2 scale-[1.01] hidden sm:block" />
+              <div className="relative bg-gradient-to-br from-white via-[#E1F5FE] to-white rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-[0_12px_36px_rgba(15,76,92,0.08)] border border-[#4FC3F7]/20 hover:border-[#4FC3F7]/50 hover:shadow-[0_18px_44px_rgba(79,195,247,0.15)] transition-all duration-300 h-full flex flex-col items-center justify-between overflow-hidden">
+                <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F]" />
+
+                <div className="absolute top-4 right-4 bg-white/95 backdrop-blur rounded-full px-3 py-1.5 shadow-[0_8px_20px_rgba(15,76,92,0.10)] border border-[#4FC3F7]/25 flex items-center gap-1.5 z-10">
+                  <FaCheckCircle className="text-[#22C55E] text-xs" />
+                  <span className="text-[#0F4C5C] text-[10px] font-bold tracking-wide">
+                    Verified
+                  </span>
+                </div>
+
+                {/* License Image */}
+                <div className="relative w-full flex-1 flex items-center justify-center py-3 sm:py-4">
+                  <div className="absolute inset-0 bg-[#4FC3F7]/5 blur-2xl rounded-full" />
+                  <img
+                    src="/src/assets/license-1.png"
+                    alt="Overseas Employment License"
+                    className="relative w-[80%] max-h-[260px] sm:max-h-[340px] object-contain rounded-xl drop-shadow-[0_12px_28px_rgba(15,76,92,0.15)] group-hover:scale-[1.02] transition-transform duration-500"
+                    onError={(e) => {
+                      e.target.style.display = "none";
+                    }}
+                  />
+                </div>
+
+                {/* ===== FULL LICENSE DETAILS ===== */}
+                <div className="w-full mt-3 border-t border-[#4FC3F7]/20 pt-4">
+                  <div className="text-center mb-3">
+                    <p className="text-[10px] sm:text-[11px] font-bold text-[#0A3A47]/60 uppercase tracking-widest mb-1">
+                      License No.
+                    </p>
+                    <p className="text-[#29B6F6] font-extrabold text-sm sm:text-base tracking-wide">
+                      OP&HRD/5224/LHR/2026
+                    </p>
                   </div>
-      
-                  {/* ===== CEO MESSAGE CARD ===== */}
-                  <div className="relative bg-gradient-to-br from-white via-[#E1F5FE] to-white rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-[0_12px_36px_rgba(15,76,92,0.08)] border border-[#4FC3F7]/20 hover:border-[#4FC3F7]/40 hover:shadow-[0_18px_44px_rgba(79,195,247,0.12)] transition-all duration-300 flex flex-col overflow-hidden reveal-up">
-                    <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F]" />
-      
-                    <div className="flex items-center gap-4 sm:gap-5 mb-4">
-                      <div className="relative flex-shrink-0">
-                        <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#4FC3F7] to-[#29B6F6] p-[3px]">
-                          <div className="w-full h-full rounded-full bg-white" />
-                        </div>
-                        <img
-                          src="/src/assets/ceo.jpeg"
-                          alt="CEO"
-                          className="relative w-14 sm:w-16 h-14 sm:h-16 rounded-full object-cover"
-                          onError={(e) => {
-                            e.target.style.display = "none";
-                          }}
-                        />
-                        <span className="absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-white flex items-center justify-center shadow-[0_4px_12px_rgba(15,76,92,0.15)]">
-                          <FaCheckCircle className="text-[#22C55E] text-xs" />
-                        </span>
-                      </div>
-                      <div>
-                        <h3 className="font-[Plus_Jakarta_Sans] text-lg font-extrabold text-[#0F4C5C]">
-                          Muhammad Ijaz
-                        </h3>
-                        <p className="text-[#29B6F6] text-xs sm:text-sm font-bold">
-                          Chief Executive Officer
-                        </p>
-                        <p className="text-[#0A3A47]/75 text-[10px] sm:text-xs">
-                          Ali Hajveri International Pvt Ltd
-                        </p>
-                      </div>
+
+                  <div className="space-y-2 max-w-md mx-auto">
+                    <div className="flex items-center gap-2.5">
+                      <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#4FC3F7]" />
+                      <p className="text-[#0A3A47]/85 text-[11px] sm:text-xs font-semibold leading-snug whitespace-nowrap">
+                        Bureau Of Immigration &amp; Overseas Employment (BEOE)
+                      </p>
                     </div>
-      
-                    {/* No scroll — full text visible */}
-                    <div className="relative flex-1">
-                      <FaQuoteLeft className="text-[#4FC3F7]/20 text-3xl sm:text-4xl absolute -top-2 -left-2" />
-                      <div className="pl-6 sm:pl-8 pr-3 sm:pr-4">
-                        <p className="text-[#0A3A47] leading-relaxed text-xs sm:text-sm mb-3 italic font-medium">
-                          "I Would Like To Take This Opportunity To Extend My Good Wishes
-                          To Our Esteemed Employers And Job Seekers Who Have Helped Us To
-                          Become A Leading Man Power Recruitment Firm. It Has Become A
-                          Cherished Name Among Job Seekers As Well As Foreign Employers."
-                        </p>
-                        <p className="text-[#0A3A47]/90 leading-relaxed text-xs sm:text-sm mb-3">
-                          At Ali Hajveri International, There Is A Simple Philosophy At
-                          Work; That Clients' Growth And Success Is Ultimately Our Growth
-                          And Success. So We Are Always In Search Of Opportunities That
-                          Will Make Our Valuable Clients Succeed.
-                        </p>
-                        <p className="text-[#0A3A47]/90 leading-relaxed text-xs sm:text-sm mb-3">
-                          We Will Be Very Happy To Respond To Any Query Regarding Any
-                          Information For Recruiting Workers From Pakistan. We Will
-                          Continue To Provide Competent Manpower To Our Valuable Employers
-                          To Their Entire Satisfaction. I Personally Assure You That Your
-                          Requirements Will Be Looked After In The Best Possible Manner.
-                        </p>
-                        <p className="text-[#0A3A47]/90 leading-relaxed text-xs sm:text-sm">
-                          I Am Also Grateful To All Mighty Allah And All My Team Members,
-                          Because Without Them This Feat Would Not Have Been Possible.
-                        </p>
-                      </div>
-                      <FaQuoteRight className="text-[#4FC3F7]/20 text-3xl sm:text-4xl absolute -bottom-2 -right-2" />
+
+                    <div className="flex items-center gap-2.5">
+                      <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#4FC3F7]" />
+                      <p className="text-[#0A3A47]/85 text-[11px] sm:text-xs font-semibold leading-snug whitespace-nowrap">
+                        Ministry Of Overseas Pakistanis &amp; Human Resource Development
+                      </p>
+                    </div>
+
+                    <div className="flex items-center gap-2.5">
+                      <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#4FC3F7]" />
+                      <p className="text-[#0A3A47]/85 text-[11px] sm:text-xs font-semibold leading-snug whitespace-nowrap">
+                        Government Of Pakistan
+                      </p>
                     </div>
                   </div>
                 </div>
               </div>
-            </section>
+            </div>
+
+            {/* ===== CEO MESSAGE CARD ===== */}
+            <div className="relative bg-gradient-to-br from-white via-[#E1F5FE] to-white rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-[0_12px_36px_rgba(15,76,92,0.08)] border border-[#4FC3F7]/20 hover:border-[#4FC3F7]/40 hover:shadow-[0_18px_44px_rgba(79,195,247,0.12)] transition-all duration-300 flex flex-col overflow-hidden reveal-up">
+              <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F]" />
+
+              <div className="flex items-center gap-4 sm:gap-5 mb-4">
+                <div className="relative flex-shrink-0">
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#4FC3F7] to-[#29B6F6] p-[3px]">
+                    <div className="w-full h-full rounded-full bg-white" />
+                  </div>
+                  <img
+                    src="/src/assets/ceo.jpeg"
+                    alt="CEO"
+                    className="relative w-14 sm:w-16 h-14 sm:h-16 rounded-full object-cover"
+                    onError={(e) => {
+                      e.target.style.display = "none";
+                    }}
+                  />
+                  <span className="absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-white flex items-center justify-center shadow-[0_4px_12px_rgba(15,76,92,0.15)]">
+                    <FaCheckCircle className="text-[#22C55E] text-xs" />
+                  </span>
+                </div>
+                <div>
+                  <h3 className="font-[Plus_Jakarta_Sans] text-lg font-extrabold text-[#0F4C5C]">
+                    Muhammad Ijaz
+                  </h3>
+                  <p className="text-[#29B6F6] text-xs sm:text-sm font-bold">
+                    Chief Executive Officer
+                  </p>
+                  <p className="text-[#0A3A47]/75 text-[10px] sm:text-xs">
+                    Ali Hajveri International Pvt Ltd
+                  </p>
+                </div>
+              </div>
+
+              {/* No scroll — full text visible */}
+              <div className="relative flex-1">
+                <FaQuoteLeft className="text-[#4FC3F7]/20 text-3xl sm:text-4xl absolute -top-2 -left-2" />
+                <div className="pl-6 sm:pl-8 pr-3 sm:pr-4">
+                  <p className="text-[#0A3A47] leading-relaxed text-xs sm:text-sm mb-3 italic font-medium">
+                    "I Would Like To Take This Opportunity To Extend My Good Wishes
+                    To Our Esteemed Employers And Job Seekers Who Have Helped Us To
+                    Become A Leading Man Power Recruitment Firm. It Has Become A
+                    Cherished Name Among Job Seekers As Well As Foreign Employers."
+                  </p>
+                  <p className="text-[#0A3A47]/90 leading-relaxed text-xs sm:text-sm mb-3">
+                    At Ali Hajveri International, There Is A Simple Philosophy At
+                    Work; That Clients' Growth And Success Is Ultimately Our Growth
+                    And Success. So We Are Always In Search Of Opportunities That
+                    Will Make Our Valuable Clients Succeed.
+                  </p>
+                  <p className="text-[#0A3A47]/90 leading-relaxed text-xs sm:text-sm mb-3">
+                    We Will Be Very Happy To Respond To Any Query Regarding Any
+                    Information For Recruiting Workers From Pakistan. We Will
+                    Continue To Provide Competent Manpower To Our Valuable Employers
+                    To Their Entire Satisfaction. I Personally Assure You That Your
+                    Requirements Will Be Looked After In The Best Possible Manner.
+                  </p>
+                  <p className="text-[#0A3A47]/90 leading-relaxed text-xs sm:text-sm">
+                    I Am Also Grateful To All Mighty Allah And All My Team Members,
+                    Because Without Them This Feat Would Not Have Been Possible.
+                  </p>
+                </div>
+                <FaQuoteRight className="text-[#4FC3F7]/20 text-3xl sm:text-4xl absolute -bottom-2 -right-2" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* ============ 10. GENERAL DIRECTOR MESSAGE ============ */}
       <section className="section-tight relative bg-[#E1F5FE] overflow-hidden">
@@ -777,13 +776,13 @@ const About = () => {
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
 
         .section-tight {
-          padding-top: 3rem;
-          padding-bottom: 3rem;
+          padding-top: 2rem;
+          padding-bottom: 2rem;
         }
         @media (min-width: 640px) {
           .section-tight {
-            padding-top: 3.5rem;
-            padding-bottom: 3.5rem;
+            padding-top: 2.5rem;
+            padding-bottom: 2.5rem;
           }
         }
 
@@ -796,9 +795,6 @@ const About = () => {
         }
         .animate-marquee-left {
           animation: marquee-left 40s linear infinite;
-        }
-        .animate-marquee-left:hover {
-          animation-play-state: paused;
         }
 
         @keyframes ping-slow {
