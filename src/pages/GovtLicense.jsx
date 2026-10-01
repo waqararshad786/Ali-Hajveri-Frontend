@@ -25,26 +25,26 @@ const GovtLicense = () => {
       id: 1,
       authority: "SECP",
       title: "Certificate Of Incorporation",
-      image: "/src/assets/certificates/certificate-of-incorporation.png",
+      image: "/assets/certificates/certificate-of-incorporation.png",
     },
     {
       id: 2,
       authority: "FBR",
       title: "Tax Registration Certificate",
-      image: "/src/assets/certificates/fbr.png",
+      image: "/assets/certificates/fbr.png",
     },
     {
       id: 3,
       authority: "FBR",
       title: "Taxpayer Registration Certificate",
-      image: "/src/assets/certificates/tax-payer-regetration.png",
+      image: "/assets/certificates/tax-payer-regetration.png",
     },
     {
       id: 4,
       authority: "BEOE",
       title: "Overseas Employment Promoter License",
-      imageFront: "/src/assets/license-1.png",
-      imageBack: "/src/assets/certificates/license-bg.png",
+      imageFront: "/assets/license-1.png",
+      imageBack: "/assets/certificates/license-bg.png",
       isLicense: true,
     },
   ];
@@ -117,7 +117,6 @@ const GovtLicense = () => {
         .animate-float { animation: float 5s ease-in-out infinite; }
         .animate-blob { animation: blob 9s ease-in-out infinite; }
 
-        /* Cross-fade for license */
         .crossfade-front,
         .crossfade-back {
           transition: opacity 0.6s ease, transform 0.6s ease;
@@ -135,7 +134,6 @@ const GovtLicense = () => {
           transform: scale(1);
         }
 
-        /* Modal flip */
         .modal-flip {
           perspective: 1600px;
           width: 100%;
@@ -162,7 +160,6 @@ const GovtLicense = () => {
         }
         .modal-flip-back { transform: rotateY(180deg); }
 
-        /* Card hover */
         .doc-card {
           transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -176,7 +173,6 @@ const GovtLicense = () => {
           transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Shine effect */
         .shine-effect {
           position: absolute;
           inset: 0;
@@ -239,13 +235,10 @@ const GovtLicense = () => {
                   className="doc-card group relative w-full cursor-zoom-in block animate-fadeIn"
                   style={{ animationDelay: `${idx * 0.08}s` }}
                 >
-                  {/* Glow */}
                   <div className="absolute -inset-4 bg-gradient-to-br from-[#4FC3F7]/20 to-[#FFD54F]/10 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                   {isLic ? (
-                    /* ===== LICENSE — CROSS-FADE ===== */
                     <div className="crossfade-wrap relative w-full rounded-2xl overflow-hidden bg-white shadow-[0_10px_30px_rgba(15,76,92,0.10)] group-hover:shadow-[0_20px_45px_rgba(79,195,247,0.25)] transition-shadow duration-500">
-                      {/* Front — defines size */}
                       <div className="relative w-full flex items-center justify-center p-3">
                         <img
                           src={doc.imageFront}
@@ -258,7 +251,6 @@ const GovtLicense = () => {
                         />
                       </div>
 
-                      {/* Back overlay */}
                       <div className="crossfade-back absolute inset-0 flex items-center justify-center p-3 bg-white">
                         <img
                           src={doc.imageBack}
@@ -271,32 +263,26 @@ const GovtLicense = () => {
                         />
                       </div>
 
-                      {/* Shine */}
                       <span className="shine-effect" />
 
-                      {/* Front badge */}
                       <span className="absolute top-3 left-3 px-2.5 py-1 bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] text-[#0F4C5C] text-[9px] font-extrabold uppercase tracking-widest rounded-full shadow-md transition-opacity duration-300 group-hover:opacity-0">
                         Front
                       </span>
 
-                      {/* Back badge */}
                       <span className="absolute top-3 left-3 px-2.5 py-1 bg-gradient-to-r from-[#FFD54F] to-[#FFB300] text-[#0F4C5C] text-[9px] font-extrabold uppercase tracking-widest rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         Back
                       </span>
 
-                      {/* Hint */}
                       <span className="absolute bottom-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-white/95 backdrop-blur border border-[#4FC3F7]/40 rounded-full text-[9px] font-bold text-[#0F4C5C] whitespace-nowrap shadow-md flex items-center gap-1 opacity-100 group-hover:opacity-0 transition-opacity duration-300">
                         <FaSyncAlt className="text-[8px] text-[#29B6F6]" />
                         Hover For Back
                       </span>
 
-                      {/* Zoom icon */}
                       <span className="absolute top-3 right-3 w-7 h-7 rounded-full bg-white/95 backdrop-blur border border-[#4FC3F7]/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 scale-90 group-hover:scale-100 shadow-sm">
                         <FaSearchPlus className="text-[#29B6F6] text-[10px]" />
                       </span>
                     </div>
                   ) : (
-                    /* ===== OTHER DOCUMENTS ===== */
                     <div className="relative w-full rounded-2xl overflow-hidden bg-white shadow-[0_10px_30px_rgba(15,76,92,0.10)] group-hover:shadow-[0_20px_45px_rgba(79,195,247,0.25)] transition-shadow duration-500">
                       <div className="flex items-center justify-center p-3">
                         <img
@@ -309,17 +295,14 @@ const GovtLicense = () => {
                         />
                       </div>
 
-                      {/* Shine */}
                       <span className="shine-effect" />
 
-                      {/* Zoom icon */}
                       <span className="absolute top-3 right-3 w-7 h-7 rounded-full bg-white/95 backdrop-blur border border-[#4FC3F7]/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 scale-90 group-hover:scale-100 shadow-sm">
                         <FaSearchPlus className="text-[#29B6F6] text-[10px]" />
                       </span>
                     </div>
                   )}
 
-                  {/* Label below */}
                   <div className="mt-3 text-center">
                     <p className="text-[9px] font-extrabold tracking-[0.2em] uppercase mb-0.5 bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent">
                       {doc.authority}

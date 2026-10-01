@@ -202,7 +202,7 @@ const IsoCertification = () => {
 
               <div className="relative h-[280px] sm:h-[340px] lg:h-[500px] rounded-2xl sm:rounded-3xl overflow-hidden border border-[#4FC3F7]/20 shadow-[0_20px_50px_rgba(15,76,92,0.15)]">
                 <img
-                  src="/src/assets/licensed-img.png"
+                  src="/assets/licensed-img.png"
                   alt="ISO 9001:2015 Licensed Certificate — Ali Hajveri International (Private) Limited"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                   onError={(e) => { e.target.style.display = "none"; }}

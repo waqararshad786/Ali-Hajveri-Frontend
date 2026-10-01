@@ -63,7 +63,7 @@ const Contact = () => {
   const mapOpenLink = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+    <div className="min-h-screen mt-5 bg-gradient-to-br from-gray-50 to-gray-100">
       <div className="absolute top-0 right-0 w-48 h-48 bg-[#4FC3F7]/10 rounded-full blur-3xl -z-10"></div>
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#0F4C5C]/5 rounded-full blur-3xl -z-10"></div>
 

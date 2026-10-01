@@ -235,6 +235,8 @@ const Process = () => {
   return (
     <>
       <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
         @keyframes shimmer {
           0% { background-position: 0% 50%; }
           100% { background-position: 200% 50%; }
@@ -268,7 +270,7 @@ const Process = () => {
       `}</style>
 
       {/* ============ HERO ============ */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-white via-[#E1F5FE] to-white pt-20 lg:pt-24 pb-8">
+      <section className="relative mt-[-50px] overflow-hidden bg-gradient-to-br from-white via-[#E1F5FE] to-white pt-20 lg:pt-24 pb-8">
         <div
           ref={heroRef}
           className="absolute inset-0 opacity-[0.04]"
@@ -305,7 +307,7 @@ const Process = () => {
                   <span className="absolute inline-flex h-full w-full rounded-full bg-[#4FC3F7] opacity-75 animate-ping" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-[#4FC3F7]" />
                 </span>
-                <span className="text-[#0F4C5C] text-[11px] sm:text-xs font-bold tracking-wide">
+                <span className="text-[#0F4C5C] text-xs sm:text-sm font-bold tracking-wide">
                   How We Work
                 </span>
               </div>
@@ -343,9 +345,9 @@ const Process = () => {
                 {HERO_CHIPS.map(({ icon: Icon, text, color }) => (
                   <span
                     key={text}
-                    className="inline-flex items-center gap-1.5 text-[10px] sm:text-[11px] font-bold text-[#0F4C5C] bg-white border border-[#4FC3F7]/30 px-3 py-1.5 rounded-full shadow-[0_4px_12px_rgba(79,195,247,0.08)] hover:border-[#4FC3F7]/70 hover:scale-105 transition-all duration-300"
+                    className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#0F4C5C] bg-white border border-[#4FC3F7]/30 px-3 py-1.5 rounded-full shadow-[0_4px_12px_rgba(79,195,247,0.08)] hover:border-[#4FC3F7]/70 hover:scale-105 transition-all duration-300"
                   >
-                    <Icon className={`${color} text-[10px]`} />
+                    <Icon className={`${color} text-xs`} />
                     {text}
                   </span>
                 ))}
@@ -354,7 +356,7 @@ const Process = () => {
               <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
                 <a
                   href="#processes"
-                  className="group relative inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#4FC3F7] via-[#29B6F6] to-[#4FC3F7] bg-[length:200%_100%] text-[#0F4C5C] px-6 py-3 rounded-full font-bold shadow-[0_12px_30px_rgba(79,195,247,0.4)] hover:shadow-[0_18px_42px_rgba(255,213,79,0.5)] hover:-translate-y-0.5 transition-all duration-300 text-xs sm:text-sm overflow-hidden"
+                  className="group relative inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#4FC3F7] via-[#29B6F6] to-[#4FC3F7] bg-[length:200%_100%] text-[#0F4C5C] px-6 py-3 rounded-full font-bold shadow-[0_12px_30px_rgba(79,195,247,0.4)] hover:shadow-[0_18px_42px_rgba(255,213,79,0.5)] hover:-translate-y-0.5 transition-all duration-300 text-sm sm:text-base overflow-hidden"
                   style={{ animation: "gradientShift 4s ease infinite" }}
                 >
                   <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
@@ -363,7 +365,7 @@ const Process = () => {
                 </a>
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center gap-2 bg-white border-2 border-[#0F4C5C]/30 text-[#0F4C5C] px-6 py-3 rounded-full font-bold hover:bg-[#0F4C5C] hover:text-white hover:border-[#0F4C5C] hover:-translate-y-0.5 transition-all duration-300 text-xs sm:text-sm shadow-[0_8px_24px_rgba(15,76,92,0.1)]"
+                  className="inline-flex items-center justify-center gap-2 bg-white border-2 border-[#0F4C5C]/30 text-[#0F4C5C] px-6 py-3 rounded-full font-bold hover:bg-[#0F4C5C] hover:text-white hover:border-[#0F4C5C] hover:-translate-y-0.5 transition-all duration-300 text-sm sm:text-base shadow-[0_8px_24px_rgba(15,76,92,0.1)]"
                 >
                   Request Manpower
                 </Link>
@@ -382,10 +384,10 @@ const Process = () => {
                       <FaChartLine className="text-white text-sm" />
                     </div>
                     <div>
-                      <p className="text-[#0F4C5C] font-extrabold text-sm">
+                      <p className="text-[#0F4C5C] font-extrabold text-sm sm:text-base">
                         Process At A Glance
                       </p>
-                      <p className="text-[#29B6F6] text-[10px] font-bold tracking-wide uppercase">
+                      <p className="text-[#29B6F6] text-[10px] sm:text-xs font-bold tracking-wide uppercase">
                         Proven Results
                       </p>
                     </div>
@@ -405,7 +407,7 @@ const Process = () => {
                           <p className="text-xl font-extrabold text-[#0F4C5C] leading-none mb-0.5">
                             {s.value}
                           </p>
-                          <p className="text-[10px] font-bold text-[#0A3A47]/60 uppercase tracking-wide">
+                          <p className="text-[10px] sm:text-xs font-bold text-[#0A3A47]/60 uppercase tracking-wide">
                             {s.label}
                           </p>
                         </div>
@@ -436,7 +438,7 @@ const Process = () => {
                   <span className="w-6 h-6 rounded-full bg-white shadow-[0_4px_10px_rgba(79,195,247,0.15)] flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
                     <Icon className={`${item.color} text-[10px]`} />
                   </span>
-                  <span className="text-[11px] sm:text-xs font-bold text-[#0F4C5C] whitespace-nowrap">
+                  <span className="text-xs sm:text-sm font-bold text-[#0F4C5C] whitespace-nowrap">
                     {item.title}
                   </span>
                 </span>
@@ -454,18 +456,18 @@ const Process = () => {
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <div className="inline-flex items-center gap-2 mb-2.5 bg-[#4FC3F7]/10 border border-[#4FC3F7]/30 rounded-full px-3.5 py-1.5">
-              <FaFire className="text-[#F97316] text-[10px]" />
-              <span className="text-[#0F4C5C] text-[10px] sm:text-xs font-bold tracking-widest uppercase">
+              <FaFire className="text-[#F97316] text-xs" />
+              <span className="text-[#0F4C5C] text-xs sm:text-sm font-bold tracking-widest uppercase">
                 Our Core Processes
               </span>
             </div>
-            <h2 className="font-[Plus_Jakarta_Sans] text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0F4C5C] mb-2.5 leading-tight">
+            <h2 className="font-[Plus_Jakarta_Sans] text-2xl sm:text-3xl md:text-4xl text-[#0F4C5C] mb-2.5 leading-tight">
               Three Processes,{" "}
               <span className="bg-gradient-to-r from-[#4FC3F7] via-[#FFD54F] to-[#4FC3F7] bg-clip-text text-transparent bg-[length:200%_100%] animate-[gradientShift_4s_ease_infinite]">
                 One Complete Journey
               </span>
             </h2>
-            <p className="text-[#0A3A47]/75 text-xs sm:text-sm max-w-2xl mx-auto">
+            <p className="text-[#0A3A47]/75 text-sm sm:text-base max-w-2xl mx-auto">
               Click On Any Process Below To Explore Its Full Step-By-Step
               Details.
             </p>
@@ -527,13 +529,13 @@ const Process = () => {
                       </span>
                     </div>
 
-                    <h3 className="font-[Plus_Jakarta_Sans] text-xl sm:text-2xl font-extrabold text-[#0F4C5C] mb-2 leading-tight group-hover:text-[#29B6F6] transition-colors duration-300">
+                    <h3 className="font-[Plus_Jakarta_Sans] text-lg sm:text-xl font-extrabold text-[#0F4C5C] mb-2 leading-tight group-hover:text-[#29B6F6] transition-colors duration-300">
                       {proc.title}
                     </h3>
 
                     <div className="flex items-center gap-1.5 mb-3">
                       <FaClock className="text-[#FFB300] text-[10px]" />
-                      <span className="text-[10px] font-bold text-[#0A3A47]/60 uppercase tracking-wide">
+                      <span className="text-[10px] sm:text-xs font-bold text-[#0A3A47]/60 uppercase tracking-wide">
                         {proc.duration}
                       </span>
                     </div>
@@ -546,12 +548,10 @@ const Process = () => {
                       {proc.highlights.map((h) => (
                         <div
                           key={h}
-                          className="flex items-start gap-2 text-[11px] sm:text-xs text-[#0A3A47]/85"
+                          className="flex items-start gap-2 text-xs sm:text-sm text-[#0A3A47]/85"
                         >
                           <FaCheckCircle
-                            className={`text-[9px] mt-1 flex-shrink-0 ${
-                              isCyan ? "text-[#22C55E]" : "text-[#22C55E]"
-                            }`}
+                            className="text-[9px] mt-1 flex-shrink-0 text-[#22C55E]"
                           />
                           <span>{h}</span>
                         </div>
@@ -559,7 +559,7 @@ const Process = () => {
                     </div>
 
                     <div
-                      className={`inline-flex items-center gap-2 text-xs font-extrabold px-4 py-2 rounded-full transition-all duration-300 ${
+                      className={`inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold px-4 py-2 rounded-full transition-all duration-300 ${
                         isCyan
                           ? "text-[#0F4C5C] bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] shadow-[0_8px_18px_rgba(79,195,247,0.35)] group-hover:shadow-[0_12px_28px_rgba(255,213,79,0.5)]"
                           : "text-[#0F4C5C] bg-gradient-to-r from-[#FFD54F] to-[#FFC107] shadow-[0_8px_18px_rgba(255,213,79,0.4)] group-hover:shadow-[0_12px_28px_rgba(79,195,247,0.5)]"
@@ -590,8 +590,8 @@ const Process = () => {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <div className="inline-flex items-center gap-2 mb-2.5 bg-[#4FC3F7]/10 border border-[#4FC3F7]/30 rounded-full px-3.5 py-1.5">
-              <FaShieldAlt className="text-[#22C55E] text-[10px]" />
-              <span className="text-[#0F4C5C] text-[10px] sm:text-xs font-bold tracking-widest uppercase">
+              <FaShieldAlt className="text-[#22C55E] text-xs" />
+              <span className="text-[#0F4C5C] text-xs sm:text-sm font-bold tracking-widest uppercase">
                 Why Three Processes
               </span>
             </div>
@@ -601,7 +601,7 @@ const Process = () => {
                 Clarity & Structure
               </span>
             </h2>
-            <p className="text-[#0A3A47]/75 text-xs sm:text-sm max-w-2xl mx-auto">
+            <p className="text-[#0A3A47]/75 text-sm sm:text-base max-w-2xl mx-auto">
               Each Process Has A Clear Purpose — Together They Form A Complete,
               Compliant, And Transparent Overseas Recruitment System.
             </p>
@@ -612,7 +612,7 @@ const Process = () => {
               ({ icon: Icon, title, desc, color }, idx) => (
                 <div
                   key={title}
-                  className="group relative bg-gradient-to-b from-[#E1F5FE] to-white rounded-2xl p-4.5 border border-[#4FC3F7]/20 hover:border-[#4FC3F7]/60 hover:shadow-[0_20px_45px_rgba(79,195,247,0.15)] hover:-translate-y-1.5 transition-all duration-300 overflow-hidden animate-slideUp"
+                  className="group relative bg-gradient-to-b from-[#E1F5FE] to-white rounded-2xl p-5 border border-[#4FC3F7]/20 hover:border-[#4FC3F7]/60 hover:shadow-[0_20px_45px_rgba(79,195,247,0.15)] hover:-translate-y-1.5 transition-all duration-300 overflow-hidden animate-slideUp"
                   style={{ animationDelay: `${idx * 0.05}s` }}
                 >
                   <span className="absolute inset-x-0 top-0 h-0.5 rounded-t-2xl bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500" />
@@ -623,7 +623,7 @@ const Process = () => {
                   <h3 className="font-[Plus_Jakarta_Sans] text-sm sm:text-base font-extrabold text-[#0F4C5C] mb-1.5">
                     {title}
                   </h3>
-                  <p className="text-[#0A3A47]/80 text-[11px] sm:text-xs leading-relaxed">
+                  <p className="text-[#0A3A47]/80 text-xs sm:text-sm leading-relaxed">
                     {desc}
                   </p>
                 </div>
@@ -657,7 +657,7 @@ const Process = () => {
                 </span>
               </h2>
 
-              <p className="text-white/80 text-xs sm:text-sm mb-5 leading-relaxed">
+              <p className="text-white/80 text-sm sm:text-base mb-5 leading-relaxed">
                 Explore Each Process In Detail — Or Contact Our Team To Discuss
                 Your Specific Manpower Requirements And Get A Customized Plan.
               </p>
@@ -665,7 +665,7 @@ const Process = () => {
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Link
                   to="/contact"
-                  className="group relative inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#4FC3F7] via-[#29B6F6] to-[#4FC3F7] bg-[length:200%_100%] text-[#0F4C5C] px-6 sm:px-8 py-3 rounded-full font-bold shadow-[0_12px_30px_rgba(79,195,247,0.4)] hover:shadow-[0_18px_42px_rgba(255,213,79,0.5)] hover:-translate-y-0.5 transition-all duration-300 text-xs sm:text-sm overflow-hidden"
+                  className="group relative inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#4FC3F7] via-[#29B6F6] to-[#4FC3F7] bg-[length:200%_100%] text-[#0F4C5C] px-6 sm:px-8 py-3 rounded-full font-bold shadow-[0_12px_30px_rgba(79,195,247,0.4)] hover:shadow-[0_18px_42px_rgba(255,213,79,0.5)] hover:-translate-y-0.5 transition-all duration-300 text-sm sm:text-base overflow-hidden"
                   style={{ animation: "gradientShift 4s ease infinite" }}
                 >
                   <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
@@ -674,7 +674,7 @@ const Process = () => {
                 </Link>
                 <Link
                   to="/services"
-                  className="inline-flex items-center justify-center gap-2 border border-[#4FC3F7]/40 text-[#4FC3F7] px-6 sm:px-8 py-3 rounded-full font-semibold hover:bg-[#4FC3F7]/10 hover:border-[#4FC3F7]/70 hover:scale-105 transition-all duration-300 text-xs sm:text-sm"
+                  className="inline-flex items-center justify-center gap-2 border border-[#4FC3F7]/40 text-[#4FC3F7] px-6 sm:px-8 py-3 rounded-full font-semibold hover:bg-[#4FC3F7]/10 hover:border-[#4FC3F7]/70 hover:scale-105 transition-all duration-300 text-sm sm:text-base"
                 >
                   Explore Services
                 </Link>

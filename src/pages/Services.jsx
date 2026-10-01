@@ -40,20 +40,20 @@ const WORKFORCE_CATEGORIES = [
 ];
 
 const INDUSTRIES = [
-  { name: "Import / Export", icon: FaShip, img: "/src/assets/industries/industry-1.png" },
-  { name: "Medical & Healthcare", icon: FaHospital, img: "/src/assets/industries/industry-2.png" },
-  { name: "Hotels & Restaurants", icon: FaUtensils, img: "/src/assets/industries/industry-3.png" },
-  { name: "Garments & FMCG", icon: FaCogs, img: "/src/assets/industries/industry-4.png" },
-  { name: "Industrial Automation", icon: FaIndustry, img: "/src/assets/industries/industry-5.png" },
-  { name: "Shipping & Logistics", icon: FaTruck, img: "/src/assets/industries/industry-6.png" },
-  { name: "Automotives", icon: FaCar, img: "/src/assets/industries/industry-7.png" },
-  { name: "Agriculture", icon: FaSeedling, img: "/src/assets/industries/industry-8.png" },
-  { name: "Petrochemical", icon: FaFlask, img: "/src/assets/industries/industry-9.png" },
-  { name: "Security & Surveillance", icon: FaCamera, img: "/src/assets/industries/industry-10.png" },
-  { name: "Construction & Planning", icon: FaBuilding, img: "/src/assets/industries/industry-11.png" },
-  { name: "Computer & IT", icon: FaLaptop, img: "/src/assets/industries/industry-12.png" },
-  { name: "Finance & Accounts", icon: FaChartLine, img: "/src/assets/industries/industry-13.png" },
-  { name: "Telecommunication", icon: FaPhone, img: "/src/assets/industries/industry-14.png" },
+  { name: "Import / Export", icon: FaShip, img: "/assets/industries/industry-1.png" },
+  { name: "Medical & Healthcare", icon: FaHospital, img: "/assets/industries/industry-2.png" },
+  { name: "Hotels & Restaurants", icon: FaUtensils, img: "/assets/industries/industry-3.png" },
+  { name: "Garments & FMCG", icon: FaCogs, img: "/assets/industries/industry-4.png" },
+  { name: "Industrial Automation", icon: FaIndustry, img: "/assets/industries/industry-5.png" },
+  { name: "Shipping & Logistics", icon: FaTruck, img: "/assets/industries/industry-6.png" },
+  { name: "Automotives", icon: FaCar, img: "/assets/industries/industry-7.png" },
+  { name: "Agriculture", icon: FaSeedling, img: "/assets/industries/industry-8.png" },
+  { name: "Petrochemical", icon: FaFlask, img: "/assets/industries/industry-9.png" },
+  { name: "Security & Surveillance", icon: FaCamera, img: "/assets/industries/industry-10.png" },
+  { name: "Construction & Planning", icon: FaBuilding, img: "/assets/industries/industry-11.png" },
+  { name: "Computer & IT", icon: FaLaptop, img: "/assets/industries/industry-12.png" },
+  { name: "Finance & Accounts", icon: FaChartLine, img: "/assets/industries/industry-13.png" },
+  { name: "Telecommunication", icon: FaPhone, img: "/assets/industries/industry-14.png" },
 ];
 
 const DESTINATION_COUNTRIES = [
@@ -66,10 +66,10 @@ const DESTINATION_COUNTRIES = [
 ];
 
 const GALLERY_IMAGES = [
-  { src: "/src/assets/gallery-site.png", alt: "Workers On An Active Construction Site", caption: "On-Site Trades & Construction Manpower" },
-  { src: "/src/assets/gallery-interview.png", alt: "Candidate Interview Session", caption: "Employer Interviews & Assessments" },
-  { src: "/src/assets/gallery-documents.png", alt: "Passport And Travel Documentation", caption: "Documentation & Compliance Support" },
-  { src: "/src/assets/gallery-departure.png", alt: "Workers Departing For Overseas Deployment", caption: "Pre-Departure & Mobilization" },
+  { src: "/assets/gallery-site.png", alt: "Workers On An Active Construction Site", caption: "On-Site Trades & Construction Manpower" },
+  { src: "/assets/gallery-interview.png", alt: "Candidate Interview Session", caption: "Employer Interviews & Assessments" },
+  { src: "/assets/gallery-documents.png", alt: "Passport And Travel Documentation", caption: "Documentation & Compliance Support" },
+  { src: "/assets/gallery-departure.png", alt: "Workers Departing For Overseas Deployment", caption: "Pre-Departure & Mobilization" },
 ];
 
 const WHY_CHIPS = [
@@ -190,7 +190,7 @@ const Services = () => {
         <div className="absolute top-40 -left-40 w-[220px] h-[220px] rounded-full bg-[#0F4C5C]/8 blur-3xl" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 sm:gap-10 items-center">
+          <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 sm:gap-10 items-start">
             <div className="reveal-up">
               <div className="inline-flex items-center gap-2 bg-[#4FC3F7]/10 border border-[#4FC3F7]/25 rounded-full px-3.5 py-1.5 mb-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#4FC3F7] animate-gold-pulse" />
@@ -222,18 +222,18 @@ const Services = () => {
                 </Link>
                 <Link
                   to="/process"
-                  className="inline-flex items-center justify-center gap-2 bg-white border-2 border-[#0F4C5C]/30 text-[#0F4C5C] px-6 sm:px-7 py-3 rounded-full font-bold hover:border-[#4FC3F7] hover:bg-[#E1F5FE] transition-all duration-300 text-sm sm:text-base"
+                  className="btn-shine inline-flex items-center justify-center gap-2 bg-white border-2 border-[#0F4C5C]/30 text-[#0F4C5C] px-6 sm:px-7 py-3 rounded-full font-bold hover:border-[#4FC3F7] hover:bg-[#E1F5FE] transition-all duration-300 text-sm sm:text-base"
                 >
                   See Our Process
                 </Link>
               </div>
             </div>
 
-            <div className="relative reveal-up group">
+            <div className="relative reveal-up group lg:mt-17">
               <div className="absolute inset-0 bg-gradient-to-br from-[#4FC3F7]/20 to-transparent rounded-2xl sm:rounded-3xl rotate-3 scale-[1.02] hidden sm:block" />
               <div className="relative h-[280px] sm:h-[340px] lg:h-[380px] rounded-2xl sm:rounded-3xl overflow-hidden border border-[#4FC3F7]/20 shadow-[0_20px_50px_rgba(15,76,92,0.15)]">
                 <img
-                  src="/src/assets/const-2.png"
+                  src="/assets/const-2.png"
                   alt="Pakistani Workforce Ready For Overseas Deployment"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                   onError={(e) => { e.target.style.display = "none"; }}
@@ -285,7 +285,7 @@ const Services = () => {
                   <h3 className="font-bold text-[#0F4C5C] text-xs sm:text-sm mb-1">
                     {title}
                   </h3>
-                  <p className="text-[#0A3A47]/80 text-[11px] sm:text-xs leading-relaxed">
+                  <p className="text-[#0A3A47]/80 text-xs sm:text-sm leading-relaxed">
                     {desc}
                   </p>
                 </div>
@@ -327,10 +327,10 @@ const Services = () => {
                 <div className="w-10 h-10 rounded-xl bg-white shadow-[0_6px_18px_rgba(15,76,92,0.08)] flex items-center justify-center mb-3 group-hover:bg-[#4FC3F7]/10 transition-colors">
                   <Icon className={`${color} text-base icon-wiggle`} />
                 </div>
-                <h3 className="font-bold text-[#0F4C5C] text-sm mb-1.5">
+                <h3 className="font-bold text-[#0F4C5C] text-xs sm:text-sm mb-1.5">
                   {title}
                 </h3>
-                <p className="text-[#0A3A47]/80 text-[11px] sm:text-xs leading-relaxed">
+                <p className="text-[#0A3A47]/80 text-xs sm:text-sm leading-relaxed">
                   {desc}
                 </p>
               </div>
@@ -374,7 +374,7 @@ const Services = () => {
                 <h3 className="font-bold text-[#0F4C5C] text-xs sm:text-sm mb-1.5">
                   {title}
                 </h3>
-                <p className="text-[#0A3A47]/80 text-[11px] sm:text-xs leading-relaxed">
+                <p className="text-[#0A3A47]/80 text-xs sm:text-sm leading-relaxed">
                   {desc}
                 </p>
               </div>
@@ -479,7 +479,7 @@ const Services = () => {
                     className="flex items-center gap-2 bg-white p-2.5 rounded-xl border border-[#4FC3F7]/20 hover:border-[#4FC3F7]/50 transition-colors"
                   >
                     <FaCheckCircle className="text-[#22C55E] text-[10px] flex-shrink-0" />
-                    <span className="text-[#0F4C5C] text-[11px] sm:text-xs font-bold">
+                    <span className="text-[#0F4C5C] text-xs sm:text-sm font-bold">
                       {item}
                     </span>
                   </div>
@@ -549,7 +549,7 @@ const Services = () => {
                 <h3 className="font-bold text-[#0F4C5C] text-xs sm:text-sm mb-1.5">
                   {title}
                 </h3>
-                <p className="text-[#0A3A47]/80 text-[11px] sm:text-xs leading-relaxed">
+                <p className="text-[#0A3A47]/80 text-xs sm:text-sm leading-relaxed">
                   {desc}
                 </p>
               </div>
@@ -593,7 +593,7 @@ const Services = () => {
                   <h4 className="text-white font-bold mb-1 text-xs sm:text-sm">
                     {step.title}
                   </h4>
-                  <p className="text-white/75 text-[11px] sm:text-xs leading-relaxed">
+                  <p className="text-white/75 text-xs sm:text-sm leading-relaxed">
                     {step.desc}
                   </p>
                 </div>
@@ -694,7 +694,7 @@ const Services = () => {
                 <h3 className="font-bold text-[#0F4C5C] text-xs sm:text-sm mb-1.5">
                   {title}
                 </h3>
-                <p className="text-[#0A3A47]/80 text-[11px] sm:text-xs leading-relaxed">
+                <p className="text-[#0A3A47]/80 text-xs sm:text-sm leading-relaxed">
                   {desc}
                 </p>
               </div>
@@ -738,7 +738,7 @@ const Services = () => {
                 <h3 className="font-bold text-[#0F4C5C] text-xs sm:text-sm mb-1.5">
                   {title}
                 </h3>
-                <p className="text-[#0A3A47]/80 text-[11px] sm:text-xs leading-relaxed">
+                <p className="text-[#0A3A47]/80 text-xs sm:text-sm leading-relaxed">
                   {desc}
                 </p>
               </div>
@@ -785,7 +785,7 @@ const Services = () => {
                     <Icon />
                   </span>
                 </div>
-                <p className="text-[#0F4C5C] font-bold text-xs p-3">
+                <p className="text-[#0F4C5C] font-bold text-xs sm:text-sm p-3">
                   {name}
                 </p>
               </div>
@@ -884,7 +884,7 @@ const Services = () => {
                 className="flex-shrink-0 flex items-center gap-2 bg-white border border-[#4FC3F7]/20 hover:border-[#4FC3F7]/50 px-4 py-2.5 rounded-full shadow-[0_6px_16px_rgba(15,76,92,0.04)] transition-all duration-300"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-[#4FC3F7]" />
-                <span className="text-[#0F4C5C] text-xs font-bold whitespace-nowrap">
+                <span className="text-[#0F4C5C] text-xs sm:text-sm font-bold whitespace-nowrap">
                   {client}
                 </span>
               </div>
@@ -925,7 +925,7 @@ const Services = () => {
                 <p className="text-[#0F4C5C] font-bold text-xs mb-1">
                   {c.name}
                 </p>
-                <p className="text-[#0A3A47]/70 text-[10px] leading-relaxed">
+                <p className="text-[#0A3A47]/70 text-[10px] sm:text-xs leading-relaxed">
                   {c.note}
                 </p>
               </div>
@@ -971,7 +971,7 @@ const Services = () => {
                   />
                   <span className="img-shine" />
                 </div>
-                <p className="text-[#0F4C5C] font-bold text-xs mt-3">
+                <p className="text-[#0F4C5C] font-bold text-xs sm:text-sm mt-3">
                   {img.caption}
                 </p>
               </div>

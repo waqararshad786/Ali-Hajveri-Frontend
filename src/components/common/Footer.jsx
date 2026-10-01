@@ -57,7 +57,7 @@ const Footer = () => {
             <div className="lg:col-span-4">
               <div className="flex items-center gap-3 mb-5">
                 <img
-                  src="/src/assets/logo.jpeg"
+                  src="/assets/logo.jpeg"
                   alt="AHIOEP"
                   className="h-16 rounded-2xl w-auto object-contain bg-transparent"
                 />
@@ -95,7 +95,7 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Quick Links - 2 cols — NO EXTRA SPACING */}
+            {/* Quick Links - 2 cols */}
             <div className="lg:col-span-2">
               <h4 className="relative font-bold text-white mb-2 text-sm uppercase tracking-wider inline-block">
                 Quick Links
@@ -119,7 +119,7 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* Services - 3 cols — NO EXTRA SPACING */}
+            {/* Services - 3 cols */}
             <div className="lg:col-span-3">
               <h4 className="relative font-bold text-white mb-2 text-sm uppercase tracking-wider inline-block">
                 Our Services
@@ -238,7 +238,7 @@ const Footer = () => {
         </div>
       </footer>
 
-      {/* ============ Floating WhatsApp Button — SIMPLE ICON ============ */}
+      {/* ============ Floating WhatsApp Button ============ */}
       <a
         href="https://wa.me/923140654083"
         target="_blank"

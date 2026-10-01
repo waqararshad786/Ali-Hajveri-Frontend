@@ -338,7 +338,7 @@ const RecruitmentProcess = () => {
       `}</style>
 
       {/* ============ HERO ============ */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-white via-[#E1F5FE] to-white pt-20 lg:pt-24 pb-8">
+      <section className="relative mt-[-50px] overflow-hidden bg-gradient-to-br from-white via-[#E1F5FE] to-white pt-20 lg:pt-24 pb-8">
         <div
           ref={heroRef}
           className="absolute inset-0 opacity-[0.04]"
@@ -368,7 +368,7 @@ const RecruitmentProcess = () => {
         ))}
 
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-12 gap-7 sm:gap-8 items-center">
+          <div className="grid  lg:grid-cols-12 gap-7 sm:gap-8 items-center">
             <div className="lg:col-span-7 text-center lg:text-left">
               <div className="inline-flex items-center gap-2 mb-4 bg-white/80 backdrop-blur-md border border-[#4FC3F7]/50 rounded-full px-3.5 py-2 shadow-[0_6px_18px_rgba(79,195,247,0.15)]">
                 <span className="relative flex h-2 w-2">
@@ -445,10 +445,10 @@ const RecruitmentProcess = () => {
               <div className="relative max-w-sm mx-auto">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#4FC3F7]/40 to-[#FFD54F]/20 blur-3xl rounded-full" />
 
-                <div className="relative bg-white/95 backdrop-blur-xl rounded-2xl p-5 border border-[#4FC3F7]/30 shadow-[0_24px_60px_rgba(15,76,92,0.25)] overflow-hidden">
+                <div className="relative  bg-white/95 backdrop-blur-xl rounded-2xl p-5 border border-[#4FC3F7]/30 shadow-[0_24px_60px_rgba(15,76,92,0.25)] overflow-hidden">
                   <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#4FC3F7] via-[#FFD54F] to-[#4FC3F7] bg-[length:200%_100%] animate-[shimmer_3s_linear_infinite]" />
 
-                  <div className="flex items-center gap-3 mb-4">
+                  <div className="flex  items-center gap-3 mb-4">
                     <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#4FC3F7] to-[#29B6F6] flex items-center justify-center shadow-[0_8px_20px_rgba(79,195,247,0.4)]">
                       <FaChartLine className="text-white text-sm" />
                     </div>

@@ -12,21 +12,21 @@ import {
 } from "react-icons/fa";
 
 const TEAM_MEMBERS = [
-  { name: "Muhammad Ahmad", designation: "Chief Executive Officer", img: "/src/assets/our-team/img-1.png" },
-  { name: "Fatima Khan", designation: "Director Operations", img: "/src/assets/our-team/img-2.png" },
-  { name: "Ali Hassan", designation: "Head Of Recruitment", img: "/src/assets/our-team/img-8.png" },
-  { name: "Ayesha Siddiqui", designation: "HR Manager", img: "/src/assets/our-team/img-9.png" },
-  { name: "Usman Tariq", designation: "Overseas Employment Manager", img: "/src/assets/our-team/img-10.png" },
-  { name: "Zainab Malik", designation: "Client Relations Manager", img: "/src/assets/our-team/img-6.png" },
-  { name: "Bilal Ahmed", designation: "Visa Processing Officer", img: "/src/assets/our-team/img-.png" },
-  { name: "Hira Sheikh", designation: "Documentation Specialist", img: "/src/assets/our-team/img-13.png" },
-  { name: "Kamran Yousaf", designation: "Trade Test Coordinator", img: "/src/assets/our-team/img-.png" },
-  { name: "Sana Riaz", designation: "Compliance Officer", img: "/src/assets/our-team/img-.png" },
-  { name: "Imran Ali", designation: "Marketing Manager", img: "/src/assets/our-team/img-.png"},
-  { name: "Nadia Iqbal", designation: "Accounts Manager", img: "/src/assets/our-team/img-.png" },
-  { name: "Faisal Mehmood", designation: "IT Support Specialist", img: "/src/assets/our-team/img-.png" },
-  { name: "Maryam Nawaz", designation: "Candidate Support Officer", img: "/src/assets/our-team/img-.png" },
-  { name: "Shahid Bhatti", designation: "Business Development Manager", img: "/src/assets/our-team/img-x.png"},
+  { name: "Muhammad Ahmad", designation: "Chief Executive Officer", img: "/assets/our-team/img-1.png" },
+  { name: "Fatima Khan", designation: "Director Operations", img: "/assets/our-team/img-2.png" },
+  { name: "Ali Hassan", designation: "Head Of Recruitment", img: "/assets/our-team/img-8.png" },
+  { name: "Ayesha Siddiqui", designation: "HR Manager", img: "/assets/our-team/img-9.png" },
+  { name: "Usman Tariq", designation: "Overseas Employment Manager", img: "/assets/our-team/img-10.png" },
+  { name: "Zainab Malik", designation: "Client Relations Manager", img: "/assets/our-team/img-6.png" },
+  { name: "Bilal Ahmed", designation: "Visa Processing Officer", img: "/assets/our-team/img-.png" },
+  { name: "Hira Sheikh", designation: "Documentation Specialist", img: "/assets/our-team/img-13.png" },
+  { name: "Kamran Yousaf", designation: "Trade Test Coordinator", img: "/assets/our-team/img-.png" },
+  { name: "Sana Riaz", designation: "Compliance Officer", img: "/assets/our-team/img-.png" },
+  { name: "Imran Ali", designation: "Marketing Manager", img: "/assets/our-team/img-.png" },
+  { name: "Nadia Iqbal", designation: "Accounts Manager", img: "/assets/our-team/img-.png" },
+  { name: "Faisal Mehmood", designation: "IT Support Specialist", img: "/assets/our-team/img-.png" },
+  { name: "Maryam Nawaz", designation: "Candidate Support Officer", img: "/assets/our-team/img-.png" },
+  { name: "Shahid Bhatti", designation: "Business Development Manager", img: "/assets/our-team/img-x.png" },
 ];
 
 const OurTeam = () => {
@@ -56,7 +56,7 @@ const OurTeam = () => {
       `}</style>
 
       {/* ================= HERO ================= */}
-      <section className="relative min-h-[265px] flex items-center justify-center pt-8 sm:pt-14 pb-6 sm:pb-6 overflow-hidden bg-gradient-to-b from-white via-[#E1F5FE] to-white !mt-0">
+      <section className="relative mt-[-30px] min-h-[265px] flex items-center justify-center pt-8 sm:pt-14 pb-6 sm:pb-6 overflow-hidden bg-gradient-to-b from-white via-[#E1F5FE] to-white">
         <div className="absolute -top-32 -right-40 w-[280px] sm:w-[380px] md:w-[480px] h-[280px] sm:h-[380px] md:h-[480px] rounded-full bg-[#4FC3F7]/10 blur-3xl animate-pulse-slow" />
         <div className="absolute top-40 -left-40 w-[220px] sm:w-[300px] md:w-[380px] h-[220px] sm:h-[300px] md:h-[380px] rounded-full bg-[#FFD54F]/10 blur-3xl" />
         <div className="absolute bottom-0 left-1/3 w-[180px] sm:w-[220px] md:w-[260px] h-[180px] sm:h-[220px] md:h-[260px] rounded-full bg-[#4FC3F7]/8 blur-3xl" />
@@ -122,10 +122,8 @@ const OurTeam = () => {
                     }}
                   />
 
-                  {/* Light white shade on hover */}
                   <div className="absolute inset-0 bg-white/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                  {/* Social Icons */}
                   <div className="absolute inset-0 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                     <a
                       href="#"

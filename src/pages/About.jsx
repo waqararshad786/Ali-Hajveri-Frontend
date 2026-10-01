@@ -65,29 +65,29 @@ const SOURCING_STEPS = [
 ];
 
 const PREMIER_PARTNERS = [
-  { name: "Partner 1", src: "/src/assets/logos/c-logo-1.png" },
-  { name: "Partner 2", src: "/src/assets/logos/c-logo-2.png" },
-  { name: "Partner 3", src: "/src/assets/logos/c-logo-3.png" },
-  { name: "Partner 4", src: "/src/assets/logos/c-logo-4.png" },
-  { name: "Partner 5", src: "/src/assets/logos/c-logo-5.png" },
-  { name: "Partner 6", src: "/src/assets/logos/c-logo-6.png" },
-  { name: "Partner 7", src: "/src/assets/logos/c-logo-7.png" },
-  { name: "Partner 8", src: "/src/assets/logos/c-logo-8.png" },
+  { name: "Partner 1", src: "/assets/logos/c-logo-1.png" },
+  { name: "Partner 2", src: "/assets/logos/c-logo-2.png" },
+  { name: "Partner 3", src: "/assets/logos/c-logo-3.png" },
+  { name: "Partner 4", src: "/assets/logos/c-logo-4.png" },
+  { name: "Partner 5", src: "/assets/logos/c-logo-5.png" },
+  { name: "Partner 6", src: "/assets/logos/c-logo-6.png" },
+  { name: "Partner 7", src: "/assets/logos/c-logo-7.png" },
+  { name: "Partner 8", src: "/assets/logos/c-logo-8.png" },
 ];
 
 const SERVED_COUNTRIES = [
-  { name: "Saudi Arabia", flag: "🇸🇦", img: "/src/assets/countries/saudia.png" },
-  { name: "Bahrain", flag: "🇧🇭", img: "/src/assets/countries/bahrain.png" },
-  { name: "China", flag: "🇨🇳", img: "/src/assets/countries/china.png" },
-  { name: "Kazakhstan", flag: "🇰🇿", img: "/src/assets/countries/kazakhstan.png" },
-  { name: "Kyrgyzstan", flag: "🇰🇬", img: "/src/assets/countries/krygyzstan.png" },
-  { name: "Oman", flag: "🇴🇲", img: "/src/assets/countries/oman.png" },
-  { name: "Qatar", flag: "🇶🇦", img: "/src/assets/countries/qatar.png" },
-  { name: "Romania", flag: "🇷🇴", img: "/src/assets/countries/romania.png" },
-  { name: "Tajikistan", flag: "🇹🇯", img: "/src/assets/countries/tajikistan.png" },
-  { name: "Turkmenistan", flag: "🇹🇲", img: "/src/assets/countries/turkmanistan.png" },
-  { name: "Uae", flag: "🇦🇪", img: "/src/assets/countries/uae.png" },
-  { name: "Uzbekistan", flag: "🇺🇿", img: "/src/assets/countries/uzbekistan.png" },
+  { name: "Saudi Arabia", flag: "🇸🇦", img: "/assets/countries/saudia.png" },
+  { name: "Bahrain", flag: "🇧🇭", img: "/assets/countries/bahrain.png" },
+  { name: "China", flag: "🇨🇳", img: "/assets/countries/china.png" },
+  { name: "Kazakhstan", flag: "🇰🇿", img: "/assets/countries/kazakhstan.png" },
+  { name: "Kyrgyzstan", flag: "🇰🇬", img: "/assets/countries/krygyzstan.png" },
+  { name: "Oman", flag: "🇴🇲", img: "/assets/countries/oman.png" },
+  { name: "Qatar", flag: "🇶🇦", img: "/assets/countries/qatar.png" },
+  { name: "Romania", flag: "🇷🇴", img: "/assets/countries/romania.png" },
+  { name: "Tajikistan", flag: "🇹🇯", img: "/assets/countries/tajikistan.png" },
+  { name: "Turkmenistan", flag: "🇹🇲", img: "/assets/countries/turkmanistan.png" },
+  { name: "Uae", flag: "🇦🇪", img: "/assets/countries/uae.png" },
+  { name: "Uzbekistan", flag: "🇺🇿", img: "/assets/countries/uzbekistan.png" },
 ];
 
 /* ============================================================
@@ -98,56 +98,116 @@ const About = () => {
     <div className="min-h-screen bg-white overflow-x-hidden">
 
       {/* ============ 1. HERO ============ */}
-      <section className="relative mt-[17px] section-tight overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url(/src/assets/about-hero-img.png)" }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0F4C5C]/10 via-[#0A3A47]/25 to-[#06303A]/30" />
-        <div className="absolute inset-0 bg-[#0F4C5C]/25" />
-        <div className="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-white to-transparent" />
+      <section className="relative mt-[-6rem] pt-44 sm:pt-28 md:pt-32 lg:pt-36 pb-12 sm:pb-16 overflow-hidden bg-gradient-to-b from-white via-[#E1F5FE] to-white">
+        <div className="absolute -top-32 -right-40 w-[280px] sm:w-[380px] md:w-[480px] h-[280px] sm:h-[380px] md:h-[480px] rounded-full bg-[#4FC3F7]/10 blur-3xl animate-pulse-slow" />
+        <div className="absolute top-40 -left-40 w-[220px] sm:w-[300px] md:w-[380px] h-[220px] sm:h-[300px] md:h-[380px] rounded-full bg-[#FFD54F]/10 blur-3xl" />
+        <div className="absolute bottom-0 left-1/3 w-[180px] sm:w-[220px] md:w-[260px] h-[180px] sm:h-[220px] md:h-[260px] rounded-full bg-[#4FC3F7]/8 blur-3xl" />
 
-        <div className="absolute -top-32 -right-40 w-[280px] h-[280px] rounded-full bg-[#4FC3F7]/15 blur-3xl" />
-        <div className="absolute bottom-0 -left-32 w-[260px] h-[260px] rounded-full bg-[#FFD54F]/10 blur-3xl" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-14 items-center">
 
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 mb-4 bg-white/15 backdrop-blur-md border border-[#4FC3F7]/50 rounded-full px-3.5 py-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#4FC3F7] animate-ping-slow" />
-            <span className="text-white text-xs sm:text-sm font-bold">
-              Oep Since {COMPANY_INFO.established}
-            </span>
-          </div>
+            <div className="text-center lg:text-left">
+              <div className="inline-flex items-center gap-2 mb-4 sm:mb-5 bg-white/95 backdrop-blur-sm border border-[#4FC3F7]/40 rounded-full px-3 sm:px-4 py-1.5 sm:py-2 shadow-[0_4px_14px_rgba(15,76,92,0.12)]">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#4FC3F7] animate-ping-slow" />
+                <span className="text-[#0F4C5C] text-xs sm:text-sm font-bold">
+                  OEP Since {COMPANY_INFO.established}
+                </span>
+              </div>
 
-          <h1 className="font-[Plus_Jakarta_Sans] text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-[1.15] mb-4 [text-shadow:_0_2px_12px_rgba(0,0,0,0.6)]">
-            Built On A Formal And{" "}
-            <span className="bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent">
-              Compliant Foundation
-            </span>
-          </h1>
+              <h1 className="font-[Plus_Jakarta_Sans] text-3xl sm:text-4xl md:text-5xl lg:text-[3.2rem] font-extrabold text-[#0F4C5C] leading-[1.15] mb-4 sm:mb-5">
+                Built On A Formal And{" "}
+                <span className="bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent">
+                  Compliant Foundation
+                </span>
+              </h1>
 
-          <p
-            className="text-white/95 text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed mb-6 font-medium"
-            style={{ textShadow: "0 1px 3px rgba(0,0,0,0.85), 0 2px 6px rgba(15,76,92,0.7)" }}
-          >
-            {COMPANY_INFO.fullName} Combines Corporate Registration, Overseas
-            Employment Authorization And A Structured Recruitment Process Into
-            One Accountable Organization.
-          </p>
+              <div className="text-base sm:text-lg md:text-xl text-[#0F4C5C] mb-4 min-h-[28px] sm:h-8 font-bold">
+                Committed To{" "}
+                <span className="bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent font-bold">
+                  Transparency & Compliance
+                </span>
+                <span className="text-[#0F4C5C] animate-pulse font-bold">|</span>
+              </div>
 
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link
-              to="/contact"
-              className="btn-shine group inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] text-[#0F4C5C] px-6 sm:px-7 py-3 rounded-full font-bold shadow-[0_12px_30px_rgba(79,195,247,0.4)] hover:shadow-[0_16px_38px_rgba(255,213,79,0.5)] hover:-translate-y-0.5 transition-all duration-300 text-sm sm:text-base"
-            >
-              Request Manpower
-              <FaArrowRight className="text-sm group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <Link
-              to="/process"
-              className="inline-flex items-center justify-center gap-2 bg-white/15 backdrop-blur-md border-2 border-white/70 text-white px-6 sm:px-7 py-3 rounded-full font-bold hover:bg-white hover:text-[#0F4C5C] transition-all duration-300 text-sm sm:text-base"
-            >
-              Explore Our Process
-            </Link>
+              <div className="flex justify-center lg:justify-start mb-6 sm:mb-8">
+                <div className="max-w-2xl">
+                  <p className="text-[#0A3A47] text-sm sm:text-base md:text-lg leading-relaxed font-medium">
+                    {COMPANY_INFO.fullName} Combines Corporate Registration, Overseas
+                    Employment Authorization And A Structured Recruitment Process
+                    Into One Accountable Organization.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start mb-8 sm:mb-10">
+                <Link
+                  to="/contact"
+                  className="btn-shine group inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] text-[#0F4C5C] px-6 sm:px-8 py-3 sm:py-3.5 rounded-full font-bold shadow-[0_12px_30px_rgba(79,195,247,0.4)] hover:shadow-[0_16px_38px_rgba(79,195,247,0.55)] hover:-translate-y-0.5 transition-all duration-300 text-sm sm:text-base"
+                >
+                  Request Manpower{" "}
+                  <FaArrowRight className="text-sm group-hover:translate-x-1 transition-transform" />
+                </Link>
+                <Link
+                  to="/process"
+                  className="btn-shine inline-flex items-center justify-center gap-2 bg-white border-2 border-[#0F4C5C]/30 text-[#0F4C5C] px-6 sm:px-8 py-3 sm:py-3.5 rounded-full font-bold hover:border-[#4FC3F7] hover:bg-[#E1F5FE] transition-all duration-300 text-sm sm:text-base"
+                >
+                  Explore Our Process
+                </Link>
+              </div>
+
+              <div className="flex flex-wrap justify-center lg:justify-start gap-6 sm:gap-10 md:gap-14">
+                {[
+                  { value: "Licensed", label: "Government Approved" },
+                  { value: "100%", label: "Compliant Process" },
+                  { value: "10+", label: "Years Experience" },
+                ].map((stat) => (
+                  <div key={stat.label} className="text-center lg:text-left">
+                    <p className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[#0F4C5C] tabular-nums">
+                      {stat.value}
+                    </p>
+                    <p className="text-[10px] sm:text-xs md:text-sm text-[#0F4C5C] font-bold tracking-wide uppercase mt-1">
+                      {stat.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="relative mt-[55px] reveal-up group order-first lg:order-last">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#4FC3F7]/20 to-transparent rounded-2xl sm:rounded-3xl rotate-3 scale-[1.02] hidden sm:block" />
+
+              <div className="relative h-[280px] sm:h-[340px] lg:h-[440px] rounded-2xl sm:rounded-3xl overflow-hidden border border-[#4FC3F7]/20 shadow-[0_20px_50px_rgba(15,76,92,0.15)]">
+                <img
+                  src="/assets/about-hero-img.png"
+                  alt="About AHIOEP — Government Licensed Recruitment"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  onError={(e) => {
+                    e.target.style.display = "none";
+                  }}
+                />
+                <span className="img-shine" />
+              </div>
+
+              <div className="animate-gentle-float absolute -bottom-4 sm:-bottom-5 -left-4 sm:-left-5 bg-white rounded-2xl shadow-[0_16px_36px_rgba(15,76,92,0.12)] border border-[#4FC3F7]/25 px-4 py-3 max-w-[170px] hidden sm:block">
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="w-6 h-6 rounded-full bg-[#4FC3F7]/12 flex items-center justify-center">
+                    <FaCheckCircle className="text-[#22C55E] text-xs" />
+                  </span>
+                  <p className="text-[#0F4C5C] font-bold text-xs">Government</p>
+                </div>
+                <p className="text-[#0A3A47] text-[10px] leading-relaxed">
+                  Licensed OEP
+                </p>
+              </div>
+
+              <div className="animate-gentle-float-slow absolute top-4 -right-3 sm:top-5 sm:-right-4 bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] text-[#0F4C5C] rounded-xl shadow-[0_12px_30px_rgba(79,195,247,0.35)] px-3.5 py-2.5 hidden md:block">
+                <p className="text-[10px] uppercase tracking-wider opacity-90 font-semibold">
+                  Fully Compliant
+                </p>
+                <p className="text-sm font-extrabold">Registered OEP</p>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
@@ -163,7 +223,7 @@ const About = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-[#4FC3F7]/20 to-transparent rounded-2xl sm:rounded-3xl rotate-3 scale-[1.02] hidden sm:block" />
               <div className="relative h-[280px] sm:h-[340px] rounded-2xl sm:rounded-3xl overflow-hidden border border-[#4FC3F7]/20 shadow-[0_20px_50px_rgba(15,76,92,0.15)]">
                 <img
-                  src="/src/assets/about.png"
+                  src="/assets/about.png"
                   alt="Ali Hajveri International Team"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                   onError={(e) => { e.target.style.display = "none"; }}
@@ -298,7 +358,7 @@ const About = () => {
                   <p className="text-[#29B6F6] text-[10px] sm:text-xs font-bold mb-1 uppercase tracking-wide">
                     {label}
                   </p>
-                  <p className="text-[#0F4C5C] font-bold text-sm leading-snug">
+                  <p className="text-[#0F4C5C] font-bold text-sm sm:text-base leading-snug">
                     {value}
                   </p>
                 </div>
@@ -306,7 +366,6 @@ const About = () => {
             ))}
           </div>
 
-          {/* License Card */}
           <div className="mt-6 flex items-center justify-center reveal-up">
             <div className="inline-flex items-center gap-3 bg-gradient-to-r from-[#0F4C5C] to-[#0A3A47] border border-[#4FC3F7]/40 px-5 py-3 rounded-2xl shadow-[0_12px_30px_rgba(15,76,92,0.25)]">
               <FaCertificate className="text-[#FFB300] text-xl flex-shrink-0" />
@@ -361,7 +420,7 @@ const About = () => {
                 <h3 className="font-bold text-[#0F4C5C] text-xs sm:text-sm mb-1.5">
                   {step.title}
                 </h3>
-                <p className="text-[#0A3A47]/80 text-[11px] sm:text-xs leading-relaxed">
+                <p className="text-[#0A3A47]/80 text-xs sm:text-sm leading-relaxed">
                   {step.desc}
                 </p>
               </div>
@@ -405,7 +464,7 @@ const About = () => {
                 <h3 className="font-bold text-[#0F4C5C] text-xs sm:text-sm mb-1.5">
                   {title}
                 </h3>
-                <p className="text-[#0A3A47]/80 text-[11px] sm:text-xs leading-relaxed">
+                <p className="text-[#0A3A47]/80 text-xs sm:text-sm leading-relaxed">
                   {desc}
                 </p>
               </div>
@@ -502,201 +561,200 @@ const About = () => {
       </section>
 
       {/* ============ 9. LICENSE & CEO ============ */}
-      <section className="section-tight relative bg-white overflow-hidden">
-        <div className="absolute top-0 right-0 w-56 h-56 bg-[#4FC3F7]/8 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
-        <div className="absolute bottom-0 left-0 w-72 h-72 bg-[#0F4C5C]/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3" />
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-6 sm:gap-8 items-stretch">
-            {/* ===== LICENSE CARD ===== */}
-            <div className="relative group reveal-up">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#4FC3F7]/20 to-transparent rounded-2xl sm:rounded-3xl rotate-2 scale-[1.01] hidden sm:block" />
-              <div className="relative bg-gradient-to-br from-white via-[#E1F5FE] to-white rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-[0_12px_36px_rgba(15,76,92,0.08)] border border-[#4FC3F7]/20 hover:border-[#4FC3F7]/50 hover:shadow-[0_18px_44px_rgba(79,195,247,0.15)] transition-all duration-300 h-full flex flex-col items-center justify-between overflow-hidden">
-                <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F]" />
-
-                <div className="absolute top-4 right-4 bg-white/95 backdrop-blur rounded-full px-3 py-1.5 shadow-[0_8px_20px_rgba(15,76,92,0.10)] border border-[#4FC3F7]/25 flex items-center gap-1.5 z-10">
-                  <FaCheckCircle className="text-[#22C55E] text-xs" />
-                  <span className="text-[#0F4C5C] text-[10px] font-bold tracking-wide">
-                    Verified
-                  </span>
-                </div>
-
-                {/* License Image */}
-                <div className="relative w-full flex-1 flex items-center justify-center py-3 sm:py-4">
-                  <div className="absolute inset-0 bg-[#4FC3F7]/5 blur-2xl rounded-full" />
-                  <img
-                    src="/src/assets/license-1.png"
-                    alt="Overseas Employment License"
-                    className="relative w-[80%] max-h-[260px] sm:max-h-[340px] object-contain rounded-xl drop-shadow-[0_12px_28px_rgba(15,76,92,0.15)] group-hover:scale-[1.02] transition-transform duration-500"
-                    onError={(e) => {
-                      e.target.style.display = "none";
-                    }}
-                  />
-                </div>
-
-                {/* ===== FULL LICENSE DETAILS ===== */}
-                <div className="w-full mt-3 border-t border-[#4FC3F7]/20 pt-4">
-                  <div className="text-center mb-3">
-                    <p className="text-[10px] sm:text-[11px] font-bold text-[#0A3A47]/60 uppercase tracking-widest mb-1">
-                      License No.
-                    </p>
-                    <p className="text-[#29B6F6] font-extrabold text-sm sm:text-base tracking-wide">
-                      OP&HRD/5224/LHR/2026
-                    </p>
-                  </div>
-
-                  <div className="space-y-2 max-w-md mx-auto">
-                    <div className="flex items-center gap-2.5">
-                      <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#4FC3F7]" />
-                      <p className="text-[#0A3A47]/85 text-[11px] sm:text-xs font-semibold leading-snug whitespace-nowrap">
-                        Bureau Of Immigration &amp; Overseas Employment (BEOE)
-                      </p>
-                    </div>
-
-                    <div className="flex items-center gap-2.5">
-                      <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#4FC3F7]" />
-                      <p className="text-[#0A3A47]/85 text-[11px] sm:text-xs font-semibold leading-snug whitespace-nowrap">
-                        Ministry Of Overseas Pakistanis &amp; Human Resource Development
-                      </p>
-                    </div>
-
-                    <div className="flex items-center gap-2.5">
-                      <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#4FC3F7]" />
-                      <p className="text-[#0A3A47]/85 text-[11px] sm:text-xs font-semibold leading-snug whitespace-nowrap">
-                        Government Of Pakistan
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* ===== CEO MESSAGE CARD ===== */}
-            <div className="relative bg-gradient-to-br from-white via-[#E1F5FE] to-white rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-[0_12px_36px_rgba(15,76,92,0.08)] border border-[#4FC3F7]/20 hover:border-[#4FC3F7]/40 hover:shadow-[0_18px_44px_rgba(79,195,247,0.12)] transition-all duration-300 flex flex-col overflow-hidden reveal-up">
-              <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F]" />
-
-              <div className="flex items-center gap-4 sm:gap-5 mb-4">
-                <div className="relative flex-shrink-0">
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#4FC3F7] to-[#29B6F6] p-[3px]">
-                    <div className="w-full h-full rounded-full bg-white" />
-                  </div>
-                  <img
-                    src="/src/assets/ceo.jpeg"
-                    alt="CEO"
-                    className="relative w-14 sm:w-16 h-14 sm:h-16 rounded-full object-cover"
-                    onError={(e) => {
-                      e.target.style.display = "none";
-                    }}
-                  />
-                  <span className="absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-white flex items-center justify-center shadow-[0_4px_12px_rgba(15,76,92,0.15)]">
-                    <FaCheckCircle className="text-[#22C55E] text-xs" />
-                  </span>
-                </div>
-                <div>
-                  <h3 className="font-[Plus_Jakarta_Sans] text-lg font-extrabold text-[#0F4C5C]">
-                    Muhammad Ijaz
-                  </h3>
-                  <p className="text-[#29B6F6] text-xs sm:text-sm font-bold">
-                    Chief Executive Officer
-                  </p>
-                  <p className="text-[#0A3A47]/75 text-[10px] sm:text-xs">
-                    Ali Hajveri International Pvt Ltd
-                  </p>
-                </div>
-              </div>
-
-              {/* No scroll — full text visible */}
-              <div className="relative flex-1">
-                <FaQuoteLeft className="text-[#4FC3F7]/20 text-3xl sm:text-4xl absolute -top-2 -left-2" />
-                <div className="pl-6 sm:pl-8 pr-3 sm:pr-4">
-                  <p className="text-[#0A3A47] leading-relaxed text-xs sm:text-sm mb-3 italic font-medium">
-                    "I Would Like To Take This Opportunity To Extend My Good Wishes
-                    To Our Esteemed Employers And Job Seekers Who Have Helped Us To
-                    Become A Leading Man Power Recruitment Firm. It Has Become A
-                    Cherished Name Among Job Seekers As Well As Foreign Employers."
-                  </p>
-                  <p className="text-[#0A3A47]/90 leading-relaxed text-xs sm:text-sm mb-3">
-                    At Ali Hajveri International, There Is A Simple Philosophy At
-                    Work; That Clients' Growth And Success Is Ultimately Our Growth
-                    And Success. So We Are Always In Search Of Opportunities That
-                    Will Make Our Valuable Clients Succeed.
-                  </p>
-                  <p className="text-[#0A3A47]/90 leading-relaxed text-xs sm:text-sm mb-3">
-                    We Will Be Very Happy To Respond To Any Query Regarding Any
-                    Information For Recruiting Workers From Pakistan. We Will
-                    Continue To Provide Competent Manpower To Our Valuable Employers
-                    To Their Entire Satisfaction. I Personally Assure You That Your
-                    Requirements Will Be Looked After In The Best Possible Manner.
-                  </p>
-                  <p className="text-[#0A3A47]/90 leading-relaxed text-xs sm:text-sm">
-                    I Am Also Grateful To All Mighty Allah And All My Team Members,
-                    Because Without Them This Feat Would Not Have Been Possible.
-                  </p>
-                </div>
-                <FaQuoteRight className="text-[#4FC3F7]/20 text-3xl sm:text-4xl absolute -bottom-2 -right-2" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+       <section className="section-tight relative bg-white overflow-hidden">
+         <div className="absolute top-0 right-0 w-56 h-56 bg-[#4FC3F7]/8 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
+         <div className="absolute bottom-0 left-0 w-72 h-72 bg-[#0F4C5C]/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3" />
+ 
+         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+           <div className="grid md:grid-cols-2 gap-6 sm:gap-8 items-stretch">
+             {/* ===== LICENSE CARD ===== */}
+             <div className="relative group reveal-up">
+               <div className="absolute inset-0 bg-gradient-to-br from-[#4FC3F7]/20 to-transparent rounded-2xl sm:rounded-3xl rotate-2 scale-[1.01] hidden sm:block" />
+               <div className="relative bg-gradient-to-br from-white via-[#E1F5FE] to-white rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-[0_12px_36px_rgba(15,76,92,0.08)] border border-[#4FC3F7]/20 hover:border-[#4FC3F7]/50 hover:shadow-[0_18px_44px_rgba(79,195,247,0.15)] transition-all duration-300 h-full flex flex-col overflow-hidden">
+                 <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F]" />
+ 
+                 <div className="absolute top-4 right-4 bg-white/95 backdrop-blur rounded-full px-3 py-1.5 shadow-[0_8px_20px_rgba(15,76,92,0.10)] border border-[#4FC3F7]/25 flex items-center gap-1.5 z-10">
+                   <FaCheckCircle className="text-[#22C55E] text-xs" />
+                   <span className="text-[#0F4C5C] text-[10px] sm:text-xs font-bold tracking-wide">
+                     Verified
+                   </span>
+                 </div>
+ 
+                 {/* License Image — flex-1 se expand hoga */}
+                 <div className="relative w-full flex-1 flex items-center justify-center py-0">
+                   <div className="absolute inset-0 bg-[#4FC3F7]/5 blur-2xl rounded-full" />
+                   <img
+                     src="/assets/license-1.png"
+                     alt="Overseas Employment License"
+                     className="relative w-[80%] max-h-[230px] sm:max-h-[310px] object-contain rounded-xl drop-shadow-[0_12px_28px_rgba(15,76,92,0.15)] group-hover:scale-[1.02] transition-transform duration-500"
+                     onError={(e) => {
+                       e.target.style.display = "none";
+                     }}
+                   />
+                 </div>
+ 
+                 {/* ===== LICENSE DETAILS ===== */}
+                 <div className="w-full pt-2">
+                   <div className="text-center mb-2">
+                     <p className="text-[10px] sm:text-xs font-bold text-[#0A3A47]/60 uppercase tracking-widest mb-1">
+                       License No.
+                     </p>
+                     <p className="text-[#29B6F6] font-extrabold text-sm sm:text-base tracking-wide">
+                       OP&HRD/5224/LHR/2026
+                     </p>
+                   </div>
+ 
+                   <div className="space-y-1 max-w-md mx-auto">
+                     <div className="flex items-center gap-2">
+                       <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#4FC3F7]" />
+                       <p className="text-[#0A3A47]/85 text-[11px] sm:text-xs font-semibold leading-snug">
+                         Bureau Of Immigration &amp; Overseas Employment (BEOE)
+                       </p>
+                     </div>
+ 
+                     <div className="flex items-center gap-2">
+                       <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#4FC3F7]" />
+                       <p className="text-[#0A3A47]/85 text-[11px] sm:text-xs font-semibold leading-snug">
+                         Ministry Of Overseas Pakistanis &amp; Human Resource Development
+                       </p>
+                     </div>
+ 
+                     <div className="flex items-center gap-2">
+                       <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#4FC3F7]" />
+                       <p className="text-[#0A3A47]/85 text-[11px] sm:text-xs font-semibold leading-snug">
+                         Government Of Pakistan
+                       </p>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+ 
+             {/* ===== CEO MESSAGE CARD ===== */}
+             <div className="relative bg-gradient-to-br from-white via-[#E1F5FE] to-white rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-[0_12px_36px_rgba(15,76,92,0.08)] border border-[#4FC3F7]/20 hover:border-[#4FC3F7]/40 hover:shadow-[0_18px_44px_rgba(79,195,247,0.12)] transition-all duration-300 flex flex-col overflow-hidden reveal-up">
+               <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F]" />
+ 
+               <div className="flex items-center gap-4 sm:gap-5 mb-4">
+                 <div className="relative flex-shrink-0">
+                   <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#4FC3F7] to-[#29B6F6] p-[3px]">
+                     <div className="w-full h-full rounded-full bg-white" />
+                   </div>
+                   <img
+                     src="/assets/ceo.jpeg"
+                     alt="CEO"
+                     className="relative w-14 sm:w-16 h-14 sm:h-16 rounded-full object-cover"
+                     onError={(e) => {
+                       e.target.style.display = "none";
+                     }}
+                   />
+                   <span className="absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-white flex items-center justify-center shadow-[0_4px_12px_rgba(15,76,92,0.15)]">
+                     <FaCheckCircle className="text-[#22C55E] text-xs" />
+                   </span>
+                 </div>
+                 <div>
+                   <h3 className="font-[Plus_Jakarta_Sans] text-lg font-extrabold text-[#0F4C5C]">
+                     Muhammad Ijaz
+                   </h3>
+                   <p className="text-[#29B6F6] text-xs sm:text-sm font-bold">
+                     Chief Executive Officer
+                   </p>
+                   <p className="text-[#0A3A47]/75 text-[10px] sm:text-xs">
+                     Ali Hajveri International Pvt Ltd
+                   </p>
+                 </div>
+               </div>
+ 
+               <div className="relative flex-1">
+                 <FaQuoteLeft className="text-[#4FC3F7]/20 text-3xl sm:text-4xl absolute -top-2 -left-2" />
+                 <div className="pl-6 sm:pl-8 pr-3 sm:pr-4">
+                   <p className="text-[#0A3A47] leading-relaxed text-xs sm:text-sm mb-3 italic font-medium">
+                     "I Would Like To Take This Opportunity To Extend My Good Wishes
+                     To Our Esteemed Employers And Job Seekers Who Have Helped Us To
+                     Become A Leading Man Power Recruitment Firm. It Has Become A
+                     Cherished Name Among Job Seekers As Well As Foreign Employers."
+                   </p>
+                   <p className="text-[#0A3A47]/90 leading-relaxed text-xs sm:text-sm mb-3">
+                     At Ali Hajveri International, There Is A Simple Philosophy At
+                     Work; That Clients' Growth And Success Is Ultimately Our Growth
+                     And Success. So We Are Always In Search Of Opportunities That
+                     Will Make Our Valuable Clients Succeed.
+                   </p>
+                   <p className="text-[#0A3A47]/90 leading-relaxed text-xs sm:text-sm mb-3">
+                     We Will Be Very Happy To Respond To Any Query Regarding Any
+                     Information For Recruiting Workers From Pakistan. We Will
+                     Continue To Provide Competent Manpower To Our Valuable Employers
+                     To Their Entire Satisfaction. I Personally Assure You That Your
+                     Requirements Will Be Looked After In The Best Possible Manner.
+                   </p>
+                   <p className="text-[#0A3A47]/90 leading-relaxed text-xs sm:text-sm">
+                     I Am Also Grateful To All Mighty Allah And All My Team Members,
+                     Because Without Them This Feat Would Not Have Been Possible.
+                   </p>
+                 </div>
+                 <FaQuoteRight className="text-[#4FC3F7]/20 text-3xl sm:text-4xl absolute -bottom-2 -right-2" />
+               </div>
+             </div>
+           </div>
+         </div>
+       </section>
 
       {/* ============ 10. GENERAL DIRECTOR MESSAGE ============ */}
-      <section className="section-tight relative bg-[#E1F5FE] overflow-hidden">
-        <div className="absolute top-0 right-0 w-56 h-56 bg-[#4FC3F7]/8 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
-        <div className="absolute bottom-0 left-0 w-72 h-72 bg-[#0F4C5C]/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3" />
+<section className="section-tight relative bg-[#E1F5FE] overflow-hidden">
+  <div className="absolute top-0 right-0 w-56 h-56 bg-[#4FC3F7]/8 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
+  <div className="absolute bottom-0 left-0 w-72 h-72 bg-[#0F4C5C]/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3" />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-6 items-start">
-            {/* Message */}
-            <div className="md:col-span-2 bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-7 relative overflow-hidden order-2 md:order-1 border border-[#4FC3F7]/20 shadow-[0_8px_28px_rgba(15,76,92,0.06)] reveal-up">
-              <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F]" />
-              <FaQuoteLeft className="text-[#4FC3F7]/20 text-4xl absolute top-4 left-4" />
-              <div className="relative pt-6">
-                <p className="text-[#29B6F6] text-xs sm:text-sm font-bold tracking-wide uppercase mb-2">
-                  A Few Words From General Director Muhammad Bilal
-                </p>
-                <h2 className="font-[Plus_Jakarta_Sans] text-lg sm:text-2xl font-extrabold text-[#0F4C5C] mb-3 leading-tight">
-                  Committed To{" "}
-                  <span className="bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent">
-                    Excellence
-                  </span>
-                </h2>
-                <p className="text-[#0A3A47] leading-relaxed text-xs sm:text-sm mb-3 italic font-medium">
-                  "Most Agencies Will Tell You What You Want To Hear, But We Are A
-                  Little Different. We Believe In{" "}
-                  <span className="text-[#29B6F6] font-extrabold not-italic">
-                    EXCELLENCE
-                  </span>
-                  ! We Are Doing Our Job With Professionalism And Dedication."
-                </p>
-                <p className="text-[#0A3A47]/90 leading-relaxed text-xs sm:text-sm">
-                  At Ali Hajveri International, We Have The Know-How And Expertise,
-                  The Right Tools And Proven Practices, And Access To A Huge Source
-                  Of Job Seekers To Make Sure That You Get The Right Candidate For
-                  Your Opening.
-                </p>
-              </div>
-              <FaQuoteRight className="text-[#4FC3F7]/20 text-4xl absolute bottom-4 right-4" />
-            </div>
-
-            {/* Photo - Muhammad Bilal */}
-            <div className="md:col-span-1 order-1 md:order-2 reveal-up group relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#4FC3F7]/20 to-transparent rounded-2xl sm:rounded-3xl -rotate-3 scale-[1.02] hidden sm:block" />
-              <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-[#4FC3F7]/20 shadow-[0_14px_40px_rgba(15,76,92,0.12)]">
-                <img
-                  src="/src/assets/licensed-img.png"
-                  alt="Muhammad Bilal - General Director"
-                  className="w-full h-[260px] sm:h-[320px] object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                  onError={(e) => {
-                    e.target.style.display = "none";
-                  }}
-                />
-                <span className="img-shine" />
-              </div>
-            </div>
-          </div>
+  <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="grid md:grid-cols-3 gap-6 items-stretch">
+      {/* LEFT — Text Card */}
+      <div className="md:col-span-2 bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-7 relative overflow-hidden order-2 md:order-1 border border-[#4FC3F7]/20 shadow-[0_8px_28px_rgba(15,76,92,0.06)] reveal-up flex flex-col">
+        <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F]" />
+        <FaQuoteLeft className="text-[#4FC3F7]/20 text-4xl absolute top-4 left-4" />
+        <div className="relative pt-6 flex-1">
+          <p className="text-[#29B6F6] text-xs sm:text-sm font-bold tracking-wide uppercase mb-2">
+            A Few Words From General Director Muhammad Bilal
+          </p>
+          <h2 className="font-[Plus_Jakarta_Sans] text-lg sm:text-2xl font-extrabold text-[#0F4C5C] mb-3 leading-tight">
+            Committed To{" "}
+            <span className="bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent">
+              Excellence
+            </span>
+          </h2>
+          <p className="text-[#0A3A47] leading-relaxed text-xs sm:text-sm mb-3 italic font-medium">
+            "Most Agencies Will Tell You What You Want To Hear, But We Are A
+            Little Different. We Believe In{" "}
+            <span className="text-[#29B6F6] font-extrabold not-italic">
+              EXCELLENCE
+            </span>
+            ! We Are Doing Our Job With Professionalism And Dedication."
+          </p>
+          <p className="text-[#0A3A47]/90 leading-relaxed text-xs sm:text-sm">
+            At Ali Hajveri International, We Have The Know-How And Expertise,
+            The Right Tools And Proven Practices, And Access To A Huge Source
+            Of Job Seekers To Make Sure That You Get The Right Candidate For
+            Your Opening.
+          </p>
         </div>
-      </section>
+        <FaQuoteRight className="text-[#4FC3F7]/20 text-4xl absolute bottom-4 right-4" />
+      </div>
+
+      {/* RIGHT — Image Card */}
+      <div className="md:col-span-1 order-1 md:order-2 reveal-up group relative">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#4FC3F7]/20 to-transparent rounded-2xl sm:rounded-3xl -rotate-3 scale-[1.02] hidden sm:block" />
+        <div className="relative h-full rounded-2xl sm:rounded-3xl overflow-hidden border border-[#4FC3F7]/20 shadow-[0_14px_40px_rgba(15,76,92,0.12)]">
+          <img
+            src="/assets/licensed-img.png"
+            alt="Muhammad Bilal - General Director"
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+            onError={(e) => {
+              e.target.style.display = "none";
+            }}
+          />
+          <span className="img-shine" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* ============ 11. WE DON'T JUST RECRUIT ============ */}
       <section className="section-tight relative bg-white overflow-hidden">
@@ -789,97 +847,35 @@ const About = () => {
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-        @keyframes marquee-left {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-        .animate-marquee-left {
-          animation: marquee-left 40s linear infinite;
-        }
+        @keyframes marquee-left { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .animate-marquee-left { animation: marquee-left 40s linear infinite; }
 
-        @keyframes ping-slow {
-          0%, 100% { transform: scale(1); opacity: 1; }
-          50% { transform: scale(1.6); opacity: 0.5; }
-        }
+        @keyframes ping-slow { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.6); opacity: 0.5; } }
         .animate-ping-slow { animation: ping-slow 2s ease-in-out infinite; }
 
-        @keyframes reveal-up {
-          from { opacity: 0; transform: translateY(24px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
-        .reveal-up {
-          animation: reveal-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
-        }
+        @keyframes reveal-up { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+        .reveal-up { animation: reveal-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
 
-        @keyframes shine {
-          0%   { transform: translateX(-120%) skewX(-20deg); }
-          100% { transform: translateX(220%)  skewX(-20deg); }
-        }
-        .btn-shine {
-          position: relative;
-          overflow: hidden;
-          isolation: isolate;
-        }
-        .btn-shine::after {
-          content: "";
-          position: absolute;
-          top: 0; left: 0;
-          width: 40%; height: 100%;
-          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
-          transform: translateX(-120%) skewX(-20deg);
-          pointer-events: none;
-          z-index: 1;
-        }
-        .btn-shine:hover::after {
-          animation: shine 0.9s ease-out;
-        }
+        @keyframes shine { 0% { transform: translateX(-120%) skewX(-20deg); } 100% { transform: translateX(220%) skewX(-20deg); } }
+        .btn-shine { position: relative; overflow: hidden; isolation: isolate; }
+        .btn-shine::after { content: ""; position: absolute; top: 0; left: 0; width: 40%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent); transform: translateX(-120%) skewX(-20deg); pointer-events: none; z-index: 1; }
+        .btn-shine:hover::after { animation: shine 0.9s ease-out; }
 
-        .img-shine {
-          position: absolute;
-          inset: 0;
-          overflow: hidden;
-          pointer-events: none;
-          z-index: 2;
-        }
-        .img-shine::after {
-          content: "";
-          position: absolute;
-          top: 0; left: 0;
-          width: 40%; height: 100%;
-          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.45), transparent);
-          transform: translateX(-120%) skewX(-20deg);
-        }
-        .group:hover .img-shine::after {
-          animation: shine 1s ease-out;
-        }
+        .img-shine { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 2; }
+        .img-shine::after { content: ""; position: absolute; top: 0; left: 0; width: 40%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.45), transparent); transform: translateX(-120%) skewX(-20deg); }
+        .group:hover .img-shine::after { animation: shine 1s ease-out; }
 
-        @keyframes icon-wiggle {
-          0%, 100% { transform: rotate(0deg); }
-          25%      { transform: rotate(-6deg); }
-          75%      { transform: rotate(6deg); }
-        }
-        .group:hover .icon-wiggle {
-          animation: icon-wiggle 0.5s ease-in-out;
-        }
+        @keyframes icon-wiggle { 0%, 100% { transform: rotate(0deg); } 25% { transform: rotate(-6deg); } 75% { transform: rotate(6deg); } }
+        .group:hover .icon-wiggle { animation: icon-wiggle 0.5s ease-in-out; }
 
-        @keyframes gold-pulse {
-          0%, 100% { box-shadow: 0 0 0 0   rgba(79,195,247,0.45); }
-          70%      { box-shadow: 0 0 0 10px rgba(79,195,247,0);    }
-        }
-        .animate-gold-pulse {
-          animation: gold-pulse 2s cubic-bezier(0.66, 0, 0, 1) infinite;
-        }
+        @keyframes gold-pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(79,195,247,0.45); } 70% { box-shadow: 0 0 0 10px rgba(79,195,247,0); } }
+        .animate-gold-pulse { animation: gold-pulse 2s cubic-bezier(0.66, 0, 0, 1) infinite; }
 
         @media (prefers-reduced-motion: reduce) {
           .animate-marquee-left, .animate-ping-slow, .reveal-up,
           .btn-shine::after, .img-shine::after, .icon-wiggle,
-          .animate-gold-pulse {
-            animation: none !important;
-          }
-          .reveal-up {
-            opacity: 1 !important;
-            transform: none !important;
-          }
+          .animate-gold-pulse { animation: none !important; }
+          .reveal-up { opacity: 1 !important; transform: none !important; }
         }
       `}</style>
     </div>

@@ -368,7 +368,7 @@ const WorkVisaProcess = () => {
       `}</style>
 
       {/* ============ HERO ============ */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-white via-[#E1F5FE] to-white pt-20 lg:pt-24 pb-8">
+      <section className="relative mt-[-50px] overflow-hidden bg-gradient-to-br from-white via-[#E1F5FE] to-white pt-20 lg:pt-24 pb-8">
         <div
           ref={heroRef}
           className="absolute inset-0 opacity-[0.04]"

@@ -273,109 +273,159 @@ const Careers = () => {
           from { transform: rotate(0deg); }
           to { transform: rotate(360deg); }
         }
+        @keyframes shine {
+          0% { transform: translateX(-120%) skewX(-20deg); }
+          100% { transform: translateX(220%) skewX(-20deg); }
+        }
         .animate-blob { animation: blob 9s ease-in-out infinite; }
         .animate-float { animation: float 4s ease-in-out infinite; }
         .animate-slideUp { animation: slideUp 0.5s ease-out forwards; }
         .animate-rotateSlow { animation: rotateSlow 30s linear infinite; }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .btn-shine { position: relative; overflow: hidden; isolation: isolate; }
+        .btn-shine::after { content: ""; position: absolute; top: 0; left: 0; width: 40%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent); transform: translateX(-120%) skewX(-20deg); pointer-events: none; z-index: 1; }
+        .btn-shine:hover::after { animation: shine 0.9s ease-out; }
+
+        .img-shine { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 2; }
+        .img-shine::after { content: ""; position: absolute; top: 0; left: 0; width: 40%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.45), transparent); transform: translateX(-120%) skewX(-20deg); }
+        .group:hover .img-shine::after { animation: shine 1s ease-out; }
       `}</style>
 
       {/* ============ HERO ============ */}
       <section
         ref={heroRef}
-        className="relative overflow-hidden bg-gradient-to-br from-[#0F4C5C] via-[#0A3A47] to-[#06303A]"
+        className="relative mt-[-4rem] pt-24 sm:pt-20 md:pt-24 lg:pt-28 pb-10 sm:pb-14 overflow-hidden bg-gradient-to-b from-white via-[#E1F5FE] to-white"
       >
-        <div className="relative w-full h-[400px] overflow-hidden">
-          <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: "url('/src/assets/find-jobs-2.png')" }}
-          />
+        {/* Glow orbs */}
+        <div className="absolute -top-32 -right-40 w-[280px] sm:w-[380px] md:w-[480px] h-[280px] sm:h-[380px] md:h-[480px] rounded-full bg-[#4FC3F7]/10 blur-3xl animate-pulse-slow" />
+        <div className="absolute top-40 -left-40 w-[220px] sm:w-[300px] md:w-[380px] h-[220px] sm:h-[300px] md:h-[380px] rounded-full bg-[#FFD54F]/10 blur-3xl" />
+        <div className="absolute bottom-0 left-1/3 w-[180px] sm:w-[220px] md:w-[260px] h-[180px] sm:h-[220px] md:h-[260px] rounded-full bg-[#4FC3F7]/8 blur-3xl" />
 
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0F4C5C]/10 via-[#0A3A47]/25 to-[#06303A]/30" />
-          <div className="absolute inset-0 bg-[#0F4C5C]/25" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 items-start">
 
-          <div
-            className="absolute inset-0 opacity-[0.05]"
-            style={{
-              backgroundImage:
-                "linear-gradient(#4FC3F7 1px, transparent 1px), linear-gradient(90deg, #4FC3F7 1px, transparent 1px)",
-              backgroundSize: "50px 50px",
-            }}
-          />
+            {/* LEFT: Content */}
+            <div className="text-center lg:text-left">
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 mb-3 bg-white/95 backdrop-blur-sm border border-[#4FC3F7]/40 rounded-full px-3 sm:px-4 py-1.5 shadow-[0_4px_14px_rgba(15,76,92,0.12)]">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 animate-ping" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-400" />
+                </span>
+                <span className="text-[#0F4C5C] text-xs sm:text-sm font-bold">
+                  {jobs.length} Live {jobs.length === 1 ? "Position" : "Positions"} · Updated Daily
+                </span>
+              </div>
 
-          <div
-            className="pointer-events-none absolute inset-0"
-            style={{
-              background: `radial-gradient(500px circle at ${mousePos.x}px ${mousePos.y}px, rgba(79,195,247,0.20), transparent 45%)`,
-            }}
-          />
+              {/* Heading */}
+              <h1 className="font-[Plus_Jakarta_Sans] text-[1.75rem] sm:text-3xl md:text-[2.25rem] lg:text-[2.5rem] xl:text-[2.75rem] font-extrabold text-[#0F4C5C] leading-[1.15] mb-3 lg:whitespace-nowrap">
+                Your Next{" "}
+                <span className="bg-gradient-to-r from-[#4FC3F7] via-[#FFD54F] to-[#29B6F6] bg-clip-text text-transparent bg-[length:200%_100%] animate-[gradientShift_4s_ease_infinite]">
+                  Chapter
+                </span>{" "}
+                Starts Here
+              </h1>
 
-          <div className="absolute -top-32 -right-40 w-[280px] h-[280px] rounded-full bg-[#4FC3F7]/15 blur-3xl" />
-          <div className="absolute bottom-0 -left-32 w-[260px] h-[260px] rounded-full bg-[#FFD54F]/10 blur-3xl" />
+              {/* Animated line */}
+              <div className="text-sm sm:text-base md:text-lg text-[#0F4C5C] mb-3 min-h-[24px] sm:h-7 font-bold">
+                Verified{" "}
+                <span className="bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent font-bold">
+                  Overseas Opportunities
+                </span>
+                <span className="text-[#0F4C5C] animate-pulse font-bold">|</span>
+              </div>
 
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
-            <div className="w-[400px] h-[400px] rounded-full border border-dashed border-[#4FC3F7]/10 animate-rotateSlow" />
-          </div>
+              {/* Subtext */}
+              <div className="flex justify-center lg:justify-start mb-5">
+                <div className="max-w-2xl">
+                  <p className="text-[#0A3A47] text-sm sm:text-base leading-relaxed font-medium">
+                    Explore Verified Overseas Opportunities From Trusted
+                    International Employers. Transparent Process. No Hidden Fees.
+                  </p>
+                </div>
+              </div>
 
-          {[...Array(10)].map((_, i) => (
-            <span
-              key={i}
-              className="absolute rounded-full animate-float"
-              style={{
-                width: "4px",
-                height: "4px",
-                left: `${5 + i * 10}%`,
-                top: `${20 + (i % 4) * 20}%`,
-                background:
-                  i % 3 === 0
-                    ? "#4FC3F7"
-                    : i % 3 === 1
-                    ? "#FFD54F"
-                    : "#29B6F6",
-                animationDelay: `${i * 0.3}s`,
-                opacity: 0.7,
-              }}
-            />
-          ))}
+              {/* CTAs */}
+              <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-6">
+                <Link
+                  to="/submit-cv"
+                  className="btn-shine group inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] text-[#0F4C5C] px-6 sm:px-8 py-3 rounded-full font-bold shadow-[0_12px_30px_rgba(79,195,247,0.4)] hover:shadow-[0_16px_38px_rgba(79,195,247,0.55)] hover:-translate-y-0.5 transition-all duration-300 text-sm sm:text-base"
+                >
+                  Submit Your CV
+                  <FaArrowRight className="text-sm group-hover:translate-x-1 transition-transform" />
+                </Link>
+                <Link
+                  to="/contact"
+                  className="btn-shine inline-flex items-center justify-center gap-2 bg-white border-2 border-[#0F4C5C]/30 text-[#0F4C5C] px-6 sm:px-8 py-3 rounded-full font-bold hover:border-[#4FC3F7] hover:bg-[#E1F5FE] transition-all duration-300 text-sm sm:text-base"
+                >
+                  Contact Us
+                </Link>
+              </div>
 
-          <div className="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-white to-transparent" />
-
-          <div className="relative z-10 h-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center">
-            <div className="inline-flex items-center gap-2 mb-4 bg-white/15 backdrop-blur-md border border-[#4FC3F7]/50 rounded-full px-3.5 py-1.5">
-              <span className="relative flex h-1.5 w-1.5">
-                <span className="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 animate-ping" />
-                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-400" />
-              </span>
-              <span className="text-white text-[10px] sm:text-xs font-bold tracking-wide uppercase">
-                {jobs.length} Live {jobs.length === 1 ? "Position" : "Positions"} · Updated Daily
-              </span>
+              {/* Stats row */}
+              <div className="flex flex-wrap justify-center lg:justify-start gap-5 sm:gap-8 md:gap-12">
+                {[
+                  { value: `${jobs.length}+`, label: "Live Jobs" },
+                  { value: "50+", label: "Countries" },
+                  { value: "100%", label: "Free To Apply" },
+                ].map((stat) => (
+                  <div key={stat.label} className="text-center lg:text-left">
+                    <p className="text-lg sm:text-xl md:text-2xl font-extrabold text-[#0F4C5C] tabular-nums">
+                      {stat.value}
+                    </p>
+                    <p className="text-[10px] sm:text-xs md:text-sm text-[#0F4C5C] font-bold tracking-wide uppercase mt-1">
+                      {stat.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-white leading-[1.05] tracking-tight mb-4 [text-shadow:_0_2px_12px_rgba(0,0,0,0.6)]">
-              Your Next{" "}
-              <span className="bg-gradient-to-r from-[#4FC3F7] via-[#FFD54F] to-[#29B6F6] bg-clip-text text-transparent bg-[length:200%_100%] animate-[gradientShift_4s_ease_infinite]">
-                Chapter
-              </span>{" "}
-              Starts Here
-            </h1>
+            {/* RIGHT: Image + floating badges */}
+            <div className="relative reveal-up group order-first lg:order-last lg:mt-12">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#4FC3F7]/20 to-transparent rounded-2xl sm:rounded-3xl rotate-3 scale-[1.02] hidden sm:block" />
 
-            <p
-              className="text-white/95 text-xs sm:text-sm max-w-lg mx-auto leading-relaxed font-medium"
-              style={{
-                textShadow:
-                  "0 1px 3px rgba(0,0,0,0.85), 0 2px 6px rgba(15,76,92,0.7)",
-              }}
-            >
-              Explore Verified Overseas Opportunities From Trusted
-              International Employers. Transparent Process. No Hidden Fees.
-            </p>
+              <div className="relative h-[240px] sm:h-[300px] lg:h-[380px] rounded-2xl sm:rounded-3xl overflow-hidden border border-[#4FC3F7]/20 shadow-[0_20px_50px_rgba(15,76,92,0.15)]">
+                <img
+                  src="/assets/find-jobs-2.png"
+                  alt="Find Overseas Jobs — Verified Opportunities"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  onError={(e) => {
+                    e.target.style.display = "none";
+                  }}
+                />
+                {/* ✅ Hover shine effect */}
+                <span className="img-shine" />
+              </div>
+
+              <div className="animate-gentle-float absolute -bottom-4 sm:-bottom-5 -left-4 sm:-left-5 bg-white rounded-2xl shadow-[0_16px_36px_rgba(15,76,92,0.12)] border border-[#4FC3F7]/25 px-4 py-3 max-w-[170px] hidden sm:block">
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="w-6 h-6 rounded-full bg-[#4FC3F7]/12 flex items-center justify-center">
+                    <FaCheckCircle className="text-[#22C55E] text-xs" />
+                  </span>
+                  <p className="text-[#0F4C5C] font-bold text-xs">Verified Jobs</p>
+                </div>
+                <p className="text-[#0A3A47] text-[10px] leading-relaxed">
+                  Only Trusted Employers
+                </p>
+              </div>
+
+              <div className="animate-gentle-float-slow absolute top-4 -right-3 sm:top-5 sm:-right-4 bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] text-[#0F4C5C] rounded-xl shadow-[0_12px_30px_rgba(79,195,247,0.35)] px-3.5 py-2.5 hidden md:block">
+                <p className="text-[10px] uppercase tracking-wider opacity-90 font-semibold">
+                  No Hidden
+                </p>
+                <p className="text-sm font-extrabold">Fees</p>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
 
       {/* ============ FILTER + JOB LIST ============ */}
-      <section className="relative bg-gradient-to-b from-white via-[#E1F5FE]/40 to-white py-10 sm:py-14 overflow-hidden">
+      <section className="relative mt-[-20px] bg-gradient-to-b from-white via-[#E1F5FE]/40 to-white py-10 sm:py-14 overflow-hidden">
         <div className="absolute top-20 right-0 w-72 h-72 rounded-full bg-[#4FC3F7]/10 blur-3xl -translate-y-1/2 translate-x-1/3" />
         <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-[#0F4C5C]/5 blur-3xl translate-y-1/2 -translate-x-1/3" />
 

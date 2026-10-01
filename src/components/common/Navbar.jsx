@@ -22,7 +22,6 @@ const MAIN_LINKS = [
     children: [
       { name: "Govt License", path: "/legal-status/govt-license" },
       { name: "ISO Certification", path: "/legal-status/iso-certification" },
-      // { name: "Certification", path: "/legal-status/certification" },
     ],
   },
   {
@@ -30,7 +29,7 @@ const MAIN_LINKS = [
     path: "/contact",
     children: [
       { name: "Our Team", path: "/our-team" },
-      { name: "Career", path: "/submit-cv" }, // 👈 Career now goes to Submit CV
+      { name: "Career", path: "/submit-cv" },
       { name: "FAQ", path: "/faq" },
     ],
   },
@@ -81,7 +80,7 @@ const Navbar = () => {
             onClick={closeMenu}
           >
             <img
-              src="/src/assets/logo-2.png"
+              src="/assets/logo-2.png"
               alt="AHIOEP Logo"
               className="h-14 sm:h-12 lg:h-14 w-auto object-contain bg-transparent transition-transform duration-300 group-hover:scale-105"
             />

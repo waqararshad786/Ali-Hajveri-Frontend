@@ -75,6 +75,8 @@ const LegalStatus = () => {
   return (
     <>
       <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
         @keyframes fadeIn {
           from { opacity: 0; transform: translateY(20px); }
           to { opacity: 1; transform: translateY(0); }
@@ -190,12 +192,12 @@ const LegalStatus = () => {
                     <span className="absolute inline-flex h-full w-full rounded-full bg-[#4FC3F7] opacity-75 animate-ping" />
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-[#4FC3F7]" />
                   </span>
-                  <span className="text-white text-[11px] sm:text-xs font-bold tracking-wide uppercase">
+                  <span className="text-white text-xs sm:text-sm font-bold tracking-wide uppercase">
                     Government Verified · Fully Licensed
                   </span>
                 </div>
 
-                <h1 className="font-[Plus_Jakarta_Sans] text-4xl sm:text-5xl md:text-6xl font-black text-white leading-[1.05] tracking-tight mb-4 [text-shadow:_0_2px_15px_rgba(0,0,0,0.5)]">
+                <h1 className="font-[Plus_Jakarta_Sans] text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-[1.15] tracking-tight mb-4 [text-shadow:_0_2px_15px_rgba(0,0,0,0.5)]">
                   Legal{" "}
                   <span className="bg-gradient-to-r from-[#4FC3F7] via-[#FFD54F] to-[#4FC3F7] bg-clip-text text-transparent bg-[length:200%_100%] animate-[gradientShift_4s_ease_infinite]">
                     Status
@@ -216,7 +218,7 @@ const LegalStatus = () => {
                 <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
                   <a
                     href="#legal-section"
-                    className="group relative inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#4FC3F7] via-[#29B6F6] to-[#4FC3F7] bg-[length:200%_100%] text-[#0F4C5C] px-6 py-3 rounded-full font-bold shadow-[0_12px_30px_rgba(79,195,247,0.4)] hover:shadow-[0_18px_42px_rgba(255,213,79,0.5)] hover:-translate-y-0.5 transition-all duration-300 text-sm overflow-hidden"
+                    className="group relative inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#4FC3F7] via-[#29B6F6] to-[#4FC3F7] bg-[length:200%_100%] text-[#0F4C5C] px-6 py-3 rounded-full font-bold shadow-[0_12px_30px_rgba(79,195,247,0.4)] hover:shadow-[0_18px_42px_rgba(255,213,79,0.5)] hover:-translate-y-0.5 transition-all duration-300 text-sm sm:text-base overflow-hidden"
                     style={{ animation: "gradientShift 4s ease infinite" }}
                   >
                     <span className="shine-btn" />
@@ -225,7 +227,7 @@ const LegalStatus = () => {
                   </a>
                   <Link
                     to="/contact"
-                    className="inline-flex items-center justify-center gap-2 border-2 border-white/40 text-white px-6 py-3 rounded-full font-bold hover:bg-white hover:text-[#0F4C5C] hover:border-white transition-all duration-300 text-sm backdrop-blur-md"
+                    className="inline-flex items-center justify-center gap-2 border-2 border-white/40 text-white px-6 py-3 rounded-full font-bold hover:bg-white hover:text-[#0F4C5C] hover:border-white transition-all duration-300 text-sm sm:text-base backdrop-blur-md"
                   >
                     <FaHandshake className="text-sm" />
                     Verify With Us
@@ -284,10 +286,10 @@ const LegalStatus = () => {
                         <FaShieldAlt className="text-white text-[10px]" />
                       </span>
                       <div className="leading-tight">
-                        <p className="text-[7px] font-bold text-[#0A3A47]/50 uppercase tracking-wider">
+                        <p className="text-[7px] sm:text-[8px] font-bold text-[#0A3A47]/50 uppercase tracking-wider">
                           Status
                         </p>
-                        <p className="text-[10px] font-black text-[#0F4C5C]">
+                        <p className="text-[10px] sm:text-xs font-black text-[#0F4C5C]">
                           100% Verified
                         </p>
                       </div>
@@ -298,10 +300,10 @@ const LegalStatus = () => {
                         <FaCertificate className="text-white text-[10px]" />
                       </span>
                       <div className="leading-tight">
-                        <p className="text-[7px] font-bold text-[#0A3A47]/50 uppercase tracking-wider">
+                        <p className="text-[7px] sm:text-[8px] font-bold text-[#0A3A47]/50 uppercase tracking-wider">
                           Certifications
                         </p>
-                        <p className="text-[10px] font-black text-[#0F4C5C]">
+                        <p className="text-[10px] sm:text-xs font-black text-[#0F4C5C]">
                           04 Active
                         </p>
                       </div>
@@ -324,7 +326,7 @@ const LegalStatus = () => {
       {/* ============ SECTION 2 — Cards Grid ============ */}
       <section
         id="legal-section"
-        className="relative py-14 sm:py-16 bg-gradient-to-b from-white via-[#E1F5FE]/60 to-white overflow-hidden"
+        className="relative py-8 sm:py-10 bg-gradient-to-b from-white via-[#E1F5FE]/60 to-white overflow-hidden"
       >
         <div
           className="absolute inset-0 opacity-[0.03] pointer-events-none"
@@ -340,21 +342,21 @@ const LegalStatus = () => {
 
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Heading */}
-          <div className="text-center mb-10">
+          <div className="text-center mb-7 sm:mb-9">
             <div className="inline-flex items-center gap-2 mb-3 bg-white border border-[#4FC3F7]/30 rounded-full px-3.5 py-1.5 shadow-[0_4px_14px_rgba(79,195,247,0.1)]">
-              <FaShieldAlt className="text-[#29B6F6] text-[10px]" />
-              <span className="text-[10px] font-extrabold tracking-widest uppercase bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent">
+              <FaShieldAlt className="text-[#29B6F6] text-xs" />
+              <span className="text-xs sm:text-sm font-extrabold tracking-widest uppercase bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent">
                 Our Credentials
               </span>
             </div>
-            <h2 className="font-[Plus_Jakarta_Sans] text-2xl sm:text-3xl md:text-4xl font-black text-[#0F4C5C] leading-tight tracking-tight mb-3">
+            <h2 className="font-[Plus_Jakarta_Sans] text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0F4C5C] leading-tight tracking-tight mb-3">
               Registered.{" "}
               <span className="bg-gradient-to-r from-[#4FC3F7] via-[#FFD54F] to-[#29B6F6] bg-clip-text text-transparent bg-[length:200%_100%] animate-[gradientShift_4s_ease_infinite]">
                 Licensed.
               </span>{" "}
               Accountable.
             </h2>
-            <p className="text-sm text-[#0A3A47]/70 max-w-xl mx-auto leading-relaxed">
+            <p className="text-sm sm:text-base text-[#0A3A47]/70 max-w-xl mx-auto leading-relaxed font-medium">
               Government registrations and international certifications that
               authorize our operations in Pakistan and abroad.
             </p>
@@ -383,10 +385,10 @@ const LegalStatus = () => {
 
                   {/* Code badge */}
                   <div className="flex items-center gap-1.5 mb-2">
-                    <span className="text-[9px] font-extrabold uppercase tracking-widest bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent">
+                    <span className="text-[10px] sm:text-xs font-extrabold uppercase tracking-widest bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent">
                       {item.code}
                     </span>
-                    <FaCheckCircle className="text-green-500 text-[9px]" />
+                    <FaCheckCircle className="text-green-500 text-[9px] sm:text-[10px]" />
                   </div>
 
                   {/* Title */}
@@ -395,14 +397,14 @@ const LegalStatus = () => {
                   </h3>
 
                   {/* Subtitle */}
-                  <p className="text-[10px] text-[#0A3A47]/60 font-semibold leading-snug mb-4">
+                  <p className="text-xs sm:text-sm text-[#0A3A47]/60 font-semibold leading-snug mb-4">
                     {item.subtitle}
                   </p>
 
                   {/* Arrow */}
-                  <div className="flex items-center gap-1.5 text-[10px] font-bold text-[#29B6F6] opacity-70 group-hover:opacity-100 transition-all">
+                  <div className="flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#29B6F6] opacity-70 group-hover:opacity-100 transition-all">
                     <span>View Details</span>
-                    <FaArrowRight className="text-[8px] group-hover:translate-x-1 transition-transform" />
+                    <FaArrowRight className="text-[8px] sm:text-[9px] group-hover:translate-x-1 transition-transform" />
                   </div>
                 </Link>
               );
@@ -410,15 +412,15 @@ const LegalStatus = () => {
           </div>
 
           {/* Bottom CTA */}
-          <div className="mt-10 text-center">
+          <div className="mt-7 sm:mt-9 text-center">
             <Link
               to="/contact"
-              className="group relative inline-flex items-center gap-2 bg-gradient-to-r from-[#4FC3F7] via-[#29B6F6] to-[#4FC3F7] bg-[length:200%_100%] text-[#0F4C5C] px-7 py-3 rounded-full font-bold text-sm shadow-[0_12px_25px_rgba(79,195,247,0.35)] hover:shadow-[0_16px_35px_rgba(255,213,79,0.5)] hover:-translate-y-0.5 transition-all duration-300 overflow-hidden"
+              className="group relative inline-flex items-center gap-2 bg-gradient-to-r from-[#4FC3F7] via-[#29B6F6] to-[#4FC3F7] bg-[length:200%_100%] text-[#0F4C5C] px-7 py-3 rounded-full font-bold text-sm sm:text-base shadow-[0_12px_25px_rgba(79,195,247,0.35)] hover:shadow-[0_16px_35px_rgba(255,213,79,0.5)] hover:-translate-y-0.5 transition-all duration-300 overflow-hidden"
               style={{ animation: "gradientShift 4s ease infinite" }}
             >
               <span className="shine-btn" />
               <span className="relative">Verify With Our Team</span>
-              <FaExternalLinkAlt className="relative text-[10px]" />
+              <FaExternalLinkAlt className="relative text-[10px] sm:text-xs" />
             </Link>
           </div>
         </div>
