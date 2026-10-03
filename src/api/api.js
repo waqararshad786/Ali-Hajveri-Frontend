@@ -202,11 +202,11 @@ export const applicationsApi = {
   delete: (id) =>
     request(API_ENDPOINTS.APPLICATIONS.DELETE(id), { method: "DELETE" }),
 
-  /* ✅ Reply To Applicant */
-  reply: (id, replyMessage) =>
+  /* ✅ Reply To Applicant — `data` object bhejo */
+  reply: (id, data) =>
     request(API_ENDPOINTS.APPLICATIONS.REPLY(id), {
       method: "POST",
-      body: JSON.stringify({ replyMessage }),
+      body: JSON.stringify(data),
     }),
 };
 
@@ -228,11 +228,11 @@ export const contactApi = {
   delete: (id) =>
     request(API_ENDPOINTS.CONTACT.DELETE(id), { method: "DELETE" }),
 
-  /* ✅ Reply To Contact */
-  reply: (id, replyMessage) =>
+  /* ✅ Reply To Contact — `data` object bhejo */
+  reply: (id, data) =>
     request(API_ENDPOINTS.CONTACT.REPLY(id), {
       method: "POST",
-      body: JSON.stringify({ replyMessage }),
+      body: JSON.stringify(data),
     }),
 };
 
@@ -253,10 +253,10 @@ export const cvApi = {
     }),
   delete: (id) => request(API_ENDPOINTS.CV.DELETE(id), { method: "DELETE" }),
 
-  /* ✅ Reply To CV Applicant */
-  reply: (id, replyMessage) =>
+  /* ✅ Reply To CV Applicant — `data` object bhejo */
+  reply: (id, data) =>
     request(API_ENDPOINTS.CV.REPLY(id), {
       method: "POST",
-      body: JSON.stringify({ replyMessage }),
+      body: JSON.stringify(data),
     }),
 };

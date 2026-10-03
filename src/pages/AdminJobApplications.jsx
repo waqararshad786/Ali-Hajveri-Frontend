@@ -6,7 +6,7 @@ import {
   FaExclamationTriangle, FaEye, FaEnvelopeOpen, FaReply,
   FaGraduationCap, FaPassport, FaGlobe, FaWhatsapp, FaFileAlt,
   FaDatabase, FaDownload, FaExternalLinkAlt,
-  FaFilePdf, FaFileWord, FaUserCheck,
+  FaFilePdf, FaFileWord, FaUserCheck, FaPaperPlane, FaSpinner,
 } from "react-icons/fa";
 import { applicationsApi, API_URL } from "../api/api";
 
@@ -22,7 +22,7 @@ const STATUS_COLORS = {
 };
 
 /* ============================================================
-   ✅ APPLICATION FILE URL HELPER
+   APPLICATION FILE URL HELPER
 ============================================================ */
 const getAppFileUrl = (app, download = false) => {
   if (!app || !app._id) return "";
@@ -71,35 +71,6 @@ const getFileType = (app) => {
 };
 
 /* ============================================================
-   ✅ MAILTO REPLY LINK BUILDER
-   — Ye Default Email App Kholta Hai
-============================================================ */
-const buildReplyMailto = (app) => {
-  if (!app || !app.email) return "#";
-
-  const position = app.jobTitle || app.position || "the position";
-  const subject = `Re: Your Application For ${position} — Ali Hajveri International`;
-
-  const body = `Dear ${app.fullName},
-
-Thank You For Your Application For The Position Of "${position}".
-
-We Have Received Your Application And Our Team Is Currently Reviewing Your Profile. We Will Get Back To You Shortly Regarding The Next Steps.
-
-If We Need Any Additional Information Or Would Like To Schedule An Interview, We Will Contact You Directly.
-
-Best Regards,
-Ali Hajveri International (Pvt.) Ltd.
-Overseas Employment Promoter
-License # OP&HRD/5224/LHR/2026
-Website: www.alihajveri.com`;
-
-  return `mailto:${app.email}?subject=${encodeURIComponent(
-    subject
-  )}&body=${encodeURIComponent(body)}`;
-};
-
-/* ============================================================
    INFO TILE HELPER
 ============================================================ */
 const InfoTile = ({ icon: Icon, label, value, link }) => (
@@ -139,6 +110,11 @@ const AdminJobApplications = () => {
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("all");
   const [selected, setSelected] = useState(null);
+
+  /* ✅ Reply Modal State */
+  const [replyModal, setReplyModal] = useState(null);
+  const [replyText, setReplyText] = useState("");
+  const [sendingReply, setSendingReply] = useState(false);
 
   useEffect(() => {
     fetchApps();
@@ -185,6 +161,46 @@ const AdminJobApplications = () => {
       fetchApps();
     } catch (error) {
       showToast(error.message || "Failed To Delete", "error");
+    }
+  };
+
+  /* ✅ OPEN REPLY MODAL */
+  const openReplyModal = (app) => {
+    setReplyModal(app);
+    setReplyText("");
+  };
+
+  /* ✅ SEND REPLY VIA BACKEND */
+  const handleSendReply = async () => {
+    if (!replyText.trim()) {
+      showToast("Reply message is required", "error");
+      return;
+    }
+
+    setSendingReply(true);
+    try {
+      const result = await applicationsApi.reply(replyModal._id, {
+        replyMessage: replyText.trim(),
+      });
+
+      if (result.success) {
+        showToast(
+          result.emailSent
+            ? "✅ Reply Sent Via Email"
+            : "Reply saved (email failed)",
+          result.emailSent ? "success" : "error"
+        );
+        setReplyModal(null);
+        setReplyText("");
+        setSelected(null);
+        fetchApps();
+      } else {
+        showToast(result.message || "Failed to send reply", "error");
+      }
+    } catch (error) {
+      showToast(error.message || "Failed to send reply", "error");
+    } finally {
+      setSendingReply(false);
     }
   };
 
@@ -258,7 +274,6 @@ const AdminJobApplications = () => {
           </button>
         </div>
 
-        {/* Search + Filters */}
         <div className="flex flex-wrap items-center gap-3 mt-4">
           <div className="relative flex-1 max-w-md">
             <FaSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-[#29B6F6] text-xs" />
@@ -311,6 +326,106 @@ const AdminJobApplications = () => {
             <FaCheckCircle className="text-sm" />
           )}
           <span className="text-xs sm:text-sm font-bold">{toast.message}</span>
+        </div>
+      )}
+
+      {/* ============ REPLY MODAL ============ */}
+      {replyModal && (
+        <div className="fixed inset-0 z-[80] flex items-center justify-center overflow-y-auto bg-[#0F4C5C]/60 backdrop-blur-sm p-4">
+          <div className="relative w-full max-w-2xl bg-white rounded-2xl shadow-2xl border border-[#4FC3F7]/30 my-8 overflow-hidden animate-slideUp">
+            <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#4FC3F7] via-[#FFD54F] to-[#4FC3F7]" />
+
+            <div className="flex items-center justify-between p-5 border-b border-[#4FC3F7]/20">
+              <div className="flex items-center gap-3">
+                <span className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#4FC3F7] to-[#29B6F6] flex items-center justify-center shadow-[0_8px_20px_rgba(79,195,247,0.4)]">
+                  <FaReply className="text-white text-base" />
+                </span>
+                <div>
+                  <h3 className="font-extrabold text-[#0F4C5C] text-base">
+                    Reply To {replyModal.fullName}
+                  </h3>
+                  <p className="text-[10px] text-[#0A3A47]/60 font-semibold">
+                    {replyModal.email}
+                  </p>
+                </div>
+              </div>
+              <button
+                onClick={() => setReplyModal(null)}
+                disabled={sendingReply}
+                className="w-9 h-9 rounded-full bg-[#E1F5FE] flex items-center justify-center text-[#0F4C5C] hover:bg-[#4FC3F7]/20 transition-colors disabled:opacity-50"
+              >
+                <FaTimes className="text-sm" />
+              </button>
+            </div>
+
+            <div className="p-5 space-y-4 max-h-[70vh] overflow-y-auto">
+              <div className="bg-[#E1F5FE]/50 border border-[#4FC3F7]/20 rounded-xl p-3">
+                <p className="text-[9px] font-bold text-[#0A3A47]/60 uppercase tracking-wider mb-1">
+                  Position Applied For
+                </p>
+                <p className="text-sm font-bold text-[#0F4C5C]">
+                  {replyModal.jobTitle || replyModal.position}
+                </p>
+              </div>
+
+              {replyModal.message && (
+                <div>
+                  <p className="text-[10px] font-bold text-[#0A3A47]/60 uppercase tracking-wider mb-2">
+                    Candidate's Message
+                  </p>
+                  <p className="text-xs text-[#0A3A47]/70 leading-relaxed whitespace-pre-wrap bg-[#F8FAFC] border border-[#4FC3F7]/15 rounded-xl p-3 max-h-32 overflow-y-auto">
+                    {replyModal.message}
+                  </p>
+                </div>
+              )}
+
+              <div>
+                <label className="text-[10px] font-bold text-[#0A3A47]/60 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                  <FaPaperPlane className="text-[#29B6F6]" />
+                  Your Reply
+                </label>
+                <textarea
+                  value={replyText}
+                  onChange={(e) => setReplyText(e.target.value)}
+                  placeholder="Type your reply here... (This will be sent to the candidate via email)"
+                  rows={6}
+                  className="w-full bg-[#F8FAFC] border-2 border-[#4FC3F7]/20 focus:border-[#4FC3F7] focus:ring-2 focus:ring-[#4FC3F7]/20 rounded-xl p-3 text-sm text-[#0F4C5C] placeholder-[#0A3A47]/40 font-medium outline-none transition-all resize-none"
+                />
+              </div>
+
+              <div className="flex items-center justify-between pt-3 border-t border-[#4FC3F7]/20">
+                <p className="text-[10px] text-[#0A3A47]/50 italic">
+                  📧 Reply will be sent via email
+                </p>
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => setReplyModal(null)}
+                    disabled={sendingReply}
+                    className="px-4 py-2 rounded-full text-xs font-bold text-[#0A3A47]/70 border border-[#4FC3F7]/25 hover:border-[#4FC3F7]/60 transition-all disabled:opacity-50"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    onClick={handleSendReply}
+                    disabled={sendingReply || !replyText.trim()}
+                    className="inline-flex items-center gap-1.5 px-5 py-2 rounded-full text-xs font-bold text-white bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] shadow-[0_8px_20px_rgba(79,195,247,0.35)] hover:-translate-y-0.5 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {sendingReply ? (
+                      <>
+                        <FaSpinner className="animate-spin text-[10px]" />
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        <FaPaperPlane className="text-[10px]" />
+                        Send Reply
+                      </>
+                    )}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       )}
 
@@ -607,14 +722,17 @@ const AdminJobApplications = () => {
 
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-2 pt-3 border-t border-[#4FC3F7]/20">
-                {/* ✅ REPLY VIA EMAIL (mailto:) */}
-                <a
-                  href={buildReplyMailto(selected)}
+                {/* ✅ REPLY — Opens modal (backend email) */}
+                <button
+                  onClick={() => {
+                    setSelected(null);
+                    openReplyModal(selected);
+                  }}
                   className="inline-flex items-center gap-1.5 text-xs font-bold text-white bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] px-4 py-2 rounded-full shadow-[0_8px_20px_rgba(79,195,247,0.35)] hover:-translate-y-0.5 transition-all"
                 >
                   <FaReply className="text-[10px]" />
                   Reply Via Email
-                </a>
+                </button>
 
                 {selected.whatsapp && (
                   <a
@@ -842,14 +960,14 @@ const AdminJobApplications = () => {
                     View Details
                   </button>
 
-                  {/* ✅ REPLY (mailto:) */}
-                  <a
-                    href={buildReplyMailto(app)}
+                  {/* ✅ REPLY — opens modal */}
+                  <button
+                    onClick={() => openReplyModal(app)}
                     className="inline-flex items-center gap-1.5 text-[11px] font-bold text-white bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] px-3 py-1.5 rounded-full shadow-[0_6px_16px_rgba(79,195,247,0.3)] hover:-translate-y-0.5 transition-all"
                   >
                     <FaReply className="text-[9px]" />
                     Reply
-                  </a>
+                  </button>
 
                   {status === "pending" && (
                     <button
