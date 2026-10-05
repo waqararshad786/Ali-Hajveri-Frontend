@@ -29,7 +29,7 @@ import {
 import { COMPANY_INFO } from "../utilis/constants";
 
 /* ============================================================
-   DATA
+   DATA — colours folded into brand palette (10 text colours total)
 ============================================================ */
 const HERO_ROLES = [
   "Skilled Tradespeople",
@@ -46,15 +46,15 @@ const CLIENT_LOGOS = Array.from({ length: 15 }, (_, i) => ({
 
 const STATS = [
   { icon: FaGlobe, value: "25+", label: "Countries Served", desc: "Middle East, Asia & Beyond", color: "text-[#22C55E]" },
-  { icon: FaIndustry, value: "120+", label: "Companies Served", desc: "Across Multiple Industries", color: "text-[#F59E0B]" },
-  { icon: FaThumbsUp, value: "98%", label: "Satisfaction Rate", desc: "From Employers & Candidates", color: "text-[#8B5CF6]" },
-  { icon: FaUsers, value: "5,000+", label: "Workers Deployed", desc: "Skilled, Semi & General", color: "text-[#29B6F6]" },
+  { icon: FaIndustry, value: "120+", label: "Companies Served", desc: "Across Multiple Industries", color: "text-[#FFB300]" },
+  { icon: FaThumbsUp, value: "98%", label: "Satisfaction Rate", desc: "From Employers & Candidates", color: "text-[#29B6F6]" },
+  { icon: FaUsers, value: "5,000+", label: "Workers Deployed", desc: "Skilled, Semi & General", color: "text-[#4FC3F7]" },
 ];
 
 const CERTIFICATIONS = [
   { icon: FaAward, title: "Govt. Licensed Recruiter", desc: "Recognized Overseas Employment Promoter — Government Of Pakistan.", badge: "License #" + (COMPANY_INFO?.license || "XXXX"), color: "text-[#FFB300]" },
   { icon: FaCertificate, title: "ISO Certified Process", desc: "Structured Recruitment Workflow Aligned With International Standards.", badge: "ISO 9001", color: "text-[#22C55E]" },
-  { icon: FaShieldAlt, title: "Compliance Verified", desc: "Every Deployment Follows Legal Documentation & Verification Stages.", badge: "Verified", color: "text-[#6366F1]" },
+  { icon: FaShieldAlt, title: "Compliance Verified", desc: "Every Deployment Follows Legal Documentation & Verification Stages.", badge: "Verified", color: "text-[#29B6F6]" },
 ];
 
 const PROCESS_STEPS = [
@@ -69,19 +69,19 @@ const PROCESS_STEPS = [
 const SERVICES = [
   { icon: FaUserCheck, title: "Manpower Sourcing", desc: "Suitable Pakistani Candidates Matched To Each Employer's Requirement.", color: "text-[#4FC3F7]" },
   { icon: FaClipboardCheck, title: "Candidate Screening", desc: "Reviewed Against Qualifications, Experience And Skill Level.", color: "text-[#22C55E]" },
-  { icon: FaTools, title: "Trade & Skill Testing", desc: "Practical Testing Arranged For Technical And Skilled Trades.", color: "text-[#F59E0B]" },
-  { icon: FaComments, title: "Employer Interviews", desc: "Direct Coordination Between Employers And Candidates.", color: "text-[#8B5CF6]" },
-  { icon: FaFileSignature, title: "Documentation Support", desc: "Step-By-Step Guidance Through Required Paperwork.", color: "text-[#EC4899]" },
-  { icon: FaPlaneDeparture, title: "Deployment Support", desc: "Involvement From Confirmation Through Overseas Mobilization.", color: "text-[#06B6D4]" },
+  { icon: FaTools, title: "Trade & Skill Testing", desc: "Practical Testing Arranged For Technical And Skilled Trades.", color: "text-[#FFB300]" },
+  { icon: FaComments, title: "Employer Interviews", desc: "Direct Coordination Between Employers And Candidates.", color: "text-[#29B6F6]" },
+  { icon: FaFileSignature, title: "Documentation Support", desc: "Step-By-Step Guidance Through Required Paperwork.", color: "text-[#4FC3F7]" },
+  { icon: FaPlaneDeparture, title: "Deployment Support", desc: "Involvement From Confirmation Through Overseas Mobilization.", color: "text-[#29B6F6]" },
 ];
 
 const WHY_ITEMS = [
   { icon: FaGlobeAsia, title: "Sourced Only From Pakistan", desc: "One Talent Pool, Deeply Understood.", color: "text-[#4FC3F7]" },
   { icon: FaClipboardCheck, title: "A Process, Not A Favor", desc: "Same Staged Route From Requirement To Deployment.", color: "text-[#22C55E]" },
   { icon: FaShieldAlt, title: "Screened Against Your Brief", desc: "Measured Against What The Employer Actually Asked For.", color: "text-[#FFB300]" },
-  { icon: FaHardHat, title: "Every Skill Tier Covered", desc: "Skilled, Semi-Skilled, Technical, General & Professional.", color: "text-[#F97316]" },
-  { icon: FaComments, title: "Nobody Left Waiting", desc: "Both Sides Hear From Us At Every Stage.", color: "text-[#A78BFA]" },
-  { icon: FaHandshake, title: "Present Through Mobilization", desc: "Involvement Doesn't Stop At Selection.", color: "text-[#14B8A6]" },
+  { icon: FaHardHat, title: "Every Skill Tier Covered", desc: "Skilled, Semi-Skilled, Technical, General & Professional.", color: "text-[#FFB300]" },
+  { icon: FaComments, title: "Nobody Left Waiting", desc: "Both Sides Hear From Us At Every Stage.", color: "text-[#29B6F6]" },
+  { icon: FaHandshake, title: "Present Through Mobilization", desc: "Involvement Doesn't Stop At Selection.", color: "text-[#22C55E]" },
 ];
 
 /* ============================================================
@@ -153,7 +153,6 @@ const Home = () => {
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [roleIndex, setRoleIndex] = useState(0);
-  const [isProcessExpanded, setIsProcessExpanded] = useState(false);
 
   useEffect(() => {
     const current = HERO_ROLES[roleIndex];
@@ -198,15 +197,21 @@ const Home = () => {
                 </span>
               </h1>
 
-              <div className="text-base sm:text-lg md:text-xl text-[#0F4C5C] mb-4 min-h-[28px] sm:h-8 font-bold">
-                Placing <span className="bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent font-bold">{displayText}</span>
-                <span className="text-[#0F4C5C] animate-pulse font-bold">|</span>
+              {/* Typewriter line — no cursor pipe, aria-live for AT announcement */}
+              <div className="text-sm sm:text-base md:text-lg text-[#0A3A47] mb-4 min-h-[24px] sm:h-7 font-semibold">
+                Placing{" "}
+                <span
+                  className="text-[#29B6F6] font-semibold"
+                  aria-live="polite"
+                >
+                  {displayText}
+                </span>
               </div>
 
               <div className="flex justify-center lg:justify-start mb-6 sm:mb-8">
                 <div className="max-w-2xl">
                   <p className="text-[#0A3A47] text-sm sm:text-base md:text-lg leading-relaxed font-medium">
-                    We Connect International Employers With Skilled, Semi-Skilled, Professional And General Manpower From Pakistan Through A Structured, Professionally Managed Recruitment Process.
+                    We connect international employers with skilled, semi-skilled, professional and general manpower from Pakistan through a structured, professionally managed recruitment process.
                   </p>
                 </div>
               </div>
@@ -236,7 +241,7 @@ const Home = () => {
                     <p className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[#0F4C5C] tabular-nums">
                       {stat.value}
                     </p>
-                    <p className="text-[10px] sm:text-xs md:text-sm text-[#0F4C5C] font-bold tracking-wide uppercase mt-1">
+                    <p className="text-xs sm:text-sm text-[#0F4C5C] font-bold mt-1">
                       {stat.label}
                     </p>
                   </div>
@@ -245,9 +250,9 @@ const Home = () => {
             </div>
 
             <div className="relative reveal-up group order-first lg:order-last">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#4FC3F7]/20 to-transparent rounded-2xl sm:rounded-3xl rotate-3 scale-[1.02] hidden sm:block" />
+              <div className="absolute inset-0 bg-gradient-to-br from-[#4FC3F7]/20 to-transparent rounded-3xl rotate-3 scale-[1.02] hidden sm:block" />
 
-              <div className="relative h-[280px] sm:h-[340px] lg:h-[440px] rounded-2xl sm:rounded-3xl overflow-hidden border border-[#4FC3F7]/20 shadow-[0_20px_50px_rgba(15,76,92,0.15)]">
+              <div className="relative h-[280px] sm:h-[340px] lg:h-[440px] rounded-3xl overflow-hidden border border-[#4FC3F7]/20 shadow-[0_20px_50px_rgba(15,76,92,0.15)]">
                 <img
                   src="/assets/hero-4-image.png"
                   alt="Pakistani Workforce Ready For Overseas Deployment"
@@ -257,20 +262,20 @@ const Home = () => {
                 <span className="img-shine" />
               </div>
 
-              <div className="animate-gentle-float absolute -bottom-4 sm:-bottom-5 -left-4 sm:-left-5 bg-white rounded-2xl shadow-[0_16px_36px_rgba(15,76,92,0.12)] border border-[#4FC3F7]/25 px-4 py-3 max-w-[170px] hidden sm:block">
+              <div className="animate-gentle-float absolute bottom-3 left-3 bg-white rounded-2xl shadow-[0_16px_36px_rgba(15,76,92,0.12)] border border-[#4FC3F7]/25 px-4 py-3 max-w-[170px] hidden sm:block">
                 <div className="flex items-center gap-2 mb-1">
                   <span className="w-6 h-6 rounded-full bg-[#4FC3F7]/12 flex items-center justify-center">
                     <FaCheckCircle className="text-[#22C55E] text-xs" />
                   </span>
                   <p className="text-[#0F4C5C] font-bold text-xs">End-To-End</p>
                 </div>
-                <p className="text-[#0A3A47] text-[10px] leading-relaxed">
+                <p className="text-[#0A3A47] text-xs leading-relaxed">
                   Sourcing To Deployment
                 </p>
               </div>
 
-              <div className="animate-gentle-float-slow absolute top-4 -right-3 sm:top-5 sm:-right-4 bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] text-[#0F4C5C] rounded-xl shadow-[0_12px_30px_rgba(79,195,247,0.35)] px-3.5 py-2.5 hidden md:block">
-                <p className="text-[10px] uppercase tracking-wider opacity-90 font-semibold">
+              <div className="animate-gentle-float-slow absolute top-3 right-3 bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] text-[#0F4C5C] rounded-2xl shadow-[0_12px_30px_rgba(79,195,247,0.35)] px-3.5 py-2.5 hidden md:block">
+                <p className="text-xs uppercase tracking-wider opacity-90 font-semibold">
                   Trusted By
                 </p>
                 <p className="text-sm font-extrabold">500+ Clients</p>
@@ -282,7 +287,7 @@ const Home = () => {
         <div className="relative z-10 mt-10 sm:mt-14">
           <div className="bg-white pt-6 sm:pt-8 pb-6 sm:pb-8 border-t border-[#4FC3F7]/15">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4 sm:mb-5">
-              <p className="text-center text-[#0F4C5C] text-[10px] sm:text-xs font-bold tracking-widest uppercase">
+              <p className="text-center text-[#0F4C5C] text-xs font-bold tracking-wide">
                 Trusted By Employers Worldwide
               </p>
             </div>
@@ -293,16 +298,14 @@ const Home = () => {
                 {[...CLIENT_LOGOS, ...CLIENT_LOGOS].map((logo, idx) => (
                   <div
                     key={`${logo.name}-${idx}`}
-                    className="flex-shrink-0 w-[80px] h-[80px] sm:w-[100px] sm:h-[100px] md:w-[120px] md:h-[120px] flex items-center justify-center"
+                    className="flex-shrink-0 w-[120px] h-[80px] sm:w-[140px] sm:h-[90px] md:w-[160px] md:h-[100px] flex items-center justify-center px-2"
                   >
                     <img
                       src={logo.src}
                       alt={logo.name}
-                      className="max-w-full max-h-full w-auto h-auto object-contain transition-transform duration-300 hover:scale-105"
+                      className="max-w-full max-h-full object-contain transition-transform duration-300 hover:scale-105"
                       loading="lazy"
-                      onError={(e) => {
-                        e.target.style.display = "none";
-                      }}
+                      onError={(e) => { e.target.style.display = "none"; }}
                     />
                   </div>
                 ))}
@@ -312,7 +315,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ============ STATS STRIP ============ */}
+      {/* ============ STATS STRIP — larger numbers ============ */}
       <section className="section-tight relative bg-white overflow-hidden -mt-[15px]">
         <div className="absolute top-0 right-0 w-56 h-56 bg-[#4FC3F7]/8 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
         <div className="absolute bottom-0 left-0 w-72 h-72 bg-[#0F4C5C]/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3" />
@@ -321,7 +324,7 @@ const Home = () => {
           <div className="text-center mb-7 sm:mb-9 reveal-up">
             <div className="inline-flex items-center gap-2 bg-[#4FC3F7]/10 border border-[#4FC3F7]/25 rounded-full px-3.5 py-1.5 mb-3">
               <span className="w-1.5 h-1.5 rounded-full bg-[#4FC3F7] animate-gold-pulse" />
-              <p className="text-[#29B6F6] text-xs sm:text-sm font-bold tracking-wide uppercase">Our Impact</p>
+              <p className="text-[#29B6F6] text-xs sm:text-sm font-bold">Our Impact</p>
             </div>
             <h2 className="font-[Plus_Jakarta_Sans] text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0F4C5C]">
               Our Recruitment <span className="bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent">Impact In Numbers</span>
@@ -330,24 +333,26 @@ const Home = () => {
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
             {STATS.map(({ icon: Icon, value, label, desc, color }, idx) => (
-              <div key={label} className="group relative bg-white rounded-2xl p-4 sm:p-5 text-center shadow-[0_6px_20px_rgba(15,76,92,0.06)] hover:shadow-[0_14px_34px_rgba(79,195,247,0.18)] hover:-translate-y-1.5 transition-all duration-500 border border-[#4FC3F7]/15 hover:border-[#4FC3F7]/50 reveal-up overflow-hidden" style={{ animationDelay: `${idx * 0.1}s` }}>
+              <div key={label} className="group relative bg-white rounded-2xl pt-5 pb-4 sm:pt-6 sm:pb-5 px-4 sm:px-5 text-center shadow-[0_6px_20px_rgba(15,76,92,0.06)] hover:shadow-[0_14px_34px_rgba(79,195,247,0.18)] hover:-translate-y-1.5 transition-all duration-500 border border-[#4FC3F7]/15 hover:border-[#4FC3F7]/50 reveal-up overflow-hidden" style={{ animationDelay: `${idx * 0.1}s` }}>
                 <span className="absolute inset-x-0 top-0 h-0.5 rounded-t-2xl bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500" />
                 <span className="absolute -top-10 -right-10 w-24 h-24 rounded-full bg-[#4FC3F7]/0 group-hover:bg-[#4FC3F7]/10 blur-2xl transition-all duration-500" />
-                <div className="relative w-10 sm:w-12 h-10 sm:h-12 mx-auto rounded-xl bg-[#4FC3F7]/10 flex items-center justify-center mb-3 group-hover:bg-[#4FC3F7]/20 group-hover:scale-110 transition-all duration-300">
-                  <Icon className={`${color} text-base sm:text-xl icon-wiggle`} />
+                {/* icon reduced so number dominates */}
+                <div className="relative w-9 sm:w-10 h-9 sm:h-10 mx-auto rounded-xl bg-[#4FC3F7]/10 flex items-center justify-center mb-3 group-hover:bg-[#4FC3F7]/20 group-hover:scale-110 transition-all duration-300">
+                  <Icon className={`${color} text-sm sm:text-base icon-wiggle`} />
                 </div>
-                <p className="relative font-[Plus_Jakarta_Sans] text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0F4C5C] mb-1 flex items-center justify-center">
+                {/* number is now the focal point */}
+                <p className="relative font-[Plus_Jakarta_Sans] text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#0F4C5C] mb-1.5 flex items-center justify-center leading-none">
                   <Counter value={value} duration={2000} />
                 </p>
-                <p className="relative text-[#0A3A47] font-bold text-xs sm:text-sm mb-1">{label}</p>
-                <p className="relative text-[#0A3A47]/70 text-[10px] sm:text-xs leading-relaxed font-medium">{desc}</p>
+                <p className="relative text-[#0A3A47] font-extrabold text-sm sm:text-base mb-1">{label}</p>
+                <p className="relative text-[#0A3A47]/70 text-xs leading-relaxed font-medium">{desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ============ ISO CERTIFIED ============ */}
+      {/* ============ ISO CERTIFIED (merged with LICENSED) — with denser layout fix ============ */}
       <section className="section-tight relative bg-white overflow-hidden">
         <div className="absolute top-0 right-0 w-56 h-56 bg-[#4FC3F7]/8 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
         <div className="absolute bottom-0 left-0 w-72 h-72 bg-[#0F4C5C]/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3" />
@@ -358,72 +363,46 @@ const Home = () => {
               ISO Certified & <span className="bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent">Recruiting Agency</span>
             </h2>
             <p className="text-[#0A3A47] text-sm sm:text-base max-w-2xl mx-auto leading-relaxed px-2 font-medium">
-              Every Placement Is Handled Under A Government-Recognized License And A Compliant, Structured Recruitment Process.
+              Every placement is handled under a government-recognized license and a compliant, structured recruitment process.
             </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-7 sm:gap-9 items-stretch">
             <div className="order-2 lg:order-1 reveal-up">
-              <div className="h-full max-h-[315px] sm:max-h-[360px] lg:max-h-[420px] overflow-y-auto bg-gradient-to-b from-white to-[#E1F5FE] rounded-2xl border border-[#4FC3F7]/20 shadow-[0_8px_28px_rgba(15,76,92,0.06)] p-5 sm:p-7 no-scrollbar">
-                <h3 className="font-[Plus_Jakarta_Sans] text-xl sm:text-2xl font-extrabold text-[#0F4C5C] mb-4">Reliable Manpower Solutions</h3>
-                <p className="text-[#0A3A47] text-sm sm:text-base leading-relaxed mb-4">
-                  At Ali Hajveri International Private Limited, We Provide Reliable And Qualified Manpower Solutions To Meet The Workforce Requirements Of Businesses And Projects In Pakistan And International Markets. Our Focus Is On Connecting Employers With Capable Professionals, Skilled Workers And Semi-Skilled Workforce According To Their Specific Requirements.
+              <div className="h-full max-h-[400px] sm:max-h-[440px] lg:max-h-[520px] overflow-y-auto bg-gradient-to-b from-white to-[#E1F5FE] rounded-2xl border border-[#4FC3F7]/20 shadow-[0_8px_28px_rgba(15,76,92,0.06)] p-5 sm:p-7 no-scrollbar">
+                <h3 className="font-[Plus_Jakarta_Sans] text-xl sm:text-2xl font-extrabold text-[#0F4C5C] mb-4">
+                  Reliable manpower solutions
+                </h3>
+
+                {/* paragraph 1 — condensed */}
+                <p className="text-[#0A3A47] text-sm sm:text-base leading-relaxed mb-3">
+                  At <strong className="text-[#0F4C5C] font-bold">Ali Hajveri International Private Limited</strong>, we provide reliable and qualified manpower solutions to meet the workforce requirements of businesses and projects in Pakistan and international markets — connecting employers with capable professionals, skilled workers and semi-skilled workforce according to their specific requirements.
                 </p>
-                <p className="text-[#0A3A47] text-sm sm:text-base leading-relaxed mb-4">
-                  We Provide Manpower For Construction And Engineering Projects, Including Engineers, Supervisors, Technicians, Electricians, Welders, Fabricators, Masons, Steel Fixers, Equipment Operators And Other Skilled And Semi-Skilled Workers. Along With Construction, We Also Support Manpower Requirements In Oil & Gas, Electrical, Mechanical, IT & Telecom, Infrastructure, Manufacturing And Other Technical Fields.
+
+                {/* bullet list for scannability */}
+                <p className="text-[#0A3A47] text-sm sm:text-base leading-relaxed mb-2">
+                  We supply manpower for construction and engineering projects, including:
                 </p>
+                <ul className="grid grid-cols-2 gap-x-3 gap-y-1.5 mb-3 text-sm sm:text-base text-[#0A3A47]">
+                  {["Engineers", "Supervisors", "Technicians", "Electricians", "Welders", "Fabricators", "Masons", "Steel Fixers", "Equipment Operators"].map((role) => (
+                    <li key={role} className="flex items-start gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#4FC3F7] mt-2 flex-shrink-0" />
+                      <span>{role}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* paragraph 2 — condensed with bold industries */}
                 <p className="text-[#0A3A47] text-sm sm:text-base leading-relaxed">
-                  Our Recruitment Approach Is Focused On Understanding The Client's Requirements, Sourcing Suitable Candidates And Providing Workforce That Matches The Required Skills, Experience And Project Needs.
+                  Beyond construction, we support manpower requirements in <strong className="text-[#0F4C5C] font-bold">oil &amp; gas, electrical, mechanical, IT &amp; telecom, infrastructure, and manufacturing</strong>. To hire reliable Pakistani manpower, Ali Hajveri International is a trusted recruitment company providing skilled, semi-skilled, and unskilled workforce to overseas employers.
                 </p>
               </div>
             </div>
 
             <div className="order-1 lg:order-2 relative reveal-up group">
-              <div className="h-full max-h-[315px] sm:max-h-[360px] lg:max-h-[420px] rounded-2xl overflow-hidden border border-[#4FC3F7]/20 shadow-[0_8px_28px_rgba(15,76,92,0.08)] relative">
+              <div className="h-full max-h-[400px] sm:max-h-[440px] lg:max-h-[520px] rounded-2xl overflow-hidden border border-[#4FC3F7]/20 shadow-[0_8px_28px_rgba(15,76,92,0.08)] relative">
                 <img src="/assets/licensed-img.png" alt="ISO Certified & Licensed Recruitment" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" onError={(e) => { e.target.style.display = "none"; }} />
                 <span className="img-shine" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ============ LICENSED & CERTIFIED ============ */}
-      <section className="section-tight relative bg-white overflow-hidden">
-        <div className="absolute top-0 right-0 w-56 h-56 bg-[#4FC3F7]/8 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
-        <div className="absolute bottom-0 left-0 w-72 h-72 bg-[#0F4C5C]/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3" />
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-7 sm:mb-9 reveal-up">
-            <Link to="/legal-status" className="inline-block group">
-              <h2 className="font-[Plus_Jakarta_Sans] text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0F4C5C] mb-3 group-hover:text-[#4FC3F7] transition-colors duration-300">
-                Licensed & <span className="bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent">Certified Recruitment</span>
-              </h2>
-            </Link>
-            <p className="text-[#0A3A47] text-sm sm:text-base max-w-2xl mx-auto leading-relaxed px-2 font-medium">
-              Every Placement Is Handled Under A Government-Recognized License And A Compliant, Structured Recruitment Process.
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-7 sm:gap-9 items-stretch">
-            <div className="relative reveal-up group">
-              <div className="h-full max-h-[315px] sm:max-h-[360px] lg:max-h-[420px] rounded-2xl overflow-hidden border border-[#4FC3F7]/20 shadow-[0_8px_28px_rgba(15,76,92,0.08)] relative">
-                <img src="/assets/skilled-unskilled-img.png" alt="Licensed Recruitment" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" onError={(e) => { e.target.style.display = "none"; }} />
-                <span className="img-shine" />
-              </div>
-            </div>
-
-            <div className="reveal-up">
-              <div className="h-full max-h-[315px] sm:max-h-[360px] lg:max-h-[420px] overflow-y-auto bg-gradient-to-b from-white to-[#E1F5FE] rounded-2xl border border-[#4FC3F7]/20 shadow-[0_8px_28px_rgba(15,76,92,0.06)] p-5 sm:p-7 no-scrollbar">
-                <h3 className="font-[Plus_Jakarta_Sans] text-xl sm:text-2xl font-extrabold text-[#0F4C5C] mb-4">
-                  Hire Qualified Pakistani Manpower Through A <span className="bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent">Trusted Recruitment Partner</span>
-                </h3>
-                <p className="text-[#0A3A47] text-sm sm:text-base leading-relaxed mb-4">
-                  To Hire Reliable Pakistani Manpower, <span className="font-semibold text-[#0F4C5C]">Ali Hajveri International</span> Is A Trusted Manpower Recruitment Company Providing Skilled, Semi-Skilled, And Unskilled Workforce To Overseas Employers.
-                </p>
-                <p className="text-[#0A3A47] text-sm sm:text-base leading-relaxed">
-                  With Our Professional Recruitment And Headhunting Expertise, We Simplify The Hiring Process For International Companies. We Specialize In Sourcing Qualified Pakistani Manpower Across Various Industries, Along With Executive-Level Recruitment Tailored To Our Clients' Specific Needs.
-                </p>
               </div>
             </div>
           </div>
@@ -436,7 +415,7 @@ const Home = () => {
                   <div className="w-12 sm:w-14 h-12 sm:h-14 rounded-2xl bg-white shadow-[0_6px_18px_rgba(15,76,92,0.08)] flex items-center justify-center group-hover:bg-[#4FC3F7]/10 transition-colors">
                     <Icon className={`${color} text-xl sm:text-2xl icon-wiggle`} />
                   </div>
-                  <span className="text-[9px] sm:text-[10px] font-bold text-[#0A3A47] bg-[#FFD54F]/30 px-2 sm:px-3 py-1 rounded-full">{badge}</span>
+                  <span className="text-xs font-bold text-[#0A3A47] bg-[#FFD54F]/30 px-2.5 sm:px-3 py-1 rounded-full">{badge}</span>
                 </div>
                 <h3 className="font-bold text-[#0F4C5C] mb-2 text-base sm:text-lg">{title}</h3>
                 <p className="text-[#0A3A47]/80 text-xs sm:text-sm leading-relaxed">{desc}</p>
@@ -446,7 +425,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ============ RECRUITMENT PROCESS ============ */}
+      {/* ============ RECRUITMENT PROCESS — with narrower body measure ============ */}
       <section className="section-tight bg-gradient-to-b from-[#0F4C5C] via-[#0A3A47] to-[#06303A] relative overflow-hidden">
         <div className="absolute -top-32 -right-32 w-[280px] sm:w-[380px] h-[280px] sm:h-[380px] rounded-full bg-[#4FC3F7]/10 blur-3xl" />
         <div className="absolute -bottom-32 -left-32 w-[260px] sm:w-[360px] h-[260px] sm:h-[360px] rounded-full bg-[#FFD54F]/8 blur-3xl" />
@@ -457,7 +436,7 @@ const Home = () => {
               From Requirement To <span className="bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent">Deployment</span>
             </h2>
             <p className="text-white/80 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed px-2">
-              A Clear, Six-Stage Recruitment Route Followed For Every Employer — Regardless Of Trade, Quantity Or Destination.
+              A clear, six-stage recruitment route followed for every employer — regardless of trade, quantity or destination.
             </p>
           </div>
 
@@ -471,26 +450,21 @@ const Home = () => {
                     <div className="w-11 sm:w-12 h-11 sm:h-12 rounded-full bg-gradient-to-br from-[#4FC3F7] to-[#29B6F6] text-[#0F4C5C] flex items-center justify-center font-bold text-sm mb-4 relative z-10 shadow-[0_8px_24px_rgba(79,195,247,0.4)] group-hover:scale-110 transition-transform duration-300">
                       <Icon className="text-base sm:text-lg icon-wiggle" />
                     </div>
-                    <span className="text-[#4FC3F7] text-[10px] sm:text-xs font-bold block mb-1 tracking-wider">STEP {step.num}</span>
-                    <h4 className="text-white font-bold mb-1.5 text-sm sm:text-base">{step.title}</h4>
-                    <p className="text-white/75 text-xs sm:text-sm leading-relaxed">{step.desc}</p>
+                    <span className="text-[#4FC3F7] text-xs font-bold block mb-1 tracking-wider">STEP {step.num}</span>
+                    <h3 className="text-white font-bold mb-1.5 text-sm sm:text-base">{step.title}</h3>
+                    <p className="text-white/80 text-xs sm:text-sm leading-relaxed">{step.desc}</p>
                   </div>
                 );
               })}
             </div>
           </div>
 
-          <div className="mt-10 sm:mt-12 max-w-4xl mx-auto">
-            <div className={`text-white/85 text-sm sm:text-base leading-relaxed transition-all duration-500 ease-in-out overflow-hidden ${isProcessExpanded ? "max-h-[600px]" : "max-h-[72px]"}`}>
-              <p className="mb-4">Our Comprehensive Recruitment Process Helps Us Identify And Select The Most Suitable Candidates For Our Clients. We Carefully Evaluate Each Position And Understand Its Specific Requirements Before Beginning The Recruitment Process.</p>
-              <p className="mb-4">We Thoroughly Review Job Responsibilities, Required Skills, And Working Conditions To Ensure The Right Candidates Are Selected For Every Role. This Allows Us To Focus On The Qualities And Experience That Best Match Our Clients' Needs.</p>
-              <p>Based On These Requirements, We Conduct An Initial Screening Of Candidates, Followed By Interviews And Background Verification To Ensure Reliability, Suitability, And Professionalism.</p>
-            </div>
-
-            <div className="mt-3">
-              <button onClick={() => setIsProcessExpanded(!isProcessExpanded)} className="inline-flex items-center gap-2 text-[#4FC3F7] hover:text-[#FFD54F] font-bold text-sm sm:text-base transition-colors duration-200 group">
-                {isProcessExpanded ? (<>Read Less <FaArrowRight className="text-xs rotate-[-90deg] group-hover:-translate-y-1 transition-transform" /></>) : (<>Read More <FaArrowRight className="text-xs rotate-90 group-hover:translate-y-1 transition-transform" /></>)}
-              </button>
+          {/* narrower body text — max-w-2xl ≈ 75 characters per line */}
+          <div className="mt-10 sm:mt-12 max-w-2xl mx-auto">
+            <div className="text-white/85 text-sm sm:text-base leading-relaxed space-y-4">
+              <p>Our comprehensive recruitment process helps us identify and select the most suitable candidates for our clients. We carefully evaluate each position and understand its specific requirements before beginning the recruitment process.</p>
+              <p>We thoroughly review job responsibilities, required skills, and working conditions to ensure the right candidates are selected for every role. This allows us to focus on the qualities and experience that best match our clients' needs.</p>
+              <p>Based on these requirements, we conduct an initial screening of candidates, followed by interviews and background verification to ensure reliability, suitability, and professionalism.</p>
             </div>
           </div>
 
@@ -512,15 +486,15 @@ const Home = () => {
             <div className="reveal-up">
               <div className="inline-flex items-center gap-2 bg-[#4FC3F7]/10 border border-[#4FC3F7]/25 rounded-full px-3.5 py-1.5 mb-4">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#4FC3F7] animate-gold-pulse" />
-                <p className="text-[#29B6F6] text-xs sm:text-sm font-bold tracking-wide uppercase">Recruitment Services</p>
+                <p className="text-[#29B6F6] text-xs sm:text-sm font-bold">Recruitment Services</p>
               </div>
 
               <h2 className="font-[Plus_Jakarta_Sans] text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0F4C5C] mb-4 leading-tight">
-                Complete Manpower <span className="bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent">Recruitment</span> Services
+                Complete Manpower <span className="bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent">Recruitment Services</span>
               </h2>
 
               <p className="text-[#0A3A47] text-sm sm:text-base mb-5 leading-relaxed font-medium">
-                From Candidate Sourcing And Trade Testing To Documentation And Overseas Deployment — Every Step Handled By Our Team.
+                From candidate sourcing and trade testing to documentation and overseas deployment — every step handled by our team.
               </p>
 
               <div className="grid sm:grid-cols-2 gap-3.5">
@@ -531,7 +505,7 @@ const Home = () => {
                       <Icon className={`${color} text-sm icon-wiggle`} />
                     </div>
                     <h3 className="font-bold text-[#0F4C5C] text-xs sm:text-sm mb-1.5">{title}</h3>
-                    <p className="text-[#0A3A47]/80 text-[11px] sm:text-xs leading-relaxed">{desc}</p>
+                    <p className="text-[#0A3A47]/70 text-xs leading-relaxed">{desc}</p>
                   </div>
                 ))}
               </div>
@@ -542,21 +516,21 @@ const Home = () => {
             </div>
 
             <div className="relative order-first lg:order-last reveal-up group">
-              <div className="relative w-full h-[260px] sm:h-[340px] lg:h-[420px] rounded-2xl sm:rounded-3xl overflow-hidden">
+              <div className="relative w-full h-[260px] sm:h-[340px] lg:h-[420px] rounded-3xl overflow-hidden">
                 <img src="/assets/const-2.png" alt="Recruitment Services In Action" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" onError={(e) => { e.target.style.display = "none"; }} />
                 <span className="img-shine" />
               </div>
 
-              <div className="animate-gentle-float absolute -bottom-4 sm:-bottom-5 -left-4 sm:-left-5 bg-white rounded-2xl shadow-[0_16px_36px_rgba(15,76,92,0.12)] border border-[#4FC3F7]/25 px-4 py-3 max-w-[170px] hidden sm:block">
+              <div className="animate-gentle-float absolute bottom-3 left-3 bg-white rounded-2xl shadow-[0_16px_36px_rgba(15,76,92,0.12)] border border-[#4FC3F7]/25 px-4 py-3 max-w-[170px] hidden sm:block">
                 <div className="flex items-center gap-2 mb-1">
                   <span className="w-6 h-6 rounded-full bg-[#4FC3F7]/12 flex items-center justify-center"><FaCheckCircle className="text-[#22C55E] text-xs" /></span>
                   <p className="text-[#0F4C5C] font-bold text-xs">End-To-End</p>
                 </div>
-                <p className="text-[#0A3A47] text-[10px] leading-relaxed">From Sourcing To Overseas Deployment</p>
+                <p className="text-[#0A3A47] text-xs leading-relaxed">From sourcing to overseas deployment</p>
               </div>
 
-              <div className="animate-gentle-float-slow absolute top-4 -right-3 sm:top-5 sm:-right-4 bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] text-[#0F4C5C] rounded-xl shadow-[0_12px_30px_rgba(79,195,247,0.35)] px-3.5 py-2.5 hidden md:block">
-                <p className="text-[10px] uppercase tracking-wider opacity-90 font-semibold">Trusted By</p>
+              <div className="animate-gentle-float-slow absolute top-3 right-3 bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] text-[#0F4C5C] rounded-2xl shadow-[0_12px_30px_rgba(79,195,247,0.35)] px-3.5 py-2.5 hidden md:block">
+                <p className="text-xs uppercase tracking-wider opacity-90 font-semibold">Trusted By</p>
                 <p className="text-sm font-extrabold">500+ Clients</p>
               </div>
             </div>
@@ -567,30 +541,30 @@ const Home = () => {
       {/* ============ MANPOWER SUPPLY ============ */}
       <section className="section-tight relative bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-br from-white via-[#E1F5FE] to-white rounded-2xl sm:rounded-3xl border border-[#4FC3F7]/20 shadow-[0_8px_28px_rgba(15,76,92,0.06)] p-5 sm:p-6 md:p-8 reveal-up">
+          <div className="bg-gradient-to-br from-white via-[#E1F5FE] to-white rounded-3xl border border-[#4FC3F7]/20 shadow-[0_8px_28px_rgba(15,76,92,0.06)] p-5 sm:p-6 md:p-8 reveal-up">
             <div className="grid lg:grid-cols-2 gap-7 sm:gap-9 items-center">
               <div>
                 <div className="inline-flex items-center gap-2 bg-[#4FC3F7]/10 border border-[#4FC3F7]/25 rounded-full px-3.5 py-1.5 mb-3">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#4FC3F7] animate-gold-pulse" />
-                  <p className="text-[#29B6F6] text-xs sm:text-sm font-bold tracking-wide uppercase">What We Supply</p>
+                  <p className="text-[#29B6F6] text-xs sm:text-sm font-bold">What We Supply</p>
                 </div>
 
                 <h2 className="font-[Plus_Jakarta_Sans] text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0F4C5C] mb-3 leading-tight">
-                  Manpower For Every <span className="bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent">Tier</span> Of Your Workforce
+                  Manpower For Every Tier Of <span className="bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent">Your Workforce</span>
                 </h2>
 
                 <p className="text-[#0A3A47] text-sm sm:text-base mb-3 leading-relaxed font-medium">
-                  Our Company Supplies Pakistani Manpower To International Employers Across The Middle East, Asia And Beyond. We Cover All Three Workforce Tiers — Skilled, Semi-Skilled And Unskilled — So Employers Can Build Complete Teams Through A Single Recruitment Partner.
+                  Our company supplies Pakistani manpower to international employers across the Middle East, Asia and beyond. We cover all three workforce tiers — skilled, semi-skilled and unskilled — so employers can build complete teams through a single recruitment partner.
                 </p>
                 <p className="text-[#0A3A47]/90 text-sm sm:text-base mb-5 leading-relaxed">
-                  Whether You Need Certified Tradespeople For Infrastructure Projects, Semi-Skilled Helpers For Facility Operations, Or General Labour For Site Work, Our Team Coordinates Sourcing, Screening, Testing, Documentation And Deployment End To End.
+                  Whether you need certified tradespeople for infrastructure projects, semi-skilled helpers for facility operations, or general labour for site work, our team coordinates sourcing, screening, testing, documentation and deployment end to end.
                 </p>
 
                 <div className="grid grid-cols-3 gap-3 mb-5">
                   {[
-                    { icon: FaHardHat, title: "Skilled", desc: "Certified Trades", color: "text-[#F97316]" },
-                    { icon: FaTools, title: "Semi-Skilled", desc: "Site Experience", color: "text-[#FFB300]" },
-                    { icon: FaUsers, title: "Unskilled", desc: "General Labour", color: "text-[#4FC3F7]" },
+                    { icon: FaHardHat, title: "Skilled", desc: "Certified trades", color: "text-[#FFB300]" },
+                    { icon: FaTools, title: "Semi-Skilled", desc: "Site experience", color: "text-[#FFB300]" },
+                    { icon: FaUsers, title: "Unskilled", desc: "General labour", color: "text-[#4FC3F7]" },
                   ].map(({ icon: Icon, title, desc, color }) => (
                     <div key={title} className="group relative bg-gradient-to-b from-white to-[#E1F5FE] rounded-xl p-3 border border-[#4FC3F7]/20 hover:border-[#4FC3F7]/50 hover:shadow-[0_12px_28px_rgba(79,195,247,0.15)] hover:-translate-y-1 transition-all duration-300 text-center">
                       <span className="absolute inset-x-0 top-0 h-0.5 rounded-t-xl bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300" />
@@ -598,18 +572,18 @@ const Home = () => {
                         <Icon className={`${color} text-base icon-wiggle`} />
                       </div>
                       <p className="font-bold text-[#0F4C5C] text-xs">{title}</p>
-                      <p className="text-[#0A3A47]/75 text-[10px]">{desc}</p>
+                      <p className="text-[#0A3A47]/70 text-xs">{desc}</p>
                     </div>
                   ))}
                 </div>
 
-                <Link to="/contact" className="btn-shine group inline-flex items-center gap-2 bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] text-[#0F4C5C] px-6 py-2.5 rounded-full font-bold shadow-[0_10px_24px_rgba(79,195,247,0.3)] hover:shadow-[0_14px_32px_rgba(79,195,247,0.4)] hover:-translate-y-0.5 transition-all duration-300 text-sm">
+                <Link to="/contact" className="btn-shine group inline-flex items-center gap-2 bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] text-[#0F4C5C] px-6 py-3 rounded-full font-bold shadow-[0_10px_24px_rgba(79,195,247,0.3)] hover:shadow-[0_14px_32px_rgba(79,195,247,0.4)] hover:-translate-y-0.5 transition-all duration-300 text-sm">
                   Request A Quote <FaArrowRight className="text-sm group-hover:translate-x-1 transition-transform duration-300" />
                 </Link>
               </div>
 
               <div className="relative order-first lg:order-last group">
-                <div className="relative w-full h-[240px] sm:h-[320px] lg:h-[400px] rounded-2xl sm:rounded-3xl overflow-hidden">
+                <div className="relative w-full h-[240px] sm:h-[320px] lg:h-[400px] rounded-3xl overflow-hidden">
                   <img src="/assets/home-image.png" alt="Pakistani Manpower Ready For Deployment" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" onError={(e) => { e.target.style.display = "none"; }} />
                   <span className="img-shine" />
                 </div>
@@ -617,7 +591,7 @@ const Home = () => {
                 <div className="animate-gentle-float absolute top-4 left-4 bg-white/95 backdrop-blur rounded-full px-3 py-1.5 shadow-[0_8px_20px_rgba(15,76,92,0.12)] border border-[#4FC3F7]/25">
                   <div className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-[#4FC3F7] animate-gold-pulse" />
-                    <span className="text-[#0F4C5C] text-[10px] sm:text-xs font-bold">Ready To Deploy</span>
+                    <span className="text-[#0F4C5C] text-xs font-bold">Ready To Deploy</span>
                   </div>
                 </div>
               </div>
@@ -634,7 +608,7 @@ const Home = () => {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="inline-flex items-center gap-2 bg-[#4FC3F7]/15 border border-[#4FC3F7]/30 rounded-full px-3.5 py-1.5 mb-4 reveal-up">
             <span className="w-1.5 h-1.5 rounded-full bg-[#4FC3F7] animate-gold-pulse" />
-            <p className="text-[#4FC3F7] text-xs sm:text-sm font-bold tracking-wide uppercase">Why Choose Us</p>
+            <p className="text-[#4FC3F7] text-xs sm:text-sm font-bold">Why Choose Us</p>
           </div>
 
           <h2 className="font-[Plus_Jakarta_Sans] text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-8 sm:mb-10 leading-tight reveal-up">
@@ -649,7 +623,7 @@ const Home = () => {
                 </div>
                 <div>
                   <h3 className="font-bold text-white mb-1.5 text-sm sm:text-base group-hover:text-[#FFD54F] transition-colors duration-300">{title}</h3>
-                  <p className="text-white/75 text-xs sm:text-sm leading-relaxed">{desc}</p>
+                  <p className="text-white/80 text-xs sm:text-sm leading-relaxed">{desc}</p>
                 </div>
               </div>
             ))}
@@ -672,37 +646,47 @@ const Home = () => {
           <div className="grid md:grid-cols-2 gap-6 sm:gap-8 items-stretch">
             {/* ===== LICENSE CARD ===== */}
             <div className="relative group reveal-up">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#4FC3F7]/20 to-transparent rounded-2xl sm:rounded-3xl rotate-2 scale-[1.01] hidden sm:block" />
-              <div className="relative bg-gradient-to-br from-white via-[#E1F5FE] to-white rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-[0_12px_36px_rgba(15,76,92,0.08)] border border-[#4FC3F7]/20 hover:border-[#4FC3F7]/50 hover:shadow-[0_18px_44px_rgba(79,195,247,0.15)] transition-all duration-300 h-full flex flex-col overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#4FC3F7]/20 to-transparent rounded-3xl rotate-2 scale-[1.01] hidden sm:block" />
+              <div className="relative bg-gradient-to-br from-white via-[#E1F5FE] to-white rounded-3xl p-5 sm:p-6 shadow-[0_12px_36px_rgba(15,76,92,0.08)] border border-[#4FC3F7]/20 hover:border-[#4FC3F7]/50 hover:shadow-[0_18px_44px_rgba(79,195,247,0.15)] transition-all duration-300 h-full flex flex-col overflow-hidden">
                 <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F]" />
 
                 <div className="absolute top-4 right-4 bg-white/95 backdrop-blur rounded-full px-3 py-1.5 shadow-[0_8px_20px_rgba(15,76,92,0.10)] border border-[#4FC3F7]/25 flex items-center gap-1.5 z-10">
                   <FaCheckCircle className="text-[#22C55E] text-xs" />
-                  <span className="text-[#0F4C5C] text-[10px] sm:text-xs font-bold tracking-wide">
+                  <span className="text-[#0F4C5C] text-xs font-bold tracking-wide">
                     Verified
                   </span>
                 </div>
 
-                {/* License Image — flex-1 se expand hoga */}
                 <div className="relative w-full flex-1 flex items-center justify-center py-0">
                   <div className="absolute inset-0 bg-[#4FC3F7]/5 blur-2xl rounded-full" />
-                  <img
-                    src="/assets/license-1.png"
-                    alt="Overseas Employment License"
-                    className="relative w-[80%] max-h-[230px] sm:max-h-[310px] object-contain rounded-xl drop-shadow-[0_12px_28px_rgba(15,76,92,0.15)] group-hover:scale-[1.02] transition-transform duration-500"
-                    onError={(e) => {
-                      e.target.style.display = "none";
-                    }}
-                  />
+                  <a
+                    href="/assets/license-1.png"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group/license relative block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4FC3F7] focus-visible:ring-offset-2 rounded-xl"
+                    aria-label="View full-size Overseas Employment License"
+                  >
+                    <img
+                      src="/assets/license-1.png"
+                      alt="Overseas Employment License"
+                      className="relative w-[80%] mx-auto max-h-[230px] sm:max-h-[310px] object-contain rounded-xl drop-shadow-[0_12px_28px_rgba(15,76,92,0.15)] group-hover/license:scale-[1.02] transition-transform duration-500"
+                      onError={(e) => {
+                        e.target.style.display = "none";
+                      }}
+                    />
+                    <span className="absolute bottom-2 left-1/2 -translate-x-1/2 text-xs font-bold text-white bg-[#0F4C5C]/90 backdrop-blur px-2.5 py-1 rounded-full opacity-0 group-hover/license:opacity-100 focus-visible:opacity-100 transition-opacity">
+                      View Full Size
+                    </span>
+                  </a>
                 </div>
 
-                {/* ===== LICENSE DETAILS ===== */}
                 <div className="w-full pt-2">
                   <div className="text-center mb-2">
-                    <p className="text-[10px] sm:text-xs font-bold text-[#0A3A47]/60 uppercase tracking-widest mb-1">
+                    <p className="text-xs font-bold text-[#0A3A47]/70 mb-1">
                       License No.
                     </p>
-                    <p className="text-[#29B6F6] font-extrabold text-sm sm:text-base tracking-wide">
+                    {/* tighter tracking — ID, not headline */}
+                    <p className="text-[#29B6F6] font-extrabold text-sm sm:text-base tabular-nums">
                       OP&HRD/5224/LHR/2026
                     </p>
                   </div>
@@ -710,21 +694,21 @@ const Home = () => {
                   <div className="space-y-1 max-w-md mx-auto">
                     <div className="flex items-center gap-2">
                       <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#4FC3F7]" />
-                      <p className="text-[#0A3A47]/85 text-[11px] sm:text-xs font-semibold leading-snug">
+                      <p className="text-[#0A3A47]/90 text-xs font-semibold leading-snug">
                         Bureau Of Immigration &amp; Overseas Employment (BEOE)
                       </p>
                     </div>
 
                     <div className="flex items-center gap-2">
                       <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#4FC3F7]" />
-                      <p className="text-[#0A3A47]/85 text-[11px] sm:text-xs font-semibold leading-snug">
+                      <p className="text-[#0A3A47]/90 text-xs font-semibold leading-snug">
                         Ministry Of Overseas Pakistanis &amp; Human Resource Development
                       </p>
                     </div>
 
                     <div className="flex items-center gap-2">
                       <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#4FC3F7]" />
-                      <p className="text-[#0A3A47]/85 text-[11px] sm:text-xs font-semibold leading-snug">
+                      <p className="text-[#0A3A47]/90 text-xs font-semibold leading-snug">
                         Government Of Pakistan
                       </p>
                     </div>
@@ -734,7 +718,7 @@ const Home = () => {
             </div>
 
             {/* ===== CEO MESSAGE CARD ===== */}
-            <div className="relative bg-gradient-to-br from-white via-[#E1F5FE] to-white rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-[0_12px_36px_rgba(15,76,92,0.08)] border border-[#4FC3F7]/20 hover:border-[#4FC3F7]/40 hover:shadow-[0_18px_44px_rgba(79,195,247,0.12)] transition-all duration-300 flex flex-col overflow-hidden reveal-up">
+            <div className="relative bg-gradient-to-br from-white via-[#E1F5FE] to-white rounded-3xl p-5 sm:p-6 shadow-[0_12px_36px_rgba(15,76,92,0.08)] border border-[#4FC3F7]/20 hover:border-[#4FC3F7]/40 hover:shadow-[0_18px_44px_rgba(79,195,247,0.12)] transition-all duration-300 flex flex-col overflow-hidden reveal-up">
               <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F]" />
 
               <div className="flex items-center gap-4 sm:gap-5 mb-4">
@@ -761,7 +745,7 @@ const Home = () => {
                   <p className="text-[#29B6F6] text-xs sm:text-sm font-bold">
                     Chief Executive Officer
                   </p>
-                  <p className="text-[#0A3A47]/75 text-[10px] sm:text-xs">
+                  <p className="text-[#0A3A47]/70 text-xs">
                     Ali Hajveri International Pvt Ltd
                   </p>
                 </div>
@@ -770,28 +754,17 @@ const Home = () => {
               <div className="relative flex-1">
                 <FaQuoteLeft className="text-[#4FC3F7]/20 text-3xl sm:text-4xl absolute -top-2 -left-2" />
                 <div className="pl-6 sm:pl-8 pr-3 sm:pr-4">
-                  <p className="text-[#0A3A47] leading-relaxed text-xs sm:text-sm mb-3 italic font-medium">
-                    "I Would Like To Take This Opportunity To Extend My Good Wishes
-                    To Our Esteemed Employers And Job Seekers Who Have Helped Us To
-                    Become A Leading Man Power Recruitment Firm. It Has Become A
-                    Cherished Name Among Job Seekers As Well As Foreign Employers."
+                  <p className="text-[#0A3A47] leading-relaxed text-xs sm:text-sm mb-3">
+                    <strong className="text-[#0F4C5C] font-bold">A leading recruitment firm —</strong>{" "}
+                    I would like to take this opportunity to extend my good wishes to our esteemed employers and job seekers who have helped us become one of Pakistan's most trusted manpower partners. It has become a cherished name among job seekers as well as foreign employers.
                   </p>
                   <p className="text-[#0A3A47]/90 leading-relaxed text-xs sm:text-sm mb-3">
-                    At Ali Hajveri International, There Is A Simple Philosophy At
-                    Work; That Clients' Growth And Success Is Ultimately Our Growth
-                    And Success. So We Are Always In Search Of Opportunities That
-                    Will Make Our Valuable Clients Succeed.
-                  </p>
-                  <p className="text-[#0A3A47]/90 leading-relaxed text-xs sm:text-sm mb-3">
-                    We Will Be Very Happy To Respond To Any Query Regarding Any
-                    Information For Recruiting Workers From Pakistan. We Will
-                    Continue To Provide Competent Manpower To Our Valuable Employers
-                    To Their Entire Satisfaction. I Personally Assure You That Your
-                    Requirements Will Be Looked After In The Best Possible Manner.
+                    <strong className="text-[#0F4C5C] font-bold">Clients' growth is our growth —</strong>{" "}
+                    At Ali Hajveri International, there is a simple philosophy at work: that clients' growth and success is ultimately our growth and success. So we are always in search of opportunities that will make our valuable clients succeed.
                   </p>
                   <p className="text-[#0A3A47]/90 leading-relaxed text-xs sm:text-sm">
-                    I Am Also Grateful To All Mighty Allah And All My Team Members,
-                    Because Without Them This Feat Would Not Have Been Possible.
+                    <strong className="text-[#0F4C5C] font-bold">Here for every query —</strong>{" "}
+                    We will be very happy to respond to any query regarding recruiting workers from Pakistan, and will continue to provide competent manpower to our valuable employers to their entire satisfaction. I am also grateful to Allah and to all my team members, because without them this feat would not have been possible.
                   </p>
                 </div>
                 <FaQuoteRight className="text-[#4FC3F7]/20 text-3xl sm:text-4xl absolute -bottom-2 -right-2" />
@@ -810,64 +783,72 @@ const Home = () => {
           <div className="text-center mb-7 sm:mb-9 reveal-up">
             <div className="inline-flex items-center gap-2 bg-[#4FC3F7]/10 border border-[#4FC3F7]/25 rounded-full px-3.5 py-1.5 mb-3">
               <span className="w-1.5 h-1.5 rounded-full bg-[#4FC3F7] animate-gold-pulse" />
-              <p className="text-[#29B6F6] text-xs sm:text-sm font-bold tracking-wide uppercase">Global Reach</p>
+              <p className="text-[#29B6F6] text-xs sm:text-sm font-bold">Global Reach</p>
             </div>
             <h2 className="font-[Plus_Jakarta_Sans] text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0F4C5C] leading-tight">
               Recruitment Services For <span className="bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent">International Countries</span>
             </h2>
             <p className="text-[#0A3A47] text-sm sm:text-base max-w-2xl mx-auto leading-relaxed px-2 font-medium mt-2">
-              Trusted Manpower Partner For Employers Across Gulf, Asia And Beyond.
+              Trusted manpower partner for employers across Gulf, Asia and beyond.
             </p>
           </div>
 
           <div className="grid lg:grid-cols-[5.5fr_4.5fr] gap-7 sm:gap-9 items-stretch">
             <div className="reveal-up order-2 lg:order-1">
-              <div className="h-full bg-gradient-to-b from-white via-[#E1F5FE] to-white rounded-2xl sm:rounded-3xl border border-[#4FC3F7]/20 shadow-[0_8px_28px_rgba(15,76,92,0.06)] hover:shadow-[0_18px_44px_rgba(79,195,247,0.12)] hover:border-[#4FC3F7]/40 transition-all duration-300 p-5 sm:p-6 relative">
+              <div className="h-full bg-gradient-to-b from-white via-[#E1F5FE] to-white rounded-3xl border border-[#4FC3F7]/20 shadow-[0_8px_28px_rgba(15,76,92,0.06)] hover:shadow-[0_18px_44px_rgba(79,195,247,0.12)] hover:border-[#4FC3F7]/40 transition-all duration-300 p-5 sm:p-6 relative">
                 <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F]" />
                 <p className="text-[#0A3A47] text-sm sm:text-base leading-relaxed mb-4">
-                  Proudly, <span className="font-semibold text-[#0F4C5C]">Ali Hajveri International (Private) Limited</span> Provides Professional Manpower Recruitment And HR Consultancy Services To Employers Across International Markets. We Specialize In Sourcing Skilled, Semi-Skilled And Unskilled Pakistani Manpower For A Wide Range Of Industries And Job Categories Across Gulf, Asian And Other Countries.
+                  Proudly, <span className="font-semibold text-[#0F4C5C]">Ali Hajveri International (Private) Limited</span> provides professional manpower recruitment and HR consultancy services to employers across international markets. We specialize in sourcing skilled, semi-skilled and unskilled Pakistani manpower for a wide range of industries and job categories across Gulf, Asian and other countries.
                 </p>
                 <p className="text-[#0A3A47] text-sm sm:text-base leading-relaxed mb-4">
-                  Over The Years, We Have Successfully Assisted Overseas Employers In Recruiting Pakistani Workers For Various Sectors, Including Construction, Engineering, Manufacturing, Security, Hospitality, Technical Trades And General Labor. Our Recent Recruitment Activities Include Successful Manpower Placements For Clients In <span className="font-semibold text-[#29B6F6]">China, Tajikistan And Kyrgyzstan</span>, While Continuing To Expand Our Services Across Other International Markets.
+                  Over the years, we have successfully assisted overseas employers in recruiting Pakistani workers for various sectors, including construction, engineering, manufacturing, security, hospitality, technical trades and general labor. Our recent recruitment activities include successful manpower placements for clients in <span className="font-semibold text-[#29B6F6]">China, Tajikistan and Kyrgyzstan</span>, while continuing to expand our services across other international markets.
                 </p>
                 <p className="text-[#0A3A47] text-sm sm:text-base leading-relaxed">
-                  With A Dedicated Recruitment Team And A Growing Network Of Qualified Candidates, Ali Hajveri International (Private) Limited Is Committed To Providing Reliable And Efficient Manpower Solutions To Overseas Employers.
+                  With a dedicated recruitment team and a growing network of qualified candidates, Ali Hajveri International (Private) Limited is committed to providing reliable and efficient manpower solutions to overseas employers.
                 </p>
 
                 <div className="flex flex-wrap gap-2 mt-5 pt-4 border-t border-[#4FC3F7]/20">
                   {["Tajikistan", "Kyrgyzstan", "Gulf Countries", "Asia"].map((country) => (
-                    <span key={country} className="inline-flex items-center gap-1.5 text-[10px] sm:text-xs font-bold text-[#0F4C5C] bg-[#4FC3F7]/12 border border-[#4FC3F7]/25 px-2.5 py-1 rounded-full">
+                    <span key={country} className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0F4C5C] bg-[#4FC3F7]/12 border border-[#4FC3F7]/25 px-2.5 py-1 rounded-full">
                       <span className="w-1 h-1 rounded-full bg-[#4FC3F7]" />
                       {country}
                     </span>
                   ))}
                 </div>
 
-                <Link to="/contact" className="btn-shine group inline-flex items-center gap-2 mt-5 bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] text-[#0F4C5C] px-5 sm:px-6 py-2.5 sm:py-3 rounded-full font-bold shadow-[0_10px_24px_rgba(79,195,247,0.3)] hover:shadow-[0_14px_32px_rgba(79,195,247,0.4)] hover:-translate-y-0.5 transition-all duration-300 text-sm">
+                <Link to="/contact" className="btn-shine group inline-flex items-center gap-2 mt-5 bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] text-[#0F4C5C] px-6 sm:px-8 py-3 sm:py-3.5 rounded-full font-bold shadow-[0_12px_30px_rgba(79,195,247,0.4)] hover:shadow-[0_16px_38px_rgba(79,195,247,0.55)] hover:-translate-y-0.5 transition-all duration-300 text-sm sm:text-base">
                   Request Manpower <FaArrowRight className="text-xs group-hover:translate-x-1 transition-transform duration-300" />
                 </Link>
               </div>
             </div>
 
+            {/* Map with softer saturation + dark wash → less cluttered */}
             <div className="relative order-1 lg:order-2 reveal-up group">
-              <div className="relative h-full min-h-[200px] rounded-2xl sm:rounded-3xl overflow-hidden">
-                <img src="/assets/map.png" alt="International Recruitment" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" onError={(e) => { e.target.style.display = "none"; }} />
+              <div className="relative h-full min-h-[200px] rounded-3xl overflow-hidden">
+                <img
+                  src="/assets/map.png"
+                  alt="World map illustrating countries served by our recruitment services"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03] saturate-[0.65] contrast-[1.05]"
+                  onError={(e) => { e.target.style.display = "none"; }}
+                />
+                {/* soft wash to push detailed map back — decorative */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#0F4C5C]/35 via-transparent to-[#0F4C5C]/20" aria-hidden="true" />
                 <span className="img-shine" />
               </div>
 
-              <div className="animate-gentle-float absolute -bottom-3 sm:-bottom-4 -left-3 sm:-left-4 bg-white rounded-2xl shadow-[0_16px_36px_rgba(15,76,92,0.12)] border border-[#4FC3F7]/25 px-3.5 py-2.5 max-w-[160px] hidden sm:block">
+              <div className="animate-gentle-float absolute bottom-3 left-3 bg-white rounded-2xl shadow-[0_16px_36px_rgba(15,76,92,0.12)] border border-[#4FC3F7]/25 px-3.5 py-2.5 max-w-[160px] hidden sm:block">
                 <div className="flex items-center gap-2 mb-1">
                   <span className="w-5 h-5 rounded-full bg-[#4FC3F7]/12 flex items-center justify-center">
-                    <FaGlobe className="text-[#22C55E] text-[10px]" />
+                    <FaGlobe className="text-[#22C55E] text-xs" />
                   </span>
-                  <p className="text-[#0F4C5C] font-bold text-[11px] sm:text-xs">Global Reach</p>
+                  <p className="text-[#0F4C5C] font-bold text-xs">Global Reach</p>
                 </div>
-                <p className="text-[#0A3A47] text-[9px] sm:text-[10px] leading-relaxed">Serving Employers Worldwide</p>
+                <p className="text-[#0A3A47] text-xs leading-relaxed">Serving employers worldwide</p>
               </div>
 
-              <div className="animate-gentle-float-slow absolute top-3 -right-2 sm:top-4 sm:-right-3 bg-gradient-to-r from-[#FFD54F] to-[#FFC107] text-[#0F4C5C] rounded-xl shadow-[0_12px_30px_rgba(255,213,79,0.35)] px-3 py-2 hidden md:block">
-                <p className="text-[9px] uppercase tracking-wider opacity-90 font-semibold">Placing In</p>
-                <p className="text-xs font-extrabold">25+ Countries</p>
+              <div className="animate-gentle-float-slow absolute top-3 right-3 bg-gradient-to-r from-[#FFD54F] to-[#FFB300] text-[#0F4C5C] rounded-2xl shadow-[0_12px_30px_rgba(255,213,79,0.35)] px-3 py-2 hidden md:block">
+                <p className="text-xs uppercase tracking-wider opacity-90 font-semibold">Placing In</p>
+                <p className="text-sm font-extrabold">25+ Countries</p>
               </div>
             </div>
           </div>
@@ -883,7 +864,7 @@ const Home = () => {
           <div className="text-center mb-7 sm:mb-9 reveal-up">
             <div className="inline-flex items-center gap-2 bg-[#4FC3F7]/10 border border-[#4FC3F7]/25 rounded-full px-3.5 py-1.5 mb-3">
               <span className="w-1.5 h-1.5 rounded-full bg-[#4FC3F7] animate-gold-pulse" />
-              <p className="text-[#29B6F6] text-xs sm:text-sm font-bold tracking-wide uppercase">Our Purpose</p>
+              <p className="text-[#29B6F6] text-xs sm:text-sm font-bold">Our Purpose</p>
             </div>
             <h2 className="font-[Plus_Jakarta_Sans] text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0F4C5C] leading-tight">
               Mission & <span className="bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent">Vision</span>
@@ -891,18 +872,18 @@ const Home = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-5 sm:gap-6">
-            <div className="group relative bg-gradient-to-br from-white via-[#E1F5FE] to-white rounded-2xl sm:rounded-3xl p-5 sm:p-7 border border-[#4FC3F7]/20 hover:border-[#4FC3F7]/50 shadow-[0_8px_28px_rgba(15,76,92,0.06)] hover:shadow-[0_18px_44px_rgba(79,195,247,0.15)] hover:-translate-y-1 transition-all duration-300 overflow-hidden reveal-up">
+            <div className="group relative bg-gradient-to-br from-white via-[#E1F5FE] to-white rounded-3xl p-5 sm:p-7 border border-[#4FC3F7]/20 hover:border-[#4FC3F7]/50 shadow-[0_8px_28px_rgba(15,76,92,0.06)] hover:shadow-[0_18px_44px_rgba(79,195,247,0.15)] hover:-translate-y-1 transition-all duration-300 overflow-hidden reveal-up">
               <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500" />
               <div className="w-11 sm:w-12 h-11 sm:h-12 rounded-2xl bg-white shadow-[0_6px_18px_rgba(15,76,92,0.08)] flex items-center justify-center mb-4 group-hover:bg-[#4FC3F7]/10 transition-colors">
                 <FaBullseye className="text-[#22C55E] text-xl sm:text-2xl group-hover:scale-110 icon-wiggle transition-transform duration-300" />
               </div>
               <h3 className="font-[Plus_Jakarta_Sans] text-xl sm:text-2xl font-extrabold text-[#0F4C5C] mb-3">Our Mission</h3>
               <p className="text-[#0A3A47] text-sm sm:text-base leading-relaxed">
-                To Deliver Dependable Overseas Recruitment Solutions That Help Employers Build Productive Teams, While Creating Meaningful International Career Opportunities For Pakistani Talent.
+                To deliver dependable overseas recruitment solutions that help employers build productive teams, while creating meaningful international career opportunities for Pakistani talent.
               </p>
             </div>
 
-            <div className="group relative bg-gradient-to-br from-[#0F4C5C] via-[#0A3A47] to-[#06303A] rounded-2xl sm:rounded-3xl p-5 sm:p-7 text-white hover:shadow-[0_20px_48px_rgba(15,76,92,0.35)] hover:-translate-y-1 transition-all duration-300 overflow-hidden reveal-up reveal-up-delay-1">
+            <div className="group relative bg-gradient-to-br from-[#0F4C5C] via-[#0A3A47] to-[#06303A] rounded-3xl p-5 sm:p-7 text-white hover:shadow-[0_20px_48px_rgba(15,76,92,0.35)] hover:-translate-y-1 transition-all duration-300 overflow-hidden reveal-up reveal-up-delay-1">
               <div className="absolute -top-16 -right-16 w-56 h-56 rounded-full bg-[#4FC3F7]/20 blur-3xl" />
               <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F]" />
               <div className="relative w-11 sm:w-12 h-11 sm:h-12 rounded-2xl bg-[#4FC3F7]/15 border border-[#4FC3F7]/30 flex items-center justify-center mb-4 group-hover:bg-[#4FC3F7]/25 transition-colors">
@@ -912,54 +893,14 @@ const Home = () => {
                 Our <span className="bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent">Vision</span>
               </h3>
               <p className="relative text-white/85 text-sm sm:text-base leading-relaxed">
-                To Become A Trusted International Manpower Partner Known For Quality Recruitment, Responsible Deployment And Long-Term Employer Relationships.
+                To become a trusted international manpower partner known for quality recruitment, responsible deployment and long-term employer relationships.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ============ EMPLOYER CTA ============ */}
-      <section className="section-tight relative bg-white overflow-hidden">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative bg-gradient-to-br from-[#0F4C5C] via-[#0A3A47] to-[#06303A] rounded-2xl sm:rounded-3xl px-6 sm:px-8 py-8 sm:py-10 text-center overflow-hidden border border-[#4FC3F7]/25 shadow-[0_24px_60px_rgba(15,76,92,0.25)] reveal-up">
-            <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-[#4FC3F7]/20 blur-3xl" />
-            <div className="absolute -bottom-24 -left-20 w-80 h-80 rounded-full bg-[#FFD54F]/10 blur-3xl" />
-
-            <div className="absolute top-6 left-6 grid grid-cols-4 gap-1.5 opacity-30 hidden sm:grid">
-              {Array.from({ length: 12 }).map((_, i) => (
-                <span key={i} className="w-1.5 h-1.5 rounded-full bg-[#4FC3F7]" />
-              ))}
-            </div>
-
-            <div className="relative z-10 max-w-2xl mx-auto">
-              <div className="inline-flex items-center gap-2 bg-[#4FC3F7]/15 border border-[#4FC3F7]/30 rounded-full px-3.5 py-1.5 mb-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#4FC3F7] animate-gold-pulse" />
-                <span className="text-[#4FC3F7] text-[10px] sm:text-xs font-bold tracking-widest uppercase">Ready To Hire</span>
-              </div>
-
-              <h2 className="font-[Plus_Jakarta_Sans] text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-3 leading-tight">
-                Looking For Reliable <span className="bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent">Manpower From Pakistan?</span>
-              </h2>
-
-              <p className="text-white/80 text-sm sm:text-base mb-6 leading-relaxed">
-                Share Your Workforce Requirements With Our Recruitment Team And Let Us Help You Connect With Suitable Pakistani Candidates.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <Link to="/contact" className="btn-shine group inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] text-[#0F4C5C] px-6 sm:px-8 py-3 rounded-full font-bold shadow-[0_12px_30px_rgba(79,195,247,0.35)] hover:shadow-[0_16px_38px_rgba(79,195,247,0.5)] hover:-translate-y-0.5 transition-all duration-300 text-sm sm:text-base">
-                  Request Manpower <FaArrowRight className="text-xs group-hover:translate-x-1 transition-transform duration-300" />
-                </Link>
-                <Link to="/contact" className="btn-shine inline-flex items-center justify-center gap-2 border border-[#4FC3F7]/40 text-[#4FC3F7] px-6 sm:px-8 py-3 rounded-full font-semibold hover:bg-[#4FC3F7]/10 hover:border-[#4FC3F7]/70 transition-all duration-300 text-sm sm:text-base">
-                  Contact Our Team
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ============ FINAL SECTION ============ */}
+      {/* ============ FINAL SECTION (single closing CTA) ============ */}
       <section className="relative mb-5 section-tight bg-cover bg-center bg-no-repeat overflow-hidden" style={{ backgroundImage: "url(/assets/footer.png)", backgroundColor: "#0F4C5C" }}>
         <div className="absolute inset-0 bg-[#0F4C5C]/70" />
 
@@ -975,7 +916,7 @@ const Home = () => {
           </h2>
 
           <p className="text-white/80 mb-7 sm:mb-8 leading-relaxed text-sm sm:text-base animate-fade-up-delayed">
-            From Manpower Requirements To Successful Deployment, {COMPANY_INFO?.fullName || "Ali Hajveri International"} Works To Connect International Employers With Suitable Manpower From Pakistan Through A Professional And Structured Recruitment Process.
+            From manpower requirements to successful deployment, {COMPANY_INFO?.fullName || "Ali Hajveri International"} works to connect international employers with suitable manpower from Pakistan through a professional and structured recruitment process.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center animate-fade-up-delayed-2">
@@ -991,6 +932,15 @@ const Home = () => {
 
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+        /* Type scale — text-xs 12 · text-sm 14 · text-base 16 · text-lg 18
+           · text-xl 20 · text-2xl 24 · text-3xl 30 · text-4xl 36 · text-5xl 48 */
+
+        /* Radius — rounded-full, rounded-3xl, rounded-2xl, rounded-xl */
+
+        /* Text colours — 10 total:
+           #0F4C5C  #0A3A47 (×3 opacities)  #29B6F6  #4FC3F7
+           #FFD54F  #FFB300  #22C55E  #FFFFFF */
 
         .section-tight {
           padding-top: 2rem;

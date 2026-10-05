@@ -192,7 +192,8 @@ const LegalStatus = () => {
                     <span className="absolute inline-flex h-full w-full rounded-full bg-[#4FC3F7] opacity-75 animate-ping" />
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-[#4FC3F7]" />
                   </span>
-                  <span className="text-white text-xs sm:text-sm font-bold tracking-wide uppercase">
+                  {/* FIX #2 — sentence case, no uppercase */}
+                  <span className="text-white text-xs sm:text-sm font-bold tracking-wide">
                     Government Verified · Fully Licensed
                   </span>
                 </div>
@@ -223,13 +224,14 @@ const LegalStatus = () => {
                   >
                     <span className="shine-btn" />
                     <span className="relative">View Documents</span>
-                    <FaArrowRight className="relative text-xs group-hover:translate-x-1 transition-transform" />
+                    <FaArrowRight className="relative text-xs group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                   </a>
+                  {/* FIX #6 — Verify stays ghost on the dark hero */}
                   <Link
                     to="/contact"
                     className="inline-flex items-center justify-center gap-2 border-2 border-white/40 text-white px-6 py-3 rounded-full font-bold hover:bg-white hover:text-[#0F4C5C] hover:border-white transition-all duration-300 text-sm sm:text-base backdrop-blur-md"
                   >
-                    <FaHandshake className="text-sm" />
+                    <FaHandshake className="text-sm" aria-hidden="true" />
                     Verify With Us
                   </Link>
                 </div>
@@ -252,26 +254,29 @@ const LegalStatus = () => {
 
                   {/* Image Card */}
                   <div className="relative animate-float">
-                    <div className="absolute -inset-1 rounded-3xl bg-gradient-to-br from-[#4FC3F7] via-[#FFD54F] to-[#29B6F6] opacity-50 blur-md" />
+                    {/* FIX #1 — rounded-2xl instead of rounded-3xl */}
+                    <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-[#4FC3F7] via-[#FFD54F] to-[#29B6F6] opacity-50 blur-md" />
 
-                    <div className="relative rounded-3xl overflow-hidden border-2 border-white/40 bg-white shadow-[0_30px_70px_rgba(15,76,92,0.3)]">
+                    <div className="relative rounded-2xl overflow-hidden border-2 border-white/40 bg-white shadow-[0_30px_70px_rgba(15,76,92,0.3)]">
                       <img
                         src="/src/assets/legal-status.png"
                         alt="Legal Status"
                         className="w-full h-auto object-cover"
                         onError={(e) => {
                           e.target.parentElement.innerHTML = `
-                            <div class="w-full aspect-[4/5] bg-gradient-to-br from-[#0F4C5C] via-[#0A3A47] to-[#06303A] flex items-center justify-center relative overflow-hidden">
+                            <div class="w-full aspect-[4/5] bg-gradient-to-br from-[#0F4C5C] via-[#0A3A47] to-[#06303A] flex items-center justify-center relative overflow-hidden rounded-2xl">
                               <div class="absolute inset-0 opacity-10" style="background-image: repeating-linear-gradient(45deg, #4FC3F7 0, #4FC3F7 1px, transparent 0, transparent 50%); background-size: 20px 20px;"></div>
                               <div class="relative text-center p-6">
                                 <div class="w-16 h-16 rounded-full bg-gradient-to-br from-[#4FC3F7] to-[#29B6F6] mx-auto flex items-center justify-center mb-3 shadow-2xl">
                                   <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
                                 </div>
                                 <p class="text-lg font-black text-white mb-1">Legally Verified</p>
-                                <p class="text-[9px] text-white/60 uppercase tracking-widest mb-4">Government Of Pakistan</p>
-                                <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/10 backdrop-blur border border-white/20">
+                                <!-- FIX #3 — 9px → 12px, sentence case -->
+                                <p class="text-xs text-white/70 tracking-wide mb-4">Government Of Pakistan</p>
+                                <!-- FIX #4 — 9px → 12px, slightly wider padding -->
+                                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur border border-white/20">
                                   <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
-                                  <span class="text-[9px] font-bold text-white">OP&HRD/5224/LHR/2026</span>
+                                  <span class="text-xs font-bold text-white">OP&HRD/5224/LHR/2026</span>
                                 </div>
                               </div>
                             </div>
@@ -282,28 +287,29 @@ const LegalStatus = () => {
 
                     {/* Floating badges */}
                     <div className="absolute -top-3 -left-3 px-3 py-1.5 bg-white rounded-xl shadow-lg border border-[#4FC3F7]/20 flex items-center gap-2 animate-float" style={{ animationDelay: "0.5s" }}>
-                      <span className="w-7 h-7 rounded-lg bg-gradient-to-br from-[#4FC3F7] to-[#29B6F6] flex items-center justify-center">
-                        <FaShieldAlt className="text-white text-[10px]" />
+                      {/* FIX #1 — rounded-lg → rounded-xl */}
+                      <span className="w-7 h-7 rounded-xl bg-gradient-to-br from-[#4FC3F7] to-[#29B6F6] flex items-center justify-center">
+                        <FaShieldAlt className="text-white text-[10px]" aria-hidden="true" />
                       </span>
                       <div className="leading-tight">
-                        <p className="text-[7px] sm:text-[8px] font-bold text-[#0A3A47]/50 uppercase tracking-wider">
+                        <p className="text-[8px] sm:text-[9px] font-bold text-[#0A3A47]/50">
                           Status
                         </p>
-                        <p className="text-[10px] sm:text-xs font-black text-[#0F4C5C]">
+                        <p className="text-[11px] sm:text-xs font-black text-[#0F4C5C]">
                           100% Verified
                         </p>
                       </div>
                     </div>
 
                     <div className="absolute -bottom-3 -right-3 px-3 py-1.5 bg-white rounded-xl shadow-lg border border-[#FFD54F]/30 flex items-center gap-2 animate-float" style={{ animationDelay: "1.5s" }}>
-                      <span className="w-7 h-7 rounded-lg bg-gradient-to-br from-[#FFD54F] to-[#FFB300] flex items-center justify-center">
-                        <FaCertificate className="text-white text-[10px]" />
+                      <span className="w-7 h-7 rounded-xl bg-gradient-to-br from-[#FFD54F] to-[#FFB300] flex items-center justify-center">
+                        <FaCertificate className="text-white text-[10px]" aria-hidden="true" />
                       </span>
                       <div className="leading-tight">
-                        <p className="text-[7px] sm:text-[8px] font-bold text-[#0A3A47]/50 uppercase tracking-wider">
+                        <p className="text-[8px] sm:text-[9px] font-bold text-[#0A3A47]/50">
                           Certifications
                         </p>
-                        <p className="text-[10px] sm:text-xs font-black text-[#0F4C5C]">
+                        <p className="text-[11px] sm:text-xs font-black text-[#0F4C5C]">
                           04 Active
                         </p>
                       </div>
@@ -344,8 +350,9 @@ const LegalStatus = () => {
           {/* Heading */}
           <div className="text-center mb-7 sm:mb-9">
             <div className="inline-flex items-center gap-2 mb-3 bg-white border border-[#4FC3F7]/30 rounded-full px-3.5 py-1.5 shadow-[0_4px_14px_rgba(79,195,247,0.1)]">
-              <FaShieldAlt className="text-[#29B6F6] text-xs" />
-              <span className="text-xs sm:text-sm font-extrabold tracking-widest uppercase bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent">
+              <FaShieldAlt className="text-[#4FC3F7] text-xs" aria-hidden="true" />
+              {/* FIX #2 — drop uppercase tracking-widest */}
+              <span className="text-xs sm:text-sm font-extrabold tracking-wide bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent">
                 Our Credentials
               </span>
             </div>
@@ -362,7 +369,7 @@ const LegalStatus = () => {
             </p>
           </div>
 
-          {/* Cards Grid — 4 columns */}
+          {/* Cards Grid — 4 columns (FIX #9 — stronger container affordance) */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
             {legalItems.map((item, idx) => {
               const Icon = item.icon;
@@ -370,7 +377,7 @@ const LegalStatus = () => {
                 <Link
                   key={item.id}
                   to={item.link}
-                  className="legal-card group relative bg-white rounded-2xl p-5 border border-[#4FC3F7]/15 hover:border-[#4FC3F7]/50 shadow-[0_8px_25px_rgba(15,76,92,0.06)] hover:shadow-[0_20px_45px_rgba(79,195,247,0.18)] overflow-hidden animate-fadeIn"
+                  className="legal-card group relative bg-white rounded-2xl p-5 border-2 border-[#4FC3F7]/25 hover:border-[#4FC3F7]/70 shadow-[0_10px_30px_rgba(15,76,92,0.10)] hover:shadow-[0_22px_50px_rgba(79,195,247,0.22)] overflow-hidden animate-fadeIn focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4FC3F7] focus-visible:ring-offset-2"
                   style={{ animationDelay: `${idx * 0.1}s` }}
                 >
                   {/* Top shimmer */}
@@ -380,19 +387,19 @@ const LegalStatus = () => {
                   <div
                     className={`legal-icon w-12 h-12 rounded-xl bg-gradient-to-br ${item.accent} flex items-center justify-center mb-4 shadow-[0_8px_20px_rgba(79,195,247,0.3)]`}
                   >
-                    <Icon className="text-white text-base" />
+                    <Icon className="text-white text-base" aria-hidden="true" />
                   </div>
 
                   {/* Code badge */}
                   <div className="flex items-center gap-1.5 mb-2">
-                    <span className="text-[10px] sm:text-xs font-extrabold uppercase tracking-widest bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent">
+                    <span className="text-xs sm:text-sm font-extrabold tracking-wide bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent">
                       {item.code}
                     </span>
-                    <FaCheckCircle className="text-green-500 text-[9px] sm:text-[10px]" />
+                    <FaCheckCircle className="text-green-500 text-xs" aria-hidden="true" />
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-xs sm:text-sm font-extrabold text-[#0F4C5C] leading-tight mb-1.5 group-hover:text-[#29B6F6] transition-colors">
+                  <h3 className="text-sm font-extrabold text-[#0F4C5C] leading-tight mb-1.5 group-hover:text-[#4FC3F7] transition-colors">
                     {item.title}
                   </h3>
 
@@ -402,25 +409,23 @@ const LegalStatus = () => {
                   </p>
 
                   {/* Arrow */}
-                  <div className="flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#29B6F6] opacity-70 group-hover:opacity-100 transition-all">
+                  <div className="flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#4FC3F7] opacity-80 group-hover:opacity-100 transition-all">
                     <span>View Details</span>
-                    <FaArrowRight className="text-[8px] sm:text-[9px] group-hover:translate-x-1 transition-transform" />
+                    <FaArrowRight className="text-[10px] group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                   </div>
                 </Link>
               );
             })}
           </div>
 
-          {/* Bottom CTA */}
+          {/* Bottom CTA — FIX #6 — Verify is now ghost, matching the hero */}
           <div className="mt-7 sm:mt-9 text-center">
             <Link
               to="/contact"
-              className="group relative inline-flex items-center gap-2 bg-gradient-to-r from-[#4FC3F7] via-[#29B6F6] to-[#4FC3F7] bg-[length:200%_100%] text-[#0F4C5C] px-7 py-3 rounded-full font-bold text-sm sm:text-base shadow-[0_12px_25px_rgba(79,195,247,0.35)] hover:shadow-[0_16px_35px_rgba(255,213,79,0.5)] hover:-translate-y-0.5 transition-all duration-300 overflow-hidden"
-              style={{ animation: "gradientShift 4s ease infinite" }}
+              className="group inline-flex items-center justify-center gap-2 border-2 border-[#0F4C5C]/30 text-[#0F4C5C] px-7 py-3 rounded-full font-bold text-sm sm:text-base hover:bg-[#0F4C5C] hover:text-white hover:border-[#0F4C5C] hover:-translate-y-0.5 transition-all duration-300"
             >
-              <span className="shine-btn" />
-              <span className="relative">Verify With Our Team</span>
-              <FaExternalLinkAlt className="relative text-[10px] sm:text-xs" />
+              <span>Verify With Our Team</span>
+              <FaExternalLinkAlt className="text-xs group-hover:translate-x-0.5 transition-transform" aria-hidden="true" />
             </Link>
           </div>
         </div>

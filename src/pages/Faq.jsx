@@ -13,7 +13,7 @@ import {
 } from "react-icons/fa";
 
 /* ============================================================
-   FAQ DATA — Every Word Capitalized
+   FAQ DATA
 ============================================================ */
 const FAQ_CATEGORIES = [
   {
@@ -278,10 +278,10 @@ const FAQItem = ({ q, a, isOpen, onToggle, index, color, bgFrom, bgTo, shadow })
       <div className="flex items-start gap-2.5 flex-1">
         <span className="relative flex-shrink-0">
           {isOpen && (
-            <span className={`absolute inset-0 rounded-lg bg-gradient-to-br ${bgFrom} ${bgTo} blur-md opacity-60 animate-pulse`} />
+            <span className={`absolute inset-0 rounded-xl bg-gradient-to-br ${bgFrom} ${bgTo} blur-md opacity-60 animate-pulse`} />
           )}
           <span
-            className={`relative w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-300 ${
+            className={`relative w-8 h-8 rounded-xl flex items-center justify-center transition-all duration-300 ${
               isOpen
                 ? `bg-gradient-to-br ${bgFrom} ${bgTo} text-white scale-110 ${shadow}`
                 : `bg-[#E1F5FE] ${color} group-hover:scale-105`
@@ -334,7 +334,7 @@ const FAQItem = ({ q, a, isOpen, onToggle, index, color, bgFrom, bgTo, shadow })
 ============================================================ */
 const Faq = () => {
   const [openItem, setOpenItem] = useState(null);
-  const [activeCategory, setActiveCategory] = useState("all");
+  const [activeCategory, setActiveCategory] = useState("general");
   const [search, setSearch] = useState("");
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const heroRef = useRef(null);
@@ -430,42 +430,39 @@ const Faq = () => {
       `}</style>
 
       {/* ============ HERO ============ */}
-      <section className="relative mt-[-5rem] pt-40 sm:pt-24 md:pt-28 lg:pt-32 pb-6 sm:pb-10 overflow-hidden bg-gradient-to-b from-white via-[#E1F5FE] to-white">
+      <section className="relative mt-[-6rem] pt-44 sm:pt-28 md:pt-32 lg:pt-36 pb-12 sm:pb-16 overflow-hidden bg-gradient-to-b from-white via-[#E1F5FE] to-white">
         <div className="absolute -top-32 -right-40 w-[280px] sm:w-[380px] md:w-[480px] h-[280px] sm:h-[380px] md:h-[480px] rounded-full bg-[#4FC3F7]/10 blur-3xl animate-pulse-slow" />
         <div className="absolute top-40 -left-40 w-[220px] sm:w-[300px] md:w-[380px] h-[220px] sm:h-[300px] md:h-[380px] rounded-full bg-[#FFD54F]/10 blur-3xl" />
         <div className="absolute bottom-0 left-1/3 w-[180px] sm:w-[220px] md:w-[260px] h-[180px] sm:h-[220px] md:h-[260px] rounded-full bg-[#4FC3F7]/8 blur-3xl" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-start">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-14 items-start">
 
-            {/* LEFT: Content */}
+            {/* LEFT */}
             <div className="text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 mb-3 bg-white/95 backdrop-blur-sm border border-[#4FC3F7]/40 rounded-full px-3 sm:px-4 py-1.5 shadow-[0_4px_14px_rgba(15,76,92,0.12)]">
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full rounded-full bg-[#4FC3F7] opacity-75 animate-ping" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#4FC3F7]" />
-                </span>
-                <span className="text-[#0F4C5C] text-xs sm:text-sm font-bold tracking-wide">
+              <div className="inline-flex items-center gap-2 mb-4 sm:mb-5 bg-white/95 backdrop-blur-sm border border-[#4FC3F7]/40 rounded-full px-3 sm:px-4 py-1.5 sm:py-2 shadow-[0_4px_14px_rgba(15,76,92,0.12)]">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#4FC3F7] animate-ping-slow" />
+                <span className="text-[#0F4C5C] text-xs sm:text-sm font-bold">
                   Support Center
                 </span>
               </div>
 
-              <h1 className="font-[Plus_Jakarta_Sans] text-3xl sm:text-4xl md:text-5xl lg:text-[3.2rem] font-extrabold text-[#0F4C5C] leading-[1.15] mb-3">
+              <h1 className="font-[Plus_Jakarta_Sans] text-3xl sm:text-4xl md:text-5xl lg:text-[3.2rem] font-extrabold text-[#0F4C5C] leading-[1.15] mb-4 sm:mb-5">
                 Frequently Asked{" "}
                 <span className="relative inline-block">
-                  <span className="bg-gradient-to-r from-[#4FC3F7] via-[#FFD54F] to-[#4FC3F7] bg-clip-text text-transparent bg-[length:200%_100%] animate-[gradientShift_4s_ease_infinite]">
+                  <span className="bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent">
                     Questions
                   </span>
                   <svg
                     className="absolute -bottom-2 left-0 w-full"
-                    height="8"
-                    viewBox="0 0 100 8"
+                    height="10"
+                    viewBox="0 0 100 10"
                     preserveAspectRatio="none"
                   >
                     <path
-                      d="M0,4 Q25,0 50,4 T100,4"
-                      stroke="#FFD54F"
-                      strokeWidth="2"
+                      d="M0,5 Q25,0 50,5 T100,5"
+                      stroke="#4FC3F7"
+                      strokeWidth="2.5"
                       fill="none"
                       strokeLinecap="round"
                     />
@@ -473,15 +470,14 @@ const Faq = () => {
                 </span>
               </h1>
 
-              <div className="text-base sm:text-lg md:text-xl text-[#0F4C5C] mb-3 min-h-[28px] sm:h-7 font-bold">
+              <div className="text-sm sm:text-base md:text-lg text-[#0A3A47] mb-4 min-h-[24px] sm:h-7 font-semibold">
                 Answers To{" "}
-                <span className="bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent font-bold">
+                <span className="text-[#29B6F6] font-semibold">
                   Common Questions
                 </span>
-                <span className="text-[#0F4C5C] animate-pulse font-bold">|</span>
               </div>
 
-              <div className="flex justify-center lg:justify-start mb-4">
+              <div className="flex justify-center lg:justify-start mb-6 sm:mb-8">
                 <div className="max-w-2xl">
                   <p className="text-[#0A3A47] text-sm sm:text-base md:text-lg leading-relaxed font-medium">
                     Everything You Need To Know About Our Manpower Recruitment
@@ -506,78 +502,87 @@ const Faq = () => {
               </div>
 
               {/* Popular */}
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 mb-5">
-                <span className="text-[#0A3A47]/60 text-[10px] sm:text-xs font-semibold uppercase tracking-wider">
-                  Popular:
-                </span>
-                {["Visa", "Medical", "Passport", "Documents", "Trade Test", "Interview", "Deployment"].map((kw) => {
-                  const isActive = search.trim().toLowerCase() === kw.toLowerCase();
-                  return (
-                    <button
-                      key={kw}
-                      type="button"
-                      onClick={() => {
-                        setSearch(isActive ? "" : kw);
-                        setActiveCategory("all");
-                      }}
-                      className={`text-[10px] sm:text-xs font-bold px-3 py-1 rounded-full border transition-all duration-300 hover:scale-105 cursor-pointer ${
-                        isActive
-                          ? "bg-[#4FC3F7] text-[#0F4C5C] border-[#4FC3F7] shadow-[0_6px_16px_rgba(79,195,247,0.4)] scale-105"
-                          : "text-[#0F4C5C] bg-white border-[#4FC3F7]/30 hover:bg-[#4FC3F7] hover:text-[#0F4C5C] hover:border-[#4FC3F7]"
-                      }`}
-                    >
-                      {kw}
-                    </button>
-                  );
-                })}
+              <div className="max-w-2xl mb-6 sm:mb-8 mx-auto lg:mx-0">
+                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-1.5">
+                  <span className="text-[#0A3A47]/60 text-xs font-semibold tracking-wide mr-1">
+                    Popular:
+                  </span>
+                  {["Visa", "Medical", "Passport", "Documents", "Trade Test", "Interview", "Deployment"].map((kw) => {
+                    const isActive = search.trim().toLowerCase() === kw.toLowerCase();
+                    return (
+                      <button
+                        key={kw}
+                        type="button"
+                        onClick={() => {
+                          setSearch(isActive ? "" : kw);
+                          setActiveCategory("all");
+                        }}
+                        className={`text-xs font-bold px-2.5 py-1 rounded-full border transition-all duration-300 hover:scale-105 cursor-pointer whitespace-nowrap ${
+                          isActive
+                            ? "bg-[#4FC3F7] text-[#0F4C5C] border-[#4FC3F7] shadow-[0_6px_16px_rgba(79,195,247,0.4)] scale-105"
+                            : "text-[#0F4C5C] bg-white border-[#4FC3F7]/30 hover:bg-[#4FC3F7] hover:text-[#0F4C5C] hover:border-[#4FC3F7]"
+                        }`}
+                      >
+                        {kw}
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
 
               {/* CTAs */}
-              <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-5">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
                 <a
                   href="#faq-list"
-                  className="btn-shine group inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] text-[#0F4C5C] px-6 sm:px-8 py-3 rounded-full font-bold shadow-[0_12px_30px_rgba(79,195,247,0.4)] hover:shadow-[0_16px_38px_rgba(79,195,247,0.55)] hover:-translate-y-0.5 transition-all duration-300 text-sm sm:text-base"
+                  className="btn-shine group inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] text-[#0F4C5C] px-6 sm:px-8 py-3 sm:py-3.5 rounded-full font-bold shadow-[0_12px_30px_rgba(79,195,247,0.4)] hover:shadow-[0_16px_38px_rgba(79,195,247,0.55)] hover:-translate-y-0.5 transition-all duration-300 text-sm sm:text-base"
                 >
                   Browse FAQs
-                  <FaArrowRight className="text-sm group-hover:translate-x-1 transition-transform" />
+                  <FaArrowRight className="text-sm group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                 </a>
                 <Link
                   to="/contact"
-                  className="btn-shine inline-flex items-center justify-center gap-2 bg-white border-2 border-[#0F4C5C]/30 text-[#0F4C5C] px-6 sm:px-8 py-3 rounded-full font-bold hover:border-[#4FC3F7] hover:bg-[#E1F5FE] transition-all duration-300 text-sm sm:text-base"
+                  className="btn-shine group inline-flex items-center justify-center gap-2 bg-white border-2 border-[#0F4C5C]/30 text-[#0F4C5C] px-6 sm:px-8 py-3 sm:py-3.5 rounded-full font-bold hover:border-[#4FC3F7] hover:bg-[#E1F5FE] transition-all duration-300 text-sm sm:text-base"
                 >
                   Contact Support
+                  <FaArrowRight className="text-sm group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                 </Link>
               </div>
             </div>
 
-            {/* RIGHT: Image */}
-            <div className="relative reveal-up group order-first lg:order-last lg:mt-12">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#4FC3F7]/20 to-transparent rounded-2xl sm:rounded-3xl rotate-3 scale-[1.02] hidden sm:block" />
+            {/* RIGHT */}
+            <div className="relative reveal-up group order-first lg:order-last lg:mt-[52px]">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#4FC3F7]/20 to-transparent rounded-3xl rotate-3 scale-[1.02] hidden sm:block" />
 
-              <div className="relative h-[280px] sm:h-[340px] lg:h-[420px] rounded-2xl sm:rounded-3xl overflow-hidden border border-[#4FC3F7]/20 shadow-[0_20px_50px_rgba(15,76,92,0.15)]">
+              <div className="relative h-[280px] sm:h-[340px] lg:h-[440px] rounded-3xl overflow-hidden border border-[#4FC3F7]/20 shadow-[0_20px_50px_rgba(15,76,92,0.15)]">
                 <img
                   src="/assets/faq-hero-img.png"
-                  alt="FAQ Support"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  alt="Customer Support Team Available To Answer Questions"
+                  className="w-full h-full object-cover saturate-[0.7] contrast-[1.02] transition-transform duration-700 group-hover:scale-[1.03]"
                   onError={(e) => { e.target.style.display = "none"; }}
+                />
+                <div
+                  className="absolute inset-0 bg-gradient-to-br from-[#0F4C5C]/35 via-transparent to-[#4FC3F7]/20 pointer-events-none"
+                  aria-hidden="true"
                 />
                 <span className="img-shine" />
               </div>
 
-              <div className="animate-gentle-float absolute -bottom-4 sm:-bottom-5 -left-4 sm:-left-5 bg-white rounded-2xl shadow-[0_16px_36px_rgba(15,76,92,0.12)] border border-[#4FC3F7]/25 px-4 py-3 max-w-[170px] hidden sm:block">
+              {/* bottom-left badge */}
+              <div className="animate-gentle-float absolute bottom-3 left-3 bg-white rounded-2xl shadow-[0_16px_36px_rgba(15,76,92,0.12)] border border-[#4FC3F7]/25 px-4 py-3 max-w-[170px] hidden sm:block">
                 <div className="flex items-center gap-2 mb-1">
                   <span className="w-6 h-6 rounded-full bg-[#4FC3F7]/12 flex items-center justify-center">
-                    <FaHeadset className="text-[#22C55E] text-xs" />
+                    <FaHeadset className="text-[#22C55E] text-xs" aria-hidden="true" />
                   </span>
                   <p className="text-[#0F4C5C] font-bold text-xs">24/7 Support</p>
                 </div>
-                <p className="text-[#0A3A47] text-[10px] leading-relaxed">
+                <p className="text-[#0A3A47] text-xs leading-relaxed">
                   Always Here To Help
                 </p>
               </div>
 
-              <div className="animate-gentle-float-slow absolute top-4 -right-3 sm:top-5 sm:-right-4 bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] text-[#0F4C5C] rounded-xl shadow-[0_12px_30px_rgba(79,195,247,0.35)] px-3.5 py-2.5 hidden md:block">
-                <p className="text-[10px] uppercase tracking-wider opacity-90 font-semibold">
+              {/* top-right badge */}
+              <div className="animate-gentle-float-slow absolute top-3 right-3 bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] text-[#0F4C5C] rounded-2xl shadow-[0_12px_30px_rgba(79,195,247,0.35)] px-3.5 py-2.5 hidden md:block">
+                <p className="text-xs uppercase tracking-wider opacity-90 font-semibold">
                   Quick
                 </p>
                 <p className="text-sm font-extrabold">Answers</p>
@@ -677,7 +682,7 @@ const Faq = () => {
                   className="animate-slideUp"
                   style={{ animationDelay: `${catIdx * 0.08}s` }}
                 >
-                  <div className="flex items-center gap-3 mb-4">
+                  <div className="flex items-center gap-3 mb-4 pl-3.5 sm:pl-4">
                     <div className="relative flex-shrink-0">
                       <span className={`absolute inset-0 rounded-xl bg-gradient-to-br ${cat.bgFrom} ${cat.bgTo} blur-md opacity-50 animate-pulse`} />
                       <span className={`relative w-10 h-10 rounded-xl bg-gradient-to-br ${cat.bgFrom} ${cat.bgTo} text-white flex items-center justify-center font-extrabold text-xs sm:text-sm ${cat.shadow}`}>
@@ -688,7 +693,7 @@ const Faq = () => {
                       <h2 className="font-[Plus_Jakarta_Sans] text-lg sm:text-xl font-extrabold text-[#0F4C5C]">
                         {cat.title}
                       </h2>
-                      <p className="text-[#0A3A47]/60 text-[10px] sm:text-xs font-semibold flex items-center gap-1.5">
+                      <p className="text-[#0A3A47]/60 text-xs font-semibold flex items-center gap-1.5">
                         <span className={`w-1 h-1 rounded-full ${cat.color.replace("text-", "bg-")}`} />
                         {cat.items.length}{" "}
                         {cat.items.length === 1 ? "Question" : "Questions"}
@@ -725,7 +730,7 @@ const Faq = () => {
               <span className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-[#4FC3F7] via-[#FFD54F] to-[#4FC3F7] bg-[length:200%_100%] animate-[shimmer_3s_linear_infinite]" />
 
               <div className="w-12 h-12 mx-auto mb-3 rounded-2xl bg-white shadow-[0_6px_18px_rgba(15,76,92,0.08)] flex items-center justify-center group hover:bg-[#4FC3F7]/10 transition-all duration-300 hover:scale-110 hover:rotate-6">
-                <FaHeadset className="text-[#8B5CF6] text-lg" />
+                <FaHeadset className="text-[#8B5CF6] text-lg" aria-hidden="true" />
               </div>
 
               <h3 className="font-[Plus_Jakarta_Sans] text-lg sm:text-xl font-extrabold text-[#0F4C5C] mb-2">
@@ -740,9 +745,9 @@ const Faq = () => {
                 style={{ animation: "gradientShift 4s ease infinite" }}
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-                <FaComments className="relative text-xs" />
+                <FaComments className="relative text-xs" aria-hidden="true" />
                 <span className="relative">Contact Our Team</span>
-                <FaArrowRight className="relative text-xs group-hover:translate-x-1 transition-transform" />
+                <FaArrowRight className="relative text-xs group-hover:translate-x-1 transition-transform" aria-hidden="true" />
               </Link>
             </div>
           )}
@@ -752,7 +757,7 @@ const Faq = () => {
       {/* ============ CTA ============ */}
       <section className="relative py-10 sm:py-12 bg-white overflow-hidden">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative bg-gradient-to-br from-[#0F4C5C] via-[#0A3A47] to-[#06303A] rounded-2xl sm:rounded-3xl px-6 sm:px-8 py-8 sm:py-10 text-center overflow-hidden border border-[#4FC3F7]/25 shadow-[0_24px_60px_rgba(15,76,92,0.25)] group/cta">
+          <div className="relative bg-gradient-to-br from-[#0F4C5C] via-[#0A3A47] to-[#06303A] rounded-2xl px-6 sm:px-8 py-8 sm:py-10 text-center overflow-hidden border border-[#4FC3F7]/25 shadow-[0_24px_60px_rgba(15,76,92,0.25)] group/cta">
             <div className="absolute -top-20 -right-20 w-72 h-72 bg-[#4FC3F7]/25 blur-3xl animate-blob" />
             <div
               className="absolute -bottom-24 -left-20 w-80 h-80 bg-[#FFD54F]/15 blur-3xl animate-blob"
@@ -763,8 +768,8 @@ const Faq = () => {
 
             <div className="relative z-10 max-w-2xl mx-auto">
               <div className="inline-flex items-center gap-2 bg-[#4FC3F7]/15 border border-[#4FC3F7]/30 rounded-full px-3.5 py-1.5 mb-3 backdrop-blur">
-                <FaLightbulb className="text-[#FFB300] text-xs" />
-                <span className="text-[#4FC3F7] text-xs sm:text-sm font-bold tracking-widest uppercase">
+                <FaLightbulb className="text-[#FFB300] text-xs" aria-hidden="true" />
+                <span className="text-[#4FC3F7] text-xs sm:text-sm font-bold tracking-wide">
                   Our Recruitment Focus
                 </span>
               </div>
@@ -790,7 +795,7 @@ const Faq = () => {
                     className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#4FC3F7] bg-[#4FC3F7]/15 border border-[#4FC3F7]/30 px-3 py-1.5 rounded-full hover:bg-[#4FC3F7]/25 hover:scale-105 transition-all duration-300"
                     style={{ animationDelay: `${i * 0.1}s` }}
                   >
-                    <FaCheckCircle className="text-[#22C55E] text-[10px]" />
+                    <FaCheckCircle className="text-[#22C55E] text-[10px]" aria-hidden="true" />
                     {step}
                   </span>
                 ))}
@@ -804,7 +809,7 @@ const Faq = () => {
                 >
                   <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
                   <span className="relative">Contact Our Team</span>
-                  <FaArrowRight className="relative text-xs group-hover:translate-x-1 transition-transform" />
+                  <FaArrowRight className="relative text-xs group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                 </Link>
                 <Link
                   to="/services"

@@ -6,7 +6,7 @@ import {
   FaHeadset, FaGraduationCap, FaArrowRight, FaCheckCircle, FaShip,
   FaHospital, FaUtensils, FaCogs, FaIndustry, FaTruck, FaCar,
   FaSeedling, FaFlask, FaCamera, FaBuilding, FaLaptop, FaChartLine,
-  FaPhone, FaMinus, FaPlus, FaGlobeAsia, FaUsers, FaHardHat,
+  FaPhone, FaGlobeAsia, FaUsers, FaHardHat,
   FaComments, FaShieldAlt, FaCertificate, FaSearch, FaUserTie,
   FaFileSignature, FaStethoscope, FaPassport, FaPlane, FaSyncAlt,
   FaLayerGroup, FaHandshake, FaStar,
@@ -19,9 +19,9 @@ const CORE_SERVICES = [
   { icon: FaClipboardCheck, title: "Manpower Planning", desc: "Realistic Feasibility Advice On Your Workforce Needs, Including Salary Expectations And Benefits For The Roles You'Re Hiring.", color: "text-[#4FC3F7]" },
   { icon: FaUserCheck, title: "Sourcing & Screening", desc: "Comprehensive Candidate Profiles With Verified Credentials, Sourced From Within Pakistan, With Your Team Involved In Every Selection Decision.", color: "text-[#22C55E]" },
   { icon: FaFileContract, title: "Contract & Documentation", desc: "Full Support During Contract Negotiation, Plus Visa Endorsement And All Required Paperwork.", color: "text-[#FFB300]" },
-  { icon: FaPlaneDeparture, title: "Travel & Deployment", desc: "Coordinated Travel Arrangements And Onboarding So Your Workforce Arrives From Pakistan Ready To Work.", color: "text-[#06B6D4]" },
-  { icon: FaGraduationCap, title: "Skill Upgrading", desc: "Access To Our Training Institutes To Move Workers From Unskilled To Semi-Skilled To Skilled Before Deployment.", color: "text-[#A78BFA]" },
-  { icon: FaHeadset, title: "Post-Placement Support", desc: "Dedicated Case Handling And Follow-Up After Deployment For Both Employer And Worker.", color: "text-[#EC4899]" },
+  { icon: FaPlaneDeparture, title: "Travel & Deployment", desc: "Coordinated Travel Arrangements And Onboarding So Your Workforce Arrives From Pakistan Ready To Work.", color: "text-[#29B6F6]" },
+  { icon: FaGraduationCap, title: "Skill Upgrading", desc: "Access To Our Training Institutes To Move Workers From Unskilled To Semi-Skilled To Skilled Before Deployment.", color: "text-[#29B6F6]" },
+  { icon: FaHeadset, title: "Post-Placement Support", desc: "Dedicated Case Handling And Follow-Up After Deployment For Both Employer And Worker.", color: "text-[#4FC3F7]" },
 ];
 
 const PROCESS_STEPS = [
@@ -75,8 +75,8 @@ const GALLERY_IMAGES = [
 const WHY_CHIPS = [
   { icon: FaGlobeAsia, label: "Sourced Only From Pakistan", color: "text-[#4FC3F7]" },
   { icon: FaUsers, label: "4,500+ Workers Placed", color: "text-[#22C55E]" },
-  { icon: FaHardHat, label: "Every Skill Tier Covered", color: "text-[#F97316]" },
-  { icon: FaComments, label: "Direct Employer Involvement", color: "text-[#A78BFA]" },
+  { icon: FaHardHat, label: "Every Skill Tier Covered", color: "text-[#FFB300]" },
+  { icon: FaComments, label: "Direct Employer Involvement", color: "text-[#29B6F6]" },
 ];
 
 const FAQS = [
@@ -90,14 +90,14 @@ const FAQS = [
 const COMPLIANCE_ITEMS = [
   { icon: FaShieldAlt, title: "Registered & Licensed", desc: "Incorporated Under The Companies Act 2017 With A Valid Overseas Employment Promoter License.", color: "text-[#22C55E]" },
   { icon: FaCertificate, title: "Compliant Processes", desc: "Every Deployment Follows Government-Approved Documentation And Protector Processing.", color: "text-[#FFB300]" },
-  { icon: FaFileSignature, title: "Traceable Records", desc: "Full Audit Trail From Employer Demand To Final Workforce Deployment.", color: "text-[#8B5CF6]" },
+  { icon: FaFileSignature, title: "Traceable Records", desc: "Full Audit Trail From Employer Demand To Final Workforce Deployment.", color: "text-[#29B6F6]" },
 ];
 
 const SOURCING_APPROACH = [
   { icon: FaUsers, title: "Existing Candidate Networks", desc: "A Growing Database Of Pre-Screened Pakistani Workers Across Trades.", color: "text-[#4FC3F7]" },
   { icon: FaSearch, title: "Targeted Trade Sourcing", desc: "Candidates Matched By Trade, Experience And Project Requirement.", color: "text-[#22C55E]" },
   { icon: FaLaptop, title: "Digital Campaigns", desc: "Online Job Advertisements And Recruitment Campaigns Across Pakistan.", color: "text-[#FFB300]" },
-  { icon: FaComments, title: "Social Media Outreach", desc: "Active Outreach On Major Platforms To Reach Qualified Talent.", color: "text-[#A78BFA]" },
+  { icon: FaComments, title: "Social Media Outreach", desc: "Active Outreach On Major Platforms To Reach Qualified Talent.", color: "text-[#29B6F6]" },
 ];
 
 const SCREENING_ITEMS = ["Document Submission", "Experience Review", "Qualification Verification", "Job Requirement Matching", "Physical Suitability Assessment", "Preliminary Screening"];
@@ -105,43 +105,55 @@ const INTERVIEW_ITEMS = ["Technical Understanding", "Relevant Work Experience", 
 const TRADE_TEST_AREAS = ["Practical Trade Competency", "Equipment Familiarity", "Tools Handling", "Technical Knowledge", "Worksite Safety Awareness", "Productivity Potential"];
 
 const MEDICAL_DOCUMENT_ITEMS = [
-  { icon: FaStethoscope, title: "Medical Coordination", desc: "Scheduling, Follow-Up And Fitness Verification For Every Selected Candidate.", color: "text-[#EF4444]" },
+  { icon: FaStethoscope, title: "Medical Coordination", desc: "Scheduling, Follow-Up And Fitness Verification For Every Selected Candidate.", color: "text-[#FFB300]" },
   { icon: FaPassport, title: "Passport & Employment Docs", desc: "Complete Passport, Contract And Employment Documentation Support.", color: "text-[#4FC3F7]" },
   { icon: FaFileContract, title: "Visa Processing", desc: "Coordination For Visa Endorsement And Required Regulatory Paperwork.", color: "text-[#FFB300]" },
   { icon: FaShieldAlt, title: "Protector Of Emigrants", desc: "Protector Formalities Completed As Required By Pakistani Regulations.", color: "text-[#22C55E]" },
-  { icon: FaPlane, title: "Travel Arrangements", desc: "Air Ticketing, Travel Scheduling And Batch-Wise Departures Coordinated.", color: "text-[#06B6D4]" },
-  { icon: FaLayerGroup, title: "Final Deployment Files", desc: "Organized Candidate Records And Deployment Files Ready For The Employer.", color: "text-[#8B5CF6]" },
+  { icon: FaPlane, title: "Travel Arrangements", desc: "Air Ticketing, Travel Scheduling And Batch-Wise Departures Coordinated.", color: "text-[#29B6F6]" },
+  { icon: FaLayerGroup, title: "Final Deployment Files", desc: "Organized Candidate Records And Deployment Files Ready For The Employer.", color: "text-[#4FC3F7]" },
 ];
 
 const POST_DEPLOYMENT = [
-  { icon: FaHandshake, title: "Employer & Employee Coordination", desc: "Ongoing Communication Between Both Parties After Deployment.", color: "text-[#14B8A6]" },
+  { icon: FaHandshake, title: "Employer & Employee Coordination", desc: "Ongoing Communication Between Both Parties After Deployment.", color: "text-[#22C55E]" },
   { icon: FaUsers, title: "Workforce Follow-Up", desc: "Regular Check-Ins On Workforce Performance And Adjustment.", color: "text-[#4FC3F7]" },
   { icon: FaClipboardCheck, title: "Attendance & Performance", desc: "Coordination Support For Attendance, Productivity And Reporting.", color: "text-[#22C55E]" },
   { icon: FaHeadset, title: "Welfare & Grievance Support", desc: "Employee Welfare, Grievance Handling And Mediation When Needed.", color: "text-[#FFB300]" },
-  { icon: FaSyncAlt, title: "Replacement Support", desc: "Replacement Manpower Arranged If Required Within The Contract Period.", color: "text-[#8B5CF6]" },
-  { icon: FaPlane, title: "Repatriation Coordination", desc: "End-Of-Contract Repatriation And Travel Support When Applicable.", color: "text-[#06B6D4]" },
+  { icon: FaSyncAlt, title: "Replacement Support", desc: "Replacement Manpower Arranged If Required Within The Contract Period.", color: "text-[#4FC3F7]" },
+  { icon: FaPlane, title: "Repatriation Coordination", desc: "End-Of-Contract Repatriation And Travel Support When Applicable.", color: "text-[#29B6F6]" },
 ];
 
 const BULK_CAPABILITIES = [
   { icon: FaLayerGroup, title: "Multi-Trade Recruitment", desc: "Multiple Trades Sourced At The Same Time For One Project.", color: "text-[#4FC3F7]" },
   { icon: FaUsers, title: "High-Volume Sourcing", desc: "Large Candidate Pools Built Around Required Skills.", color: "text-[#22C55E]" },
   { icon: FaClipboardCheck, title: "Batch-Wise Screening", desc: "Structured Screening, Interviews And Testing In Organized Batches.", color: "text-[#FFB300]" },
-  { icon: FaFileSignature, title: "Documentation Tracking", desc: "Each Candidate Tracked Separately Through Documentation And Visa.", color: "text-[#8B5CF6]" },
-  { icon: FaPlane, title: "Batch-Wise Deployment", desc: "Coordinated Mobilization Matched To Project Schedules.", color: "text-[#06B6D4]" },
-  { icon: FaSyncAlt, title: "Replacement & Additional Support", desc: "Ongoing Support For Replacement And Additional Manpower.", color: "text-[#EC4899]" },
+  { icon: FaFileSignature, title: "Documentation Tracking", desc: "Each Candidate Tracked Separately Through Documentation And Visa.", color: "text-[#4FC3F7]" },
+  { icon: FaPlane, title: "Batch-Wise Deployment", desc: "Coordinated Mobilization Matched To Project Schedules.", color: "text-[#29B6F6]" },
+  { icon: FaSyncAlt, title: "Replacement & Additional Support", desc: "Ongoing Support For Replacement And Additional Manpower.", color: "text-[#4FC3F7]" },
 ];
 
-const WHY_DETAILED = [
-  "Licensed Overseas Recruitment Operation",
-  "Corporate And Structured Approach",
-  "Multi-Industry Recruitment Capability",
-  "Skilled To General Manpower Sourcing",
-  "Technical And Trade-Based Assessment",
-  "Bulk Recruitment Capability",
-  "Fast-Track Mobilization Support",
-  "Documentation And Deployment Coordination",
-  "Post-Deployment Workforce Support",
-  "Employer-Focused Communication",
+const WHY_GROUPS = [
+  {
+    heading: "Licensed & Compliant",
+    items: ["Licensed Overseas Recruitment Operation", "Corporate And Structured Approach"],
+  },
+  {
+    heading: "Sourcing & Assessment",
+    items: [
+      "Multi-Industry Recruitment Capability",
+      "Skilled To General Manpower Sourcing",
+      "Technical And Trade-Based Assessment",
+      "Bulk Recruitment Capability",
+    ],
+  },
+  {
+    heading: "Delivery & Support",
+    items: [
+      "Fast-Track Mobilization Support",
+      "Documentation And Deployment Coordination",
+      "Post-Deployment Workforce Support",
+      "Employer-Focused Communication",
+    ],
+  },
 ];
 
 const VALUABLE_CLIENTS = [
@@ -184,54 +196,69 @@ const Services = () => {
 
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
-      {/* ============ HERO ============ */}
-      <section className="section-tight relative bg-white overflow-hidden">
-        <div className="absolute -top-32 -right-40 w-[280px] h-[280px] rounded-full bg-[#4FC3F7]/10 blur-3xl animate-pulse-slow" />
-        <div className="absolute top-40 -left-40 w-[220px] h-[220px] rounded-full bg-[#0F4C5C]/8 blur-3xl" />
+      {/* ============ HERO — About-page style: white bg + light blue shade ============ */}
+      <section className="relative mt-[-6rem] pt-44 sm:pt-28 md:pt-32 lg:pt-36 pb-12 sm:pb-16 overflow-hidden bg-gradient-to-b from-white via-[#E1F5FE] to-white">
+        {/* soft blue shade blobs */}
+        <div className="absolute -top-32 -right-40 w-[280px] sm:w-[380px] md:w-[480px] h-[280px] sm:h-[380px] md:h-[480px] rounded-full bg-[#4FC3F7]/10 blur-3xl animate-pulse-slow" />
+        <div className="absolute top-40 -left-40 w-[220px] sm:w-[300px] md:w-[380px] h-[220px] sm:h-[300px] md:h-[380px] rounded-full bg-[#FFD54F]/10 blur-3xl" />
+        <div className="absolute bottom-0 left-1/3 w-[180px] sm:w-[220px] md:w-[260px] h-[180px] sm:h-[220px] md:h-[260px] rounded-full bg-[#4FC3F7]/8 blur-3xl" />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 sm:gap-10 items-start">
-            <div className="reveal-up">
-              <div className="inline-flex items-center gap-2 bg-[#4FC3F7]/10 border border-[#4FC3F7]/25 rounded-full px-3.5 py-1.5 mb-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#4FC3F7] animate-gold-pulse" />
-                <p className="text-[#29B6F6] text-xs sm:text-sm font-bold tracking-wide uppercase">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 sm:gap-10 lg:gap-14 items-start">
+            <div className="text-center lg:text-left">
+              <div className="inline-flex items-center gap-2 mb-4 sm:mb-5 bg-white/95 backdrop-blur-sm border border-[#4FC3F7]/40 rounded-full px-3 sm:px-4 py-1.5 sm:py-2 shadow-[0_4px_14px_rgba(15,76,92,0.12)]">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#4FC3F7] animate-ping-slow" />
+                <p className="text-[#0F4C5C] text-xs sm:text-sm font-bold">
                   What We Offer
                 </p>
               </div>
 
-              <h1 className="font-[Plus_Jakarta_Sans] text-2xl sm:text-3xl md:text-4xl lg:text-[2.6rem] font-extrabold text-[#0F4C5C] leading-[1.15] mb-4">
+              <h1 className="font-[Plus_Jakarta_Sans] text-3xl sm:text-4xl md:text-5xl lg:text-[3.2rem] font-extrabold text-[#0F4C5C] leading-[1.15] mb-4 sm:mb-5">
                 Manpower Services Built To Move Workforce From{" "}
                 <span className="bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent">
                   Pakistan To Your Site
                 </span>
               </h1>
 
-              <p className="text-[#0A3A47] text-sm sm:text-base mb-6 leading-relaxed font-medium max-w-lg">
-                From Planning Your Workforce To Supporting It After Deployment,
-                We Handle Every Step Of Sourcing Manpower From Pakistan And
-                Placing It With Employers Overseas.
-              </p>
+              <div className="text-sm sm:text-base md:text-lg text-[#0A3A47] mb-4 min-h-[24px] sm:h-7 font-semibold">
+                End-To-End{" "}
+                <span className="text-[#29B6F6] font-semibold">
+                  Recruitment Solutions
+                </span>
+              </div>
 
-              <div className="flex flex-col sm:flex-row gap-3">
+              <div className="flex justify-center lg:justify-start mb-6 sm:mb-8">
+                <div className="max-w-2xl">
+                  <p className="text-[#0A3A47] text-sm sm:text-base md:text-lg leading-relaxed font-medium">
+                    From Planning Your Workforce To Supporting It After Deployment,
+                    We Handle Every Step Of Sourcing Manpower From Pakistan And
+                    Placing It With Employers Overseas.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
                 <Link
                   to="/contact"
-                  className="btn-shine group inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] text-[#0F4C5C] px-6 sm:px-7 py-3 rounded-full font-bold shadow-[0_12px_30px_rgba(79,195,247,0.4)] hover:shadow-[0_16px_38px_rgba(79,195,247,0.55)] hover:-translate-y-0.5 transition-all duration-300 text-sm sm:text-base"
+                  className="btn-shine group inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] text-[#0F4C5C] px-6 sm:px-8 py-3 sm:py-3.5 rounded-full font-bold shadow-[0_12px_30px_rgba(79,195,247,0.4)] hover:shadow-[0_16px_38px_rgba(79,195,247,0.55)] hover:-translate-y-0.5 transition-all duration-300 text-sm sm:text-base"
                 >
                   Request A Quote
-                  <FaArrowRight className="text-sm group-hover:translate-x-1 transition-transform" />
+                  <FaArrowRight className="text-sm group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                 </Link>
                 <Link
                   to="/process"
-                  className="btn-shine inline-flex items-center justify-center gap-2 bg-white border-2 border-[#0F4C5C]/30 text-[#0F4C5C] px-6 sm:px-7 py-3 rounded-full font-bold hover:border-[#4FC3F7] hover:bg-[#E1F5FE] transition-all duration-300 text-sm sm:text-base"
+                  className="btn-shine group inline-flex items-center justify-center gap-2 bg-white border-2 border-[#0F4C5C]/30 text-[#0F4C5C] px-6 sm:px-8 py-3 sm:py-3.5 rounded-full font-bold hover:border-[#4FC3F7] hover:bg-[#E1F5FE] transition-all duration-300 text-sm sm:text-base"
                 >
                   See Our Process
+                  <FaArrowRight className="text-sm group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                 </Link>
               </div>
             </div>
 
-            <div className="relative reveal-up group lg:mt-17">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#4FC3F7]/20 to-transparent rounded-2xl sm:rounded-3xl rotate-3 scale-[1.02] hidden sm:block" />
-              <div className="relative h-[280px] sm:h-[340px] lg:h-[380px] rounded-2xl sm:rounded-3xl overflow-hidden border border-[#4FC3F7]/20 shadow-[0_20px_50px_rgba(15,76,92,0.15)]">
+            <div className="relative reveal-up group order-first lg:order-last lg:mt-[52px]">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#4FC3F7]/20 to-transparent rounded-3xl rotate-3 scale-[1.02] hidden sm:block" />
+
+              <div className="relative h-[280px] sm:h-[340px] lg:h-[380px] rounded-3xl overflow-hidden border border-[#4FC3F7]/20 shadow-[0_20px_50px_rgba(15,76,92,0.15)]">
                 <img
                   src="/assets/const-2.png"
                   alt="Pakistani Workforce Ready For Overseas Deployment"
@@ -241,20 +268,20 @@ const Services = () => {
                 <span className="img-shine" />
               </div>
 
-              <div className="animate-gentle-float absolute -bottom-4 sm:-bottom-5 -left-4 sm:-left-5 bg-white rounded-2xl shadow-[0_16px_36px_rgba(15,76,92,0.12)] border border-[#4FC3F7]/25 px-4 py-3 max-w-[170px] hidden sm:block">
+              <div className="animate-gentle-float absolute bottom-3 left-3 bg-white rounded-2xl shadow-[0_16px_36px_rgba(15,76,92,0.12)] border border-[#4FC3F7]/25 px-4 py-3 max-w-[170px] hidden sm:block">
                 <div className="flex items-center gap-2 mb-1">
                   <span className="w-6 h-6 rounded-full bg-[#4FC3F7]/12 flex items-center justify-center">
-                    <FaCheckCircle className="text-[#22C55E] text-xs" />
+                    <FaCheckCircle className="text-[#22C55E] text-xs" aria-hidden="true" />
                   </span>
                   <p className="text-[#0F4C5C] font-bold text-xs">End-To-End</p>
                 </div>
-                <p className="text-[#0A3A47] text-[10px] leading-relaxed">
+                <p className="text-[#0A3A47] text-xs leading-relaxed">
                   Sourcing To Deployment
                 </p>
               </div>
 
-              <div className="animate-gentle-float-slow absolute top-4 -right-3 sm:top-5 sm:-right-4 bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] text-[#0F4C5C] rounded-xl shadow-[0_12px_30px_rgba(79,195,247,0.35)] px-3.5 py-2.5 hidden md:block">
-                <p className="text-[10px] uppercase tracking-wider opacity-90 font-semibold">
+              <div className="animate-gentle-float-slow absolute top-3 right-3 bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] text-[#0F4C5C] rounded-2xl shadow-[0_12px_30px_rgba(79,195,247,0.35)] px-3.5 py-2.5 hidden md:block">
+                <p className="text-xs uppercase tracking-wider opacity-90 font-semibold">
                   Trusted By
                 </p>
                 <p className="text-sm font-extrabold">500+ Clients</p>
@@ -265,7 +292,8 @@ const Services = () => {
       </section>
 
       {/* ============ COMPLIANCE ============ */}
-      <section className="section-tight relative bg-[#E1F5FE] overflow-hidden">
+      <section className="section-tight relative bg-[#E1F5FE] overflow-hidden" aria-labelledby="compliance-heading">
+        <h2 id="compliance-heading" className="sr-only">Compliance & Credentials</h2>
         <div className="absolute top-0 right-0 w-56 h-56 bg-[#4FC3F7]/8 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
         <div className="absolute bottom-0 left-0 w-72 h-72 bg-[#0F4C5C]/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3" />
 
@@ -282,10 +310,10 @@ const Services = () => {
                   <Icon className={`${color} text-base icon-wiggle`} />
                 </div>
                 <div>
-                  <h3 className="font-bold text-[#0F4C5C] text-xs sm:text-sm mb-1">
+                  <h3 className="font-bold text-[#0F4C5C] text-sm mb-1">
                     {title}
                   </h3>
-                  <p className="text-[#0A3A47]/80 text-xs sm:text-sm leading-relaxed">
+                  <p className="text-[#0A3A47]/70 text-xs sm:text-sm leading-relaxed">
                     {desc}
                   </p>
                 </div>
@@ -304,7 +332,7 @@ const Services = () => {
           <div className="text-center mb-7 sm:mb-9 reveal-up">
             <div className="inline-flex items-center gap-2 bg-[#4FC3F7]/10 border border-[#4FC3F7]/25 rounded-full px-3.5 py-1.5 mb-3">
               <span className="w-1.5 h-1.5 rounded-full bg-[#4FC3F7] animate-gold-pulse" />
-              <p className="text-[#29B6F6] text-xs sm:text-sm font-bold tracking-wide uppercase">
+              <p className="text-[#29B6F6] text-xs sm:text-sm font-bold">
                 Our Expertise
               </p>
             </div>
@@ -324,13 +352,15 @@ const Services = () => {
                 style={{ animationDelay: `${idx * 0.08}s` }}
               >
                 <span className="absolute inset-x-0 top-0 h-0.5 rounded-t-2xl bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500" />
-                <div className="w-10 h-10 rounded-xl bg-white shadow-[0_6px_18px_rgba(15,76,92,0.08)] flex items-center justify-center mb-3 group-hover:bg-[#4FC3F7]/10 transition-colors">
-                  <Icon className={`${color} text-base icon-wiggle`} />
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-10 h-10 rounded-xl bg-white shadow-[0_6px_18px_rgba(15,76,92,0.08)] flex items-center justify-center flex-shrink-0 group-hover:bg-[#4FC3F7]/10 transition-colors">
+                    <Icon className={`${color} text-base icon-wiggle`} />
+                  </div>
+                  <h3 className="font-bold text-[#0F4C5C] text-sm sm:text-base leading-tight">
+                    {title}
+                  </h3>
                 </div>
-                <h3 className="font-bold text-[#0F4C5C] text-xs sm:text-sm mb-1.5">
-                  {title}
-                </h3>
-                <p className="text-[#0A3A47]/80 text-xs sm:text-sm leading-relaxed">
+                <p className="text-[#0A3A47]/70 text-xs sm:text-sm leading-relaxed">
                   {desc}
                 </p>
               </div>
@@ -348,7 +378,7 @@ const Services = () => {
           <div className="text-center mb-7 sm:mb-9 reveal-up">
             <div className="inline-flex items-center gap-2 bg-[#4FC3F7]/10 border border-[#4FC3F7]/25 rounded-full px-3.5 py-1.5 mb-3">
               <span className="w-1.5 h-1.5 rounded-full bg-[#4FC3F7] animate-gold-pulse" />
-              <p className="text-[#29B6F6] text-xs sm:text-sm font-bold tracking-wide uppercase">
+              <p className="text-[#29B6F6] text-xs sm:text-sm font-bold">
                 Candidate Sourcing
               </p>
             </div>
@@ -368,13 +398,15 @@ const Services = () => {
                 style={{ animationDelay: `${idx * 0.08}s` }}
               >
                 <span className="absolute inset-x-0 top-0 h-0.5 rounded-t-2xl bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300" />
-                <div className="w-10 h-10 rounded-xl bg-[#4FC3F7]/12 flex items-center justify-center mb-3 group-hover:bg-[#4FC3F7]/20 transition-colors">
-                  <Icon className={`${color} text-base icon-wiggle`} />
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-10 h-10 rounded-xl bg-[#4FC3F7]/12 flex items-center justify-center flex-shrink-0 group-hover:bg-[#4FC3F7]/20 transition-colors">
+                    <Icon className={`${color} text-base icon-wiggle`} />
+                  </div>
+                  <h3 className="font-bold text-[#0F4C5C] text-sm leading-tight">
+                    {title}
+                  </h3>
                 </div>
-                <h3 className="font-bold text-[#0F4C5C] text-xs sm:text-sm mb-1.5">
-                  {title}
-                </h3>
-                <p className="text-[#0A3A47]/80 text-xs sm:text-sm leading-relaxed">
+                <p className="text-[#0A3A47]/70 text-xs sm:text-sm leading-relaxed">
                   {desc}
                 </p>
               </div>
@@ -392,7 +424,7 @@ const Services = () => {
           <div className="text-center mb-7 sm:mb-9 reveal-up">
             <div className="inline-flex items-center gap-2 bg-[#4FC3F7]/10 border border-[#4FC3F7]/25 rounded-full px-3.5 py-1.5 mb-3">
               <span className="w-1.5 h-1.5 rounded-full bg-[#4FC3F7] animate-gold-pulse" />
-              <p className="text-[#29B6F6] text-xs sm:text-sm font-bold tracking-wide uppercase">
+              <p className="text-[#29B6F6] text-xs sm:text-sm font-bold">
                 Screening & Interviews
               </p>
             </div>
@@ -427,7 +459,7 @@ const Services = () => {
               <span className="absolute inset-x-0 top-0 h-0.5 rounded-t-2xl bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F]" />
               <h3 className="font-[Plus_Jakarta_Sans] text-base sm:text-lg font-extrabold text-[#0F4C5C] mb-4 flex items-center gap-3">
                 <span className="w-9 h-9 rounded-xl bg-white shadow-[0_6px_18px_rgba(15,76,92,0.08)] flex items-center justify-center">
-                  <FaUserTie className="text-[#A78BFA] text-sm" />
+                  <FaUserTie className="text-[#29B6F6] text-sm" />
                 </span>
                 Interview Evaluation
               </h3>
@@ -454,7 +486,7 @@ const Services = () => {
             <div className="reveal-up">
               <div className="inline-flex items-center gap-2 bg-[#4FC3F7]/10 border border-[#4FC3F7]/25 rounded-full px-3.5 py-1.5 mb-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#4FC3F7] animate-gold-pulse" />
-                <p className="text-[#29B6F6] text-xs sm:text-sm font-bold tracking-wide uppercase">
+                <p className="text-[#29B6F6] text-xs sm:text-sm font-bold">
                   Trade Testing
                 </p>
               </div>
@@ -490,7 +522,7 @@ const Services = () => {
             <div className="group relative bg-gradient-to-b from-white to-[#E1F5FE] rounded-2xl p-5 sm:p-6 border border-[#4FC3F7]/20 shadow-[0_8px_28px_rgba(15,76,92,0.06)] hover:shadow-[0_18px_44px_rgba(79,195,247,0.15)] hover:border-[#4FC3F7]/50 transition-all duration-300 reveal-up">
               <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F]" />
               <div className="w-10 h-10 rounded-xl bg-[#4FC3F7]/12 flex items-center justify-center mb-3">
-                <FaHardHat className="text-[#F97316] text-base icon-wiggle" />
+                <FaHardHat className="text-[#FFB300] text-base icon-wiggle" />
               </div>
               <h3 className="font-[Plus_Jakarta_Sans] text-base sm:text-lg font-extrabold text-[#0F4C5C] mb-3">
                 Why It Matters
@@ -523,7 +555,7 @@ const Services = () => {
           <div className="text-center mb-7 sm:mb-9 reveal-up">
             <div className="inline-flex items-center gap-2 bg-[#4FC3F7]/10 border border-[#4FC3F7]/25 rounded-full px-3.5 py-1.5 mb-3">
               <span className="w-1.5 h-1.5 rounded-full bg-[#4FC3F7] animate-gold-pulse" />
-              <p className="text-[#29B6F6] text-xs sm:text-sm font-bold tracking-wide uppercase">
+              <p className="text-[#29B6F6] text-xs sm:text-sm font-bold">
                 Medical & Documentation
               </p>
             </div>
@@ -543,13 +575,15 @@ const Services = () => {
                 style={{ animationDelay: `${idx * 0.08}s` }}
               >
                 <span className="absolute inset-x-0 top-0 h-0.5 rounded-t-2xl bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300" />
-                <div className="w-10 h-10 rounded-xl bg-white shadow-[0_6px_18px_rgba(15,76,92,0.08)] flex items-center justify-center mb-3 group-hover:bg-[#4FC3F7]/10 transition-colors">
-                  <Icon className={`${color} text-base icon-wiggle`} />
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-10 h-10 rounded-xl bg-white shadow-[0_6px_18px_rgba(15,76,92,0.08)] flex items-center justify-center flex-shrink-0 group-hover:bg-[#4FC3F7]/10 transition-colors">
+                    <Icon className={`${color} text-base icon-wiggle`} />
+                  </div>
+                  <h3 className="font-bold text-[#0F4C5C] text-sm leading-tight">
+                    {title}
+                  </h3>
                 </div>
-                <h3 className="font-bold text-[#0F4C5C] text-xs sm:text-sm mb-1.5">
-                  {title}
-                </h3>
-                <p className="text-[#0A3A47]/80 text-xs sm:text-sm leading-relaxed">
+                <p className="text-[#0A3A47]/70 text-xs sm:text-sm leading-relaxed">
                   {desc}
                 </p>
               </div>
@@ -567,7 +601,7 @@ const Services = () => {
           <div className="text-center mb-7 sm:mb-9 reveal-up">
             <div className="inline-flex items-center gap-2 bg-[#4FC3F7]/15 border border-[#4FC3F7]/30 rounded-full px-3.5 py-1.5 mb-3">
               <span className="w-1.5 h-1.5 rounded-full bg-[#4FC3F7] animate-gold-pulse" />
-              <p className="text-[#4FC3F7] text-xs sm:text-sm font-bold tracking-wide uppercase">
+              <p className="text-[#4FC3F7] text-xs sm:text-sm font-bold">
                 The Process
               </p>
             </div>
@@ -590,9 +624,9 @@ const Services = () => {
                   <div className="w-11 h-11 rounded-full bg-gradient-to-br from-[#4FC3F7] to-[#29B6F6] text-[#0F4C5C] flex items-center justify-center font-extrabold text-xs mb-3 relative z-10 shadow-[0_8px_24px_rgba(79,195,247,0.4)] group-hover:scale-110 transition-transform duration-300">
                     {step.num}
                   </div>
-                  <h4 className="text-white font-bold mb-1 text-xs sm:text-sm">
+                  <h3 className="text-white font-bold mb-1 text-xs sm:text-sm">
                     {step.title}
-                  </h4>
+                  </h3>
                   <p className="text-white/75 text-xs sm:text-sm leading-relaxed">
                     {step.desc}
                   </p>
@@ -622,7 +656,7 @@ const Services = () => {
           <div className="text-center mb-7 sm:mb-9 reveal-up">
             <div className="inline-flex items-center gap-2 bg-[#4FC3F7]/10 border border-[#4FC3F7]/25 rounded-full px-3.5 py-1.5 mb-3">
               <span className="w-1.5 h-1.5 rounded-full bg-[#4FC3F7] animate-gold-pulse" />
-              <p className="text-[#29B6F6] text-xs sm:text-sm font-bold tracking-wide uppercase">
+              <p className="text-[#29B6F6] text-xs sm:text-sm font-bold">
                 Skill Levels
               </p>
             </div>
@@ -650,7 +684,7 @@ const Services = () => {
                     {c.level}
                   </h3>
                 </div>
-                <p className="text-[#0A3A47]/80 text-xs sm:text-sm leading-relaxed">
+                <p className="text-[#0A3A47]/70 text-xs sm:text-sm leading-relaxed">
                   {c.examples}
                 </p>
               </div>
@@ -668,7 +702,7 @@ const Services = () => {
           <div className="text-center mb-7 sm:mb-9 reveal-up">
             <div className="inline-flex items-center gap-2 bg-[#4FC3F7]/10 border border-[#4FC3F7]/25 rounded-full px-3.5 py-1.5 mb-3">
               <span className="w-1.5 h-1.5 rounded-full bg-[#4FC3F7] animate-gold-pulse" />
-              <p className="text-[#29B6F6] text-xs sm:text-sm font-bold tracking-wide uppercase">
+              <p className="text-[#29B6F6] text-xs sm:text-sm font-bold">
                 Bulk & Project Mobilization
               </p>
             </div>
@@ -688,13 +722,15 @@ const Services = () => {
                 style={{ animationDelay: `${idx * 0.08}s` }}
               >
                 <span className="absolute inset-x-0 top-0 h-0.5 rounded-t-2xl bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300" />
-                <div className="w-10 h-10 rounded-xl bg-[#4FC3F7]/12 flex items-center justify-center mb-3 group-hover:bg-[#4FC3F7]/20 transition-colors">
-                  <Icon className={`${color} text-base icon-wiggle`} />
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-10 h-10 rounded-xl bg-[#4FC3F7]/12 flex items-center justify-center flex-shrink-0 group-hover:bg-[#4FC3F7]/20 transition-colors">
+                    <Icon className={`${color} text-base icon-wiggle`} />
+                  </div>
+                  <h3 className="font-bold text-[#0F4C5C] text-sm leading-tight">
+                    {title}
+                  </h3>
                 </div>
-                <h3 className="font-bold text-[#0F4C5C] text-xs sm:text-sm mb-1.5">
-                  {title}
-                </h3>
-                <p className="text-[#0A3A47]/80 text-xs sm:text-sm leading-relaxed">
+                <p className="text-[#0A3A47]/70 text-xs sm:text-sm leading-relaxed">
                   {desc}
                 </p>
               </div>
@@ -712,7 +748,7 @@ const Services = () => {
           <div className="text-center mb-7 sm:mb-9 reveal-up">
             <div className="inline-flex items-center gap-2 bg-[#4FC3F7]/10 border border-[#4FC3F7]/25 rounded-full px-3.5 py-1.5 mb-3">
               <span className="w-1.5 h-1.5 rounded-full bg-[#4FC3F7] animate-gold-pulse" />
-              <p className="text-[#29B6F6] text-xs sm:text-sm font-bold tracking-wide uppercase">
+              <p className="text-[#29B6F6] text-xs sm:text-sm font-bold">
                 Post-Deployment Support
               </p>
             </div>
@@ -732,13 +768,15 @@ const Services = () => {
                 style={{ animationDelay: `${idx * 0.08}s` }}
               >
                 <span className="absolute inset-x-0 top-0 h-0.5 rounded-t-2xl bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300" />
-                <div className="w-10 h-10 rounded-xl bg-white shadow-[0_6px_18px_rgba(15,76,92,0.08)] flex items-center justify-center mb-3 group-hover:bg-[#4FC3F7]/10 transition-colors">
-                  <Icon className={`${color} text-base icon-wiggle`} />
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-10 h-10 rounded-xl bg-white shadow-[0_6px_18px_rgba(15,76,92,0.08)] flex items-center justify-center flex-shrink-0 group-hover:bg-[#4FC3F7]/10 transition-colors">
+                    <Icon className={`${color} text-base icon-wiggle`} />
+                  </div>
+                  <h3 className="font-bold text-[#0F4C5C] text-sm leading-tight">
+                    {title}
+                  </h3>
                 </div>
-                <h3 className="font-bold text-[#0F4C5C] text-xs sm:text-sm mb-1.5">
-                  {title}
-                </h3>
-                <p className="text-[#0A3A47]/80 text-xs sm:text-sm leading-relaxed">
+                <p className="text-[#0A3A47]/70 text-xs sm:text-sm leading-relaxed">
                   {desc}
                 </p>
               </div>
@@ -747,13 +785,13 @@ const Services = () => {
         </div>
       </section>
 
-      {/* ============ INDUSTRIES — MARQUEE ============ */}
+      {/* ============ INDUSTRIES ============ */}
       <section className="section-tight relative bg-[#E1F5FE] overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-7">
           <div className="text-center reveal-up">
             <div className="inline-flex items-center gap-2 bg-[#4FC3F7]/10 border border-[#4FC3F7]/25 rounded-full px-3.5 py-1.5 mb-3">
               <span className="w-1.5 h-1.5 rounded-full bg-[#4FC3F7] animate-gold-pulse" />
-              <p className="text-[#29B6F6] text-xs sm:text-sm font-bold tracking-wide uppercase">
+              <p className="text-[#29B6F6] text-xs sm:text-sm font-bold">
                 Sectors
               </p>
             </div>
@@ -767,7 +805,10 @@ const Services = () => {
         </div>
 
         <div className="relative w-full overflow-hidden">
-          <div className="flex gap-4 animate-marquee-left w-max">
+          <div className="absolute left-0 top-0 h-full w-16 sm:w-24 bg-gradient-to-r from-[#E1F5FE] via-[#E1F5FE]/70 to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 h-full w-16 sm:w-24 bg-gradient-to-l from-[#E1F5FE] via-[#E1F5FE]/70 to-transparent z-10 pointer-events-none" />
+
+          <div className="flex gap-4 animate-marquee-left w-max px-4 py-4">
             {marqueeIndustries.map(({ icon: Icon, name, img }, idx) => (
               <div
                 key={`${name}-${idx}`}
@@ -792,6 +833,10 @@ const Services = () => {
             ))}
           </div>
         </div>
+
+        <p className="text-center text-[#0A3A47]/70 text-xs mt-4">
+          Auto-scrolling — hover to pause
+        </p>
       </section>
 
       {/* ============ WHY CHOOSE US ============ */}
@@ -804,7 +849,7 @@ const Services = () => {
             <div className="reveal-up">
               <div className="inline-flex items-center gap-2 bg-[#4FC3F7]/10 border border-[#4FC3F7]/25 rounded-full px-3.5 py-1.5 mb-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#4FC3F7] animate-gold-pulse" />
-                <p className="text-[#29B6F6] text-xs sm:text-sm font-bold tracking-wide uppercase">
+                <p className="text-[#29B6F6] text-xs sm:text-sm font-bold">
                   Why Choose Us
                 </p>
               </div>
@@ -834,33 +879,34 @@ const Services = () => {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-white via-[#E1F5FE] to-white rounded-2xl p-5 sm:p-6 border border-[#4FC3F7]/20 shadow-[0_8px_28px_rgba(15,76,92,0.06)] reveal-up">
-              <ul className="space-y-2">
-                {WHY_DETAILED.map((item, idx) => (
-                  <li
-                    key={item}
-                    className="flex items-start gap-3 bg-white rounded-xl p-3 border border-[#4FC3F7]/15 hover:border-[#4FC3F7]/50 transition-colors reveal-up"
-                    style={{ animationDelay: `${idx * 0.04}s` }}
-                  >
-                    <FaCheckCircle className="text-[#22C55E] text-xs mt-0.5 flex-shrink-0" />
-                    <span className="text-[#0F4C5C] text-xs sm:text-sm font-bold">
-                      {item}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+            <div className="bg-gradient-to-br from-white via-[#E1F5FE] to-white rounded-2xl p-5 sm:p-6 border border-[#4FC3F7]/20 shadow-[0_8px_28px_rgba(15,76,92,0.06)] reveal-up space-y-4">
+              {WHY_GROUPS.map((group) => (
+                <div key={group.heading}>
+                  <h3 className="font-[Plus_Jakarta_Sans] text-sm sm:text-base font-extrabold text-[#0F4C5C] mb-2 pb-1.5 border-b border-[#4FC3F7]/20">
+                    {group.heading}
+                  </h3>
+                  <ul className="space-y-1.5">
+                    {group.items.map((item) => (
+                      <li key={item} className="flex items-start gap-2.5 text-[#0A3A47] text-xs sm:text-sm">
+                        <FaCheckCircle className="text-[#22C55E] text-[10px] mt-1 flex-shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* ============ VALUABLE CLIENTS — MARQUEE ============ */}
+      {/* ============ VALUABLE CLIENTS ============ */}
       <section className="section-tight relative bg-[#E1F5FE] overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-7">
           <div className="text-center reveal-up">
             <div className="inline-flex items-center gap-2 bg-[#4FC3F7]/10 border border-[#4FC3F7]/25 rounded-full px-3.5 py-1.5 mb-3">
               <FaStar className="text-[#FFB300] text-xs" />
-              <p className="text-[#29B6F6] text-xs sm:text-sm font-bold tracking-wide uppercase">
+              <p className="text-[#29B6F6] text-xs sm:text-sm font-bold">
                 Trusted Worldwide
               </p>
             </div>
@@ -874,16 +920,16 @@ const Services = () => {
         </div>
 
         <div className="relative w-full overflow-hidden">
-          <div className="absolute left-0 top-0 h-full w-16 sm:w-24 bg-gradient-to-r from-[#E1F5FE] to-transparent z-10" />
-          <div className="absolute right-0 top-0 h-full w-16 sm:w-24 bg-gradient-to-l from-[#E1F5FE] to-transparent z-10" />
+          <div className="absolute left-0 top-0 h-full w-20 sm:w-32 bg-gradient-to-r from-[#E1F5FE] via-[#E1F5FE]/80 to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 h-full w-20 sm:w-32 bg-gradient-to-l from-[#E1F5FE] via-[#E1F5FE]/80 to-transparent z-10 pointer-events-none" />
 
-          <div className="flex flex-nowrap items-center gap-3 animate-marquee-left-slow w-max py-3">
+          <div className="flex flex-nowrap items-center gap-5 animate-marquee-left-slow w-max py-4 px-4">
             {marqueeClients.map((client, idx) => (
               <div
                 key={`${client}-${idx}`}
-                className="flex-shrink-0 flex items-center gap-2 bg-white border border-[#4FC3F7]/20 hover:border-[#4FC3F7]/50 px-4 py-2.5 rounded-full shadow-[0_6px_16px_rgba(15,76,92,0.04)] transition-all duration-300"
+                className="flex-shrink-0 flex items-center gap-2 bg-white border border-[#4FC3F7]/30 hover:border-[#4FC3F7]/60 px-4 py-2.5 rounded-full shadow-[0_6px_16px_rgba(15,76,92,0.06)] hover:shadow-[0_8px_22px_rgba(79,195,247,0.15)] transition-all duration-300"
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-[#4FC3F7]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#4FC3F7] flex-shrink-0" />
                 <span className="text-[#0F4C5C] text-xs sm:text-sm font-bold whitespace-nowrap">
                   {client}
                 </span>
@@ -902,7 +948,7 @@ const Services = () => {
           <div className="text-center mb-7 sm:mb-9 reveal-up">
             <div className="inline-flex items-center gap-2 bg-[#4FC3F7]/10 border border-[#4FC3F7]/25 rounded-full px-3.5 py-1.5 mb-3">
               <span className="w-1.5 h-1.5 rounded-full bg-[#4FC3F7] animate-gold-pulse" />
-              <p className="text-[#29B6F6] text-xs sm:text-sm font-bold tracking-wide uppercase">
+              <p className="text-[#29B6F6] text-xs sm:text-sm font-bold">
                 Destinations
               </p>
             </div>
@@ -925,7 +971,7 @@ const Services = () => {
                 <p className="text-[#0F4C5C] font-bold text-xs mb-1">
                   {c.name}
                 </p>
-                <p className="text-[#0A3A47]/70 text-[10px] sm:text-xs leading-relaxed">
+                <p className="text-[#0A3A47]/70 text-xs leading-relaxed">
                   {c.note}
                 </p>
               </div>
@@ -943,7 +989,7 @@ const Services = () => {
           <div className="text-center mb-7 sm:mb-9 reveal-up">
             <div className="inline-flex items-center gap-2 bg-[#4FC3F7]/10 border border-[#4FC3F7]/25 rounded-full px-3.5 py-1.5 mb-3">
               <span className="w-1.5 h-1.5 rounded-full bg-[#4FC3F7] animate-gold-pulse" />
-              <p className="text-[#29B6F6] text-xs sm:text-sm font-bold tracking-wide uppercase">
+              <p className="text-[#29B6F6] text-xs sm:text-sm font-bold">
                 Behind The Process
               </p>
             </div>
@@ -957,9 +1003,10 @@ const Services = () => {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {GALLERY_IMAGES.map((img, idx) => (
-              <div
+              <Link
                 key={img.src}
-                className="group reveal-up"
+                to={`/process/recruitment#${img.src.split("/").pop().replace(".png", "")}`}
+                className="group reveal-up block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4FC3F7] focus-visible:ring-offset-2 rounded-2xl"
                 style={{ animationDelay: `${idx * 0.08}s` }}
               >
                 <div className="relative overflow-hidden rounded-2xl border border-[#4FC3F7]/20 shadow-[0_8px_28px_rgba(15,76,92,0.08)]">
@@ -971,10 +1018,11 @@ const Services = () => {
                   />
                   <span className="img-shine" />
                 </div>
-                <p className="text-[#0F4C5C] font-bold text-xs sm:text-sm mt-3">
+                <p className="text-[#0F4C5C] font-bold text-xs sm:text-sm mt-3 flex items-center gap-1.5 group-hover:text-[#29B6F6] transition-colors">
                   {img.caption}
+                  <FaArrowRight className="text-[10px] opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                 </p>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -983,14 +1031,14 @@ const Services = () => {
       {/* ============ FINAL CTA ============ */}
       <section className="section-tight relative bg-white overflow-hidden">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative bg-gradient-to-br from-[#0F4C5C] via-[#0A3A47] to-[#06303A] rounded-2xl sm:rounded-3xl px-6 sm:px-8 py-10 sm:py-12 text-center overflow-hidden border border-[#4FC3F7]/25 shadow-[0_24px_60px_rgba(15,76,92,0.25)] reveal-up">
+          <div className="relative bg-gradient-to-br from-[#0F4C5C] via-[#0A3A47] to-[#06303A] rounded-3xl px-6 sm:px-8 py-10 sm:py-12 text-center overflow-hidden border border-[#4FC3F7]/25 shadow-[0_24px_60px_rgba(15,76,92,0.25)] reveal-up">
             <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-[#4FC3F7]/20 blur-3xl" />
             <div className="absolute -bottom-24 -left-20 w-80 h-80 rounded-full bg-[#FFD54F]/10 blur-3xl" />
 
             <div className="relative z-10 max-w-2xl mx-auto">
               <div className="inline-flex items-center gap-2 bg-[#4FC3F7]/15 border border-[#4FC3F7]/30 rounded-full px-3.5 py-1.5 mb-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#4FC3F7] animate-gold-pulse" />
-                <span className="text-[#4FC3F7] text-[10px] sm:text-xs font-bold tracking-widest uppercase">
+                <span className="text-[#4FC3F7] text-xs font-bold tracking-widest uppercase">
                   Ready To Hire
                 </span>
               </div>
@@ -1041,6 +1089,12 @@ const Services = () => {
           }
         }
 
+        .sr-only {
+          position: absolute; width: 1px; height: 1px; padding: 0;
+          margin: -1px; overflow: hidden; clip: rect(0,0,0,0);
+          white-space: nowrap; border-width: 0;
+        }
+
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
@@ -1048,17 +1102,15 @@ const Services = () => {
         .animate-marquee-left { animation: marquee-left 40s linear infinite; }
         .animate-marquee-left-slow { animation: marquee-left 85s linear infinite; }
 
-        @keyframes float-slow { 0%, 100% { transform: translate(0, 0) scale(1); } 33% { transform: translate(20px, -20px) scale(1.1); } 66% { transform: translate(-10px, 15px) scale(0.9); } }
-        .animate-float-slow { animation: float-slow 12s ease-in-out infinite; }
-
-        @keyframes float-slower { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(-25px, 25px) scale(1.15); } }
-        .animate-float-slower { animation: float-slower 16s ease-in-out infinite; }
+        .animate-marquee-left:hover,
+        .animate-marquee-left:focus-within,
+        .animate-marquee-left-slow:hover,
+        .animate-marquee-left-slow:focus-within {
+          animation-play-state: paused;
+        }
 
         @keyframes pulse-slow { 0%, 100% { opacity: 0.3; transform: scale(1); } 50% { opacity: 0.6; transform: scale(1.1); } }
         .animate-pulse-slow { animation: pulse-slow 8s ease-in-out infinite; }
-
-        @keyframes fade-up { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        .animate-fade-up { animation: fade-up 0.8s ease-out forwards; }
 
         @keyframes ping-slow { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.6); opacity: 0.5; } }
         .animate-ping-slow { animation: ping-slow 2s ease-in-out infinite; }
@@ -1093,9 +1145,7 @@ const Services = () => {
 
         @media (prefers-reduced-motion: reduce) {
           .animate-marquee-left, .animate-marquee-left-slow,
-          .animate-float-slow, .animate-float-slower,
-          .animate-pulse-slow, .animate-fade-up,
-          .animate-ping-slow, .reveal-up,
+          .animate-pulse-slow, .animate-ping-slow, .reveal-up,
           .btn-shine::after, .img-shine::after, .icon-wiggle,
           .animate-gold-pulse, .animate-gentle-float,
           .animate-gentle-float-slow, .line-grow { animation: none !important; }

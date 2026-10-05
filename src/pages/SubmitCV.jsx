@@ -63,7 +63,7 @@ const getProgressMessage = (progress) => {
    OPTIONAL PILL
 ============================================================ */
 const OptionalPill = () => (
-  <span className="ml-1 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-[#64748B] bg-[#E2E8F0] rounded-full">
+  <span className="ml-1 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#64748B] bg-[#E2E8F0] rounded-full">
     Optional
   </span>
 );
@@ -110,7 +110,7 @@ const Field = ({
     </label>
     {children}
     {hint && (
-      <p className="text-[10px] sm:text-xs text-[#64748B] mt-1 font-medium flex items-center gap-1.5">
+      <p className="text-xs text-[#64748B] mt-1 font-medium flex items-center gap-1.5">
         <span className="w-1 h-1 rounded-full bg-[#4FC3F7] flex-shrink-0" />
         {hint}
       </p>
@@ -135,7 +135,7 @@ const SectionCard = ({ number, title, subtitle, children }) => (
           {title}
         </h2>
         {subtitle && (
-          <p className="text-[11px] sm:text-xs text-[#64748B] font-medium mt-0.5">
+          <p className="text-xs text-[#64748B] font-medium mt-0.5">
             {subtitle}
           </p>
         )}
@@ -323,7 +323,7 @@ const SubmitCV = () => {
                 style={{ animationDelay: "0.5s" }}
               />
               <div className="relative w-full h-full rounded-full bg-gradient-to-br from-[#22C55E] to-[#16A34A] flex items-center justify-center shadow-[0_12px_40px_rgba(34,197,94,0.5)]">
-                <FaCheckCircle className="text-white text-4xl" />
+                <FaCheckCircle className="text-white text-4xl" aria-hidden="true" />
               </div>
             </div>
 
@@ -333,6 +333,7 @@ const SubmitCV = () => {
                   key={i}
                   className="text-[#FFD54F] text-sm animate-pulse"
                   style={{ animationDelay: `${i * 0.15}s` }}
+                  aria-hidden="true"
                 />
               ))}
             </div>
@@ -360,7 +361,7 @@ const SubmitCV = () => {
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
                 Browse Jobs
-                <FaArrowRight className="text-xs group-hover:translate-x-1 transition-transform" />
+                <FaArrowRight className="text-xs group-hover:translate-x-1 transition-transform" aria-hidden="true" />
               </Link>
               <Link
                 to="/"
@@ -395,7 +396,23 @@ const SubmitCV = () => {
           0% { transform: translateX(-120%) skewX(-20deg); }
           100% { transform: translateX(220%) skewX(-20deg); }
         }
+        @keyframes pingSlow {
+          0%, 100% { transform: scale(1); opacity: 1; }
+          50% { transform: scale(1.6); opacity: 0.5; }
+        }
+        @keyframes pulseSlow {
+          0%, 100% { opacity: 0.6; transform: scale(1); }
+          50% { opacity: 1; transform: scale(1.05); }
+        }
+        @keyframes gentleFloat {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-6px); }
+        }
         .animate-slideUp { animation: slideUp 0.6s ease-out forwards; }
+        .animate-ping-slow { animation: pingSlow 2s ease-in-out infinite; }
+        .animate-pulse-slow { animation: pulseSlow 4s ease-in-out infinite; }
+        .animate-gentle-float { animation: gentleFloat 5s ease-in-out infinite; }
+        .animate-gentle-float-slow { animation: gentleFloat 7s ease-in-out infinite; }
 
         .btn-shine { position: relative; overflow: hidden; isolation: isolate; }
         .btn-shine::after { content: ""; position: absolute; top: 0; left: 0; width: 40%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent); transform: translateX(-120%) skewX(-20deg); pointer-events: none; z-index: 1; }
@@ -406,178 +423,189 @@ const SubmitCV = () => {
         .group:hover .img-shine::after { animation: shine 1s ease-out; }
       `}</style>
 
-      {/* ============ HERO ============ */}
-      <section className="relative mt-[-5rem] pt-40 sm:pt-24 md:pt-28 lg:pt-32 pb-8 sm:pb-12 overflow-hidden bg-gradient-to-b from-white via-[#E1F5FE] to-white">
-        <div className="absolute -top-32 -right-40 w-[280px] sm:w-[380px] md:w-[480px] h-[280px] sm:h-[380px] md:h-[480px] rounded-full bg-[#4FC3F7]/10 blur-3xl animate-pulse-slow" />
-        <div className="absolute top-40 -left-40 w-[220px] sm:w-[300px] md:w-[380px] h-[220px] sm:h-[300px] md:h-[380px] rounded-full bg-[#FFD54F]/10 blur-3xl" />
-        <div className="absolute bottom-0 left-1/3 w-[180px] sm:w-[220px] md:w-[260px] h-[180px] sm:h-[220px] md:h-[260px] rounded-full bg-[#4FC3F7]/8 blur-3xl" />
+      {/* ============ HERO — aligned with Home.jsx ============ */}
+<section className="relative mt-[-6rem] pt-44 sm:pt-28 md:pt-32 lg:pt-36 pb-12 sm:pb-16 overflow-hidden bg-gradient-to-b from-white via-[#E1F5FE] to-white">
+  {/* Decorative background blobs */}
+  <div className="absolute -top-32 -right-40 w-[280px] sm:w-[380px] md:w-[480px] h-[280px] sm:h-[380px] md:h-[480px] rounded-full bg-[#4FC3F7]/10 blur-3xl animate-pulse-slow" />
+  <div className="absolute top-40 -left-40 w-[220px] sm:w-[300px] md:w-[380px] h-[220px] sm:h-[300px] md:h-[380px] rounded-full bg-[#FFD54F]/10 blur-3xl" />
+  <div className="absolute bottom-0 left-1/3 w-[180px] sm:w-[220px] md:w-[260px] h-[180px] sm:h-[220px] md:h-[260px] rounded-full bg-[#4FC3F7]/8 blur-3xl" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-start">
+  <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-14 items-start">
 
-            {/* LEFT DIV */}
-            <div className="text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 mb-3 bg-white/95 backdrop-blur-sm border border-[#4FC3F7]/40 rounded-full px-3 sm:px-4 py-1.5 shadow-[0_4px_14px_rgba(15,76,92,0.12)]">
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full rounded-full bg-[#4FC3F7] opacity-75 animate-ping" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#4FC3F7]" />
-                </span>
-                <span
-                  className="text-[#0F4C5C] text-xs sm:text-sm font-bold tracking-wide"
-                  style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}
-                >
-                  Candidate Registration
-                </span>
-              </div>
+      {/* =========================================================
+          LEFT — TEXT DIV (independent; own margins)
+      ========================================================= */}
+      <div className="text-center lg:text-left">
+        {/* Badge */}
+        <div className="inline-flex items-center gap-2 mb-4 sm:mb-5 bg-white/95 backdrop-blur-sm border border-[#4FC3F7]/40 rounded-full px-3 sm:px-4 py-1.5 sm:py-2 shadow-[0_4px_14px_rgba(15,76,92,0.12)]">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#4FC3F7] animate-ping-slow" />
+          <span
+            className="text-[#0F4C5C] text-xs sm:text-sm font-bold"
+            style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}
+          >
+            Candidate Registration
+          </span>
+        </div>
 
-              <h1
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.2rem] font-extrabold text-[#0F4C5C] leading-[1.15] mb-3"
-                style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}
-              >
-                Submit Your{" "}
-                <span className="relative inline-block">
-                  <span
-                    className="bg-gradient-to-r from-[#4FC3F7] via-[#FFD54F] to-[#4FC3F7] bg-clip-text text-transparent bg-[length:200%_100%] animate-[gradientShift_4s_ease_infinite]"
-                    style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}
-                  >
-                    CV
-                  </span>
-                  <svg
-                    className="absolute -bottom-2 left-0 w-full"
-                    height="8"
-                    viewBox="0 0 100 8"
-                    preserveAspectRatio="none"
-                  >
-                    <path
-                      d="M0,4 Q25,0 50,4 T100,4"
-                      stroke="#FFD54F"
-                      strokeWidth="2"
-                      fill="none"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                </span>
-              </h1>
+        {/* Heading */}
+        <h1
+          className="font-[Plus_Jakarta_Sans] text-3xl sm:text-4xl md:text-5xl lg:text-[3.2rem] font-extrabold text-[#0F4C5C] leading-[1.15] mb-4 sm:mb-5"
+          style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}
+        >
+          Submit Your{" "}
+          <span className="relative inline-block">
+            <span className="bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent">
+              CV
+            </span>
+            <svg
+              className="absolute -bottom-2 left-0 w-full"
+              height="10"
+              viewBox="0 0 100 10"
+              preserveAspectRatio="none"
+            >
+              <path
+                d="M0,5 Q25,0 50,5 T100,5"
+                stroke="#4FC3F7"
+                strokeWidth="2.5"
+                fill="none"
+                strokeLinecap="round"
+              />
+            </svg>
+          </span>
+        </h1>
 
-              <div
-                className="text-base sm:text-lg md:text-xl text-[#0F4C5C] mb-3 min-h-[28px] sm:h-7 font-bold"
-                style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}
-              >
-                Verified{" "}
-                <span className="bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent font-bold">
-                  Overseas Opportunities
-                </span>
-                <span className="text-[#0F4C5C] animate-pulse font-bold">|</span>
-              </div>
+        {/* Sub-headline */}
+        <div
+          className="text-sm sm:text-base md:text-lg text-[#0A3A47] mb-4 min-h-[24px] sm:h-7 font-semibold"
+          style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}
+        >
+          Verified{" "}
+          <span className="text-[#29B6F6] font-semibold">
+            Overseas Opportunities
+          </span>
+        </div>
 
-              <div className="flex justify-center lg:justify-start mb-4">
-                <div className="max-w-2xl">
-                  <p
-                    className="text-[#0A3A47] text-sm sm:text-base md:text-lg leading-relaxed font-medium"
-                    style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}
-                  >
-                    Fill In Your Details Below. Our Recruitment Team Will
-                    Review Your Profile And Contact You When A Suitable
-                    Overseas Opportunity Becomes Available.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start mb-6">
-                <Link
-                  to="/careers"
-                  className="btn-shine group inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] text-[#0F4C5C] px-6 sm:px-8 py-3 rounded-full font-bold shadow-[0_12px_30px_rgba(79,195,247,0.4)] hover:shadow-[0_16px_38px_rgba(79,195,247,0.55)] hover:-translate-y-0.5 transition-all duration-300 text-sm sm:text-base"
-                >
-                  Browse Jobs
-                  <FaArrowRight className="text-sm group-hover:translate-x-1 transition-transform" />
-                </Link>
-                <Link
-                  to="/contact"
-                  className="btn-shine inline-flex items-center justify-center gap-2 bg-white border-2 border-[#0F4C5C]/30 text-[#0F4C5C] px-6 sm:px-8 py-3 rounded-full font-bold hover:border-[#4FC3F7] hover:bg-[#E1F5FE] transition-all duration-300 text-sm sm:text-base"
-                >
-                  Contact Us
-                </Link>
-              </div>
-
-              <div className="flex flex-wrap justify-center lg:justify-start gap-5 sm:gap-8 md:gap-12">
-                {[
-                  { value: "5000+", label: "Workers Placed" },
-                  { value: "50+", label: "Countries" },
-                  { value: "100%", label: "Free Registration" },
-                ].map((stat) => (
-                  <div key={stat.label} className="text-center lg:text-left">
-                    <p
-                      className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[#0F4C5C] tabular-nums"
-                      style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}
-                    >
-                      {stat.value}
-                    </p>
-                    <p
-                      className="text-[10px] sm:text-xs md:text-sm text-[#0F4C5C] font-bold tracking-wide uppercase mt-1"
-                      style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}
-                    >
-                      {stat.label}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* RIGHT DIV */}
-            <div className="relative reveal-up group order-first lg:order-last lg:mt-16">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#4FC3F7]/20 to-transparent rounded-2xl sm:rounded-3xl rotate-3 scale-[1.02] hidden sm:block" />
-
-              <div className="relative h-[280px] sm:h-[340px] lg:h-[440px] rounded-2xl sm:rounded-3xl overflow-hidden border border-[#4FC3F7]/20 shadow-[0_20px_50px_rgba(15,76,92,0.15)]">
-                <img
-                  src="/assets/submitcv-hero-img.png"
-                  alt="Submit Your CV For Overseas Opportunities"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                  onError={(e) => {
-                    e.target.style.display = "none";
-                  }}
-                />
-                <span className="img-shine" />
-              </div>
-
-              <div className="animate-gentle-float absolute -bottom-4 sm:-bottom-5 -left-4 sm:-left-5 bg-white rounded-2xl shadow-[0_16px_36px_rgba(15,76,92,0.12)] border border-[#4FC3F7]/25 px-4 py-3 max-w-[170px] hidden sm:block">
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="w-6 h-6 rounded-full bg-[#4FC3F7]/12 flex items-center justify-center">
-                    <FaCheckCircle className="text-[#22C55E] text-xs" />
-                  </span>
-                  <p
-                    className="text-[#0F4C5C] font-bold text-xs"
-                    style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}
-                  >
-                    Free To Apply
-                  </p>
-                </div>
-                <p
-                  className="text-[#0A3A47] text-[10px] leading-relaxed"
-                  style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}
-                >
-                  No Registration Fee
-                </p>
-              </div>
-
-              <div className="animate-gentle-float-slow absolute top-4 -right-3 sm:top-5 sm:-right-4 bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] text-[#0F4C5C] rounded-xl shadow-[0_12px_30px_rgba(79,195,247,0.35)] px-3.5 py-2.5 hidden md:block">
-                <p
-                  className="text-[10px] uppercase tracking-wider opacity-90 font-semibold"
-                  style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}
-                >
-                  Reviewed By
-                </p>
-                <p
-                  className="text-sm font-extrabold"
-                  style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}
-                >
-                  Our Team
-                </p>
-              </div>
-            </div>
-
+        {/* Paragraph */}
+        <div className="flex justify-center lg:justify-start mb-6 sm:mb-8">
+          <div className="max-w-2xl">
+            <p
+              className="text-[#0A3A47] text-sm sm:text-base md:text-lg leading-relaxed font-medium"
+              style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}
+            >
+              Fill In Your Details Below. Our Recruitment Team Will
+              Review Your Profile And Contact You When A Suitable
+              Overseas Opportunity Becomes Available.
+            </p>
           </div>
         </div>
-      </section>
+
+        {/* CTAs */}
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start mb-8 sm:mb-10">
+          <Link
+            to="/careers"
+            className="btn-shine group inline-flex items-center justify-center gap-2 bg-white border-2 border-[#0F4C5C]/30 text-[#0F4C5C] px-6 sm:px-8 py-3 sm:py-3.5 rounded-full font-bold hover:border-[#4FC3F7] hover:bg-[#E1F5FE] hover:-translate-y-0.5 transition-all duration-300 text-sm sm:text-base"
+          >
+            Browse Jobs
+            <FaArrowRight className="text-sm group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+          </Link>
+          <Link
+            to="/contact"
+            className="btn-shine group inline-flex items-center justify-center gap-2 bg-white border-2 border-[#0F4C5C]/30 text-[#0F4C5C] px-6 sm:px-8 py-3 sm:py-3.5 rounded-full font-bold hover:border-[#4FC3F7] hover:bg-[#E1F5FE] transition-all duration-300 text-sm sm:text-base"
+          >
+            Contact Us
+            <FaArrowRight className="text-sm group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+          </Link>
+        </div>
+
+        {/* Stats */}
+        <div className="flex flex-wrap justify-center lg:justify-start gap-6 sm:gap-10 md:gap-14">
+          {[
+            { value: "5000+", label: "Workers Placed" },
+            { value: "50+", label: "Global Employers" },
+            { value: "100%", label: "Free Registration" },
+          ].map((stat) => (
+            <div key={stat.label} className="text-center lg:text-left">
+              <p
+                className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[#0F4C5C] tabular-nums"
+                style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}
+              >
+                {stat.value}
+              </p>
+              <p
+                className="text-xs sm:text-sm text-[#0F4C5C] font-bold mt-1"
+                style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}
+              >
+                {stat.label}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* =========================================================
+          RIGHT — IMAGE DIV (independent; own margins)
+          Change `lg:mt-[52px]` to whatever you want.
+          Changing this will NOT affect the left div at all.
+      ========================================================= */}
+      <div className="relative reveal-up group order-first lg:order-last lg:mt-[52px]">
+        {/* Rotated gradient backdrop */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#4FC3F7]/20 to-transparent rounded-3xl rotate-3 scale-[1.02] hidden sm:block" />
+
+        {/* Image frame */}
+        <div className="relative h-[280px] sm:h-[340px] lg:h-[440px] rounded-3xl overflow-hidden border border-[#4FC3F7]/20 shadow-[0_20px_50px_rgba(15,76,92,0.15)]">
+          <img
+            src="/assets/submitcv-hero-img.png"
+            alt="Submit Your CV For Overseas Opportunities"
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+            onError={(e) => {
+              e.target.style.display = "none";
+            }}
+          />
+          <span className="img-shine" />
+        </div>
+
+        {/* Floating badge — bottom-left, INSIDE image */}
+        <div className="animate-gentle-float absolute bottom-3 left-3 bg-white rounded-2xl shadow-[0_16px_36px_rgba(15,76,92,0.12)] border border-[#4FC3F7]/25 px-4 py-3 max-w-[170px] hidden sm:block">
+          <div className="flex items-center gap-2 mb-1">
+            <span className="w-6 h-6 rounded-full bg-[#4FC3F7]/12 flex items-center justify-center">
+              <FaCheckCircle className="text-[#22C55E] text-xs" aria-hidden="true" />
+            </span>
+            <p
+              className="text-[#0F4C5C] font-bold text-xs"
+              style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}
+            >
+              Free To Apply
+            </p>
+          </div>
+          <p
+            className="text-[#0A3A47] text-xs leading-relaxed"
+            style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}
+          >
+            No Registration Fee
+          </p>
+        </div>
+
+        {/* Floating badge — top-right, INSIDE image */}
+        <div className="animate-gentle-float-slow absolute top-3 right-3 bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] text-[#0F4C5C] rounded-2xl shadow-[0_12px_30px_rgba(79,195,247,0.35)] px-3.5 py-2.5 hidden md:block">
+          <p
+            className="text-xs uppercase tracking-wider opacity-90 font-semibold"
+            style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}
+          >
+            Reviewed By
+          </p>
+          <p
+            className="text-sm font-extrabold"
+            style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}
+          >
+            Our Team
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
       {/* ============ STICKY PROGRESS BAR ============ */}
       <div
@@ -591,20 +619,20 @@ const SubmitCV = () => {
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-2 flex-shrink-0">
-                <FaRocket className="text-[#F97316] text-sm" />
+                <FaRocket className="text-[#F97316] text-sm" aria-hidden="true" />
                 <span className="text-xs font-bold text-[#0F4C5C] hidden sm:inline">
                   {getProgressMessage(progress)}
                 </span>
               </div>
-              <div className="flex-1 h-2 bg-[#E2E8F0] rounded-full overflow-hidden">
+              <div className="flex-1 h-3 bg-[#E2E8F0] rounded-full overflow-hidden shadow-inner">
                 <div
                   className={`h-full rounded-full bg-gradient-to-r ${getProgressColor(
                     progress
-                  )} transition-all duration-500 ease-out`}
+                  )} transition-all duration-500 ease-out shadow-[0_0_10px_rgba(79,195,247,0.35)]`}
                   style={{ width: `${progress}%` }}
                 />
               </div>
-              <span className="text-xs font-extrabold text-[#0F4C5C] tabular-nums flex-shrink-0">
+              <span className="text-sm font-extrabold text-[#29B6F6] tabular-nums flex-shrink-0">
                 <AnimatedProgress value={progress} />
               </span>
             </div>
@@ -623,33 +651,32 @@ const SubmitCV = () => {
           }}
         />
 
-        {/* ✅ Form width 92% */}
         <div className="relative w-[95%] sm:w-[92%] max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* In-page Progress Bar */}
           <div
             ref={progressRef}
-            className="mb-3 bg-white rounded-2xl p-3 border border-[#E2E8F0] shadow-[0_4px_20px_rgba(15,76,92,0.06)]"
+            className="mb-3 bg-white rounded-2xl p-4 border border-[#E2E8F0] shadow-[0_4px_20px_rgba(15,76,92,0.06)]"
           >
             <div className="flex items-center justify-between mb-2">
               <div className="flex items-center gap-2">
-                <FaRocket className="text-[#F97316] text-sm" />
-                <span className="text-xs sm:text-sm font-bold text-[#0F4C5C]">
+                <FaRocket className="text-[#F97316] text-sm" aria-hidden="true" />
+                <span className="text-sm font-bold text-[#0F4C5C]">
                   Profile Completion
                 </span>
               </div>
-              <span className="text-xs sm:text-sm font-extrabold text-[#0F4C5C]">
+              <span className="text-sm sm:text-base font-extrabold text-[#29B6F6] tabular-nums">
                 <AnimatedProgress value={progress} />
               </span>
             </div>
-            <div className="w-full h-2 bg-[#E2E8F0] rounded-full overflow-hidden">
+            <div className="w-full h-3 bg-[#E2E8F0] rounded-full overflow-hidden shadow-inner">
               <div
                 className={`h-full rounded-full bg-gradient-to-r ${getProgressColor(
                   progress
-                )} transition-all duration-500 ease-out`}
+                )} transition-all duration-500 ease-out shadow-[0_0_10px_rgba(79,195,247,0.35)]`}
                 style={{ width: `${progress}%` }}
               />
             </div>
-            <p className="text-[10px] sm:text-xs text-[#64748B] font-medium mt-1">
+            <p className="text-xs text-[#64748B] font-medium mt-1.5">
               {getProgressMessage(progress)}
             </p>
           </div>
@@ -658,7 +685,7 @@ const SubmitCV = () => {
           <form onSubmit={handleSubmit}>
             {errors.form && (
               <div className="relative mb-3 flex items-center gap-2 bg-red-50 border border-red-200 rounded-xl px-4 py-2.5 animate-slideUp">
-                <FaExclamationTriangle className="text-red-500 text-sm flex-shrink-0" />
+                <FaExclamationTriangle className="text-red-500 text-sm flex-shrink-0" aria-hidden="true" />
                 <span className="text-xs sm:text-sm font-semibold text-red-600">
                   {errors.form}
                 </span>
@@ -690,7 +717,7 @@ const SubmitCV = () => {
                       className={inputClass("fullName")}
                     />
                     {errors.fullName && (
-                      <p className="text-[10px] sm:text-xs text-red-500 mt-1 font-semibold animate-slideUp">
+                      <p className="text-xs text-red-500 mt-1 font-semibold animate-slideUp">
                         {errors.fullName}
                       </p>
                     )}
@@ -715,7 +742,7 @@ const SubmitCV = () => {
                       className={inputClass("email")}
                     />
                     {errors.email && (
-                      <p className="text-[10px] sm:text-xs text-red-500 mt-1 font-semibold animate-slideUp">
+                      <p className="text-xs text-red-500 mt-1 font-semibold animate-slideUp">
                         {errors.email}
                       </p>
                     )}
@@ -740,7 +767,7 @@ const SubmitCV = () => {
                       className={inputClass("phone")}
                     />
                     {errors.phone && (
-                      <p className="text-[10px] sm:text-xs text-red-500 mt-1 font-semibold animate-slideUp">
+                      <p className="text-xs text-red-500 mt-1 font-semibold animate-slideUp">
                         {errors.phone}
                       </p>
                     )}
@@ -812,7 +839,7 @@ const SubmitCV = () => {
                       className={inputClass("country")}
                     />
                     {errors.country && (
-                      <p className="text-[10px] sm:text-xs text-red-500 mt-1 font-semibold animate-slideUp">
+                      <p className="text-xs text-red-500 mt-1 font-semibold animate-slideUp">
                         {errors.country}
                       </p>
                     )}
@@ -846,7 +873,7 @@ const SubmitCV = () => {
                       className={inputClass("position")}
                     />
                     {errors.position && (
-                      <p className="text-[10px] sm:text-xs text-red-500 mt-1 font-semibold animate-slideUp">
+                      <p className="text-xs text-red-500 mt-1 font-semibold animate-slideUp">
                         {errors.position}
                       </p>
                     )}
@@ -878,7 +905,7 @@ const SubmitCV = () => {
                       <option value="Professional">Professional Staff</option>
                     </select>
                     {errors.category && (
-                      <p className="text-[10px] sm:text-xs text-red-500 mt-1 font-semibold animate-slideUp">
+                      <p className="text-xs text-red-500 mt-1 font-semibold animate-slideUp">
                         {errors.category}
                       </p>
                     )}
@@ -986,34 +1013,35 @@ const SubmitCV = () => {
                 }}
                 onDragLeave={() => setIsDragging(false)}
                 onDrop={handleDrop}
-                className={`group/upload relative flex flex-col items-center justify-center w-full border-2 border-dashed rounded-2xl p-5 cursor-pointer transition-all duration-300 overflow-hidden ${
+                className={`group/upload relative flex flex-col items-center justify-center w-full border-2 border-dashed rounded-2xl px-5 py-8 sm:py-10 cursor-pointer transition-all duration-300 overflow-hidden ${
                   isDragging
                     ? "border-[#4FC3F7] bg-[#4FC3F7]/10 scale-[1.02]"
                     : "border-[#4FC3F7]/40 hover:border-[#4FC3F7]/70 bg-[#F8FAFC]"
                 }`}
               >
                 <span
-                  className={`relative w-12 h-12 rounded-full flex items-center justify-center mb-2.5 transition-all duration-300 ${
+                  className={`relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex items-center justify-center mb-4 transition-all duration-300 ${
                     isDragging
                       ? "bg-[#4FC3F7] scale-110"
                       : "bg-[#4FC3F7]/15 group-hover/upload:bg-[#4FC3F7]/25 group-hover/upload:scale-110"
                   }`}
                 >
                   <FaCloudUploadAlt
-                    className={`text-xl transition-colors duration-300 ${
+                    className={`text-3xl sm:text-4xl transition-colors duration-300 ${
                       isDragging ? "text-white" : "text-[#4FC3F7]"
                     }`}
+                    aria-hidden="true"
                   />
                 </span>
 
-                <span className="relative text-sm font-bold text-[#0F4C5C] mb-1 text-center px-4">
+                <span className="relative text-base sm:text-lg font-extrabold text-[#0F4C5C] mb-1.5 text-center px-4 leading-snug">
                   {form.fileName
                     ? form.fileName
                     : isDragging
                     ? "Drop Your CV Here"
                     : "Click To Upload Or Drag & Drop"}
                 </span>
-                <span className="relative text-[10px] sm:text-xs text-[#64748B] font-medium">
+                <span className="relative text-xs sm:text-sm text-[#64748B] font-medium">
                   {form.fileName
                     ? "File ready to submit"
                     : "PDF, DOC, or DOCX (Max 5 MB)"}
@@ -1031,7 +1059,7 @@ const SubmitCV = () => {
               {form.fileName && (
                 <div className="mt-2.5 flex items-center justify-between bg-[#22C55E]/10 border border-[#22C55E]/30 rounded-xl px-3.5 py-2.5 animate-slideUp">
                   <div className="flex items-center gap-3 min-w-0">
-                    <FaCheckCircle className="text-[#22C55E] text-base flex-shrink-0" />
+                    <FaCheckCircle className="text-[#22C55E] text-base flex-shrink-0" aria-hidden="true" />
                     <div className="min-w-0">
                       <span className="text-xs font-semibold text-[#0F4C5C] truncate block">
                         {form.fileName}
@@ -1049,7 +1077,7 @@ const SubmitCV = () => {
                     className="text-[#64748B] hover:text-red-500 transition-colors flex-shrink-0 p-1"
                     aria-label="Remove File"
                   >
-                    <FaTimes className="text-sm" />
+                    <FaTimes className="text-sm" aria-hidden="true" />
                   </button>
                 </div>
               )}
@@ -1084,8 +1112,8 @@ const SubmitCV = () => {
             {/* Consent + Submit */}
             <div className="mt-3 bg-white rounded-2xl border border-[#E2E8F0] shadow-[0_4px_20px_rgba(15,76,92,0.06)] p-4 sm:p-5">
               <div className="flex items-start gap-2 mb-3 p-3 rounded-xl bg-[#22C55E]/5 border border-[#22C55E]/20">
-                <FaShieldAlt className="text-[#22C55E] text-sm mt-0.5 flex-shrink-0" />
-                <p className="text-[10px] sm:text-xs text-[#0A3A47]/80 leading-relaxed">
+                <FaShieldAlt className="text-[#22C55E] text-sm mt-0.5 flex-shrink-0" aria-hidden="true" />
+                <p className="text-xs text-[#0A3A47]/80 leading-relaxed">
                   By submitting this form, you confirm that the information
                   provided is accurate and agree to be contacted by Ali
                   Hajveri International regarding suitable overseas employment
@@ -1102,14 +1130,14 @@ const SubmitCV = () => {
                 <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full group-hover/submit:translate-x-full transition-transform duration-700" />
                 {submitting ? (
                   <>
-                    <FaSpinner className="relative text-xs animate-spin" />
+                    <FaSpinner className="relative text-xs animate-spin" aria-hidden="true" />
                     <span className="relative">Submitting...</span>
                   </>
                 ) : (
                   <>
-                    <FaPaperPlane className="relative text-xs" />
+                    <FaPaperPlane className="relative text-xs" aria-hidden="true" />
                     <span className="relative">Submit CV</span>
-                    <FaArrowRight className="relative text-xs group-hover/submit:translate-x-2 transition-transform duration-300" />
+                    <FaArrowRight className="relative text-xs group-hover/submit:translate-x-2 transition-transform duration-300" aria-hidden="true" />
                   </>
                 )}
               </button>
@@ -1122,10 +1150,10 @@ const SubmitCV = () => {
       <section className="relative py-7 sm:py-10 bg-gradient-to-b from-white to-[#E1F5FE] overflow-hidden">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-5 sm:mb-7">
-            <span className="inline-flex items-center gap-1.5 text-[10px] sm:text-xs font-bold tracking-widest uppercase text-[#29B6F6] mb-2">
-              <span className="w-8 h-px bg-[#29B6F6]" />
+            <span className="inline-flex items-center gap-1.5 text-xs font-bold tracking-wide text-[#4FC3F7] mb-2">
+              <span className="w-8 h-px bg-[#4FC3F7]" />
               Why Choose Us
-              <span className="w-8 h-px bg-[#29B6F6]" />
+              <span className="w-8 h-px bg-[#4FC3F7]" />
             </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0F4C5C] mb-3">
               Trusted By{" "}
@@ -1167,7 +1195,7 @@ const SubmitCV = () => {
                 <div
                   className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${color} flex items-center justify-center mb-3 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}
                 >
-                  <Icon className="text-white text-lg" />
+                  <Icon className="text-white text-lg" aria-hidden="true" />
                 </div>
                 <h3 className="font-extrabold text-[#0F4C5C] mb-2 text-base">
                   {title}

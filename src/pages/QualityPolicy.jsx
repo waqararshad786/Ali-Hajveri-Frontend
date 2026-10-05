@@ -24,6 +24,22 @@ import {
 import jsPDF from "jspdf";
 import "jspdf-autotable";
 
+/* Shared action classes (fix #6) */
+const SECONDARY_ACTION =
+  "inline-flex items-center justify-center gap-2 bg-white border-2 border-[#0F4C5C]/30 " +
+  "text-[#0F4C5C] px-6 py-3.5 rounded-full font-bold " +
+  "hover:bg-[#0F4C5C] hover:text-white hover:border-[#0F4C5C] " +
+  "hover:-translate-y-0.5 transition-all duration-300 text-sm sm:text-base " +
+  "shadow-[0_8px_24px_rgba(15,76,92,0.1)]";
+
+const PRIMARY_ACTION =
+  "group relative inline-flex items-center justify-center gap-2 " +
+  "bg-gradient-to-r from-[#4FC3F7] via-[#29B6F6] to-[#4FC3F7] bg-[length:200%_100%] " +
+  "text-[#0F4C5C] px-6 sm:px-8 py-3.5 rounded-full font-bold " +
+  "shadow-[0_12px_30px_rgba(79,195,247,0.4)] " +
+  "hover:shadow-[0_18px_42px_rgba(255,213,79,0.5)] hover:-translate-y-0.5 " +
+  "transition-all duration-300 text-sm sm:text-base overflow-hidden";
+
 const QualityPolicy = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const heroRef = useRef(null);
@@ -144,12 +160,9 @@ const QualityPolicy = () => {
     y += 8;
     doc.setFontSize(11);
     doc.setTextColor("#666");
-    doc.text(
-      "Ali Hajveri International (Pvt.) Ltd.",
-      pageWidth / 2,
-      y,
-      { align: "center" }
-    );
+    doc.text("Ali Hajveri International (Pvt.) Ltd.", pageWidth / 2, y, {
+      align: "center",
+    });
     y += 5;
     doc.setFontSize(10);
     doc.setTextColor("#29B6F6");
@@ -264,7 +277,8 @@ const QualityPolicy = () => {
       `}</style>
 
       {/* ============ HERO ============ */}
-      <section className="relative mt-[-50px] overflow-hidden bg-gradient-to-br from-white via-[#E1F5FE] to-white pt-20 lg:pt-24 pb-10">
+      {/* FIX #5 — pb-10 → pb-8 to align with the uniform py-10 sm:py-12 rhythm */}
+      <section className="relative mt-[-50px] overflow-hidden bg-gradient-to-br from-white via-[#E1F5FE] to-white pt-20 lg:pt-24 pb-8">
         <div
           ref={heroRef}
           className="absolute inset-0 opacity-[0.04]"
@@ -335,7 +349,7 @@ const QualityPolicy = () => {
                 every stage of overseas manpower recruitment from Pakistan.
               </p>
 
-              <div className="flex flex-wrap gap-2 justify-center lg:justify-start mb-5">
+              <div className="flex flex-wrap gap-2.5 justify-center lg:justify-start mb-5">
                 {[
                   { icon: FaShieldAlt, text: "Fully Compliant", color: "text-[#22C55E]" },
                   { icon: FaCertificate, text: "Licensed OEP", color: "text-[#FFB300]" },
@@ -343,9 +357,9 @@ const QualityPolicy = () => {
                 ].map(({ icon: Icon, text, color }) => (
                   <span
                     key={text}
-                    className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-bold text-[#0F4C5C] bg-white border border-[#4FC3F7]/30 px-3 py-1.5 rounded-full shadow-[0_4px_12px_rgba(79,195,247,0.08)] hover:border-[#4FC3F7]/70 hover:scale-105 transition-all duration-300"
+                    className="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-[#0F4C5C] bg-gradient-to-r from-white to-[#E1F5FE] border-2 border-[#4FC3F7]/50 px-4 py-2 rounded-full shadow-[0_8px_22px_rgba(79,195,247,0.18)] hover:border-[#4FC3F7] hover:scale-105 transition-all duration-300"
                   >
-                    <Icon className={`${color} text-[10px]`} />
+                    <Icon className={`${color} text-sm`} aria-hidden="true" />
                     {text}
                   </span>
                 ))}
@@ -354,58 +368,57 @@ const QualityPolicy = () => {
               <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
                 <a
                   href="#objectives"
-                  className="group relative inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#4FC3F7] via-[#29B6F6] to-[#4FC3F7] bg-[length:200%_100%] text-[#0F4C5C] px-7 py-3.5 rounded-full font-bold shadow-[0_12px_30px_rgba(79,195,247,0.4)] hover:shadow-[0_18px_42px_rgba(255,213,79,0.5)] hover:-translate-y-0.5 transition-all duration-300 text-sm sm:text-base overflow-hidden"
+                  className={PRIMARY_ACTION}
                   style={{ animation: "gradientShift 4s ease infinite" }}
                 >
                   <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
                   <span className="relative">Our Objectives</span>
-                  <FaArrowRight className="relative text-xs group-hover:translate-x-1 transition-transform" />
+                  <FaArrowRight className="relative text-xs group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                 </a>
-                <button
-                  onClick={downloadPDF}
-                  className="inline-flex items-center justify-center gap-2 bg-white border-2 border-[#0F4C5C]/30 text-[#0F4C5C] px-7 py-3.5 rounded-full font-bold hover:bg-[#0F4C5C] hover:text-white hover:border-[#0F4C5C] hover:-translate-y-0.5 transition-all duration-300 text-sm sm:text-base shadow-[0_8px_24px_rgba(15,76,92,0.1)]"
-                >
-                  <FaDownload className="text-sm" />
+                {/* FIX #6 — Download PDF uses the shared secondary class */}
+                <button onClick={downloadPDF} className={SECONDARY_ACTION}>
+                  <FaDownload className="text-sm" aria-hidden="true" />
                   Download PDF
                 </button>
               </div>
             </div>
 
-            {/* RIGHT — Stats card */}
+            {/* RIGHT — Stats card (FIX #2 — rounded-2xl, more padding) */}
             <div className="lg:col-span-5">
               <div className="relative max-w-sm mx-auto">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#4FC3F7]/40 to-[#FFD54F]/20 blur-3xl rounded-full" />
 
-                <div className="relative bg-white/95 backdrop-blur-xl rounded-3xl p-5 border border-[#4FC3F7]/30 shadow-[0_24px_60px_rgba(15,76,92,0.25)] overflow-hidden">
+                <div className="relative bg-white/95 backdrop-blur-xl rounded-2xl p-6 sm:p-7 border border-[#4FC3F7]/30 shadow-[0_24px_60px_rgba(15,76,92,0.25)] overflow-hidden">
                   <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#4FC3F7] via-[#FFD54F] to-[#4FC3F7] bg-[length:200%_100%] animate-[shimmer_3s_linear_infinite]" />
 
-                  <div className="flex items-center gap-3 mb-4">
+                  <div className="flex items-center gap-3 mb-5">
                     <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#4FC3F7] to-[#29B6F6] flex items-center justify-center shadow-[0_8px_20px_rgba(79,195,247,0.4)]">
-                      <FaAward className="text-white text-sm" />
+                      <FaAward className="text-white text-sm" aria-hidden="true" />
                     </div>
                     <div>
-                      <p className="text-[#0F4C5C] font-extrabold text-sm">
+                      <p className="text-[#0F4C5C] font-extrabold text-sm sm:text-base">
                         Quality Metrics
                       </p>
-                      <p className="text-[#29B6F6] text-[10px] font-bold tracking-wide uppercase">
+                      {/* FIX #1 — was text-[#29B6F6]; now matches brand cyan */}
+                      <p className="text-[#0F4C5C]/70 text-xs font-bold tracking-wide">
                         Our Performance
                       </p>
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-2.5">
+                  <div className="grid grid-cols-2 gap-3">
                     {stats.map((s, idx) => (
                       <div
                         key={idx}
-                        className="rounded-xl bg-gradient-to-br from-[#E1F5FE] to-white border border-[#4FC3F7]/20 p-3 hover:border-[#4FC3F7]/50 transition-all duration-300"
+                        className="rounded-xl bg-gradient-to-br from-[#E1F5FE] to-white border border-[#4FC3F7]/20 p-4 hover:border-[#4FC3F7]/50 transition-all duration-300"
                       >
-                        <div className={`${s.color} text-sm mb-1`}>
+                        <div className={`${s.color} text-lg mb-1.5`}>
                           {s.icon}
                         </div>
                         <p className="text-xl font-extrabold text-[#0F4C5C] leading-none mb-0.5">
                           {s.number}
                         </p>
-                        <p className="text-[10px] font-bold text-[#0A3A47]/60 uppercase tracking-wide">
+                        <p className="text-xs font-bold text-[#0A3A47]/70">
                           {s.label}
                         </p>
                       </div>
@@ -419,17 +432,19 @@ const QualityPolicy = () => {
       </section>
 
       {/* ============ POLICY STATEMENT ============ */}
-      <section className="relative py-10 bg-white overflow-hidden">
+      {/* FIX #5 — uniform py-10 sm:py-12; FIX #2 — single rounded-2xl */}
+      <section className="relative py-10 sm:py-12 bg-white overflow-hidden">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative bg-gradient-to-br from-[#E1F5FE] via-white to-[#E1F5FE] rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-[#4FC3F7]/25 shadow-[0_14px_40px_rgba(15,76,92,0.08)] overflow-hidden">
+          <div className="relative bg-gradient-to-br from-[#E1F5FE] via-white to-[#E1F5FE] rounded-2xl p-6 sm:p-8 border border-[#4FC3F7]/25 shadow-[0_14px_40px_rgba(15,76,92,0.08)] overflow-hidden">
             <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#4FC3F7] via-[#FFD54F] to-[#4FC3F7] bg-[length:200%_100%] animate-[shimmer_3s_linear_infinite]" />
 
             <div className="flex items-center gap-3 mb-4">
               <span className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#4FC3F7] to-[#29B6F6] flex items-center justify-center shadow-[0_8px_20px_rgba(79,195,247,0.4)]">
-                <FaBullseye className="text-white text-base" />
+                <FaBullseye className="text-white text-base" aria-hidden="true" />
               </span>
               <div>
-                <p className="text-[10px] font-extrabold text-[#29B6F6] uppercase tracking-widest">
+                {/* FIX #1 + #3 — sentence case, brand cyan */}
+                <p className="text-[#4FC3F7] text-xs font-bold tracking-wide">
                   Our Commitment
                 </p>
                 <h2 className="font-[Plus_Jakarta_Sans] text-xl sm:text-2xl font-extrabold text-[#0F4C5C] leading-tight">
@@ -462,15 +477,16 @@ const QualityPolicy = () => {
       </section>
 
       {/* ============ QUALITY OBJECTIVES ============ */}
+      {/* FIX #5 — uniform padding; FIX #11 — left-aligned header; FIX #1 + #3 — label */}
       <section
         id="objectives"
-        className="relative py-10 bg-gradient-to-b from-white via-[#E1F5FE]/40 to-white overflow-hidden"
+        className="relative py-10 sm:py-12 bg-gradient-to-b from-white via-[#E1F5FE]/40 to-white overflow-hidden"
       >
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <div className="inline-flex items-center gap-2 mb-2 bg-[#4FC3F7]/10 border border-[#4FC3F7]/30 rounded-full px-3.5 py-1.5">
-              <FaFire className="text-[#F97316] text-[10px]" />
-              <span className="text-[#0F4C5C] text-[10px] sm:text-xs font-bold tracking-widest uppercase">
+          <div className="text-left mb-8">
+            <div className="inline-flex items-center gap-2 mb-2.5 pl-3 border-l-2 border-[#4FC3F7]">
+              <FaFire className="text-[#FFB300] text-xs" aria-hidden="true" />
+              <span className="text-[#0F4C5C] text-xs sm:text-sm font-bold tracking-wide">
                 Quality Objectives
               </span>
             </div>
@@ -480,7 +496,7 @@ const QualityPolicy = () => {
                 Objectives
               </span>
             </h2>
-            <p className="text-[#0A3A47]/75 text-sm sm:text-base max-w-2xl mx-auto">
+            <p className="text-[#0A3A47]/75 text-sm sm:text-base max-w-2xl">
               Six pillars that define our approach to quality and excellence.
             </p>
           </div>
@@ -492,7 +508,8 @@ const QualityPolicy = () => {
                 className="group relative bg-white rounded-2xl p-5 border border-[#4FC3F7]/20 hover:border-[#4FC3F7]/60 hover:shadow-[0_20px_45px_rgba(79,195,247,0.15)] hover:-translate-y-2 transition-all duration-300 overflow-hidden animate-slideUp"
                 style={{ animationDelay: `${idx * 0.08}s` }}
               >
-                <span className="absolute inset-x-0 top-0 h-0.5 rounded-t-2xl bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500" />
+                {/* FIX #2 — underline no longer rounded-t-2xl */}
+                <span className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500" />
 
                 <span className="absolute top-2 right-4 text-5xl sm:text-6xl font-black text-[#4FC3F7]/8 group-hover:text-[#4FC3F7]/15 transition-colors duration-500 select-none pointer-events-none">
                   {String(obj.id).padStart(2, "0")}
@@ -516,7 +533,7 @@ const QualityPolicy = () => {
       </section>
 
       {/* ============ QUALITY STANDARDS ============ */}
-      <section className="relative py-10 bg-white overflow-hidden">
+      <section className="relative py-10 sm:py-12 bg-white overflow-hidden">
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
@@ -527,10 +544,11 @@ const QualityPolicy = () => {
         />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <div className="inline-flex items-center gap-2 mb-2 bg-[#4FC3F7]/10 border border-[#4FC3F7]/30 rounded-full px-3.5 py-1.5">
-              <FaCertificate className="text-[#FFB300] text-[10px]" />
-              <span className="text-[#0F4C5C] text-[10px] sm:text-xs font-bold tracking-widest uppercase">
+          {/* FIX #11 — left-aligned header */}
+          <div className="text-left mb-8">
+            <div className="inline-flex items-center gap-2 mb-2.5 pl-3 border-l-2 border-[#4FC3F7]">
+              <FaCertificate className="text-[#FFB300] text-xs" aria-hidden="true" />
+              <span className="text-[#0F4C5C] text-xs sm:text-sm font-bold tracking-wide">
                 Our Standards
               </span>
             </div>
@@ -549,10 +567,10 @@ const QualityPolicy = () => {
                 className="group relative bg-gradient-to-b from-[#E1F5FE] to-white rounded-2xl p-5 border border-[#4FC3F7]/20 hover:border-[#4FC3F7]/60 hover:shadow-[0_20px_45px_rgba(79,195,247,0.15)] hover:-translate-y-2 transition-all duration-300 overflow-hidden animate-slideUp"
                 style={{ animationDelay: `${idx * 0.08}s` }}
               >
-                <span className="absolute inset-x-0 top-0 h-0.5 rounded-t-2xl bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500" />
+                <span className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500" />
 
                 <div className="w-12 h-12 rounded-2xl bg-white shadow-[0_6px_18px_rgba(15,76,92,0.08)] flex items-center justify-center text-xl mb-3 group-hover:bg-[#4FC3F7]/10 transition-all duration-300 group-hover:scale-110 group-hover:rotate-6">
-                  <Icon className={`${color}`} />
+                  <Icon className={`${color}`} aria-hidden="true" />
                 </div>
                 <h3 className="font-[Plus_Jakarta_Sans] text-base font-extrabold text-[#0F4C5C] mb-1.5 leading-tight">
                   {title}
@@ -567,12 +585,13 @@ const QualityPolicy = () => {
       </section>
 
       {/* ============ OUR COMMITMENTS ============ */}
-      <section className="relative py-10 bg-gradient-to-b from-white to-[#E1F5FE] overflow-hidden">
+      <section className="relative py-10 sm:py-12 bg-gradient-to-b from-white to-[#E1F5FE] overflow-hidden">
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <div className="inline-flex items-center gap-2 mb-2 bg-[#4FC3F7]/10 border border-[#4FC3F7]/30 rounded-full px-3.5 py-1.5">
-              <FaHandshake className="text-[#FFB300] text-[10px]" />
-              <span className="text-[#0F4C5C] text-[10px] sm:text-xs font-bold tracking-widest uppercase">
+          {/* FIX #11 — left-aligned header */}
+          <div className="text-left mb-8">
+            <div className="inline-flex items-center gap-2 mb-2.5 pl-3 border-l-2 border-[#4FC3F7]">
+              <FaHandshake className="text-[#FFB300] text-xs" aria-hidden="true" />
+              <span className="text-[#0F4C5C] text-xs sm:text-sm font-bold tracking-wide">
                 Our Commitments
               </span>
             </div>
@@ -582,7 +601,7 @@ const QualityPolicy = () => {
                 Promise
               </span>
             </h2>
-            <p className="text-[#0A3A47]/75 text-sm sm:text-base max-w-2xl mx-auto">
+            <p className="text-[#0A3A47]/75 text-sm sm:text-base max-w-2xl">
               Our ongoing commitment to quality, ethics, and excellence.
             </p>
           </div>
@@ -598,7 +617,7 @@ const QualityPolicy = () => {
                   style={{ animationDelay: `${idx * 0.04}s` }}
                 >
                   <span className="flex-shrink-0 w-7 h-7 rounded-lg bg-gradient-to-br from-[#22C55E] to-[#16A34A] flex items-center justify-center shadow-[0_4px_10px_rgba(34,197,94,0.3)] group-hover:scale-110 transition-transform">
-                    <FaCheckCircle className="text-white text-xs" />
+                    <FaCheckCircle className="text-white text-xs" aria-hidden="true" />
                   </span>
                   <span className="text-xs sm:text-sm font-semibold text-[#0A3A47]/90 leading-snug">
                     {commitment}
@@ -611,15 +630,16 @@ const QualityPolicy = () => {
       </section>
 
       {/* ============ DOWNLOAD CTA ============ */}
+      {/* FIX #6 — secondary action; FIX #2 — single rounded-2xl; FIX #9 — grouped layout */}
       <section className="relative py-8 bg-white overflow-hidden">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative bg-white border border-[#4FC3F7]/25 rounded-2xl sm:rounded-3xl px-5 sm:px-7 py-6 shadow-[0_20px_50px_rgba(15,76,92,0.10)] overflow-hidden">
+          <div className="relative bg-white border border-[#4FC3F7]/25 rounded-2xl px-5 sm:px-7 py-6 shadow-[0_20px_50px_rgba(15,76,92,0.10)] overflow-hidden">
             <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#4FC3F7] via-[#FFD54F] to-[#4FC3F7] bg-[length:200%_100%] animate-[shimmer_3s_linear_infinite]" />
 
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-              <div className="flex items-center gap-3 text-center sm:text-left">
+            <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-5 sm:justify-center text-center sm:text-left">
+              <div className="flex items-center gap-3">
                 <span className="hidden sm:flex w-12 h-12 rounded-2xl bg-gradient-to-br from-[#4FC3F7] to-[#29B6F6] flex-shrink-0 items-center justify-center shadow-[0_10px_24px_rgba(79,195,247,0.4)]">
-                  <FaDownload className="text-white text-lg" />
+                  <FaDownload className="text-white text-lg" aria-hidden="true" />
                 </span>
                 <div>
                   <h3 className="font-[Plus_Jakarta_Sans] text-base sm:text-lg font-extrabold text-[#0F4C5C]">
@@ -630,14 +650,9 @@ const QualityPolicy = () => {
                   </p>
                 </div>
               </div>
-              <button
-                onClick={downloadPDF}
-                className="group relative inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#4FC3F7] via-[#29B6F6] to-[#4FC3F7] bg-[length:200%_100%] text-[#0F4C5C] px-6 py-3 rounded-full font-bold shadow-[0_12px_30px_rgba(79,195,247,0.4)] hover:shadow-[0_18px_42px_rgba(255,213,79,0.5)] hover:-translate-y-0.5 transition-all duration-300 text-sm overflow-hidden whitespace-nowrap"
-                style={{ animation: "gradientShift 4s ease infinite" }}
-              >
-                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-                <FaDownload className="relative text-sm" />
-                <span className="relative">Download PDF</span>
+              <button onClick={downloadPDF} className={SECONDARY_ACTION}>
+                <FaDownload className="text-sm" aria-hidden="true" />
+                Download PDF
               </button>
             </div>
           </div>
@@ -645,9 +660,10 @@ const QualityPolicy = () => {
       </section>
 
       {/* ============ FINAL CTA ============ */}
-      <section className="relative py-10 bg-[#E1F5FE] overflow-hidden">
+      {/* FIX #2 — single rounded-2xl; FIX #6 — shared primary class; FIX #7 — arrow on both CTAs */}
+      <section className="relative py-10 sm:py-12 bg-[#E1F5FE] overflow-hidden">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative bg-gradient-to-br from-[#0F4C5C] via-[#0A3A47] to-[#06303A] rounded-2xl sm:rounded-3xl px-6 sm:px-8 py-8 sm:py-10 text-center overflow-hidden border border-[#4FC3F7]/25 shadow-[0_24px_60px_rgba(15,76,92,0.25)]">
+          <div className="relative bg-gradient-to-br from-[#0F4C5C] via-[#0A3A47] to-[#06303A] rounded-2xl px-6 sm:px-8 py-8 sm:py-10 text-center overflow-hidden border border-[#4FC3F7]/25 shadow-[0_24px_60px_rgba(15,76,92,0.25)]">
             <div className="absolute -top-20 -right-20 w-72 h-72 bg-[#4FC3F7]/25 blur-3xl animate-blob" />
             <div
               className="absolute -bottom-24 -left-20 w-80 h-80 bg-[#FFD54F]/15 blur-3xl animate-blob"
@@ -658,7 +674,7 @@ const QualityPolicy = () => {
 
             <div className="relative z-10 max-w-2xl mx-auto">
               <div className="w-14 h-14 mx-auto mb-4 rounded-2xl bg-[#4FC3F7]/15 border border-[#4FC3F7]/30 flex items-center justify-center">
-                <FaAward className="text-[#FFB300] text-xl" />
+                <FaAward className="text-[#FFB300] text-xl" aria-hidden="true" />
               </div>
 
               <h2 className="font-[Plus_Jakarta_Sans] text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-3 leading-tight">
@@ -675,20 +691,23 @@ const QualityPolicy = () => {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                {/* FIX #6 — shared primary class */}
                 <Link
                   to="/contact"
-                  className="group relative inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#4FC3F7] via-[#29B6F6] to-[#4FC3F7] bg-[length:200%_100%] text-[#0F4C5C] px-6 sm:px-8 py-3.5 rounded-full font-bold shadow-[0_12px_30px_rgba(79,195,247,0.4)] hover:shadow-[0_18px_42px_rgba(255,213,79,0.5)] hover:-translate-y-0.5 transition-all duration-300 text-sm sm:text-base overflow-hidden"
+                  className={PRIMARY_ACTION}
                   style={{ animation: "gradientShift 4s ease infinite" }}
                 >
                   <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
                   <span className="relative">Contact Our Team</span>
-                  <FaArrowRight className="relative text-xs group-hover:translate-x-1 transition-transform" />
+                  <FaArrowRight className="relative text-xs group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                 </Link>
+                {/* FIX #7 — arrow added so both CTAs share the same icon language */}
                 <Link
                   to="/process/recruitment"
-                  className="inline-flex items-center justify-center gap-2 border border-[#4FC3F7]/40 text-[#4FC3F7] px-6 sm:px-8 py-3.5 rounded-full font-semibold hover:bg-[#4FC3F7]/10 hover:border-[#4FC3F7]/70 hover:scale-105 transition-all duration-300 text-sm sm:text-base"
+                  className="group inline-flex items-center justify-center gap-2 border border-[#4FC3F7]/40 text-[#4FC3F7] px-6 sm:px-8 py-3.5 rounded-full font-semibold hover:bg-[#4FC3F7]/10 hover:border-[#4FC3F7]/70 hover:scale-105 transition-all duration-300 text-sm sm:text-base"
                 >
-                  Recruitment Process
+                  <span>Recruitment Process</span>
+                  <FaArrowRight className="text-xs group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                 </Link>
               </div>
             </div>

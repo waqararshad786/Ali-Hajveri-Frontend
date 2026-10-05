@@ -49,19 +49,27 @@ const JobCard = ({ job, index, saved, onSave }) => (
       )}
     </div>
 
+    {/* Save button — larger touch target + visible hover label + state */}
     <button
       onClick={(e) => {
         e.preventDefault();
         onSave(job._id || job.id);
       }}
-      className={`absolute bottom-5 right-5 w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 z-10 border ${
+      className={`group/save absolute bottom-5 right-5 w-11 h-11 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 z-10 border ${
         saved
           ? "bg-[#FFB300] text-white border-[#FFB300]"
-          : "bg-white text-[#0A3A47]/40 border-[#4FC3F7]/25 hover:text-[#FFB300] hover:border-[#FFB300]"
+          : "bg-white text-[#0A3A47]/70 border-[#4FC3F7]/25 hover:text-[#FFB300] hover:border-[#FFB300]"
       }`}
-      aria-label="Save Job"
+      aria-label={saved ? "Remove from saved jobs" : "Save Job"}
+      aria-pressed={saved}
     >
-      <FaStar className="text-xs" />
+      <FaStar className="text-sm" />
+      <span
+        role="tooltip"
+        className="pointer-events-none absolute right-full mr-2 whitespace-nowrap text-[11px] font-bold text-white bg-[#0F4C5C] px-2 py-1 rounded-md shadow-md opacity-0 translate-x-1 group-hover/save:opacity-100 group-hover/save:translate-x-0 group-focus-visible/save:opacity-100 group-focus-visible/save:translate-x-0 transition-all duration-200"
+      >
+        {saved ? "Saved" : "Save"}
+      </span>
     </button>
 
     <div className="p-6 pt-8">
@@ -74,9 +82,10 @@ const JobCard = ({ job, index, saved, onSave }) => (
         </div>
 
         <div className="flex-1 min-w-0">
-          <h3 className="font-extrabold text-[#0F4C5C] text-base sm:text-lg leading-tight mb-1.5 group-hover:text-[#29B6F6] transition-colors duration-300">
+          {/* H2 — restores outline after the page H1 */}
+          <h2 className="font-extrabold text-[#0F4C5C] text-base sm:text-lg leading-tight mb-1.5 group-hover:text-[#29B6F6] transition-colors duration-300">
             {job.title}
-          </h3>
+          </h2>
           <p className="text-xs sm:text-sm text-[#0A3A47]/70 font-semibold flex items-center gap-1.5 truncate">
             <FaBuilding className="text-[10px] text-[#22C55E] flex-shrink-0" />
             {job.company}
@@ -85,11 +94,11 @@ const JobCard = ({ job, index, saved, onSave }) => (
       </div>
 
       <div className="grid grid-cols-2 gap-2.5 mb-5">
-        <div className="flex items-center gap-2 text-[11px] text-[#0A3A47]/75 font-semibold bg-[#E1F5FE]/50 rounded-lg p-2.5">
+        <div className="flex items-center gap-2 text-[11px] text-[#0A3A47]/70 font-semibold bg-[#E1F5FE]/50 rounded-lg p-2.5">
           <FaMapMarkerAlt className="text-[#22C55E] text-[10px] flex-shrink-0" />
           <span className="truncate">{job.location}</span>
         </div>
-        <div className="flex items-center gap-2 text-[11px] text-[#0A3A47]/75 font-semibold bg-[#E1F5FE]/50 rounded-lg p-2.5">
+        <div className="flex items-center gap-2 text-[11px] text-[#0A3A47]/70 font-semibold bg-[#E1F5FE]/50 rounded-lg p-2.5">
           <FaClock className="text-[#FFB300] text-[10px] flex-shrink-0" />
           <span className="truncate">{job.type}</span>
         </div>
@@ -114,7 +123,7 @@ const JobCard = ({ job, index, saved, onSave }) => (
 
         <div className="text-right">
           <div className="flex items-center gap-1.5 mb-0.5 justify-end">
-            <FaGraduationCap className="text-[#8B5CF6] text-[10px]" />
+            <FaGraduationCap className="text-[#29B6F6] text-[10px]" />
             <span className="text-[9px] font-bold text-[#0A3A47]/50 uppercase tracking-widest">
               Experience
             </span>
@@ -128,9 +137,10 @@ const JobCard = ({ job, index, saved, onSave }) => (
       {job.tags && job.tags.length > 0 && (
         <div className="flex flex-wrap gap-1.5 mb-5">
           {job.tags.slice(0, 3).map((tag) => (
+            /* Chip text bumped 10px → 12px for readability */
             <span
               key={tag}
-              className="text-[10px] font-bold text-[#0F4C5C] bg-[#E1F5FE] border border-[#4FC3F7]/30 px-2.5 py-1 rounded-full"
+              className="text-xs font-bold text-[#0F4C5C] bg-[#E1F5FE] border border-[#4FC3F7]/30 px-2.5 py-1 rounded-full"
             >
               #{tag}
             </span>
@@ -222,6 +232,17 @@ const Careers = () => {
     ...Array.from(new Set(jobs.map((j) => j.country).filter(Boolean))),
   ];
 
+  /* Compute whether counts differ across categories/countries.
+     If they don't (e.g. only 1 job total), hide the numbers. */
+  const categoryCounts = CATEGORIES.map((cat) =>
+    cat === "all" ? jobs.length : jobs.filter((j) => j.category === cat).length
+  );
+  const countryCounts = COUNTRIES.map((c) =>
+    c === "all" ? jobs.length : jobs.filter((j) => j.country === c).length
+  );
+  const showCategoryCounts = new Set(categoryCounts).size > 1;
+  const showCountryCounts = new Set(countryCounts).size > 1;
+
   const filteredJobs = jobs.filter((job) => {
     const term = search.trim().toLowerCase();
     const matchesSearch =
@@ -249,6 +270,13 @@ const Careers = () => {
   return (
     <>
       <style>{`
+        /* Radius scale — use only these 5 */
+        /* rounded-full  → pills, avatars, icon chips (9999px) */
+        /* rounded-3xl   → large panels, hero image frame (24px) */
+        /* rounded-2xl   → cards, floating badges (16px) */
+        /* rounded-lg    → icon tiles, meta boxes, small buttons (8px) */
+        /* rounded-md    → (reserved, 6px) */
+
         @keyframes shimmer {
           0% { background-position: 0% 50%; }
           100% { background-position: 200% 50%; }
@@ -296,7 +324,8 @@ const Careers = () => {
       {/* ============ HERO ============ */}
       <section
         ref={heroRef}
-        className="relative mt-[-4rem] pt-24 sm:pt-20 md:pt-24 lg:pt-28 pb-10 sm:pb-14 overflow-hidden bg-gradient-to-b from-white via-[#E1F5FE] to-white"
+        /* Increased top padding — more breathing room under nav */
+        className="relative mt-[-5.5rem] pt-28 sm:pt-24 md:pt-28 lg:pt-32 pb-10 sm:pb-14 overflow-hidden bg-gradient-to-b from-white via-[#E1F5FE] to-white"
       >
         {/* Glow orbs */}
         <div className="absolute -top-32 -right-40 w-[280px] sm:w-[380px] md:w-[480px] h-[280px] sm:h-[380px] md:h-[480px] rounded-full bg-[#4FC3F7]/10 blur-3xl animate-pulse-slow" />
@@ -308,8 +337,8 @@ const Careers = () => {
 
             {/* LEFT: Content */}
             <div className="text-center lg:text-left">
-              {/* Badge */}
-              <div className="inline-flex items-center gap-2 mb-3 bg-white/95 backdrop-blur-sm border border-[#4FC3F7]/40 rounded-full px-3 sm:px-4 py-1.5 shadow-[0_4px_14px_rgba(15,76,92,0.12)]">
+              {/* Status badge — mt-2 gives extra space from nav */}
+              <div className="inline-flex items-center gap-2 mt-2 mb-3 bg-white/95 backdrop-blur-sm border border-[#4FC3F7]/40 rounded-full px-3 sm:px-4 py-1.5 shadow-[0_4px_14px_rgba(15,76,92,0.12)]">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 animate-ping" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-green-400" />
@@ -385,9 +414,9 @@ const Careers = () => {
 
             {/* RIGHT: Image + floating badges */}
             <div className="relative reveal-up group order-first lg:order-last lg:mt-12">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#4FC3F7]/20 to-transparent rounded-2xl sm:rounded-3xl rotate-3 scale-[1.02] hidden sm:block" />
+              <div className="absolute inset-0 bg-gradient-to-br from-[#4FC3F7]/20 to-transparent rounded-3xl rotate-3 scale-[1.02] hidden sm:block" />
 
-              <div className="relative h-[240px] sm:h-[300px] lg:h-[380px] rounded-2xl sm:rounded-3xl overflow-hidden border border-[#4FC3F7]/20 shadow-[0_20px_50px_rgba(15,76,92,0.15)]">
+              <div className="relative h-[240px] sm:h-[300px] lg:h-[380px] rounded-3xl overflow-hidden border border-[#4FC3F7]/20 shadow-[0_20px_50px_rgba(15,76,92,0.15)]">
                 <img
                   src="/assets/find-jobs-2.png"
                   alt="Find Overseas Jobs — Verified Opportunities"
@@ -396,11 +425,11 @@ const Careers = () => {
                     e.target.style.display = "none";
                   }}
                 />
-                {/* ✅ Hover shine effect */}
                 <span className="img-shine" />
               </div>
 
-              <div className="animate-gentle-float absolute -bottom-4 sm:-bottom-5 -left-4 sm:-left-5 bg-white rounded-2xl shadow-[0_16px_36px_rgba(15,76,92,0.12)] border border-[#4FC3F7]/25 px-4 py-3 max-w-[170px] hidden sm:block">
+              {/* Badges now anchored INSIDE the frame corners */}
+              <div className="animate-gentle-float absolute bottom-3 left-3 bg-white rounded-2xl shadow-[0_16px_36px_rgba(15,76,92,0.12)] border border-[#4FC3F7]/25 px-4 py-3 max-w-[170px] hidden sm:block">
                 <div className="flex items-center gap-2 mb-1">
                   <span className="w-6 h-6 rounded-full bg-[#4FC3F7]/12 flex items-center justify-center">
                     <FaCheckCircle className="text-[#22C55E] text-xs" />
@@ -412,7 +441,7 @@ const Careers = () => {
                 </p>
               </div>
 
-              <div className="animate-gentle-float-slow absolute top-4 -right-3 sm:top-5 sm:-right-4 bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] text-[#0F4C5C] rounded-xl shadow-[0_12px_30px_rgba(79,195,247,0.35)] px-3.5 py-2.5 hidden md:block">
+              <div className="animate-gentle-float-slow absolute top-3 right-3 bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] text-[#0F4C5C] rounded-2xl shadow-[0_12px_30px_rgba(79,195,247,0.35)] px-3.5 py-2.5 hidden md:block">
                 <p className="text-[10px] uppercase tracking-wider opacity-90 font-semibold">
                   No Hidden
                 </p>
@@ -497,14 +526,14 @@ const Careers = () => {
                         <p className="text-sm font-extrabold text-[#0F4C5C]">
                           Filters
                         </p>
-                        <p className="text-[10px] text-[#0A3A47]/60 font-semibold">
+                        <p className="text-[10px] text-[#0A3A47]/70 font-semibold">
                           {filteredJobs.length} Results
                         </p>
                       </div>
                     </div>
 
                     <div className="mb-5">
-                      <p className="text-[10px] font-extrabold text-[#0A3A47]/60 uppercase tracking-widest mb-2.5">
+                      <p className="text-[10px] font-extrabold text-[#0A3A47]/70 uppercase tracking-widest mb-2.5">
                         Category
                       </p>
                       <div className="space-y-1.5">
@@ -521,25 +550,28 @@ const Careers = () => {
                             <span className="capitalize">
                               {cat === "all" ? "All Categories" : cat}
                             </span>
-                            <span
-                              className={`text-[10px] font-extrabold ${
-                                activeCategory === cat
-                                  ? "text-[#4FC3F7]"
-                                  : "text-[#0A3A47]/40"
-                              }`}
-                            >
-                              {cat === "all"
-                                ? jobs.length
-                                : jobs.filter((j) => j.category === cat)
-                                    .length}
-                            </span>
+                            {/* Count only shown when counts actually differ */}
+                            {showCategoryCounts && (
+                              <span
+                                className={`text-[10px] font-extrabold ${
+                                  activeCategory === cat
+                                    ? "text-[#4FC3F7]"
+                                    : "text-[#0A3A47]/70"
+                                }`}
+                              >
+                                {cat === "all"
+                                  ? jobs.length
+                                  : jobs.filter((j) => j.category === cat)
+                                      .length}
+                              </span>
+                            )}
                           </button>
                         ))}
                       </div>
                     </div>
 
                     <div className="mb-5">
-                      <p className="text-[10px] font-extrabold text-[#0A3A47]/60 uppercase tracking-widest mb-2.5">
+                      <p className="text-[10px] font-extrabold text-[#0A3A47]/70 uppercase tracking-widest mb-2.5">
                         Country
                       </p>
                       <div className="space-y-1.5">
@@ -556,17 +588,19 @@ const Careers = () => {
                             <span className="capitalize">
                               {c === "all" ? "All Countries" : c}
                             </span>
-                            <span
-                              className={`text-[10px] font-extrabold ${
-                                activeCountry === c
-                                  ? "text-[#4FC3F7]"
-                                  : "text-[#0A3A47]/40"
-                              }`}
-                            >
-                              {c === "all"
-                                ? jobs.length
-                                : jobs.filter((j) => j.country === c).length}
-                            </span>
+                            {showCountryCounts && (
+                              <span
+                                className={`text-[10px] font-extrabold ${
+                                  activeCountry === c
+                                    ? "text-[#4FC3F7]"
+                                    : "text-[#0A3A47]/70"
+                                }`}
+                              >
+                                {c === "all"
+                                  ? jobs.length
+                                  : jobs.filter((j) => j.country === c).length}
+                              </span>
+                            )}
                           </button>
                         ))}
                       </div>
@@ -696,7 +730,7 @@ const Careers = () => {
       {/* ============ CTA ============ */}
       <section className="relative py-12 sm:py-16 bg-white overflow-hidden">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative bg-gradient-to-br from-[#0F4C5C] via-[#0A3A47] to-[#06303A] rounded-2xl sm:rounded-3xl px-6 sm:px-8 py-10 sm:py-14 text-center overflow-hidden border border-[#4FC3F7]/25 shadow-[0_24px_60px_rgba(15,76,92,0.25)]">
+          <div className="relative bg-gradient-to-br from-[#0F4C5C] to-[#0A3A47] rounded-3xl px-6 sm:px-8 py-10 sm:py-14 text-center overflow-hidden border border-[#4FC3F7]/25 shadow-[0_24px_60px_rgba(15,76,92,0.25)]">
             <div className="absolute -top-20 -right-20 w-72 h-72 bg-[#4FC3F7]/25 blur-3xl animate-blob" />
             <div
               className="absolute -bottom-24 -left-20 w-80 h-80 bg-[#FFD54F]/15 blur-3xl animate-blob"
@@ -710,6 +744,7 @@ const Careers = () => {
                 <FaUsers className="text-[#FFB300] text-2xl" />
               </div>
 
+              {/* H2 — CTA section is a peer of the job list, not a nested h2 */}
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-4 leading-tight">
                 Don't See The Right Fit?{" "}
                 <span className="bg-gradient-to-r from-[#4FC3F7] via-[#FFD54F] to-[#4FC3F7] bg-clip-text text-transparent bg-[length:200%_100%] animate-[gradientShift_4s_ease_infinite]">

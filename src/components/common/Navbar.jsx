@@ -179,19 +179,22 @@ const Navbar = () => {
 
           {/* ---- RIGHT: CTA links ---- */}
           <div className="hidden lg:flex items-center gap-2 flex-shrink-0">
+            {/* ✅ Submit CV — Primary (solid cyan) */}
             <NavLink
               to="/submit-cv"
               className={({ isActive }) =>
-                `group relative px-4 py-2 text-sm font-bold rounded-full border-2 transition-all duration-200 overflow-hidden ${
+                `group relative px-4 py-2 text-sm font-bold rounded-full transition-all duration-200 shadow-[0_6px_16px_rgba(79,195,247,0.40)] hover:shadow-[0_8px_20px_rgba(79,195,247,0.60)] hover:-translate-y-0.5 overflow-hidden ${
                   isActive
-                    ? "bg-white text-[#0F4C5C] border-white"
-                    : "border-[#0F4C5C]/60 text-[#0F4C5C] hover:bg-white hover:text-[#0F4C5C] hover:border-white"
+                    ? "bg-gradient-to-r from-[#29B6F6] to-[#4FC3F7] text-[#0F4C5C]"
+                    : "bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] text-[#0F4C5C]"
                 }`
               }
             >
-              <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full bg-gradient-to-r from-transparent via-[#FFD54F]/50 to-transparent transition-transform duration-700" />
+              <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full bg-gradient-to-r from-transparent via-white/50 to-transparent transition-transform duration-700" />
               <span className="relative">Submit CV</span>
             </NavLink>
+
+            {/* ✅ Find Jobs — Secondary (solid navy) */}
             <NavLink
               to="/careers"
               className={({ isActive }) =>
@@ -299,13 +302,16 @@ const Navbar = () => {
             ))}
 
             <div className="mt-3 flex flex-col gap-2">
+              {/* ✅ Submit CV — Primary (solid cyan) — mobile */}
               <NavLink
                 to="/submit-cv"
                 onClick={closeMenu}
-                className="inline-flex items-center justify-center px-5 py-3 text-sm font-bold rounded-lg border-2 border-[#0F4C5C] text-[#0F4C5C] hover:bg-white transition-all"
+                className="inline-flex items-center justify-center px-5 py-3 text-sm font-bold rounded-lg bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] text-[#0F4C5C] shadow-[0_6px_16px_rgba(79,195,247,0.40)] hover:shadow-[0_8px_20px_rgba(79,195,247,0.60)] transition-all"
               >
                 Submit CV
               </NavLink>
+
+              {/* ✅ Find Jobs — Secondary (solid navy) — mobile */}
               <NavLink
                 to="/careers"
                 onClick={closeMenu}

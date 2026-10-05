@@ -11,9 +11,10 @@ import { COMPANY_INFO } from '../../utilis/constants';
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
+  /* Updated social links */
   const socialLinks = [
-    { icon: FaFacebook, url: 'https://www.facebook.com/ahioep', color: '#1877F2', label: 'Facebook' },
-    { icon: FaInstagram, url: 'https://www.instagram.com/ahioep3/', color: '#E4405F', label: 'Instagram' },
+    { icon: FaFacebook, url: 'https://www.facebook.com/profile.php?id=61592978483330', color: '#1877F2', label: 'Facebook' },
+    { icon: FaInstagram, url: 'https://www.instagram.com/ahioep5224/', color: '#E4405F', label: 'Instagram' },
     { icon: FaTiktok, url: 'https://www.tiktok.com/@ahioep.com', color: '#000000', label: 'TikTok' },
     { icon: FaTwitter, url: 'https://x.com/ahioep', color: '#000000', label: 'X (Twitter)' },
   ];
@@ -50,15 +51,15 @@ const Footer = () => {
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-6">
 
-          {/* ==== MIDDLE: 4 columns ==== */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
+          {/* ==== MIDDLE: 4 equal columns on lg (fixes unbalanced layout) ==== */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
 
-            {/* Company Info - 4 cols */}
-            <div className="lg:col-span-4">
+            {/* Company Info */}
+            <div>
               <div className="flex items-center gap-3 mb-5">
                 <img
                   src="/assets/logo.jpeg"
-                  alt="AHIOEP"
+                  alt="Ali Hajveri International (Pvt.) Ltd."
                   className="h-16 rounded-2xl w-auto object-contain bg-transparent"
                 />
               </div>
@@ -68,8 +69,8 @@ const Footer = () => {
               </p>
 
               {/* License badge */}
-             <div className="inline-flex items-center gap-2 bg-[#4FC3F7]/15 border border-[#4FC3F7]/40 rounded-full px-3 py-1.5 text-xs text-[#4FC3F7] font-bold mb-5">
-                <FaShieldAlt className="text-[#4FC3F7]" />
+              <div className="inline-flex items-center gap-2 bg-[#4FC3F7]/15 border border-[#4FC3F7]/40 rounded-full px-3 py-1.5 text-xs text-[#4FC3F7] font-bold mb-5">
+                <FaShieldAlt className="text-[#4FC3F7]" aria-hidden="true" />
                 Licensed &amp; Regulated · #{COMPANY_INFO.license}
               </div>
 
@@ -89,18 +90,20 @@ const Footer = () => {
                       size={18}
                       style={{ color: social.color }}
                       className="relative"
+                      aria-hidden="true"
                     />
                   </a>
                 ))}
               </div>
             </div>
 
-            {/* Quick Links - 2 cols */}
-            <div className="lg:col-span-2">
-              <h4 className="relative font-bold text-white mb-2 text-sm uppercase tracking-wider inline-block">
+            {/* Quick Links */}
+            <div>
+              {/* Heading level fixed: h4 → h3 */}
+              <h3 className="relative font-bold text-white mb-2 text-sm tracking-wider inline-block">
                 Quick Links
                 <span className="absolute -bottom-1 left-0 h-0.5 w-8 bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] rounded-full" />
-              </h4>
+              </h3>
               <ul className="space-y-0">
                 {quickLinks.map(([path, label]) => (
                   <li key={path}>
@@ -119,12 +122,13 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* Services - 3 cols */}
-            <div className="lg:col-span-3">
-              <h4 className="relative font-bold text-white mb-2 text-sm uppercase tracking-wider inline-block">
+            {/* Our Services */}
+            <div>
+              {/* Heading level fixed: h4 → h3 */}
+              <h3 className="relative font-bold text-white mb-2 text-sm tracking-wider inline-block">
                 Our Services
                 <span className="absolute -bottom-1 left-0 h-0.5 w-8 bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] rounded-full" />
-              </h4>
+              </h3>
               <ul className="space-y-0">
                 {serviceLinks.map(([path, label], i) => (
                   <li key={i}>
@@ -143,32 +147,33 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* Contact - 3 cols */}
-            <div className="lg:col-span-3">
-              <h4 className="relative font-bold text-white mb-5 text-sm uppercase tracking-wider inline-block">
+            {/* Get in Touch */}
+            <div>
+              {/* Heading level fixed: h4 → h3 */}
+              <h3 className="relative font-bold text-white mb-4 text-sm tracking-wider inline-block">
                 Get in Touch
-                <span className="absolute -bottom-1.5 left-0 h-0.5 w-8 bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] rounded-full" />
-              </h4>
-              <ul className="space-y-3">
+                <span className="absolute -bottom-1 left-0 h-0.5 w-8 bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] rounded-full" />
+              </h3>
+              <ul className="flex flex-col items-start gap-2">
 
-                {/* Address card */}
-                <li className="group flex items-start gap-3 bg-white/5 border border-[#22C55E]/20 hover:border-[#22C55E]/50 rounded-xl p-3 transition-all duration-300">
-                  <span className="w-8 h-8 rounded-lg bg-[#22C55E] flex items-center justify-center flex-shrink-0 mt-0.5 shadow-[0_6px_14px_rgba(34,197,94,0.4)]">
-                    <FaMapMarkerAlt className="text-white text-xs" />
+                {/* Address card (keeps full width since address is long) */}
+                <li className="w-full group flex items-start gap-2.5 bg-white/5 border border-[#22C55E]/20 hover:border-[#22C55E]/50 rounded-xl px-2.5 py-2 transition-all duration-300">
+                  <span className="w-7 h-7 rounded-xl bg-[#22C55E] flex items-center justify-center flex-shrink-0 mt-0.5 shadow-[0_6px_14px_rgba(34,197,94,0.4)]">
+                    <FaMapMarkerAlt className="text-white text-[11px]" aria-hidden="true" />
                   </span>
                   <span className="text-white/75 text-xs leading-relaxed group-hover:text-white transition-colors">
                     {COMPANY_INFO.address}
                   </span>
                 </li>
 
-                {/* Phone card */}
-                <li className="group">
+                {/* Phone card — w-fit so short value doesn't stretch */}
+                <li>
                   <a
                     href={`tel:${COMPANY_INFO.phone}`}
-                    className="flex items-center gap-3 bg-white/5 border border-[#4FC3F7]/20 hover:border-[#4FC3F7]/50 rounded-xl p-3 transition-all duration-300"
+                    className="flex w-fit items-center gap-2.5 bg-white/5 border border-[#4FC3F7]/20 hover:border-[#4FC3F7]/50 rounded-xl px-2.5 py-2 transition-all duration-300"
                   >
-                    <span className="w-8 h-8 rounded-lg bg-[#4FC3F7] flex items-center justify-center flex-shrink-0 shadow-[0_6px_14px_rgba(79,195,247,0.4)]">
-                      <FaPhone className="text-white text-xs" />
+                    <span className="w-7 h-7 rounded-xl bg-[#4FC3F7] flex items-center justify-center flex-shrink-0 shadow-[0_6px_14px_rgba(79,195,247,0.4)]">
+                      <FaPhone className="text-white text-[11px]" aria-hidden="true" />
                     </span>
                     <span className="text-white/75 text-xs font-medium group-hover:text-[#FFD54F] transition-colors">
                       {COMPANY_INFO.phone}
@@ -176,14 +181,14 @@ const Footer = () => {
                   </a>
                 </li>
 
-                {/* Email card */}
-                <li className="group">
+                {/* Email card — w-fit so shorter email doesn't stretch */}
+                <li>
                   <a
                     href={`mailto:${COMPANY_INFO.email}`}
-                    className="flex items-center gap-3 bg-white/5 border border-[#FFB300]/20 hover:border-[#FFB300]/50 rounded-xl p-3 transition-all duration-300"
+                    className="flex w-fit max-w-full items-center gap-2.5 bg-white/5 border border-[#FFB300]/20 hover:border-[#FFB300]/50 rounded-xl px-2.5 py-2 transition-all duration-300"
                   >
-                    <span className="w-8 h-8 rounded-lg bg-[#FFB300] flex items-center justify-center flex-shrink-0 shadow-[0_6px_14px_rgba(255,179,0,0.4)]">
-                      <FaEnvelope className="text-white text-xs" />
+                    <span className="w-7 h-7 rounded-xl bg-[#FFB300] flex items-center justify-center flex-shrink-0 shadow-[0_6px_14px_rgba(255,179,0,0.4)]">
+                      <FaEnvelope className="text-white text-[11px]" aria-hidden="true" />
                     </span>
                     <span className="text-white/75 text-xs font-medium group-hover:text-[#FFD54F] transition-colors truncate">
                       {COMPANY_INFO.email}
@@ -225,8 +230,8 @@ const Footer = () => {
                 </Link>
               </div>
 
-              {/* Multi-color dots */}
-              <div className="flex items-center gap-1.5 text-[10px] text-white/50 font-semibold tracking-wider uppercase">
+              {/* Trust line — no longer all-caps (17-char string) */}
+              <div className="flex items-center gap-1.5 text-xs text-white/60 font-semibold tracking-wide">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#4FC3F7] animate-pulse" />
                 <span className="w-1.5 h-1.5 rounded-full bg-[#FFD54F] animate-pulse" style={{ animationDelay: '0.3s' }} />
                 <span className="w-1.5 h-1.5 rounded-full bg-[#29B6F6] animate-pulse" style={{ animationDelay: '0.6s' }} />
@@ -246,7 +251,7 @@ const Footer = () => {
         className="fixed bottom-6 right-6 z-50 bg-green-500 text-white rounded-full p-4 shadow-2xl hover:bg-green-600 transition-colors duration-300 flex items-center justify-center"
         aria-label="Chat on WhatsApp"
       >
-        <FaWhatsapp size={28} />
+        <FaWhatsapp size={28} aria-hidden="true" />
       </a>
     </>
   );

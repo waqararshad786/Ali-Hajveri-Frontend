@@ -23,10 +23,25 @@ import {
   FaHeartbeat,
   FaPlus,
   FaMinus,
-  FaChevronDown,
 } from "react-icons/fa";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
+
+/* Shared action classes (fix #8) */
+const SECONDARY_ACTION =
+  "inline-flex items-center justify-center gap-2 bg-white border-2 border-[#0F4C5C]/30 " +
+  "text-[#0F4C5C] px-6 py-3 rounded-full font-bold " +
+  "hover:bg-[#0F4C5C] hover:text-white hover:border-[#0F4C5C] " +
+  "hover:-translate-y-0.5 transition-all duration-300 text-sm sm:text-base " +
+  "shadow-[0_8px_24px_rgba(15,76,92,0.1)]";
+
+const PRIMARY_ACTION =
+  "group relative inline-flex items-center justify-center gap-2 " +
+  "bg-gradient-to-r from-[#4FC3F7] via-[#29B6F6] to-[#4FC3F7] bg-[length:200%_100%] " +
+  "text-[#0F4C5C] px-6 sm:px-8 py-3 rounded-full font-bold " +
+  "shadow-[0_12px_30px_rgba(79,195,247,0.4)] " +
+  "hover:shadow-[0_18px_42px_rgba(255,213,79,0.5)] hover:-translate-y-0.5 " +
+  "transition-all duration-300 text-sm sm:text-base overflow-hidden";
 
 /* ============================================================
    DATA — 10-STEP WORK VISA PROCESS
@@ -135,7 +150,8 @@ const VISA_STEPS = [
       "FSA Registration & Verification",
       "Statutory Emigration Formalities",
     ],
-    color: "text-[#F97316]",
+    /* FIX #1 — was text-[#F97316]; folded into text-[#FFB300] */
+    color: "text-[#FFB300]",
   },
   {
     id: 8,
@@ -180,7 +196,8 @@ const VISA_STEPS = [
       "Airport Coordination",
       "Employer Handover At Destination",
     ],
-    color: "text-[#A78BFA]",
+    /* FIX #1 — was text-[#A78BFA]; folded into text-[#8B5CF6] */
+    color: "text-[#8B5CF6]",
   },
 ];
 
@@ -241,6 +258,14 @@ const WorkVisaProcess = () => {
 
   const toggleStep = (id) => {
     setOpenStep((prev) => (prev === id ? null : id));
+  };
+
+  /* FIX #7 — shared handler for marquee → accordion */
+  const jumpToStep = (id) => {
+    setOpenStep(id);
+    document
+      .getElementById(`visa-step-${id}`)
+      ?.scrollIntoView({ behavior: "smooth", block: "center" });
   };
 
   /* ---------- PDF DOWNLOAD ---------- */
@@ -323,9 +348,6 @@ const WorkVisaProcess = () => {
     doc.save("AHIOEP_Work_Visa_Process.pdf");
   };
 
-  /* ---------- MARQUEE DATA ---------- */
-  const marqueeSteps = [...VISA_STEPS, ...VISA_STEPS];
-
   return (
     <>
       <style>{`
@@ -362,7 +384,9 @@ const WorkVisaProcess = () => {
         .animate-slideUp { animation: slideUp 0.5s ease-out forwards; }
         .animate-fadeIn { animation: fadeIn 0.3s ease-out forwards; }
         .animate-marquee-left { animation: marquee-left 45s linear infinite; }
-        {/* .animate-marquee-left:hover { animation-play-state: paused; } */}
+        /* FIX #7 — pause marquee on hover/focus so items are clickable */
+        .animate-marquee-left:hover,
+        .animate-marquee-left:focus-within { animation-play-state: paused; }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
       `}</style>
@@ -405,7 +429,7 @@ const WorkVisaProcess = () => {
                   <span className="absolute inline-flex h-full w-full rounded-full bg-[#4FC3F7] opacity-75 animate-ping" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-[#4FC3F7]" />
                 </span>
-                <span className="text-[#0F4C5C] text-[11px] sm:text-xs font-bold tracking-wide">
+                <span className="text-[#0F4C5C] text-xs sm:text-sm font-bold tracking-wide">
                   License # OP&HRD/5224/LHR/2026
                 </span>
               </div>
@@ -440,13 +464,13 @@ const WorkVisaProcess = () => {
                 Regulations And Destination-Country Requirements.
               </p>
 
-              <div className="flex flex-wrap gap-2 justify-center lg:justify-start mb-5">
+              <div className="flex flex-wrap gap-2.5 justify-center lg:justify-start mb-5">
                 {HERO_CHIPS.map(({ icon: Icon, text, color }) => (
                   <span
                     key={text}
-                    className="inline-flex items-center gap-1.5 text-[10px] sm:text-[11px] font-bold text-[#0F4C5C] bg-white border border-[#4FC3F7]/30 px-3 py-1.5 rounded-full shadow-[0_4px_12px_rgba(79,195,247,0.08)] hover:border-[#4FC3F7]/70 hover:scale-105 transition-all duration-300"
+                    className="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-[#0F4C5C] bg-gradient-to-r from-white to-[#E1F5FE] border-2 border-[#4FC3F7]/50 px-4 py-2 rounded-full shadow-[0_8px_22px_rgba(79,195,247,0.18)] hover:border-[#4FC3F7] hover:scale-105 transition-all duration-300"
                   >
-                    <Icon className={`${color} text-[10px]`} />
+                    <Icon className={`${color} text-sm`} aria-hidden="true" />
                     {text}
                   </span>
                 ))}
@@ -455,18 +479,16 @@ const WorkVisaProcess = () => {
               <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
                 <a
                   href="#steps"
-                  className="group relative inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#4FC3F7] via-[#29B6F6] to-[#4FC3F7] bg-[length:200%_100%] text-[#0F4C5C] px-6 py-3 rounded-full font-bold shadow-[0_12px_30px_rgba(79,195,247,0.4)] hover:shadow-[0_18px_42px_rgba(255,213,79,0.5)] hover:-translate-y-0.5 transition-all duration-300 text-xs sm:text-sm overflow-hidden"
+                  className={PRIMARY_ACTION}
                   style={{ animation: "gradientShift 4s ease infinite" }}
                 >
                   <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
                   <span className="relative">View Process</span>
-                  <FaArrowRight className="relative text-xs group-hover:translate-x-1 transition-transform" />
+                  <FaArrowRight className="relative text-xs group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                 </a>
-                <button
-                  onClick={downloadPDF}
-                  className="inline-flex items-center justify-center gap-2 bg-white border-2 border-[#0F4C5C]/30 text-[#0F4C5C] px-6 py-3 rounded-full font-bold hover:bg-[#0F4C5C] hover:text-white hover:border-[#0F4C5C] hover:-translate-y-0.5 transition-all duration-300 text-xs sm:text-sm shadow-[0_8px_24px_rgba(15,76,92,0.1)]"
-                >
-                  <FaDownload className="text-xs" />
+                {/* FIX #8 — Download PDF uses the shared secondary class */}
+                <button onClick={downloadPDF} className={SECONDARY_ACTION}>
+                  <FaDownload className="text-xs" aria-hidden="true" />
                   Download PDF
                 </button>
               </div>
@@ -476,18 +498,18 @@ const WorkVisaProcess = () => {
               <div className="relative max-w-sm mx-auto">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#4FC3F7]/40 to-[#FFD54F]/20 blur-3xl rounded-full" />
 
-                <div className="relative bg-white/95 backdrop-blur-xl rounded-2xl p-5 border border-[#4FC3F7]/30 shadow-[0_24px_60px_rgba(15,76,92,0.25)] overflow-hidden">
+                <div className="relative bg-white/95 backdrop-blur-xl rounded-2xl p-6 sm:p-7 border border-[#4FC3F7]/30 shadow-[0_24px_60px_rgba(15,76,92,0.25)] overflow-hidden">
                   <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#4FC3F7] via-[#FFD54F] to-[#4FC3F7] bg-[length:200%_100%] animate-[shimmer_3s_linear_infinite]" />
 
-                  <div className="flex items-center gap-3 mb-4">
+                  <div className="flex items-center gap-3 mb-5">
                     <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#4FC3F7] to-[#29B6F6] flex items-center justify-center shadow-[0_8px_20px_rgba(79,195,247,0.4)]">
-                      <FaChartLine className="text-white text-sm" />
+                      <FaChartLine className="text-white text-sm" aria-hidden="true" />
                     </div>
                     <div>
-                      <p className="text-[#0F4C5C] font-extrabold text-sm">
+                      <p className="text-[#0F4C5C] font-extrabold text-sm sm:text-base">
                         Visa Processing
                       </p>
-                      <p className="text-[#29B6F6] text-[10px] font-bold tracking-wide uppercase">
+                      <p className="text-[#0F4C5C]/70 text-xs font-bold tracking-wide">
                         At A Glance
                       </p>
                     </div>
@@ -499,15 +521,15 @@ const WorkVisaProcess = () => {
                       return (
                         <div
                           key={idx}
-                          className="rounded-xl bg-gradient-to-br from-[#E1F5FE] to-white border border-[#4FC3F7]/20 p-3 hover:border-[#4FC3F7]/50 transition-all duration-300"
+                          className="rounded-xl bg-gradient-to-br from-[#E1F5FE] to-white border border-[#4FC3F7]/20 p-4 hover:border-[#4FC3F7]/50 transition-all duration-300"
                         >
-                          <div className={`${s.color} text-sm mb-1`}>
-                            <Icon />
+                          <div className={`${s.color} text-lg mb-1.5`}>
+                            <Icon aria-hidden="true" />
                           </div>
                           <p className="text-xl font-extrabold text-[#0F4C5C] leading-none mb-0.5">
                             {s.value}
                           </p>
-                          <p className="text-[10px] font-bold text-[#0A3A47]/60 uppercase tracking-wide">
+                          <p className="text-xs font-bold text-[#0A3A47]/70">
                             {s.label}
                           </p>
                         </div>
@@ -521,26 +543,37 @@ const WorkVisaProcess = () => {
         </div>
       </section>
 
-      {/* ============ STEP PREVIEW — MARQUEE ROW ============ */}
-      <section className="relative py-4 bg-white border-y border-[#4FC3F7]/15 overflow-hidden">
-        <div className="relative w-full overflow-hidden">
-          <div className="absolute left-0 top-0 h-full w-12 sm:w-20 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 h-full w-12 sm:w-20 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+      {/* ============ STEP NAVIGATION BAR ============ */}
+      {/* FIX #6 + #7 — sticky, real horizontal scroller, drives the accordion */}
+      <section
+        aria-label="Quick jump to visa step"
+        className="sticky top-16 z-20 py-3 bg-white/95 backdrop-blur-md border-y border-[#4FC3F7]/15 overflow-hidden"
+      >
+        <div className="relative w-full">
+          <div className="absolute left-0 top-0 h-full w-8 sm:w-14 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 h-full w-8 sm:w-14 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
-          <div className="flex flex-nowrap items-center gap-3 animate-marquee-left w-max py-1">
-            {marqueeSteps.map((step, idx) => {
+          <div className="flex flex-nowrap items-center gap-3 overflow-x-auto snap-x snap-mandatory py-1 px-1">
+            {VISA_STEPS.map((step) => {
               const Icon = step.icon;
+              const isOpen = openStep === step.id;
               return (
                 <a
-                  key={`${step.id}-${idx}`}
+                  key={step.id}
                   href={`#visa-step-${step.id}`}
-                  className="group flex-shrink-0 flex items-center gap-2.5 bg-[#E1F5FE]/60 hover:bg-[#E1F5FE] border border-[#4FC3F7]/25 hover:border-[#4FC3F7]/60 rounded-full pl-2 pr-4 py-2 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(79,195,247,0.15)]"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    jumpToStep(step.id);
+                  }}
+                  aria-controls={`visa-step-${step.id}`}
+                  aria-expanded={isOpen}
+                  className="group flex-shrink-0 snap-start flex items-center gap-2.5 bg-[#E1F5FE]/60 hover:bg-[#E1F5FE] border border-[#4FC3F7]/25 hover:border-[#4FC3F7]/60 rounded-full pl-2 pr-4 py-2 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(79,195,247,0.15)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4FC3F7] focus-visible:ring-offset-2"
                 >
-                  <span className="w-6 h-6 rounded-full bg-gradient-to-br from-[#4FC3F7] to-[#29B6F6] text-white text-[11px] font-bold flex items-center justify-center flex-shrink-0 shadow-[0_4px_10px_rgba(79,195,247,0.3)] group-hover:scale-110 transition-transform">
+                  <span className="w-6 h-6 rounded-full bg-gradient-to-br from-[#4FC3F7] to-[#29B6F6] text-white text-xs font-bold flex items-center justify-center flex-shrink-0 shadow-[0_4px_10px_rgba(79,195,247,0.3)] group-hover:scale-110 transition-transform">
                     {step.num}
                   </span>
-                  <Icon className={`${step.color} text-[10px] flex-shrink-0`} />
-                  <span className="text-[11px] sm:text-xs font-bold text-[#0F4C5C] whitespace-nowrap">
+                  <Icon className={`${step.color} text-xs flex-shrink-0`} aria-hidden="true" />
+                  <span className="text-xs sm:text-sm font-bold text-[#0F4C5C] whitespace-nowrap">
                     {step.short}
                   </span>
                 </a>
@@ -557,9 +590,10 @@ const WorkVisaProcess = () => {
       >
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-7">
-            <div className="inline-flex items-center gap-2 mb-2.5 bg-[#4FC3F7]/10 border border-[#4FC3F7]/30 rounded-full px-3.5 py-1.5">
-              <FaFire className="text-[#F97316] text-[10px]" />
-              <span className="text-[#0F4C5C] text-[10px] sm:text-xs font-bold tracking-widest uppercase">
+            {/* FIX #3 — label no longer pill-shaped or all-caps */}
+            <div className="inline-flex items-center gap-2 mb-2.5 pl-3 border-l-2 border-[#4FC3F7]">
+              <FaFire className="text-[#FFB300] text-xs" aria-hidden="true" />
+              <span className="text-[#0F4C5C] text-xs sm:text-sm font-bold tracking-wide">
                 Step-By-Step Visa Journey
               </span>
             </div>
@@ -569,7 +603,7 @@ const WorkVisaProcess = () => {
                 Deployment
               </span>
             </h2>
-            <p className="text-[#0A3A47]/75 text-xs sm:text-sm max-w-2xl mx-auto">
+            <p className="text-[#0A3A47]/75 text-sm max-w-2xl mx-auto">
               Click Any Step To See The Full Details — From Initial Selection
               To Final Overseas Deployment.
             </p>
@@ -579,6 +613,7 @@ const WorkVisaProcess = () => {
             {VISA_STEPS.map((step, idx) => {
               const Icon = step.icon;
               const isOpen = openStep === step.id;
+              const panelId = `visa-panel-${step.id}`;
               return (
                 <div
                   key={step.id}
@@ -599,11 +634,12 @@ const WorkVisaProcess = () => {
                   <button
                     type="button"
                     onClick={() => toggleStep(step.id)}
-                    className="w-full flex items-center gap-3 sm:gap-4 p-4 sm:p-4.5 text-left cursor-pointer focus:outline-none"
+                    className="w-full flex items-center gap-3 sm:gap-4 p-4 sm:p-5 text-left cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4FC3F7] focus-visible:ring-inset"
                     aria-expanded={isOpen}
+                    aria-controls={panelId}
                   >
                     <span
-                      className={`flex-shrink-0 w-10 h-10 sm:w-11 sm:h-11 rounded-full flex items-center justify-center font-extrabold text-[11px] sm:text-xs text-white shadow-[0_6px_16px_rgba(79,195,247,0.35)] transition-all duration-500 bg-gradient-to-br from-[#4FC3F7] to-[#29B6F6] ${
+                      className={`flex-shrink-0 w-10 h-10 sm:w-11 sm:h-11 rounded-full flex items-center justify-center font-extrabold text-xs sm:text-sm text-white shadow-[0_6px_16px_rgba(79,195,247,0.35)] transition-all duration-500 bg-gradient-to-br from-[#4FC3F7] to-[#29B6F6] ${
                         isOpen ? "scale-110" : ""
                       }`}
                     >
@@ -617,34 +653,34 @@ const WorkVisaProcess = () => {
                           : "bg-gradient-to-br from-[#4FC3F7]/15 to-[#29B6F6]/15 group-hover:from-[#4FC3F7] group-hover:to-[#29B6F6] group-hover:text-white group-hover:rotate-6"
                       }`}
                     >
-                      <Icon className={`text-sm ${!isOpen ? step.color : "text-white"}`} />
+                      <Icon className={`text-sm ${!isOpen ? step.color : "text-white"}`} aria-hidden="true" />
                     </span>
 
                     <h3
                       className={`flex-1 font-[Plus_Jakarta_Sans] text-sm sm:text-base md:text-lg font-extrabold leading-tight transition-colors duration-300 ${
-                        isOpen ? "text-[#29B6F6]" : "text-[#0F4C5C] group-hover:text-[#29B6F6]"
+                        isOpen ? "text-[#4FC3F7]" : "text-[#0F4C5C] group-hover:text-[#4FC3F7]"
                       }`}
                     >
                       {step.title}
                     </h3>
 
-                    {/* +/- toggle */}
                     <span
                       className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-500 ${
                         isOpen
                           ? "bg-gradient-to-br from-[#4FC3F7] to-[#29B6F6] text-white"
-                          : "bg-[#E1F5FE] text-[#29B6F6] group-hover:bg-[#4FC3F7]/20"
+                          : "bg-[#E1F5FE] text-[#4FC3F7] group-hover:bg-[#4FC3F7]/20"
                       }`}
                     >
                       {isOpen ? (
-                        <FaMinus className="text-[10px]" />
+                        <FaMinus className="text-xs" aria-hidden="true" />
                       ) : (
-                        <FaPlus className="text-[10px]" />
+                        <FaPlus className="text-xs" aria-hidden="true" />
                       )}
                     </span>
                   </button>
 
                   <div
+                    id={panelId}
                     className={`grid transition-all duration-500 ease-in-out ${
                       isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
                     }`}
@@ -655,17 +691,18 @@ const WorkVisaProcess = () => {
                           isOpen ? "animate-fadeIn" : ""
                         }`}
                       >
-                        <p className="text-[#0A3A47]/85 text-[11px] sm:text-xs leading-relaxed mb-3">
+                        <p className="text-[#0A3A47]/85 text-sm leading-relaxed mb-3">
                           {step.desc}
                         </p>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5">
+                        {/* FIX #4 — bullets raised to 12/14px */}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2">
                           {step.bullets.map((b) => (
                             <div
                               key={b}
-                              className="flex items-start gap-1.5 text-[10px] sm:text-[11px] text-[#0A3A47]/80"
+                              className="flex items-start gap-2 text-xs sm:text-sm text-[#0A3A47]/80"
                             >
-                              <FaCheckCircle className="text-[#22C55E] text-[8px] mt-1 flex-shrink-0" />
+                              <FaCheckCircle className="text-[#22C55E] text-[10px] mt-1 flex-shrink-0" aria-hidden="true" />
                               <span>{b}</span>
                             </div>
                           ))}
@@ -693,9 +730,10 @@ const WorkVisaProcess = () => {
 
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-7">
-            <div className="inline-flex items-center gap-2 mb-2.5 bg-[#4FC3F7]/10 border border-[#4FC3F7]/30 rounded-full px-3.5 py-1.5">
-              <FaClipboardCheck className="text-[#FFB300] text-[10px]" />
-              <span className="text-[#0F4C5C] text-[10px] sm:text-xs font-bold tracking-widest uppercase">
+            {/* FIX #3 — label no longer all-caps */}
+            <div className="inline-flex items-center gap-2 mb-2.5 pl-3 border-l-2 border-[#4FC3F7]">
+              <FaClipboardCheck className="text-[#FFB300] text-xs" aria-hidden="true" />
+              <span className="text-[#0F4C5C] text-xs sm:text-sm font-bold tracking-wide">
                 Required Documents
               </span>
             </div>
@@ -705,7 +743,7 @@ const WorkVisaProcess = () => {
                 Checklist
               </span>
             </h2>
-            <p className="text-[#0A3A47]/75 text-xs sm:text-sm max-w-2xl mx-auto">
+            <p className="text-[#0A3A47]/75 text-sm max-w-2xl mx-auto">
               Ensure These Documents Are Ready For Smooth Visa Processing.
             </p>
           </div>
@@ -721,7 +759,7 @@ const WorkVisaProcess = () => {
                   style={{ animationDelay: `${idx * 0.04}s` }}
                 >
                   <span className="flex-shrink-0 w-7 h-7 rounded-lg bg-gradient-to-br from-[#22C55E] to-[#16A34A] flex items-center justify-center shadow-[0_4px_10px_rgba(34,197,94,0.3)] group-hover:scale-110 transition-transform">
-                    <FaCheckCircle className="text-white text-xs" />
+                    <FaCheckCircle className="text-white text-xs" aria-hidden="true" />
                   </span>
                   <span className="text-xs sm:text-sm font-semibold text-[#0A3A47]/90 leading-snug">
                     {doc}
@@ -737,9 +775,10 @@ const WorkVisaProcess = () => {
       <section className="relative py-8 sm:py-10 bg-gradient-to-b from-white to-[#E1F5FE] overflow-hidden">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-7">
-            <div className="inline-flex items-center gap-2 mb-2.5 bg-[#4FC3F7]/10 border border-[#4FC3F7]/30 rounded-full px-3.5 py-1.5">
-              <FaHandshake className="text-[#FFB300] text-[10px]" />
-              <span className="text-[#0F4C5C] text-[10px] sm:text-xs font-bold tracking-widest uppercase">
+            {/* FIX #3 — label no longer all-caps */}
+            <div className="inline-flex items-center gap-2 mb-2.5 pl-3 border-l-2 border-[#4FC3F7]">
+              <FaHandshake className="text-[#FFB300] text-xs" aria-hidden="true" />
+              <span className="text-[#0F4C5C] text-xs sm:text-sm font-bold tracking-wide">
                 Why Process With Us
               </span>
             </div>
@@ -755,18 +794,18 @@ const WorkVisaProcess = () => {
             {WHY_PROCESS_WORKS.map(({ icon: Icon, title, desc, color }, idx) => (
               <div
                 key={title}
-                className="group relative bg-white rounded-2xl p-4.5 border border-[#4FC3F7]/20 hover:border-[#4FC3F7]/60 hover:shadow-[0_20px_45px_rgba(79,195,247,0.15)] hover:-translate-y-1.5 transition-all duration-300 overflow-hidden animate-slideUp"
+                className="group relative bg-white rounded-2xl p-5 border border-[#4FC3F7]/20 hover:border-[#4FC3F7]/60 hover:shadow-[0_20px_45px_rgba(79,195,247,0.15)] hover:-translate-y-1.5 transition-all duration-300 overflow-hidden animate-slideUp"
                 style={{ animationDelay: `${idx * 0.06}s` }}
               >
-                <span className="absolute inset-x-0 top-0 h-0.5 rounded-t-2xl bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500" />
+                <span className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500" />
 
                 <div className="w-11 h-11 rounded-xl bg-white shadow-[0_6px_18px_rgba(15,76,92,0.08)] flex items-center justify-center text-lg mb-3 group-hover:bg-[#4FC3F7]/10 transition-all duration-300 group-hover:scale-110 group-hover:rotate-6">
-                  <Icon className={`${color}`} />
+                  <Icon className={`${color}`} aria-hidden="true" />
                 </div>
                 <h3 className="font-[Plus_Jakarta_Sans] text-sm sm:text-base font-extrabold text-[#0F4C5C] mb-1.5 leading-tight">
                   {title}
                 </h3>
-                <p className="text-[#0A3A47]/80 text-[11px] sm:text-xs leading-relaxed">
+                <p className="text-[#0A3A47]/80 text-xs sm:text-sm leading-relaxed">
                   {desc}
                 </p>
               </div>
@@ -776,33 +815,29 @@ const WorkVisaProcess = () => {
       </section>
 
       {/* ============ DOWNLOAD CTA ============ */}
+      {/* FIX #2 — single rounded-2xl; FIX #8 — secondary button; FIX #9 — grouped layout */}
       <section className="relative py-7 bg-white overflow-hidden">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative bg-white border border-[#4FC3F7]/25 rounded-2xl sm:rounded-3xl px-5 sm:px-7 py-5 shadow-[0_20px_50px_rgba(15,76,92,0.10)] overflow-hidden">
+          <div className="relative bg-white border border-[#4FC3F7]/25 rounded-2xl px-5 sm:px-7 py-5 shadow-[0_20px_50px_rgba(15,76,92,0.10)] overflow-hidden">
             <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#4FC3F7] via-[#FFD54F] to-[#4FC3F7] bg-[length:200%_100%] animate-[shimmer_3s_linear_infinite]" />
 
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-              <div className="flex items-center gap-3 text-center sm:text-left">
+            <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-5 sm:justify-center text-center sm:text-left">
+              <div className="flex items-center gap-3">
                 <span className="hidden sm:flex w-11 h-11 rounded-2xl bg-gradient-to-br from-[#4FC3F7] to-[#29B6F6] flex-shrink-0 items-center justify-center shadow-[0_10px_24px_rgba(79,195,247,0.4)]">
-                  <FaDownload className="text-white text-base" />
+                  <FaDownload className="text-white text-base" aria-hidden="true" />
                 </span>
                 <div>
                   <h3 className="font-[Plus_Jakarta_Sans] text-sm sm:text-base font-extrabold text-[#0F4C5C]">
                     Want This Process On Paper?
                   </h3>
-                  <p className="text-[#0A3A47]/75 text-[11px] sm:text-xs mt-0.5">
+                  <p className="text-[#0A3A47]/75 text-xs sm:text-sm mt-0.5">
                     Download The Complete Work Visa Process As A PDF.
                   </p>
                 </div>
               </div>
-              <button
-                onClick={downloadPDF}
-                className="group relative inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#4FC3F7] via-[#29B6F6] to-[#4FC3F7] bg-[length:200%_100%] text-[#0F4C5C] px-5 py-2.5 rounded-full font-bold shadow-[0_12px_30px_rgba(79,195,247,0.4)] hover:shadow-[0_18px_42px_rgba(255,213,79,0.5)] hover:-translate-y-0.5 transition-all duration-300 text-xs sm:text-sm overflow-hidden whitespace-nowrap"
-                style={{ animation: "gradientShift 4s ease infinite" }}
-              >
-                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-                <FaDownload className="relative text-xs" />
-                <span className="relative">Download PDF</span>
+              <button onClick={downloadPDF} className={SECONDARY_ACTION}>
+                <FaDownload className="text-xs" aria-hidden="true" />
+                Download PDF
               </button>
             </div>
           </div>
@@ -812,7 +847,8 @@ const WorkVisaProcess = () => {
       {/* ============ FINAL CTA ============ */}
       <section className="relative py-8 sm:py-10 bg-[#E1F5FE] overflow-hidden">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative bg-gradient-to-br from-[#0F4C5C] via-[#0A3A47] to-[#06303A] rounded-2xl sm:rounded-3xl px-6 sm:px-8 py-7 sm:py-9 text-center overflow-hidden border border-[#4FC3F7]/25 shadow-[0_24px_60px_rgba(15,76,92,0.25)]">
+          {/* FIX #2 — single rounded-2xl, no responsive override */}
+          <div className="relative bg-gradient-to-br from-[#0F4C5C] via-[#0A3A47] to-[#06303A] rounded-2xl px-6 sm:px-8 py-7 sm:py-9 text-center overflow-hidden border border-[#4FC3F7]/25 shadow-[0_24px_60px_rgba(15,76,92,0.25)]">
             <div className="absolute -top-20 -right-20 w-72 h-72 bg-[#4FC3F7]/25 blur-3xl animate-blob" />
             <div
               className="absolute -bottom-24 -left-20 w-80 h-80 bg-[#FFD54F]/15 blur-3xl animate-blob"
@@ -823,7 +859,7 @@ const WorkVisaProcess = () => {
 
             <div className="relative z-10 max-w-2xl mx-auto">
               <div className="w-12 h-12 mx-auto mb-3.5 rounded-2xl bg-[#4FC3F7]/15 border border-[#4FC3F7]/30 flex items-center justify-center">
-                <FaPassport className="text-[#FFB300] text-lg" />
+                <FaPassport className="text-[#FFB300] text-lg" aria-hidden="true" />
               </div>
 
               <h2 className="font-[Plus_Jakarta_Sans] text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-3 leading-tight">
@@ -833,24 +869,25 @@ const WorkVisaProcess = () => {
                 </span>
               </h2>
 
-              <p className="text-white/80 text-xs sm:text-sm mb-5 leading-relaxed">
+              <p className="text-white/80 text-sm sm:text-base mb-5 leading-relaxed">
                 Submit Your CV Today And Our Team Will Guide You Through Every
                 Step Of The Work Visa Process.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                {/* FIX #8 — Submit CV uses the shared primary class */}
                 <Link
                   to="/submit-cv"
-                  className="group relative inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#4FC3F7] via-[#29B6F6] to-[#4FC3F7] bg-[length:200%_100%] text-[#0F4C5C] px-6 sm:px-8 py-3 rounded-full font-bold shadow-[0_12px_30px_rgba(79,195,247,0.4)] hover:shadow-[0_18px_42px_rgba(255,213,79,0.5)] hover:-translate-y-0.5 transition-all duration-300 text-xs sm:text-sm overflow-hidden"
+                  className={PRIMARY_ACTION}
                   style={{ animation: "gradientShift 4s ease infinite" }}
                 >
                   <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
                   <span className="relative">Submit Your CV</span>
-                  <FaArrowRight className="relative text-xs group-hover:translate-x-1 transition-transform" />
+                  <FaArrowRight className="relative text-xs group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                 </Link>
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center gap-2 border border-[#4FC3F7]/40 text-[#4FC3F7] px-6 sm:px-8 py-3 rounded-full font-semibold hover:bg-[#4FC3F7]/10 hover:border-[#4FC3F7]/70 hover:scale-105 transition-all duration-300 text-xs sm:text-sm"
+                  className="inline-flex items-center justify-center gap-2 border border-[#4FC3F7]/40 text-[#4FC3F7] px-6 sm:px-8 py-3 rounded-full font-semibold hover:bg-[#4FC3F7]/10 hover:border-[#4FC3F7]/70 hover:scale-105 transition-all duration-300 text-sm sm:text-base"
                 >
                   Contact Our Team
                 </Link>

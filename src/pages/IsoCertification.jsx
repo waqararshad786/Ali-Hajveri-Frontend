@@ -114,20 +114,20 @@ const IsoCertification = () => {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-14 items-stretch">
-            {/* ============ LEFT: TEXT (HOME HERO STYLE) ============ */}
+            {/* ============ LEFT: TEXT ============ */}
             <div className="text-center lg:text-left animate-fadeIn">
-              {/* Badge */}
-              <div className="inline-flex items-center gap-2 mb-4 sm:mb-5 bg-white/95 backdrop-blur-sm border border-[#4FC3F7]/40 rounded-full px-3 sm:px-4 py-1.5 sm:py-2 shadow-[0_4px_14px_rgba(15,76,92,0.12)]">
+              {/* FIX #8 — badge sits closer to the H1 */}
+              <div className="inline-flex items-center gap-2 mb-2.5 sm:mb-3 bg-white/95 backdrop-blur-sm border border-[#4FC3F7]/40 rounded-full px-3 sm:px-4 py-1.5 sm:py-2 shadow-[0_4px_14px_rgba(15,76,92,0.12)]">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#4FC3F7] animate-ping-slow" />
                 <span className="text-[#0F4C5C] text-xs sm:text-sm font-bold">
                   Internationally Certified
                 </span>
               </div>
 
-              {/* Heading */}
+              {/* FIX #7 — H1 uses only two colours (dark + solid cyan accent) */}
               <h1 className="font-[Plus_Jakarta_Sans] text-3xl sm:text-4xl md:text-5xl lg:text-[3.2rem] font-extrabold text-[#0F4C5C] leading-[1.15] mb-4 sm:mb-5">
                 ISO Certified{" "}
-                <span className="bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent">
+                <span className="text-[#29B6F6]">
                   Third-Party Recruiter
                 </span>
               </h1>
@@ -166,19 +166,19 @@ const IsoCertification = () => {
                   className="btn-shine group inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] text-[#0F4C5C] px-6 sm:px-8 py-3 sm:py-3.5 rounded-full font-bold shadow-[0_12px_30px_rgba(79,195,247,0.4)] hover:shadow-[0_16px_38px_rgba(79,195,247,0.55)] hover:-translate-y-0.5 transition-all duration-300 text-sm sm:text-base"
                 >
                   Verify Our Certifications{" "}
-                  <FaArrowRight className="text-sm group-hover:translate-x-1 transition-transform" />
+                  <FaArrowRight className="text-sm group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                 </Link>
                 <Link
                   to="/legal-status/govt-license"
                   className="btn-shine inline-flex items-center justify-center gap-2 bg-white border-2 border-[#0F4C5C]/30 text-[#0F4C5C] px-6 sm:px-8 py-3 sm:py-3.5 rounded-full font-bold hover:border-[#4FC3F7] hover:bg-[#E1F5FE] transition-all duration-300 text-sm sm:text-base"
                 >
                   Government License
-                  <FaExternalLinkAlt className="text-xs" />
+                  <FaExternalLinkAlt className="text-xs" aria-hidden="true" />
                 </Link>
               </div>
 
-              {/* Stats Row */}
-              <div className="flex flex-wrap justify-center lg:justify-start gap-6 sm:gap-10 md:gap-14">
+              {/* FIX #9 — stats row gets breathing room above */}
+              <div className="mt-6 sm:mt-8 flex flex-wrap justify-center lg:justify-start gap-6 sm:gap-10 md:gap-14">
                 {[
                   { value: "04", label: "ISO Standards" },
                   { value: "100%", label: "Compliance" },
@@ -188,7 +188,7 @@ const IsoCertification = () => {
                     <p className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[#0F4C5C] tabular-nums">
                       {stat.value}
                     </p>
-                    <p className="text-[10px] sm:text-xs md:text-sm text-[#0F4C5C] font-bold tracking-wide uppercase mt-1">
+                    <p className="text-xs sm:text-xs md:text-sm text-[#0F4C5C] font-bold tracking-wide mt-1">
                       {stat.label}
                     </p>
                   </div>
@@ -197,10 +197,11 @@ const IsoCertification = () => {
             </div>
 
             {/* ============ RIGHT: IMAGE ============ */}
+            {/* FIX #11 — tighter, denser shadow */}
             <div className="relative reveal-up group order-first lg:order-last">
               <div className="absolute inset-0 bg-gradient-to-br from-[#4FC3F7]/20 to-transparent rounded-2xl sm:rounded-3xl rotate-3 scale-[1.02] hidden sm:block" />
 
-              <div className="relative h-[280px] sm:h-[340px] lg:h-[500px] rounded-2xl sm:rounded-3xl overflow-hidden border border-[#4FC3F7]/20 shadow-[0_20px_50px_rgba(15,76,92,0.15)]">
+              <div className="relative h-[280px] sm:h-[340px] lg:h-[500px] rounded-2xl sm:rounded-3xl overflow-hidden border border-[#4FC3F7]/20 shadow-[0_16px_30px_rgba(15,76,92,0.18)]">
                 <img
                   src="/assets/licensed-img.png"
                   alt="ISO 9001:2015 Licensed Certificate — Ali Hajveri International (Private) Limited"
@@ -210,22 +211,22 @@ const IsoCertification = () => {
                 <span className="img-shine" />
               </div>
 
-              {/* Floating badge bottom-left */}
+              {/* Floating badge bottom-left — FIX #2 — description at 12px */}
               <div className="animate-gentle-float absolute -bottom-4 sm:-bottom-5 -left-4 sm:-left-5 bg-white rounded-2xl shadow-[0_16px_36px_rgba(15,76,92,0.12)] border border-[#4FC3F7]/25 px-4 py-3 max-w-[170px] hidden sm:block">
                 <div className="flex items-center gap-2 mb-1">
                   <span className="w-6 h-6 rounded-full bg-[#4FC3F7]/12 flex items-center justify-center">
-                    <FaCheckCircle className="text-[#29B6F6] text-xs" />
+                    <FaCheckCircle className="text-[#29B6F6] text-xs" aria-hidden="true" />
                   </span>
                   <p className="text-[#0F4C5C] font-bold text-xs">Verified</p>
                 </div>
-                <p className="text-[#0A3A47] text-[10px] leading-relaxed">
+                <p className="text-[#0A3A47] text-xs leading-relaxed">
                   DAS Pakistan Audited
                 </p>
               </div>
 
               {/* Floating badge top-right */}
               <div className="animate-gentle-float-slow absolute top-4 -right-3 sm:top-5 sm:-right-4 bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] text-[#0F4C5C] rounded-xl shadow-[0_12px_30px_rgba(79,195,247,0.35)] px-3.5 py-2.5 hidden md:block">
-                <p className="text-[10px] uppercase tracking-wider opacity-90 font-semibold">
+                <p className="text-xs tracking-wide opacity-90 font-semibold">
                   Scope
                 </p>
                 <p className="text-sm font-extrabold">GCC · East Asia</p>
@@ -248,7 +249,8 @@ const IsoCertification = () => {
 
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <p className="text-[10px] font-extrabold tracking-[0.3em] uppercase mb-2 bg-gradient-to-r from-[#4FC3F7] via-[#FFD54F] to-[#4FC3F7] bg-clip-text text-transparent bg-[length:200%_100%] animate-[gradientShift_4s_ease_infinite]">
+            {/* FIX #4 — eyebrow no longer all-caps */}
+            <p className="text-xs font-extrabold tracking-wide mb-2 bg-gradient-to-r from-[#4FC3F7] via-[#FFD54F] to-[#4FC3F7] bg-clip-text text-transparent bg-[length:200%_100%] animate-[gradientShift_4s_ease_infinite]">
               Why ISO Matters
             </p>
             <h2 className="font-[Plus_Jakarta_Sans] text-2xl sm:text-3xl md:text-4xl font-black text-[#0F4C5C] leading-tight tracking-tight mb-3">
@@ -295,17 +297,18 @@ const IsoCertification = () => {
                 className="group relative bg-gradient-to-b from-[#E1F5FE] to-white rounded-2xl p-5 border border-[#4FC3F7]/20 hover:border-[#4FC3F7]/60 hover:shadow-[0_20px_45px_rgba(79,195,247,0.15)] hover:-translate-y-2 transition-all duration-300 overflow-hidden animate-fadeIn"
                 style={{ animationDelay: `${idx * 0.08}s` }}
               >
-                <span className="absolute inset-x-0 top-0 h-0.5 rounded-t-2xl bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500" />
+                <span className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500" />
 
                 <div
                   className={`w-11 h-11 rounded-xl bg-gradient-to-br ${gradient} flex items-center justify-center mb-3 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-md`}
                 >
-                  <Icon className="text-white text-sm" />
+                  <Icon className="text-white text-sm" aria-hidden="true" />
                 </div>
                 <h3 className="font-[Plus_Jakarta_Sans] text-sm font-extrabold text-[#0F4C5C] mb-1.5 leading-tight">
                   {title}
                 </h3>
-                <p className="text-[11px] text-[#0A3A47]/75 leading-relaxed">
+                {/* FIX #3 — 11px → 12px */}
+                <p className="text-xs text-[#0A3A47]/75 leading-relaxed">
                   {desc}
                 </p>
               </div>
@@ -332,10 +335,11 @@ const IsoCertification = () => {
 
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 mb-4">
-            <FaCertificate className="text-[#4FC3F7] text-3xl" />
+            <FaCertificate className="text-[#4FC3F7] text-3xl" aria-hidden="true" />
           </div>
 
-          <p className="text-[10px] font-extrabold tracking-[0.3em] uppercase mb-3 bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent">
+          {/* FIX #4 — eyebrow no longer all-caps */}
+          <p className="text-xs font-extrabold tracking-wide mb-3 bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent">
             Certified Excellence
           </p>
 
@@ -351,9 +355,9 @@ const IsoCertification = () => {
               (code) => (
                 <span
                   key={code}
-                  className="text-[11px] font-bold text-white/70 uppercase tracking-widest flex items-center gap-2"
+                  className="text-xs font-bold text-white/70 tracking-wide flex items-center gap-2"
                 >
-                  <FaCheckCircle className="text-[#4FC3F7] text-[10px]" />
+                  <FaCheckCircle className="text-[#4FC3F7] text-xs" aria-hidden="true" />
                   {code}
                 </span>
               )
@@ -365,7 +369,8 @@ const IsoCertification = () => {
       {/* ============ OUR COMMITMENT (CTA) ============ */}
       <section className="relative bg-white py-14 overflow-hidden">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-[10px] font-extrabold tracking-[0.3em] uppercase mb-3 bg-gradient-to-r from-[#4FC3F7] via-[#FFD54F] to-[#4FC3F7] bg-clip-text text-transparent bg-[length:200%_100%] animate-[gradientShift_4s_ease_infinite]">
+          {/* FIX #4 — eyebrow no longer all-caps */}
+          <p className="text-xs font-extrabold tracking-wide mb-3 bg-gradient-to-r from-[#4FC3F7] via-[#FFD54F] to-[#4FC3F7] bg-clip-text text-transparent bg-[length:200%_100%] animate-[gradientShift_4s_ease_infinite]">
             Our Commitment
           </p>
           <h2 className="font-[Plus_Jakarta_Sans] text-3xl sm:text-4xl md:text-5xl font-black text-[#0F4C5C] leading-[1.05] tracking-tight mb-5 max-w-2xl mx-auto">
@@ -384,28 +389,28 @@ const IsoCertification = () => {
             >
               <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
               <span className="relative">Contact Us</span>
-              <FaArrowRight className="relative text-xs group-hover:translate-x-1 transition-transform" />
+              <FaArrowRight className="relative text-xs group-hover:translate-x-1 transition-transform" aria-hidden="true" />
             </Link>
             <Link
               to="/legal-status/govt-license"
               className="inline-flex items-center gap-2 border border-[#4FC3F7]/40 text-[#0F4C5C] px-7 py-3.5 rounded-full font-bold text-sm tracking-wide hover:bg-[#E1F5FE] hover:border-[#4FC3F7]/70 transition-all duration-300"
             >
               Government License
-              <FaExternalLinkAlt className="text-[9px]" />
+              <FaExternalLinkAlt className="text-xs" aria-hidden="true" />
             </Link>
           </div>
 
-          <div className="flex flex-wrap justify-center items-center gap-5 mt-8 pt-6 border-t border-[#4FC3F7]/15 text-[10px] text-[#0A3A47]/60 font-semibold">
+          <div className="flex flex-wrap justify-center items-center gap-5 mt-8 pt-6 border-t border-[#4FC3F7]/15 text-xs text-[#0A3A47]/60 font-semibold">
             <span className="flex items-center gap-1.5">
-              <FaMapMarkerAlt className="text-[#29B6F6]" />
+              <FaMapMarkerAlt className="text-[#29B6F6]" aria-hidden="true" />
               Lahore, Pakistan
             </span>
             <span className="flex items-center gap-1.5">
-              <FaCalendarAlt className="text-[#FFD54F]" />
+              <FaCalendarAlt className="text-[#FFD54F]" aria-hidden="true" />
               Mon–Sat · 9AM – 6PM
             </span>
             <span className="flex items-center gap-1.5">
-              <FaHandshake className="text-[#4FC3F7]" />
+              <FaHandshake className="text-[#4FC3F7]" aria-hidden="true" />
               Walk-Ins Welcome
             </span>
           </div>
