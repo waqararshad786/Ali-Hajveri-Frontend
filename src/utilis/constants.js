@@ -278,9 +278,9 @@ export const COMPANY_INFO = {
   established: "2006",
   license: "OP&HRD/5224/LHR/2026",
   address: "Office No. 1, 2nd Floor, Hajveri Plaza, Main Rajbah Road, Near Quaid-e-Azam Interchange, Dera Gujran, Lahore, Pakistan",
-  phone: "+92",          // ← updated with full phone number
+  phone: "+923008578764",          // ← updated with full phone number
   email: "ahioep.com@gmail.com",
-  emergencyPhone: "+92", // ← updated with full emergency number
+  emergencyPhone: "+923008578764", // ← updated with full emergency number
 };
 
 
