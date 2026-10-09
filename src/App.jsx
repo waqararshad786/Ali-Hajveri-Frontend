@@ -1,6 +1,7 @@
 // src/App.jsx
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import { Helmet } from "react-helmet-async"; // ✅ ADDED
 import Layout from "./components/layout/Layout";
 import ScrollToTop from "./components/common/ScrollToTop";
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -40,13 +41,29 @@ import AdminResetPassword from "./pages/AdminResetPassword";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminJobs from "./pages/AdminJobs";
 import AdminApplications from "./pages/AdminApplications";
-import AdminJobApplications from "./pages/AdminJobApplications"; // ✅ NAYA
+import AdminJobApplications from "./pages/AdminJobApplications";
 import AdminMessages from "./pages/AdminMessages";
 import AdminProfile from "./pages/AdminProfile";
 
 function App() {
   return (
     <AuthProvider>
+      {/* ✅ ADDED HELMET BLOCK FOR SITE NAME & FAVICON */}
+      <Helmet>
+        <title>ahi oep - Ali Hajveri Enterprises Overseas Employment</title>
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "ahi oep",
+              "alternateName": ["AHIOEP", "Ali Hajveri Enterprises Overseas Employment", "Ali Hajveri International"],
+              "url": "https://ahioep.com/"
+            }
+          `}
+        </script>
+      </Helmet>
+
       <div>
         <ScrollToTop />
         <Routes>
@@ -131,8 +148,7 @@ function App() {
             <Route
               path="job-applications"
               element={<AdminJobApplications />}
-            />{" "}
-            {/* ✅ NAYA */}
+            />
             <Route path="messages" element={<AdminMessages />} />
             <Route path="profile" element={<AdminProfile />} />
           </Route>
