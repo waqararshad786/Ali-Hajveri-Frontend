@@ -1,6 +1,7 @@
 // src/pages/About.jsx
 import React from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import {
   FaShieldAlt, FaHandshake, FaUsers, FaMapMarkerAlt, FaCertificate,
   FaTrophy, FaArrowRight, FaCheckCircle, FaBalanceScale, FaFileContract,
@@ -97,6 +98,118 @@ const About = () => {
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
 
+      {/* ============ SEO META TAGS ============ */}
+      <Helmet>
+        <title>About Us | Licensed Overseas Employment Promoter | Ali Hajveri</title>
+        <meta
+          name="description"
+          content="Learn about Ali Hajveri International (Pvt.) Limited - a government-licensed overseas employment promoter in Pakistan with OEP License #5224, connecting skilled Pakistani workers with international employers."
+        />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://ahioep.com/about" />
+        <meta property="og:title" content="About Ali Hajveri International | Licensed OEP In Pakistan" />
+        <meta property="og:description" content="Government-licensed overseas employment promoter with OEP License #5224, connecting skilled Pakistani workers with international employers worldwide." />
+        <meta property="og:url" content="https://ahioep.com/about" />
+        <meta property="og:type" content="website" />
+      </Helmet>
+
+      {/* ============ SEO CONTENT (Visually Hidden, Sirf Google Ke Liye) ============ */}
+      <div className="sr-only" aria-hidden="true">
+        <h1>About Ali Hajveri International - Licensed Overseas Employment Promoter In Pakistan</h1>
+        <p>
+          Ali Hajveri International (Pvt.) Limited Is A Government-Licensed Overseas
+          Employment Promoter In Pakistan With OEP License Number 5224. We Are A
+          Private Limited Company Registered With The Securities And Exchange
+          Commission Of Pakistan (SECP) And Authorized By The Bureau Of Emigration
+          And Overseas Employment (BEOE) To Recruit Pakistani Workers For Overseas
+          Employment.
+        </p>
+        <p>
+          Our Corporate Office Is Located At Office No. 1, 2nd Floor, Hajveri Plaza,
+          Main Rajbah Road, Near Quaid-E-Azam Interchange, Dera Gujran, Lahore,
+          Pakistan. Since Our Establishment, We Have Grown Into One Of Pakistan's
+          Most Trusted Manpower Recruitment Companies, Serving Employers Across The
+          Gulf, Central Asia, Europe, And East Asia.
+        </p>
+
+        <h2>Our Mission And Vision</h2>
+        <p>
+          Our Mission Is To Deliver Dependable Overseas Recruitment Solutions That
+          Help International Employers Build Productive Teams, While Creating
+          Meaningful International Career Opportunities For Pakistani Talent. Our
+          Vision Is To Become A Trusted International Manpower Partner Known For
+          Quality Recruitment, Responsible Deployment, And Long-Term Employer
+          Relationships.
+        </p>
+
+        <h2>Government Licensed Overseas Employment Promoter</h2>
+        <p>
+          Ali Hajveri International Operates Under License Number OP&HRD/5224/LHR/2026
+          Issued By The Bureau Of Emigration And Overseas Employment (BEOE),
+          Ministry Of Overseas Pakistanis And Human Resource Development,
+          Government Of Pakistan. Employers Can Independently Verify Our License
+          On The Official BEOE Portal By Entering Our License Number 5224.
+        </p>
+
+        <h2>Our Overseas Recruitment Services</h2>
+        <p>
+          We Provide Complete Overseas Recruitment Services Including Manpower
+          Sourcing, Candidate Screening, Trade And Skill Testing, Employer
+          Interviews, Documentation Support, Visa Processing Assistance, And
+          Overseas Deployment Support. Our Team Recruits Skilled, Semi-Skilled,
+          And Unskilled Pakistani Workers For Construction, Engineering, Oil And
+          Gas, Manufacturing, Hospitality, Security, And Facility Management
+          Sectors.
+        </p>
+
+        <h2>Countries We Serve</h2>
+        <p>
+          We Have Successfully Deployed Pakistani Workers To Saudi Arabia, UAE,
+          Qatar, Oman, Bahrain, Kuwait, China, Kazakhstan, Kyrgyzstan, Tajikistan,
+          Turkmenistan, Uzbekistan, Romania, And Other International Markets. Our
+          Growing Network Of Employers Spans Over 25 Countries Worldwide.
+        </p>
+
+        <h2>Why Employers Trust Ali Hajveri International</h2>
+        <p>
+          International Employers Choose Ali Hajveri International Because We
+          Combine Government Licensing, Corporate Registration, Structured
+          Recruitment Process, And Transparent Communication Into One Accountable
+          Organization. Every Candidate Is Screened Against The Employer's Job
+          Brief, And Every Placement Follows Legal Documentation And Verification
+          Stages.
+        </p>
+
+        <h2>Our Core Values</h2>
+        <ul>
+          <li>Integrity In Every Recruitment Transaction</li>
+          <li>Professionalism In Candidate Selection And Deployment</li>
+          <li>Compliance With Pakistani And International Labor Laws</li>
+          <li>Quality Selection Through Trade Testing And Verification</li>
+          <li>Responsibility Toward Employers And Candidates</li>
+          <li>Long-Term Employer Commitment And Relationship Building</li>
+          <li>Candidate Welfare Throughout The Recruitment Journey</li>
+        </ul>
+
+        <h2>Contact Ali Hajveri International</h2>
+        <p>
+          To Discuss Your Overseas Manpower Requirements Or Learn More About Our
+          Recruitment Services, Contact Ali Hajveri International (Pvt.) Limited.
+          Website: ahioep.com | Email: ahioep.com@gmail.com | Phone: +92 300 8578764
+        </p>
+
+        <h2>Internal Links</h2>
+        <nav>
+          <Link to="/services">Our Services</Link>
+          <Link to="/process">Recruitment Process</Link>
+          <Link to="/countries">Countries We Serve</Link>
+          <Link to="/legal-status">Legal Status</Link>
+          <Link to="/contact">Contact Us</Link>
+          <Link to="/submit-cv">Submit CV</Link>
+          <Link to="/faq">FAQ</Link>
+        </nav>
+      </div>
+
       {/* ============ 1. HERO ============ */}
       <section className="relative mt-[-6rem] pt-44 sm:pt-28 md:pt-32 lg:pt-36 pb-12 sm:pb-16 overflow-hidden bg-gradient-to-b from-white via-[#E1F5FE] to-white">
         <div className="absolute -top-32 -right-40 w-[280px] sm:w-[380px] md:w-[480px] h-[280px] sm:h-[380px] md:h-[480px] rounded-full bg-[#4FC3F7]/10 blur-3xl animate-pulse-slow" />
@@ -121,7 +234,6 @@ const About = () => {
                 </span>
               </h1>
 
-              {/* 3-stop gradient — keeps the accent reading cyan → gold, matching H1 */}
               <div className="text-base sm:text-lg md:text-xl text-[#0F4C5C] mb-4 min-h-[28px] sm:h-8 font-bold">
                 Committed To{" "}
                 <span className="bg-gradient-to-r from-[#29B6F6] via-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent font-bold">
@@ -166,7 +278,6 @@ const About = () => {
                     <p className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[#0F4C5C] tabular-nums">
                       {stat.value}
                     </p>
-                    {/* removed uppercase — 19 chars too long */}
                     <p className="text-xs sm:text-sm text-[#0F4C5C] font-bold mt-1">
                       {stat.label}
                     </p>
@@ -181,7 +292,7 @@ const About = () => {
               <div className="relative h-[280px] sm:h-[340px] lg:h-[440px] rounded-3xl overflow-hidden border border-[#4FC3F7]/20 shadow-[0_20px_50px_rgba(15,76,92,0.15)]">
                 <img
                   src="/assets/about-hero-img.png"
-                  alt="About AHIOEP — Government Licensed Recruitment"
+                  alt="About Ali Hajveri International - Government Licensed Overseas Employment Promoter In Pakistan"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                   onError={(e) => {
                     e.target.style.display = "none";
@@ -226,7 +337,7 @@ const About = () => {
               <div className="relative h-[280px] sm:h-[340px] rounded-3xl overflow-hidden border border-[#4FC3F7]/20 shadow-[0_20px_50px_rgba(15,76,92,0.15)]">
                 <img
                   src="/assets/about.png"
-                  alt="Ali Hajveri International Team"
+                  alt="Ali Hajveri International Team - Overseas Recruitment Experts In Pakistan"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                   onError={(e) => { e.target.style.display = "none"; }}
                 />
@@ -504,7 +615,7 @@ const About = () => {
               >
                 <img
                   src={partner.src}
-                  alt={partner.name}
+                  alt={`${partner.name} - International Employer Partner Of Ali Hajveri International`}
                   className="max-w-full max-h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300"
                   loading="lazy"
                   onError={(e) => { e.target.style.display = "none"; }}
@@ -535,18 +646,16 @@ const About = () => {
         </div>
 
         <div className="relative w-full overflow-hidden">
-          {/* wider fades hide the edge clip; pointer-events-none avoids intercepting hover */}
           <div className="absolute left-0 top-0 h-full w-24 sm:w-32 md:w-40 bg-gradient-to-r from-[#E1F5FE] via-[#E1F5FE]/80 to-transparent z-10 pointer-events-none" />
           <div className="absolute right-0 top-0 h-full w-24 sm:w-32 md:w-40 bg-gradient-to-l from-[#E1F5FE] via-[#E1F5FE]/80 to-transparent z-10 pointer-events-none" />
 
-          {/* px-6 adds lead-in / lead-out so first/last flag isn't flush against the edge */}
           <div className="flex flex-nowrap items-center gap-5 animate-marquee-left w-max py-4 px-6">
             {[...SERVED_COUNTRIES, ...SERVED_COUNTRIES].map((country, idx) => (
               <div key={`${country.name}-${idx}`} className="flex-shrink-0 flex flex-col items-center gap-2 group">
                 <div className="w-[100px] h-[100px] rounded-2xl overflow-hidden border-2 border-[#4FC3F7]/30 group-hover:border-[#FFD54F]/70 bg-white shadow-[0_8px_24px_rgba(15,76,92,0.08)] group-hover:shadow-[0_14px_34px_rgba(79,195,247,0.25)] group-hover:-translate-y-1 transition-all duration-300 flex items-center justify-center">
                   <img
                     src={country.img}
-                    alt={country.name}
+                    alt={`${country.name} - Country Served By Ali Hajveri International Overseas Employment`}
                     className="w-full h-full object-cover"
                     loading="lazy"
                     onError={(e) => {
@@ -584,7 +693,6 @@ const About = () => {
                   </span>
                 </div>
 
-                {/* License Image — opens full-size in new tab */}
                 <div className="relative w-full flex-1 flex items-center justify-center py-0">
                   <div className="absolute inset-0 bg-[#4FC3F7]/5 blur-2xl rounded-full" />
                   <a
@@ -592,11 +700,11 @@ const About = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group/license relative block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4FC3F7] focus-visible:ring-offset-2 rounded-xl"
-                    aria-label="View full-size Overseas Employment License"
+                    aria-label="View Full-Size Overseas Employment License Of Ali Hajveri International"
                   >
                     <img
                       src="/assets/license-1.png"
-                      alt="Overseas Employment License"
+                      alt="Overseas Employment License Of Ali Hajveri International - OEP License 5224"
                       className="relative w-[80%] mx-auto max-h-[230px] sm:max-h-[310px] object-contain rounded-xl drop-shadow-[0_12px_28px_rgba(15,76,92,0.15)] group-hover/license:scale-[1.02] transition-transform duration-500"
                       onError={(e) => {
                         e.target.style.display = "none";
@@ -608,7 +716,6 @@ const About = () => {
                   </a>
                 </div>
 
-                {/* ===== LICENSE DETAILS ===== */}
                 <div className="w-full pt-2">
                   <div className="text-center mb-2">
                     <p className="text-xs font-bold text-[#0A3A47]/70 mb-1">
@@ -656,7 +763,7 @@ const About = () => {
                   </div>
                   <img
                     src="/assets/ceo.jpeg"
-                    alt="CEO"
+                    alt="Muhammad Ijaz - Chief Executive Officer Of Ali Hajveri International"
                     className="relative w-14 sm:w-16 h-14 sm:h-16 rounded-full object-cover"
                     onError={(e) => {
                       e.target.style.display = "none";
@@ -683,16 +790,16 @@ const About = () => {
                 <FaQuoteLeft className="text-[#4FC3F7]/20 text-3xl sm:text-4xl absolute -top-2 -left-2" />
                 <div className="pl-6 sm:pl-8 pr-3 sm:pr-4">
                   <p className="text-[#0A3A47] leading-relaxed text-xs sm:text-sm mb-3 italic font-medium">
-                    <strong className="text-[#0F4C5C] font-bold not-italic">A leading recruitment firm —</strong>{" "}
-                    I would like to take this opportunity to extend my good wishes to our esteemed employers and job seekers who have helped us become one of Pakistan's most trusted manpower partners. It has become a cherished name among job seekers as well as foreign employers.
+                    <strong className="text-[#0F4C5C] font-bold not-italic">A Leading Recruitment Firm —</strong>{" "}
+                    I Would Like To Take This Opportunity To Extend My Good Wishes To Our Esteemed Employers And Job Seekers Who Have Helped Us Become One Of Pakistan's Most Trusted Manpower Partners. It Has Become A Cherished Name Among Job Seekers As Well As Foreign Employers.
                   </p>
                   <p className="text-[#0A3A47]/90 leading-relaxed text-xs sm:text-sm mb-3">
-                    <strong className="text-[#0F4C5C] font-bold">Clients' growth is our growth —</strong>{" "}
-                    At Ali Hajveri International, there is a simple philosophy at work: that clients' growth and success is ultimately our growth and success. So we are always in search of opportunities that will make our valuable clients succeed.
+                    <strong className="text-[#0F4C5C] font-bold">Clients' Growth Is Our Growth —</strong>{" "}
+                    At Ali Hajveri International, There Is A Simple Philosophy At Work: That Clients' Growth And Success Is Ultimately Our Growth And Success. So We Are Always In Search Of Opportunities That Will Make Our Valuable Clients Succeed.
                   </p>
                   <p className="text-[#0A3A47]/90 leading-relaxed text-xs sm:text-sm">
-                    <strong className="text-[#0F4C5C] font-bold">Here for every query —</strong>{" "}
-                    We will be very happy to respond to any query regarding recruiting workers from Pakistan, and will continue to provide competent manpower to our valuable employers to their entire satisfaction. I am also grateful to Allah and to all my team members, because without them this feat would not have been possible.
+                    <strong className="text-[#0F4C5C] font-bold">Here For Every Query —</strong>{" "}
+                    We Will Be Very Happy To Respond To Any Query Regarding Recruiting Workers From Pakistan, And Will Continue To Provide Competent Manpower To Our Valuable Employers To Their Entire Satisfaction. I Am Also Grateful To Allah And To All My Team Members, Because Without Them This Feat Would Not Have Been Possible.
                   </p>
                 </div>
                 <FaQuoteRight className="text-[#4FC3F7]/20 text-3xl sm:text-4xl absolute -bottom-2 -right-2" />
@@ -709,7 +816,6 @@ const About = () => {
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-6 items-stretch">
-            {/* LEFT — Text Card */}
             <div className="md:col-span-2 bg-white rounded-3xl p-5 sm:p-7 relative overflow-hidden order-2 md:order-1 border border-[#4FC3F7]/20 shadow-[0_8px_28px_rgba(15,76,92,0.06)] reveal-up flex flex-col">
               <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F]" />
               <FaQuoteLeft className="text-[#4FC3F7]/20 text-4xl absolute top-4 left-4" />
@@ -741,13 +847,12 @@ const About = () => {
               <FaQuoteRight className="text-[#4FC3F7]/20 text-4xl absolute bottom-4 right-4" />
             </div>
 
-            {/* RIGHT — Image Card */}
             <div className="md:col-span-1 order-1 md:order-2 reveal-up group relative">
               <div className="absolute inset-0 bg-gradient-to-br from-[#4FC3F7]/20 to-transparent rounded-3xl -rotate-3 scale-[1.02] hidden sm:block" />
               <div className="relative h-full rounded-3xl overflow-hidden border border-[#4FC3F7]/20 shadow-[0_14px_40px_rgba(15,76,92,0.12)]">
                 <img
                   src="/assets/licensed-img.png"
-                  alt="Muhammad Bilal - General Director"
+                  alt="Muhammad Bilal - General Director Of Ali Hajveri International"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                   onError={(e) => {
                     e.target.style.display = "none";
@@ -819,7 +924,6 @@ const About = () => {
               <p className="text-[#0A3A47]/70 text-xs sm:text-sm mb-4 font-medium">
                 Associated institutes in:
               </p>
-              {/* Static list — no button-like cards → no false clickability */}
               <ul className="grid grid-cols-2 gap-2.5">
                 {TRAINING_CITIES.map((city) => (
                   <li
@@ -838,15 +942,6 @@ const About = () => {
 
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
-
-        /* Type scale — text-xs 12 · text-sm 14 · text-base 16 · text-lg 18
-           · text-xl 20 · text-2xl 24 · text-3xl 30 · text-4xl 36 */
-
-        /* Radius — rounded-full, rounded-3xl, rounded-2xl, rounded-xl */
-
-        /* Text colours — 10 total:
-           #0F4C5C  #0A3A47 (×3 opacities)  #06303A  #29B6F6  #4FC3F7
-           #FFD54F  #FFB300  #22C55E  #FFFFFF */
 
         .section-tight {
           padding-top: 2rem;

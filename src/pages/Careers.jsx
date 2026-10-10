@@ -1,6 +1,7 @@
 // src/pages/Careers.jsx
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import {
   FaBriefcase,
   FaMapMarkerAlt,
@@ -49,7 +50,6 @@ const JobCard = ({ job, index, saved, onSave }) => (
       )}
     </div>
 
-    {/* Save button — larger touch target + visible hover label + state */}
     <button
       onClick={(e) => {
         e.preventDefault();
@@ -60,7 +60,7 @@ const JobCard = ({ job, index, saved, onSave }) => (
           ? "bg-[#FFB300] text-white border-[#FFB300]"
           : "bg-white text-[#0A3A47]/70 border-[#4FC3F7]/25 hover:text-[#FFB300] hover:border-[#FFB300]"
       }`}
-      aria-label={saved ? "Remove from saved jobs" : "Save Job"}
+      aria-label={saved ? "Remove From Saved Jobs" : "Save Job"}
       aria-pressed={saved}
     >
       <FaStar className="text-sm" />
@@ -82,7 +82,6 @@ const JobCard = ({ job, index, saved, onSave }) => (
         </div>
 
         <div className="flex-1 min-w-0">
-          {/* H2 — restores outline after the page H1 */}
           <h2 className="font-extrabold text-[#0F4C5C] text-base sm:text-lg leading-tight mb-1.5 group-hover:text-[#29B6F6] transition-colors duration-300">
             {job.title}
           </h2>
@@ -137,7 +136,6 @@ const JobCard = ({ job, index, saved, onSave }) => (
       {job.tags && job.tags.length > 0 && (
         <div className="flex flex-wrap gap-1.5 mb-5">
           {job.tags.slice(0, 3).map((tag) => (
-            /* Chip text bumped 10px → 12px for readability */
             <span
               key={tag}
               className="text-xs font-bold text-[#0F4C5C] bg-[#E1F5FE] border border-[#4FC3F7]/30 px-2.5 py-1 rounded-full"
@@ -232,8 +230,6 @@ const Careers = () => {
     ...Array.from(new Set(jobs.map((j) => j.country).filter(Boolean))),
   ];
 
-  /* Compute whether counts differ across categories/countries.
-     If they don't (e.g. only 1 job total), hide the numbers. */
   const categoryCounts = CATEGORIES.map((cat) =>
     cat === "all" ? jobs.length : jobs.filter((j) => j.category === cat).length
   );
@@ -269,14 +265,110 @@ const Careers = () => {
 
   return (
     <>
-      <style>{`
-        /* Radius scale — use only these 5 */
-        /* rounded-full  → pills, avatars, icon chips (9999px) */
-        /* rounded-3xl   → large panels, hero image frame (24px) */
-        /* rounded-2xl   → cards, floating badges (16px) */
-        /* rounded-lg    → icon tiles, meta boxes, small buttons (8px) */
-        /* rounded-md    → (reserved, 6px) */
+      {/* ============ SEO META TAGS ============ */}
+      <Helmet>
+        <title>Overseas Jobs In Pakistan | Find Jobs Abroad | Ali Hajveri International</title>
+        <meta
+          name="description"
+          content="Find verified overseas jobs in Pakistan. Browse live opportunities for skilled, semi-skilled, and professional Pakistani workers in Gulf, Asia, and Europe. Free to apply with Ali Hajveri International."
+        />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://ahioep.com/careers" />
+        <meta property="og:title" content="Overseas Jobs In Pakistan | Find Jobs Abroad | Ali Hajveri" />
+        <meta property="og:description" content="Browse verified overseas job opportunities for Pakistani workers. Free to apply, no hidden charges." />
+        <meta property="og:url" content="https://ahioep.com/careers" />
+        <meta property="og:type" content="website" />
+      </Helmet>
 
+      {/* ============ SEO CONTENT (Visually Hidden, Sirf Google Ke Liye) ============ */}
+      <div className="sr-only" aria-hidden="true">
+        <h1>Overseas Jobs In Pakistan - Find International Employment Opportunities</h1>
+        <p>
+          Browse Verified Overseas Jobs In Pakistan Through Ali Hajveri
+          International (Pvt.) Limited. We Connect Skilled, Semi-Skilled, And
+          Professional Pakistani Workers With Reputable International
+          Employers Across Gulf Countries, Central Asia, Europe, And East Asia.
+        </p>
+
+        <h2>Live Overseas Job Opportunities</h2>
+        <p>
+          Our Careers Page Lists All Active Overseas Job Openings Available
+          Through Our Licensed Recruitment Operations. New Opportunities Are
+          Posted Every Week Across Various Industries And Countries. All Jobs
+          Are Verified With Licensed International Employers Before Posting.
+        </p>
+
+        <h2>Job Categories We Recruit For</h2>
+        <ul>
+          <li>Skilled Workers - Engineers, Technicians, Welders, Electricians</li>
+          <li>Semi-Skilled Workers - Machine Operators, Drivers, Helpers</li>
+          <li>Unskilled Workers - General Labour, Loaders, Cleaners</li>
+          <li>Technical Staff - Supervisors, Draftsmen, Quality Control</li>
+          <li>Professional Staff - Accountants, IT Professionals, Nurses</li>
+          <li>Construction Workers - Masons, Steel Fixers, Carpenters</li>
+          <li>Hospitality Staff - Chefs, Waiters, Housekeeping</li>
+          <li>Healthcare Workers - Nurses, Lab Technicians</li>
+        </ul>
+
+        <h2>Countries With Active Job Openings</h2>
+        <p>
+          We Currently Have Active Job Openings In Saudi Arabia, United Arab
+          Emirates, Qatar, Oman, Kuwait, Bahrain, Tajikistan, Kazakhstan,
+          Kyrgyzstan, Uzbekistan, Turkmenistan, Romania, China, And Other
+          International Markets.
+        </p>
+
+        <h2>How To Apply For Overseas Jobs</h2>
+        <ol>
+          <li>Browse Our Live Job Listings Above</li>
+          <li>Click Apply Now On Jobs That Match Your Skills</li>
+          <li>Submit Your CV And Complete Registration</li>
+          <li>Our Team Reviews Your Profile Against Job Requirements</li>
+          <li>Attend Interview Or Trade Test If Shortlisted</li>
+          <li>Upon Selection, We Handle Documentation And Deployment</li>
+        </ol>
+
+        <h2>Why Apply Through Ali Hajveri International</h2>
+        <ul>
+          <li>Government-Licensed Overseas Employment Promoter</li>
+          <li>OEP License Number OP&HRD/5224/LHR/2026</li>
+          <li>Free To Apply - No Hidden Charges For Candidates</li>
+          <li>Verified Employers Only - All Job Orders Are Legitimate</li>
+          <li>Complete Support From Application To Deployment</li>
+          <li>5,000+ Workers Successfully Placed Worldwide</li>
+          <li>Post-Deployment Support For All Deployed Workers</li>
+        </ul>
+
+        <h2>Job Search Tips</h2>
+        <p>
+          Use The Search Bar To Find Jobs By Title, Company, Location, Or
+          Skill. Apply Filters To Narrow Results By Category Or Country.
+          Save Interesting Jobs To Review Later. Submit Your CV Even If No
+          Current Opening Matches Your Skills — New Opportunities Arrive
+          Every Week.
+        </p>
+
+        <h2>Contact Ali Hajveri International</h2>
+        <p>
+          For More Information About Overseas Jobs Or To Discuss Your
+          Application, Contact Ali Hajveri International (Pvt.) Limited.
+          Website: ahioep.com | Email: ahioep.com@gmail.com | Phone: +92 300
+          8578764
+        </p>
+
+        <h2>Internal Links</h2>
+        <nav>
+          <Link to="/submit-cv">Submit Your CV</Link>
+          <Link to="/services">Our Services</Link>
+          <Link to="/process">Recruitment Process</Link>
+          <Link to="/countries">Countries We Serve</Link>
+          <Link to="/about">About Us</Link>
+          <Link to="/contact">Contact Us</Link>
+          <Link to="/faq">FAQ</Link>
+        </nav>
+      </div>
+
+      <style>{`
         @keyframes shimmer {
           0% { background-position: 0% 50%; }
           100% { background-position: 200% 50%; }
@@ -319,15 +411,23 @@ const Careers = () => {
         .img-shine { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 2; }
         .img-shine::after { content: ""; position: absolute; top: 0; left: 0; width: 40%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.45), transparent); transform: translateX(-120%) skewX(-20deg); }
         .group:hover .img-shine::after { animation: shine 1s ease-out; }
+
+        .sr-only {
+          position: absolute;
+          width: 1px; height: 1px;
+          padding: 0; margin: -1px;
+          overflow: hidden;
+          clip: rect(0, 0, 0, 0);
+          white-space: nowrap;
+          border: 0;
+        }
       `}</style>
 
       {/* ============ HERO ============ */}
       <section
         ref={heroRef}
-        /* Increased top padding — more breathing room under nav */
         className="relative mt-[-5.5rem] pt-28 sm:pt-24 md:pt-28 lg:pt-32 pb-10 sm:pb-14 overflow-hidden bg-gradient-to-b from-white via-[#E1F5FE] to-white"
       >
-        {/* Glow orbs */}
         <div className="absolute -top-32 -right-40 w-[280px] sm:w-[380px] md:w-[480px] h-[280px] sm:h-[380px] md:h-[480px] rounded-full bg-[#4FC3F7]/10 blur-3xl animate-pulse-slow" />
         <div className="absolute top-40 -left-40 w-[220px] sm:w-[300px] md:w-[380px] h-[220px] sm:h-[300px] md:h-[380px] rounded-full bg-[#FFD54F]/10 blur-3xl" />
         <div className="absolute bottom-0 left-1/3 w-[180px] sm:w-[220px] md:w-[260px] h-[180px] sm:h-[220px] md:h-[260px] rounded-full bg-[#4FC3F7]/8 blur-3xl" />
@@ -335,9 +435,7 @@ const Careers = () => {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 items-start">
 
-            {/* LEFT: Content */}
             <div className="text-center lg:text-left">
-              {/* Status badge — mt-2 gives extra space from nav */}
               <div className="inline-flex items-center gap-2 mt-2 mb-3 bg-white/95 backdrop-blur-sm border border-[#4FC3F7]/40 rounded-full px-3 sm:px-4 py-1.5 shadow-[0_4px_14px_rgba(15,76,92,0.12)]">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 animate-ping" />
@@ -348,7 +446,6 @@ const Careers = () => {
                 </span>
               </div>
 
-              {/* Heading */}
               <h1 className="font-[Plus_Jakarta_Sans] text-[1.75rem] sm:text-3xl md:text-[2.25rem] lg:text-[2.5rem] xl:text-[2.75rem] font-extrabold text-[#0F4C5C] leading-[1.15] mb-3 lg:whitespace-nowrap">
                 Your Next{" "}
                 <span className="bg-gradient-to-r from-[#4FC3F7] via-[#FFD54F] to-[#29B6F6] bg-clip-text text-transparent bg-[length:200%_100%] animate-[gradientShift_4s_ease_infinite]">
@@ -357,7 +454,6 @@ const Careers = () => {
                 Starts Here
               </h1>
 
-              {/* Animated line */}
               <div className="text-sm sm:text-base md:text-lg text-[#0F4C5C] mb-3 min-h-[24px] sm:h-7 font-bold">
                 Verified{" "}
                 <span className="bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent font-bold">
@@ -366,7 +462,6 @@ const Careers = () => {
                 <span className="text-[#0F4C5C] animate-pulse font-bold">|</span>
               </div>
 
-              {/* Subtext */}
               <div className="flex justify-center lg:justify-start mb-5">
                 <div className="max-w-2xl">
                   <p className="text-[#0A3A47] text-sm sm:text-base leading-relaxed font-medium">
@@ -376,7 +471,6 @@ const Careers = () => {
                 </div>
               </div>
 
-              {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-6">
                 <Link
                   to="/submit-cv"
@@ -393,7 +487,6 @@ const Careers = () => {
                 </Link>
               </div>
 
-              {/* Stats row */}
               <div className="flex flex-wrap justify-center lg:justify-start gap-5 sm:gap-8 md:gap-12">
                 {[
                   { value: `${jobs.length}+`, label: "Live Jobs" },
@@ -412,14 +505,13 @@ const Careers = () => {
               </div>
             </div>
 
-            {/* RIGHT: Image + floating badges */}
             <div className="relative reveal-up group order-first lg:order-last lg:mt-12">
               <div className="absolute inset-0 bg-gradient-to-br from-[#4FC3F7]/20 to-transparent rounded-3xl rotate-3 scale-[1.02] hidden sm:block" />
 
               <div className="relative h-[240px] sm:h-[300px] lg:h-[380px] rounded-3xl overflow-hidden border border-[#4FC3F7]/20 shadow-[0_20px_50px_rgba(15,76,92,0.15)]">
                 <img
                   src="/assets/find-jobs-2.png"
-                  alt="Find Overseas Jobs — Verified Opportunities"
+                  alt="Find Overseas Jobs In Pakistan - Verified International Employment Opportunities"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                   onError={(e) => {
                     e.target.style.display = "none";
@@ -428,7 +520,6 @@ const Careers = () => {
                 <span className="img-shine" />
               </div>
 
-              {/* Badges now anchored INSIDE the frame corners */}
               <div className="animate-gentle-float absolute bottom-3 left-3 bg-white rounded-2xl shadow-[0_16px_36px_rgba(15,76,92,0.12)] border border-[#4FC3F7]/25 px-4 py-3 max-w-[170px] hidden sm:block">
                 <div className="flex items-center gap-2 mb-1">
                   <span className="w-6 h-6 rounded-full bg-[#4FC3F7]/12 flex items-center justify-center">
@@ -459,7 +550,6 @@ const Careers = () => {
         <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-[#0F4C5C]/5 blur-3xl translate-y-1/2 -translate-x-1/3" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Search Bar */}
           <div className="max-w-2xl mx-auto mb-8">
             <div className="relative group/search">
               <span className="absolute inset-0 rounded-full bg-[#4FC3F7]/40 blur-xl opacity-0 group-focus-within/search:opacity-100 transition-opacity duration-500" />
@@ -487,7 +577,6 @@ const Careers = () => {
           </div>
 
           <div className="grid lg:grid-cols-12 gap-6 lg:gap-8">
-            {/* ===== SIDEBAR — Filters ===== */}
             <aside className="lg:col-span-3">
               <div className="lg:sticky lg:top-24">
                 <button
@@ -550,7 +639,6 @@ const Careers = () => {
                             <span className="capitalize">
                               {cat === "all" ? "All Categories" : cat}
                             </span>
-                            {/* Count only shown when counts actually differ */}
                             {showCategoryCounts && (
                               <span
                                 className={`text-[10px] font-extrabold ${
@@ -620,7 +708,6 @@ const Careers = () => {
               </div>
             </aside>
 
-            {/* ===== MAIN — Jobs Grid ===== */}
             <div className="lg:col-span-9">
               {loading ? (
                 <div className="flex flex-col items-center justify-center py-20">
@@ -744,7 +831,6 @@ const Careers = () => {
                 <FaUsers className="text-[#FFB300] text-2xl" />
               </div>
 
-              {/* H2 — CTA section is a peer of the job list, not a nested h2 */}
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-4 leading-tight">
                 Don't See The Right Fit?{" "}
                 <span className="bg-gradient-to-r from-[#4FC3F7] via-[#FFD54F] to-[#4FC3F7] bg-clip-text text-transparent bg-[length:200%_100%] animate-[gradientShift_4s_ease_infinite]">

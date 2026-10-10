@@ -1,0 +1,31 @@
+# ============================================
+# robots.txt for ahioep.com
+# Ali Hajveri International (Pvt.) Limited
+# Licensed Overseas Employment Promoter
+# ============================================
+
+# Allow all search engine bots
+User-agent: *
+Allow: /
+
+# Block admin and private areas (if any)
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /private/
+Disallow: /api/
+
+# Block common spam bots
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Crawl-delay: 10
+
+# Sitemap location
+Sitemap: https://ahioep.com/sitemap.xml
+
+# Host (optional but helpful)
+Host: https://ahioep.com

@@ -1,6 +1,7 @@
 // src/pages/Services.jsx
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import {
   FaClipboardCheck, FaUserCheck, FaFileContract, FaPlaneDeparture,
   FaHeadset, FaGraduationCap, FaArrowRight, FaCheckCircle, FaShip,
@@ -66,10 +67,10 @@ const DESTINATION_COUNTRIES = [
 ];
 
 const GALLERY_IMAGES = [
-  { src: "/assets/gallery-site.png", alt: "Workers On An Active Construction Site", caption: "On-Site Trades & Construction Manpower" },
-  { src: "/assets/gallery-interview.png", alt: "Candidate Interview Session", caption: "Employer Interviews & Assessments" },
-  { src: "/assets/gallery-documents.png", alt: "Passport And Travel Documentation", caption: "Documentation & Compliance Support" },
-  { src: "/assets/gallery-departure.png", alt: "Workers Departing For Overseas Deployment", caption: "Pre-Departure & Mobilization" },
+  { src: "/assets/gallery-site.png", alt: "Pakistani Workers On An Active Construction Site For Overseas Project", caption: "On-Site Trades & Construction Manpower" },
+  { src: "/assets/gallery-interview.png", alt: "Candidate Interview Session For Overseas Employment Recruitment", caption: "Employer Interviews & Assessments" },
+  { src: "/assets/gallery-documents.png", alt: "Passport And Travel Documentation For Overseas Employment", caption: "Documentation & Compliance Support" },
+  { src: "/assets/gallery-departure.png", alt: "Pakistani Workers Departing For Overseas Deployment", caption: "Pre-Departure & Mobilization" },
 ];
 
 const WHY_CHIPS = [
@@ -196,9 +197,170 @@ const Services = () => {
 
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
-      {/* ============ HERO — About-page style: white bg + light blue shade ============ */}
+
+      {/* ============ SEO META TAGS ============ */}
+      <Helmet>
+        <title>Overseas Recruitment Services In Pakistan | Manpower Supply | Ali Hajveri</title>
+        <meta
+          name="description"
+          content="Complete overseas recruitment services in Pakistan - manpower planning, candidate sourcing, screening, trade testing, documentation, visa processing, deployment, and post-placement support for international employers."
+        />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://ahioep.com/services" />
+        <meta property="og:title" content="Overseas Recruitment Services In Pakistan | Ali Hajveri" />
+        <meta property="og:description" content="End-to-end overseas manpower recruitment services - sourcing, screening, trade testing, documentation, deployment, and post-placement support." />
+        <meta property="og:url" content="https://ahioep.com/services" />
+        <meta property="og:type" content="website" />
+      </Helmet>
+
+      {/* ============ SEO CONTENT (Visually Hidden, Sirf Google Ke Liye) ============ */}
+      <div className="sr-only" aria-hidden="true">
+        <h1>Overseas Recruitment Services In Pakistan - Complete Manpower Supply Solutions</h1>
+        <p>
+          Ali Hajveri International (Pvt.) Limited Provides Complete Overseas
+          Recruitment Services In Pakistan For International Employers. As A
+          Licensed Overseas Employment Promoter With OEP License Number 5224, We
+          Source, Screen, Test, Document, And Deploy Skilled, Semi-Skilled, And
+          Unskilled Pakistani Workers To Employers Across The Gulf, Central Asia,
+          Europe, And East Asia.
+        </p>
+        <p>
+          Our Overseas Recruitment Services Are Designed To Make Manpower Hiring
+          Simple, Transparent, And Professional For International Employers. We
+          Handle Every Step Of The Recruitment Journey — From Understanding Your
+          Job Requirements To Delivering Your Workforce On Site Overseas.
+        </p>
+
+        <h2>Manpower Planning And Workforce Consultation</h2>
+        <p>
+          We Provide Realistic Feasibility Advice On Your Workforce Needs,
+          Including Salary Expectations, Benefits, And Trade Requirements For
+          The Roles You'Re Hiring. Our Team Helps Employers Plan Their Manpower
+          Strategy Based On Project Timelines And Skill Requirements.
+        </p>
+
+        <h2>Candidate Sourcing And Screening Services</h2>
+        <p>
+          We Source Candidates From Across Pakistan Through Our Existing
+          Candidate Networks, Targeted Trade Sourcing, Digital Recruitment
+          Campaigns, And Social Media Outreach. Every Candidate Is Screened
+          Against Your Job Brief, Including Document Submission, Experience
+          Review, Qualification Verification, And Physical Suitability
+          Assessment.
+        </p>
+
+        <h2>Trade Testing And Skill Assessment</h2>
+        <p>
+          For Technical And Skilled Positions, We Coordinate Practical Trade
+          Tests Including Trade Competency, Equipment Familiarity, Tools
+          Handling, Technical Knowledge, And Worksite Safety Awareness. Trade
+          Testing Ensures Your Selected Workforce Can Actually Deliver On Site.
+        </p>
+
+        <h2>Employer Interviews And Candidate Selection</h2>
+        <p>
+          We Coordinate Direct Interviews Between Your Team And Shortlisted
+          Candidates. You Interview And Approve Every Candidate Before
+          Selection, Ensuring Full Confidence In Your Overseas Workforce.
+        </p>
+
+        <h2>Medical Coordination And Documentation Support</h2>
+        <p>
+          Our Documentation Team Manages Medical Coordination, Passport And
+          Employment Documentation, Visa Processing, Protector Of Emigrants
+          Formalities, And Travel Arrangements. Every Deployment Follows
+          Government-Approved Documentation And Compliance Procedures.
+        </p>
+
+        <h2>Overseas Deployment And Mobilization Support</h2>
+        <p>
+          We Coordinate Batch-Wise Deployment And Mobilization For Your
+          Workforce. Each Candidate Is Tracked Separately Through Documentation
+          And Visa Processing, With Deployment Schedules Matched To Your Project
+          Timeline.
+        </p>
+
+        <h2>Post-Placement And Post-Deployment Support</h2>
+        <p>
+          Our Responsibility Doesn'T End At The Airport. We Provide Post-
+          Deployment Support Including Employer And Employee Coordination,
+          Workforce Follow-Up, Attendance And Performance Support, Welfare And
+          Grievance Handling, Replacement Support Within The Contract Period,
+          And Repatriation Coordination When Applicable.
+        </p>
+
+        <h2>Industries We Serve</h2>
+        <ul>
+          <li>Construction And Planning</li>
+          <li>Oil And Gas / Petrochemical</li>
+          <li>Engineering And Industrial Automation</li>
+          <li>Medical And Healthcare</li>
+          <li>Hotels And Restaurants / Hospitality</li>
+          <li>Garments And FMCG</li>
+          <li>Shipping And Logistics</li>
+          <li>Automotives</li>
+          <li>Agriculture</li>
+          <li>Security And Surveillance</li>
+          <li>Computer And IT</li>
+          <li>Finance And Accounts</li>
+          <li>Telecommunication</li>
+          <li>Import And Export</li>
+        </ul>
+
+        <h2>Countries We Deploy Workers To</h2>
+        <p>
+          We Deploy Pakistani Workers To Saudi Arabia, United Arab Emirates,
+          Qatar, Oman, Kuwait, Bahrain, Tajikistan, Kazakhstan, Kyrgyzstan,
+          Uzbekistan, Turkmenistan, Romania, And Other International Markets
+          Based On Active Employer Requirements.
+        </p>
+
+        <h2>Workforce Categories We Supply</h2>
+        <ul>
+          <li>Skilled Workers - Engineers, Technicians, Machine Operators, Supervisors</li>
+          <li>Semi-Skilled Workers - Assemblers, Drivers, Draftsmen, Quality Control Staff</li>
+          <li>Unskilled Workers - Labourers, Helpers, Loaders, General Workers</li>
+        </ul>
+
+        <h2>Bulk Recruitment And Project Mobilization</h2>
+        <p>
+          For Large Construction And Infrastructure Projects, We Provide Bulk
+          Recruitment Services Including Multi-Trade Sourcing, High-Volume
+          Candidate Screening, Batch-Wise Documentation, And Coordinated
+          Deployment. Our Team Has Successfully Deployed Thousands Of Pakistani
+          Workers For Major International Projects.
+        </p>
+
+        <h2>Frequently Asked Questions About Our Services</h2>
+        <ul>
+          <li>How Long Does A Typical Placement Take? Most Roles Are Filled Within 3-6 Weeks.</li>
+          <li>Do You Handle Visa And Travel Arrangements? Yes, We Manage Complete Visa Processing And Travel.</li>
+          <li>Can Workers Be Upgraded In Skill Level Before Deployment? Yes, Through Our Training Institutes.</li>
+          <li>What Happens After The Worker Is Deployed? We Provide Post-Placement Follow-Up And Support.</li>
+          <li>Which Countries Do You Deploy Workers To? We Currently Place Workers In Saudi Arabia, UAE, Qatar, Oman, Kuwait, And Bahrain.</li>
+        </ul>
+
+        <h2>Contact Ali Hajveri International For Overseas Recruitment</h2>
+        <p>
+          To Discuss Your Overseas Manpower Requirements Or Request A Quote,
+          Contact Ali Hajveri International (Pvt.) Limited. Website: ahioep.com
+          | Email: ahioep.com@gmail.com | Phone: +92 300 8578764
+        </p>
+
+        <h2>Internal Links</h2>
+        <nav>
+          <Link to="/about">About Us</Link>
+          <Link to="/process">Recruitment Process</Link>
+          <Link to="/countries">Countries We Serve</Link>
+          <Link to="/contact">Contact Us</Link>
+          <Link to="/submit-cv">Submit CV</Link>
+          <Link to="/faq">FAQ</Link>
+          <Link to="/legal-status">Legal Status</Link>
+        </nav>
+      </div>
+
+      {/* ============ HERO ============ */}
       <section className="relative mt-[-6rem] pt-44 sm:pt-28 md:pt-32 lg:pt-36 pb-12 sm:pb-16 overflow-hidden bg-gradient-to-b from-white via-[#E1F5FE] to-white">
-        {/* soft blue shade blobs */}
         <div className="absolute -top-32 -right-40 w-[280px] sm:w-[380px] md:w-[480px] h-[280px] sm:h-[380px] md:h-[480px] rounded-full bg-[#4FC3F7]/10 blur-3xl animate-pulse-slow" />
         <div className="absolute top-40 -left-40 w-[220px] sm:w-[300px] md:w-[380px] h-[220px] sm:h-[300px] md:h-[380px] rounded-full bg-[#FFD54F]/10 blur-3xl" />
         <div className="absolute bottom-0 left-1/3 w-[180px] sm:w-[220px] md:w-[260px] h-[180px] sm:h-[220px] md:h-[260px] rounded-full bg-[#4FC3F7]/8 blur-3xl" />
@@ -261,7 +423,7 @@ const Services = () => {
               <div className="relative h-[280px] sm:h-[340px] lg:h-[380px] rounded-3xl overflow-hidden border border-[#4FC3F7]/20 shadow-[0_20px_50px_rgba(15,76,92,0.15)]">
                 <img
                   src="/assets/const-2.png"
-                  alt="Pakistani Workforce Ready For Overseas Deployment"
+                  alt="Pakistani Workforce Ready For Overseas Deployment - Overseas Recruitment Services In Pakistan"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                   onError={(e) => { e.target.style.display = "none"; }}
                 />
@@ -817,7 +979,7 @@ const Services = () => {
                 <div className="h-[300px] overflow-hidden relative">
                   <img
                     src={img}
-                    alt={name}
+                    alt={`${name} Industry - Overseas Manpower Recruitment From Pakistan`}
                     className="w-full h-full object-cover"
                     onError={(e) => { e.target.style.display = "none"; }}
                   />
@@ -1106,7 +1268,7 @@ const Services = () => {
         .animate-marquee-left:focus-within,
         .animate-marquee-left-slow:hover,
         .animate-marquee-left-slow:focus-within {
-          animation-play-state: paused;
+          {/* animation-play-state: paused; */}
         }
 
         @keyframes pulse-slow { 0%, 100% { opacity: 0.3; transform: scale(1); } 50% { opacity: 0.6; transform: scale(1.1); } }

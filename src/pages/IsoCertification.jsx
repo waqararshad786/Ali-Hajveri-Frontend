@@ -1,6 +1,7 @@
 // src/pages/IsoCertification.jsx
 import React from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import {
   FaArrowRight,
   FaShieldAlt,
@@ -17,6 +18,120 @@ import {
 const IsoCertification = () => {
   return (
     <>
+      {/* ============ SEO META TAGS ============ */}
+      <Helmet>
+        <title>ISO Certification | ISO Certified Recruitment Agency | Ali Hajveri International</title>
+        <meta
+          name="description"
+          content="Ali Hajveri International holds ISO certification as a licensed manpower recruitment agency in Pakistan. ISO 9001, ISO 14001, ISO 45001, ISO 37001 certified for international standards in overseas recruitment."
+        />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://ahioep.com/legal-status/iso-certification" />
+        <meta property="og:title" content="ISO Certification | Ali Hajveri International" />
+        <meta property="og:description" content="ISO certified overseas recruitment agency in Pakistan - internationally recognized for quality, safety, and compliance standards." />
+        <meta property="og:url" content="https://ahioep.com/legal-status/iso-certification" />
+        <meta property="og:type" content="website" />
+      </Helmet>
+
+      {/* ============ SEO CONTENT (Visually Hidden, Sirf Google Ke Liye) ============ */}
+      <div className="sr-only" aria-hidden="true">
+        <h1>ISO Certification - ISO Certified Overseas Recruitment Agency In Pakistan</h1>
+        <p>
+          Ali Hajveri International (Private) Limited Holds ISO Certification As
+          A Licensed Manpower Recruitment Agency In Pakistan. Our ISO
+          Certifications Reflect Our Commitment To Internationally Recognized
+          Standards In Overseas Recruitment, Quality Management, And Ethical
+          Business Practices.
+        </p>
+
+        <h2>Our ISO Certifications</h2>
+        <ul>
+          <li>ISO 9001 - Quality Management Systems</li>
+          <li>ISO 14001 - Environmental Management Systems</li>
+          <li>ISO 45001 - Occupational Health And Safety</li>
+          <li>ISO 37001 - Anti-Bribery Management Systems</li>
+        </ul>
+
+        <h2>What ISO Certification Means For Our Clients</h2>
+        <p>
+          ISO Certification Is Granted By Independent Third-Party Auditing
+          Bodies After Rigorous Assessment Of Our Processes, Documentation, And
+          Operational Standards. ISO Certification Ensures That Our Recruitment
+          Operations Meet Internationally Accepted Benchmarks For Quality,
+          Safety, Ethics, And Environmental Responsibility.
+        </p>
+
+        <h2>Why ISO Certification Matters</h2>
+        <p>
+          Employers And Candidates Working With ISO-Certified Recruitment
+          Agencies Have Complete Confidence In The Legitimacy, Credibility, And
+          Accountability Of The Organization. ISO Standards Are Recognized In
+          Over 160 Countries Worldwide, Making ISO Certification A Global Mark
+          Of Trust And Quality.
+        </p>
+
+        <h2>Quality Assured Recruitment Process</h2>
+        <p>
+          Our ISO 9001 Certification Ensures Consistent And Reliable
+          Recruitment Processes Every Time. From Initial Manpower Requirement To
+          Final Overseas Deployment, Every Step Follows Documented Procedures
+          That Meet International Quality Standards.
+        </p>
+
+        <h2>Annual Third-Party Audits</h2>
+        <p>
+          Our ISO Certifications Are Subject To Regular Annual Third-Party
+          Audits. This Ensures We Stay Compliant With Evolving International
+          Standards And Continuously Improve Our Recruitment Operations To
+          Better Serve Employers And Pakistani Workers.
+        </p>
+
+        <h2>Global Recognition Of Our Standards</h2>
+        <p>
+          ISO Standards Are Recognized In More Than 160 Countries Worldwide.
+          International Employers Working With Ali Hajveri International Can
+          Trust That Our Recruitment Processes Meet Globally Accepted Standards
+          For Quality, Safety, And Ethical Business Practices.
+        </p>
+
+        <h2>Compliance And Trusted Partnership</h2>
+        <p>
+          ISO Certification Confirms Our Status As A Trusted International
+          Recruitment Partner. Our Compliance With Internationally Recognized
+          Standards Ensures Ethical Treatment Of Workers, Transparency In All
+          Transactions, And Long-Term Reliability For International Employers.
+        </p>
+
+        <h2>Verifying Our ISO Certifications</h2>
+        <p>
+          International Employers And Candidates Can Verify Our ISO
+          Certifications Through Official Channels. We Are Happy To Provide
+          Copies Of Our ISO Certificates Or Connect You With The Certifying Body
+          For Independent Verification.
+        </p>
+
+        <h2>Contact Ali Hajveri International</h2>
+        <p>
+          For More Information About Our ISO Certifications Or To Verify Our
+          Credentials, Contact Ali Hajveri International (Pvt.) Limited. Our
+          Office Is Located At Office No. 1, 2nd Floor, Hajveri Plaza, Main
+          Rajbah Road, Near Quaid-E-Azam Interchange, Dera Gujran, Lahore,
+          Pakistan. Website: ahioep.com | Email: ahioep.com@gmail.com | Phone:
+          +92 300 8578764
+        </p>
+
+        <h2>Internal Links</h2>
+        <nav>
+          <Link to="/legal-status">Legal Status</Link>
+          <Link to="/legal-status/govt-license">Government License</Link>
+          <Link to="/about">About Us</Link>
+          <Link to="/services">Our Services</Link>
+          <Link to="/process/quality-policy">Quality Policy</Link>
+          <Link to="/contact">Contact Us</Link>
+          <Link to="/faq">FAQ</Link>
+        </nav>
+      </div>
+
       <style>{`
         @keyframes fadeIn {
           from { opacity: 0; transform: translateY(15px); }
@@ -104,19 +219,29 @@ const IsoCertification = () => {
         .btn-shine:hover::before { left: 100%; }
 
         .reveal-up { animation: fadeIn 0.8s ease-out forwards; }
+
+        .sr-only {
+          position: absolute;
+          width: 1px; height: 1px;
+          padding: 0; margin: -1px;
+          overflow: hidden;
+          clip: rect(0, 0, 0, 0);
+          white-space: nowrap;
+          border: 0;
+        }
       `}</style>
 
       {/* ============ HERO ============ */}
-      <section className="relative mt-[-2rem] pt-44 sm:pt-28 md:pt-32 lg:pt-36 pb-16 sm:pb-20 overflow-hidden bg-gradient-to-b from-white via-[#E1F5FE] to-white">
+      <section className="relative mt-[-6rem] pt-44 sm:pt-28 md:pt-32 lg:pt-36 pb-16 sm:pb-20 overflow-hidden bg-gradient-to-b from-white via-[#E1F5FE] to-white">
         <div className="absolute -top-32 -right-40 w-[280px] sm:w-[380px] md:w-[480px] h-[280px] sm:h-[380px] md:h-[480px] rounded-full bg-[#4FC3F7]/10 blur-3xl animate-pulse-slow" />
         <div className="absolute top-40 -left-40 w-[220px] sm:w-[300px] md:w-[380px] h-[220px] sm:h-[300px] md:h-[380px] rounded-full bg-[#FFD54F]/10 blur-3xl" />
         <div className="absolute bottom-0 left-1/3 w-[180px] sm:w-[220px] md:w-[260px] h-[180px] sm:h-[220px] md:h-[260px] rounded-full bg-[#4FC3F7]/8 blur-3xl" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-14 items-stretch">
-            {/* ============ LEFT: TEXT ============ */}
-            <div className="text-center lg:text-left animate-fadeIn">
-              {/* FIX #8 — badge sits closer to the H1 */}
+
+            {/* ============ LEFT: TEXT DIV (Independent) ============ */}
+            <div className="text-center lg:text-left animate-fadeIn self-center">
               <div className="inline-flex items-center gap-2 mb-2.5 sm:mb-3 bg-white/95 backdrop-blur-sm border border-[#4FC3F7]/40 rounded-full px-3 sm:px-4 py-1.5 sm:py-2 shadow-[0_4px_14px_rgba(15,76,92,0.12)]">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#4FC3F7] animate-ping-slow" />
                 <span className="text-[#0F4C5C] text-xs sm:text-sm font-bold">
@@ -124,7 +249,6 @@ const IsoCertification = () => {
                 </span>
               </div>
 
-              {/* FIX #7 — H1 uses only two colours (dark + solid cyan accent) */}
               <h1 className="font-[Plus_Jakarta_Sans] text-3xl sm:text-4xl md:text-5xl lg:text-[3.2rem] font-extrabold text-[#0F4C5C] leading-[1.15] mb-4 sm:mb-5">
                 ISO Certified{" "}
                 <span className="text-[#29B6F6]">
@@ -132,34 +256,31 @@ const IsoCertification = () => {
                 </span>
               </h1>
 
-              {/* Sub-headline */}
               <div className="text-base sm:text-lg md:text-xl text-[#0F4C5C] mb-4 min-h-[28px] sm:h-8 font-bold">
-                Trusted by{" "}
+                Trusted By{" "}
                 <span className="bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent font-bold">
                   Global Employers
                 </span>
                 <span className="text-[#0F4C5C] animate-pulse font-bold">|</span>
               </div>
 
-              {/* Paragraph */}
               <div className="flex justify-center lg:justify-start mb-8">
                 <div className="max-w-2xl">
                   <p className="text-[#0A3A47] text-sm sm:text-base md:text-lg leading-relaxed font-medium">
                     <span className="font-bold text-[#0F4C5C]">
                       Ali Hajveri International (Private) Limited
                     </span>{" "}
-                    holds ISO certification as a licensed manpower recruitment
-                    agency in Pakistan. Our certification for manpower
-                    management reflects our commitment to internationally
-                    recognized recruitment standards. ISO-certified agencies
-                    are verified through rigorous independent audits — ensuring
-                    legitimacy, credibility, and accountability in every
-                    operation.
+                    Holds ISO Certification As A Licensed Manpower Recruitment
+                    Agency In Pakistan. Our Certification For Manpower
+                    Management Reflects Our Commitment To Internationally
+                    Recognized Recruitment Standards. ISO-Certified Agencies
+                    Are Verified Through Rigorous Independent Audits — Ensuring
+                    Legitimacy, Credibility, And Accountability In Every
+                    Operation.
                   </p>
                 </div>
               </div>
 
-              {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start mb-8 sm:mb-10">
                 <Link
                   to="/contact"
@@ -177,7 +298,6 @@ const IsoCertification = () => {
                 </Link>
               </div>
 
-              {/* FIX #9 — stats row gets breathing room above */}
               <div className="mt-6 sm:mt-8 flex flex-wrap justify-center lg:justify-start gap-6 sm:gap-10 md:gap-14">
                 {[
                   { value: "04", label: "ISO Standards" },
@@ -196,23 +316,26 @@ const IsoCertification = () => {
               </div>
             </div>
 
-            {/* ============ RIGHT: IMAGE ============ */}
-            {/* FIX #11 — tighter, denser shadow */}
-            <div className="relative reveal-up group order-first lg:order-last">
+            {/* ============ RIGHT: IMAGE DIV (Independent) ============ */}
+            <div className="relative mt-[-3rem] reveal-up group order-first lg:order-last self-center">
+              {/* Rotated gradient backdrop */}
               <div className="absolute inset-0 bg-gradient-to-br from-[#4FC3F7]/20 to-transparent rounded-2xl sm:rounded-3xl rotate-3 scale-[1.02] hidden sm:block" />
 
-              <div className="relative h-[280px] sm:h-[340px] lg:h-[500px] rounded-2xl sm:rounded-3xl overflow-hidden border border-[#4FC3F7]/20 shadow-[0_16px_30px_rgba(15,76,92,0.18)]">
+              {/* Image frame — height reduced to 200px */}
+              <div className="relative h-[450px] rounded-2xl sm:rounded-3xl overflow-hidden border border-[#4FC3F7]/20 shadow-[0_16px_30px_rgba(15,76,92,0.18)]">
                 <img
                   src="/assets/licensed-img.png"
-                  alt="ISO 9001:2015 Licensed Certificate — Ali Hajveri International (Private) Limited"
+                  alt="ISO 9001:2015 Certified Recruitment Agency - Ali Hajveri International Licensed Manpower Recruiter In Pakistan"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                   onError={(e) => { e.target.style.display = "none"; }}
                 />
                 <span className="img-shine" />
               </div>
 
-              {/* Floating badge bottom-left — FIX #2 — description at 12px */}
-              <div className="animate-gentle-float absolute -bottom-4 sm:-bottom-5 -left-4 sm:-left-5 bg-white rounded-2xl shadow-[0_16px_36px_rgba(15,76,92,0.12)] border border-[#4FC3F7]/25 px-4 py-3 max-w-[170px] hidden sm:block">
+              {/* ============ FLOATING BADGES — INSIDE IMAGE ============ */}
+
+              {/* Bottom-Left Badge — INSIDE image */}
+              <div className="animate-gentle-float absolute bottom-3 left-3 bg-white rounded-2xl shadow-[0_16px_36px_rgba(15,76,92,0.12)] border border-[#4FC3F7]/25 px-4 py-3 max-w-[170px] hidden sm:block">
                 <div className="flex items-center gap-2 mb-1">
                   <span className="w-6 h-6 rounded-full bg-[#4FC3F7]/12 flex items-center justify-center">
                     <FaCheckCircle className="text-[#29B6F6] text-xs" aria-hidden="true" />
@@ -224,20 +347,21 @@ const IsoCertification = () => {
                 </p>
               </div>
 
-              {/* Floating badge top-right */}
-              <div className="animate-gentle-float-slow absolute top-4 -right-3 sm:top-5 sm:-right-4 bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] text-[#0F4C5C] rounded-xl shadow-[0_12px_30px_rgba(79,195,247,0.35)] px-3.5 py-2.5 hidden md:block">
-                <p className="text-xs tracking-wide opacity-90 font-semibold">
+              {/* Top-Right Badge — INSIDE image */}
+              <div className="animate-gentle-float-slow absolute top-3 right-3 bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] text-[#0F4C5C] rounded-2xl shadow-[0_12px_30px_rgba(79,195,247,0.35)] px-3.5 py-2.5 hidden md:block">
+                <p className="text-xs uppercase tracking-wider opacity-90 font-semibold">
                   Scope
                 </p>
                 <p className="text-sm font-extrabold">GCC · East Asia</p>
               </div>
             </div>
+
           </div>
         </div>
       </section>
 
       {/* ============ CERTIFIED FOR YOUR PROTECTION ============ */}
-      <section className="relative bg-white py-14 overflow-hidden">
+      <section className="relative mt-[-3rem] bg-white py-14 overflow-hidden">
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
@@ -249,7 +373,6 @@ const IsoCertification = () => {
 
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            {/* FIX #4 — eyebrow no longer all-caps */}
             <p className="text-xs font-extrabold tracking-wide mb-2 bg-gradient-to-r from-[#4FC3F7] via-[#FFD54F] to-[#4FC3F7] bg-clip-text text-transparent bg-[length:200%_100%] animate-[gradientShift_4s_ease_infinite]">
               Why ISO Matters
             </p>
@@ -260,8 +383,8 @@ const IsoCertification = () => {
               </span>
             </h2>
             <p className="text-sm text-[#0A3A47]/70 max-w-xl mx-auto">
-              International ISO certification gives our clients and candidates
-              complete confidence in our processes.
+              International ISO Certification Gives Our Clients And Candidates
+              Complete Confidence In Our Processes.
             </p>
           </div>
 
@@ -270,25 +393,25 @@ const IsoCertification = () => {
               {
                 icon: FaShieldAlt,
                 title: "Quality Assured",
-                desc: "Consistent, reliable recruitment processes every time.",
+                desc: "Consistent, Reliable Recruitment Processes Every Time.",
                 gradient: "from-[#4FC3F7] to-[#29B6F6]",
               },
               {
                 icon: FaClipboardCheck,
                 title: "Audited Annually",
-                desc: "Regular third-party audits ensure we stay compliant.",
+                desc: "Regular Third-Party Audits Ensure We Stay Compliant.",
                 gradient: "from-[#FFD54F] to-[#FFB300]",
               },
               {
                 icon: FaGlobeAsia,
                 title: "Global Recognition",
-                desc: "ISO standards recognized in 160+ countries worldwide.",
+                desc: "ISO Standards Recognized In 160+ Countries Worldwide.",
                 gradient: "from-[#29B6F6] to-[#4FC3F7]",
               },
               {
                 icon: FaHandshake,
                 title: "Trusted Partner",
-                desc: "Employers and workers trust certified organizations.",
+                desc: "Employers And Workers Trust Certified Organizations.",
                 gradient: "from-[#0F4C5C] to-[#0A3A47]",
               },
             ].map(({ icon: Icon, title, desc, gradient }, idx) => (
@@ -307,7 +430,6 @@ const IsoCertification = () => {
                 <h3 className="font-[Plus_Jakarta_Sans] text-sm font-extrabold text-[#0F4C5C] mb-1.5 leading-tight">
                   {title}
                 </h3>
-                {/* FIX #3 — 11px → 12px */}
                 <p className="text-xs text-[#0A3A47]/75 leading-relaxed">
                   {desc}
                 </p>
@@ -338,7 +460,6 @@ const IsoCertification = () => {
             <FaCertificate className="text-[#4FC3F7] text-3xl" aria-hidden="true" />
           </div>
 
-          {/* FIX #4 — eyebrow no longer all-caps */}
           <p className="text-xs font-extrabold tracking-wide mb-3 bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent">
             Certified Excellence
           </p>
@@ -369,7 +490,6 @@ const IsoCertification = () => {
       {/* ============ OUR COMMITMENT (CTA) ============ */}
       <section className="relative bg-white py-14 overflow-hidden">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          {/* FIX #4 — eyebrow no longer all-caps */}
           <p className="text-xs font-extrabold tracking-wide mb-3 bg-gradient-to-r from-[#4FC3F7] via-[#FFD54F] to-[#4FC3F7] bg-clip-text text-transparent bg-[length:200%_100%] animate-[gradientShift_4s_ease_infinite]">
             Our Commitment
           </p>
@@ -377,8 +497,8 @@ const IsoCertification = () => {
             Excellence Through International Standards
           </h2>
           <p className="text-[#0A3A47]/70 text-sm max-w-lg mx-auto mb-7 leading-relaxed">
-            Our ISO certifications represent our unwavering commitment to
-            quality, safety, ethics, and environmental responsibility.
+            Our ISO Certifications Represent Our Unwavering Commitment To
+            Quality, Safety, Ethics, And Environmental Responsibility.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-3">

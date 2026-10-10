@@ -6,8 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "postbuild": "react-snap",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "sitemap": "node scripts/generate-sitemap.js"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",
@@ -26,6 +28,42 @@
     "@types/react-dom": "^19.2.4",
     "@vitejs/plugin-react": "^6.1.0",
     "oxlint": "^1.79.0",
+    "react-snap": "^1.23.0",
+    "sitemap": "^9.0.1",
     "vite": "^8.2.2"
+  },
+  "reactSnap": {
+    "source": "dist",
+    "destination": "dist",
+    "include": [
+      "/",
+      "/about",
+      "/services",
+      "/process",
+      "/process/recruitment",
+      "/process/work-visa",
+      "/process/quality-policy",
+      "/legal-status",
+      "/legal-status/govt-license",
+      "/legal-status/iso-certification",
+      "/contact",
+      "/submit-cv",
+      "/careers",
+      "/faq",
+      "/our-team",
+      "/privacy-policy",
+      "/terms-conditions"
+    ],
+    "minifyHtml": {
+      "collapseWhitespace": true,
+      "removeComments": true
+    },
+    "puppeteerArgs": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox"
+    ],
+    "skipThirdPartyRequests": false,
+    "concurrency": 2,
+    "timeout": 60000
   }
 }

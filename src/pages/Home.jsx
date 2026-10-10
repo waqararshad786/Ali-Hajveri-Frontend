@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "../index.css";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import {
   FaUserCheck,
   FaClipboardCheck,
@@ -29,7 +30,7 @@ import {
 import { COMPANY_INFO } from "../utilis/constants";
 
 /* ============================================================
-   DATA — colours folded into brand palette (10 text colours total)
+   DATA
 ============================================================ */
 const HERO_ROLES = [
   "Skilled Tradespeople",
@@ -176,6 +177,83 @@ const Home = () => {
 
   return (
     <>
+      {/* ============ SEO META TAGS ============ */}
+      <Helmet>
+        <title>Overseas Employment Promoter In Pakistan | Ali Hajveri</title>
+        <meta
+          name="description"
+          content="Ali Hajveri International Is A Licensed Overseas Employment Promoter In Pakistan, Connecting Skilled, Semi-Skilled, And Professional Pakistani Workers With International Employers."
+        />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://ahioep.com/" />
+        <meta property="og:title" content="Overseas Employment Promoter In Pakistan | Ali Hajveri" />
+        <meta property="og:description" content="Licensed Overseas Employment Promoter In Pakistan Connecting Skilled And Professional Pakistani Workers With International Employers." />
+        <meta property="og:url" content="https://ahioep.com/" />
+        <meta property="og:type" content="website" />
+      </Helmet>
+
+      {/* ============ SEO CONTENT (Visually Hidden, Sirf Google Ke Liye) ============ */}
+      <div className="sr-only" aria-hidden="true">
+        <h1>Trusted Overseas Employment Promoter In Pakistan</h1>
+        <p>
+          Ali Hajveri International (Pvt.) Limited Is A Licensed Overseas Employment
+          Promoter In Pakistan. We Connect Skilled, Semi-Skilled, And Professional
+          Pakistani Workers With Reputable International Employers.
+        </p>
+        <p>
+          As An Overseas Employment Promoter, Our Goal Is To Make Overseas
+          Recruitment Simple, Transparent, And Professional. We Help International
+          Employers Find Suitable Pakistani Talent For Their Workforce Requirements.
+        </p>
+
+        <h2>Our Overseas Recruitment Services</h2>
+        <p>
+          We Provide Overseas Recruitment Services For Employers Seeking Qualified
+          And Hardworking Pakistani Workers. Our Services Include Manpower
+          Recruitment, Candidate Screening, Document Verification, Interview
+          Coordination, And Recruitment Support.
+        </p>
+
+        <h2>Why Choose Ali Hajveri International?</h2>
+        <ul>
+          <li>Licensed Overseas Employment Promoter</li>
+          <li>OEP License Number: 5224</li>
+          <li>Recruitment Of Pakistani Workers For Overseas Employment</li>
+          <li>Skilled, Semi-Skilled, And Professional Manpower</li>
+          <li>Transparent Recruitment Procedures</li>
+          <li>Support Throughout The Recruitment Process</li>
+        </ul>
+
+        <h2>Connecting Pakistani Talent With Global Employers</h2>
+        <p>
+          We Help International Companies Connect With Suitable Manpower From
+          Pakistan. Our Recruitment Services Aim To Support Employers In Finding
+          Candidates Who Match Their Job Requirements, Skills, And Experience.
+          Whether You Need Skilled Workers, Technical Staff, Or Professional
+          Employees, Ali Hajveri International Works To Understand Your Manpower
+          Needs And Support Your Recruitment Requirements.
+        </p>
+
+        <h2>Contact Our Overseas Employment Agency</h2>
+        <p>
+          Looking For A Trusted Overseas Employment Promoter In Pakistan? Contact
+          Ali Hajveri International (Pvt.) Limited To Discuss Your Manpower
+          Requirements Or Learn More About Our Recruitment Services.
+          Website: ahioep.com | Email: ahioep.com@gmail.com | Phone: +92 300 8578764 |
+          Office: Office No. 1, 2nd Floor, Hajveri Plaza, Main Rajbah Road,
+          Near Quaid-E-Azam Interchange, Dera Gujran, Lahore, Pakistan.
+        </p>
+
+        <h2>Internal Links</h2>
+        <nav>
+          <Link to="/services">Services</Link>
+          <Link to="/about">About Us</Link>
+          <Link to="/countries">Countries</Link>
+          <Link to="/contact">Contact</Link>
+          <Link to="/process">Recruitment Process</Link>
+        </nav>
+      </div>
+
       {/* ============ HERO ============ */}
       <section className="relative mt-[-2rem] pt-44 sm:pt-28 md:pt-32 lg:pt-36 pb-12 sm:pb-16 overflow-hidden bg-gradient-to-b from-white via-[#E1F5FE] to-white">
         <div className="absolute -top-32 -right-40 w-[280px] sm:w-[380px] md:w-[480px] h-[280px] sm:h-[380px] md:h-[480px] rounded-full bg-[#4FC3F7]/10 blur-3xl animate-pulse-slow" />
@@ -197,7 +275,6 @@ const Home = () => {
                 </span>
               </h1>
 
-              {/* Typewriter line — no cursor pipe, aria-live for AT announcement */}
               <div className="text-sm sm:text-base md:text-lg text-[#0A3A47] mb-4 min-h-[24px] sm:h-7 font-semibold">
                 Placing{" "}
                 <span
@@ -211,7 +288,7 @@ const Home = () => {
               <div className="flex justify-center lg:justify-start mb-6 sm:mb-8">
                 <div className="max-w-2xl">
                   <p className="text-[#0A3A47] text-sm sm:text-base md:text-lg leading-relaxed font-medium">
-                    We connect international employers with skilled, semi-skilled, professional and general manpower from Pakistan through a structured, professionally managed recruitment process.
+                    We Connect International Employers With Skilled, Semi-Skilled, Professional And General Manpower From Pakistan Through A Structured, Professionally Managed Recruitment Process.
                   </p>
                 </div>
               </div>
@@ -315,7 +392,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ============ STATS STRIP — larger numbers ============ */}
+      {/* ============ STATS STRIP ============ */}
       <section className="section-tight relative bg-white overflow-hidden -mt-[15px]">
         <div className="absolute top-0 right-0 w-56 h-56 bg-[#4FC3F7]/8 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
         <div className="absolute bottom-0 left-0 w-72 h-72 bg-[#0F4C5C]/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3" />
@@ -336,11 +413,9 @@ const Home = () => {
               <div key={label} className="group relative bg-white rounded-2xl pt-5 pb-4 sm:pt-6 sm:pb-5 px-4 sm:px-5 text-center shadow-[0_6px_20px_rgba(15,76,92,0.06)] hover:shadow-[0_14px_34px_rgba(79,195,247,0.18)] hover:-translate-y-1.5 transition-all duration-500 border border-[#4FC3F7]/15 hover:border-[#4FC3F7]/50 reveal-up overflow-hidden" style={{ animationDelay: `${idx * 0.1}s` }}>
                 <span className="absolute inset-x-0 top-0 h-0.5 rounded-t-2xl bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500" />
                 <span className="absolute -top-10 -right-10 w-24 h-24 rounded-full bg-[#4FC3F7]/0 group-hover:bg-[#4FC3F7]/10 blur-2xl transition-all duration-500" />
-                {/* icon reduced so number dominates */}
                 <div className="relative w-9 sm:w-10 h-9 sm:h-10 mx-auto rounded-xl bg-[#4FC3F7]/10 flex items-center justify-center mb-3 group-hover:bg-[#4FC3F7]/20 group-hover:scale-110 transition-all duration-300">
                   <Icon className={`${color} text-sm sm:text-base icon-wiggle`} />
                 </div>
-                {/* number is now the focal point */}
                 <p className="relative font-[Plus_Jakarta_Sans] text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#0F4C5C] mb-1.5 flex items-center justify-center leading-none">
                   <Counter value={value} duration={2000} />
                 </p>
@@ -352,7 +427,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ============ ISO CERTIFIED (merged with LICENSED) — with denser layout fix ============ */}
+      {/* ============ ISO CERTIFIED ============ */}
       <section className="section-tight relative bg-white overflow-hidden">
         <div className="absolute top-0 right-0 w-56 h-56 bg-[#4FC3F7]/8 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
         <div className="absolute bottom-0 left-0 w-72 h-72 bg-[#0F4C5C]/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3" />
@@ -363,7 +438,7 @@ const Home = () => {
               ISO Certified & <span className="bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent">Recruiting Agency</span>
             </h2>
             <p className="text-[#0A3A47] text-sm sm:text-base max-w-2xl mx-auto leading-relaxed px-2 font-medium">
-              Every placement is handled under a government-recognized license and a compliant, structured recruitment process.
+              Every Placement Is Handled Under A Government-Recognized License And A Compliant, Structured Recruitment Process.
             </p>
           </div>
 
@@ -371,17 +446,15 @@ const Home = () => {
             <div className="order-2 lg:order-1 reveal-up">
               <div className="h-full max-h-[400px] sm:max-h-[440px] lg:max-h-[520px] overflow-y-auto bg-gradient-to-b from-white to-[#E1F5FE] rounded-2xl border border-[#4FC3F7]/20 shadow-[0_8px_28px_rgba(15,76,92,0.06)] p-5 sm:p-7 no-scrollbar">
                 <h3 className="font-[Plus_Jakarta_Sans] text-xl sm:text-2xl font-extrabold text-[#0F4C5C] mb-4">
-                  Reliable manpower solutions
+                  Reliable Manpower Solutions
                 </h3>
 
-                {/* paragraph 1 — condensed */}
                 <p className="text-[#0A3A47] text-sm sm:text-base leading-relaxed mb-3">
-                  At <strong className="text-[#0F4C5C] font-bold">Ali Hajveri International Private Limited</strong>, we provide reliable and qualified manpower solutions to meet the workforce requirements of businesses and projects in Pakistan and international markets — connecting employers with capable professionals, skilled workers and semi-skilled workforce according to their specific requirements.
+                  At <strong className="text-[#0F4C5C] font-bold">Ali Hajveri International Private Limited</strong>, We Provide Reliable And Qualified Manpower Solutions To Meet The Workforce Requirements Of Businesses And Projects In Pakistan And International Markets — Connecting Employers With Capable Professionals, Skilled Workers And Semi-Skilled Workforce According To Their Specific Requirements.
                 </p>
 
-                {/* bullet list for scannability */}
                 <p className="text-[#0A3A47] text-sm sm:text-base leading-relaxed mb-2">
-                  We supply manpower for construction and engineering projects, including:
+                  We Supply Manpower For Construction And Engineering Projects, Including:
                 </p>
                 <ul className="grid grid-cols-2 gap-x-3 gap-y-1.5 mb-3 text-sm sm:text-base text-[#0A3A47]">
                   {["Engineers", "Supervisors", "Technicians", "Electricians", "Welders", "Fabricators", "Masons", "Steel Fixers", "Equipment Operators"].map((role) => (
@@ -392,9 +465,8 @@ const Home = () => {
                   ))}
                 </ul>
 
-                {/* paragraph 2 — condensed with bold industries */}
                 <p className="text-[#0A3A47] text-sm sm:text-base leading-relaxed">
-                  Beyond construction, we support manpower requirements in <strong className="text-[#0F4C5C] font-bold">oil &amp; gas, electrical, mechanical, IT &amp; telecom, infrastructure, and manufacturing</strong>. To hire reliable Pakistani manpower, Ali Hajveri International is a trusted recruitment company providing skilled, semi-skilled, and unskilled workforce to overseas employers.
+                  Beyond Construction, We Support Manpower Requirements In <strong className="text-[#0F4C5C] font-bold">Oil &amp; Gas, Electrical, Mechanical, IT &amp; Telecom, Infrastructure, And Manufacturing</strong>. To Hire Reliable Pakistani Manpower, Ali Hajveri International Is A Trusted Recruitment Company Providing Skilled, Semi-Skilled, And Unskilled Workforce To Overseas Employers.
                 </p>
               </div>
             </div>
@@ -425,7 +497,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ============ RECRUITMENT PROCESS — with narrower body measure ============ */}
+      {/* ============ RECRUITMENT PROCESS ============ */}
       <section className="section-tight bg-gradient-to-b from-[#0F4C5C] via-[#0A3A47] to-[#06303A] relative overflow-hidden">
         <div className="absolute -top-32 -right-32 w-[280px] sm:w-[380px] h-[280px] sm:h-[380px] rounded-full bg-[#4FC3F7]/10 blur-3xl" />
         <div className="absolute -bottom-32 -left-32 w-[260px] sm:w-[360px] h-[260px] sm:h-[360px] rounded-full bg-[#FFD54F]/8 blur-3xl" />
@@ -436,7 +508,7 @@ const Home = () => {
               From Requirement To <span className="bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent">Deployment</span>
             </h2>
             <p className="text-white/80 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed px-2">
-              A clear, six-stage recruitment route followed for every employer — regardless of trade, quantity or destination.
+              A Clear, Six-Stage Recruitment Route Followed For Every Employer — Regardless Of Trade, Quantity Or Destination.
             </p>
           </div>
 
@@ -459,12 +531,11 @@ const Home = () => {
             </div>
           </div>
 
-          {/* narrower body text — max-w-2xl ≈ 75 characters per line */}
           <div className="mt-10 sm:mt-12 max-w-2xl mx-auto">
             <div className="text-white/85 text-sm sm:text-base leading-relaxed space-y-4">
-              <p>Our comprehensive recruitment process helps us identify and select the most suitable candidates for our clients. We carefully evaluate each position and understand its specific requirements before beginning the recruitment process.</p>
-              <p>We thoroughly review job responsibilities, required skills, and working conditions to ensure the right candidates are selected for every role. This allows us to focus on the qualities and experience that best match our clients' needs.</p>
-              <p>Based on these requirements, we conduct an initial screening of candidates, followed by interviews and background verification to ensure reliability, suitability, and professionalism.</p>
+              <p>Our Comprehensive Recruitment Process Helps Us Identify And Select The Most Suitable Candidates For Our Clients. We Carefully Evaluate Each Position And Understand Its Specific Requirements Before Beginning The Recruitment Process.</p>
+              <p>We Thoroughly Review Job Responsibilities, Required Skills, And Working Conditions To Ensure The Right Candidates Are Selected For Every Role. This Allows Us To Focus On The Qualities And Experience That Best Match Our Clients' Needs.</p>
+              <p>Based On These Requirements, We Conduct An Initial Screening Of Candidates, Followed By Interviews And Background Verification To Ensure Reliability, Suitability, And Professionalism.</p>
             </div>
           </div>
 
@@ -494,7 +565,7 @@ const Home = () => {
               </h2>
 
               <p className="text-[#0A3A47] text-sm sm:text-base mb-5 leading-relaxed font-medium">
-                From candidate sourcing and trade testing to documentation and overseas deployment — every step handled by our team.
+                From Candidate Sourcing And Trade Testing To Documentation And Overseas Deployment — Every Step Handled By Our Team.
               </p>
 
               <div className="grid sm:grid-cols-2 gap-3.5">
@@ -526,7 +597,7 @@ const Home = () => {
                   <span className="w-6 h-6 rounded-full bg-[#4FC3F7]/12 flex items-center justify-center"><FaCheckCircle className="text-[#22C55E] text-xs" /></span>
                   <p className="text-[#0F4C5C] font-bold text-xs">End-To-End</p>
                 </div>
-                <p className="text-[#0A3A47] text-xs leading-relaxed">From sourcing to overseas deployment</p>
+                <p className="text-[#0A3A47] text-xs leading-relaxed">From Sourcing To Overseas Deployment</p>
               </div>
 
               <div className="animate-gentle-float-slow absolute top-3 right-3 bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] text-[#0F4C5C] rounded-2xl shadow-[0_12px_30px_rgba(79,195,247,0.35)] px-3.5 py-2.5 hidden md:block">
@@ -554,17 +625,17 @@ const Home = () => {
                 </h2>
 
                 <p className="text-[#0A3A47] text-sm sm:text-base mb-3 leading-relaxed font-medium">
-                  Our company supplies Pakistani manpower to international employers across the Middle East, Asia and beyond. We cover all three workforce tiers — skilled, semi-skilled and unskilled — so employers can build complete teams through a single recruitment partner.
+                  Our Company Supplies Pakistani Manpower To International Employers Across The Middle East, Asia And Beyond. We Cover All Three Workforce Tiers — Skilled, Semi-Skilled And Unskilled — So Employers Can Build Complete Teams Through A Single Recruitment Partner.
                 </p>
                 <p className="text-[#0A3A47]/90 text-sm sm:text-base mb-5 leading-relaxed">
-                  Whether you need certified tradespeople for infrastructure projects, semi-skilled helpers for facility operations, or general labour for site work, our team coordinates sourcing, screening, testing, documentation and deployment end to end.
+                  Whether You Need Certified Tradespeople For Infrastructure Projects, Semi-Skilled Helpers For Facility Operations, Or General Labour For Site Work, Our Team Coordinates Sourcing, Screening, Testing, Documentation And Deployment End To End.
                 </p>
 
                 <div className="grid grid-cols-3 gap-3 mb-5">
                   {[
-                    { icon: FaHardHat, title: "Skilled", desc: "Certified trades", color: "text-[#FFB300]" },
-                    { icon: FaTools, title: "Semi-Skilled", desc: "Site experience", color: "text-[#FFB300]" },
-                    { icon: FaUsers, title: "Unskilled", desc: "General labour", color: "text-[#4FC3F7]" },
+                    { icon: FaHardHat, title: "Skilled", desc: "Certified Trades", color: "text-[#FFB300]" },
+                    { icon: FaTools, title: "Semi-Skilled", desc: "Site Experience", color: "text-[#FFB300]" },
+                    { icon: FaUsers, title: "Unskilled", desc: "General Labour", color: "text-[#4FC3F7]" },
                   ].map(({ icon: Icon, title, desc, color }) => (
                     <div key={title} className="group relative bg-gradient-to-b from-white to-[#E1F5FE] rounded-xl p-3 border border-[#4FC3F7]/20 hover:border-[#4FC3F7]/50 hover:shadow-[0_12px_28px_rgba(79,195,247,0.15)] hover:-translate-y-1 transition-all duration-300 text-center">
                       <span className="absolute inset-x-0 top-0 h-0.5 rounded-t-xl bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300" />
@@ -664,7 +735,7 @@ const Home = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group/license relative block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4FC3F7] focus-visible:ring-offset-2 rounded-xl"
-                    aria-label="View full-size Overseas Employment License"
+                    aria-label="View Full-Size Overseas Employment License"
                   >
                     <img
                       src="/assets/license-1.png"
@@ -685,7 +756,6 @@ const Home = () => {
                     <p className="text-xs font-bold text-[#0A3A47]/70 mb-1">
                       License No.
                     </p>
-                    {/* tighter tracking — ID, not headline */}
                     <p className="text-[#29B6F6] font-extrabold text-sm sm:text-base tabular-nums">
                       OP&HRD/5224/LHR/2026
                     </p>
@@ -755,16 +825,16 @@ const Home = () => {
                 <FaQuoteLeft className="text-[#4FC3F7]/20 text-3xl sm:text-4xl absolute -top-2 -left-2" />
                 <div className="pl-6 sm:pl-8 pr-3 sm:pr-4">
                   <p className="text-[#0A3A47] leading-relaxed text-xs sm:text-sm mb-3">
-                    <strong className="text-[#0F4C5C] font-bold">A leading recruitment firm —</strong>{" "}
-                    I would like to take this opportunity to extend my good wishes to our esteemed employers and job seekers who have helped us become one of Pakistan's most trusted manpower partners. It has become a cherished name among job seekers as well as foreign employers.
+                    <strong className="text-[#0F4C5C] font-bold">A Leading Recruitment Firm —</strong>{" "}
+                    I Would Like To Take This Opportunity To Extend My Good Wishes To Our Esteemed Employers And Job Seekers Who Have Helped Us Become One Of Pakistan's Most Trusted Manpower Partners. It Has Become A Cherished Name Among Job Seekers As Well As Foreign Employers.
                   </p>
                   <p className="text-[#0A3A47]/90 leading-relaxed text-xs sm:text-sm mb-3">
-                    <strong className="text-[#0F4C5C] font-bold">Clients' growth is our growth —</strong>{" "}
-                    At Ali Hajveri International, there is a simple philosophy at work: that clients' growth and success is ultimately our growth and success. So we are always in search of opportunities that will make our valuable clients succeed.
+                    <strong className="text-[#0F4C5C] font-bold">Clients' Growth Is Our Growth —</strong>{" "}
+                    At Ali Hajveri International, There Is A Simple Philosophy At Work: That Clients' Growth And Success Is Ultimately Our Growth And Success. So We Are Always In Search Of Opportunities That Will Make Our Valuable Clients Succeed.
                   </p>
                   <p className="text-[#0A3A47]/90 leading-relaxed text-xs sm:text-sm">
-                    <strong className="text-[#0F4C5C] font-bold">Here for every query —</strong>{" "}
-                    We will be very happy to respond to any query regarding recruiting workers from Pakistan, and will continue to provide competent manpower to our valuable employers to their entire satisfaction. I am also grateful to Allah and to all my team members, because without them this feat would not have been possible.
+                    <strong className="text-[#0F4C5C] font-bold">Here For Every Query —</strong>{" "}
+                    We Will Be Very Happy To Respond To Any Query Regarding Recruiting Workers From Pakistan, And Will Continue To Provide Competent Manpower To Our Valuable Employers To Their Entire Satisfaction. I Am Also Grateful To Allah And To All My Team Members, Because Without Them This Feat Would Not Have Been Possible.
                   </p>
                 </div>
                 <FaQuoteRight className="text-[#4FC3F7]/20 text-3xl sm:text-4xl absolute -bottom-2 -right-2" />
@@ -789,7 +859,7 @@ const Home = () => {
               Recruitment Services For <span className="bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent">International Countries</span>
             </h2>
             <p className="text-[#0A3A47] text-sm sm:text-base max-w-2xl mx-auto leading-relaxed px-2 font-medium mt-2">
-              Trusted manpower partner for employers across Gulf, Asia and beyond.
+              Trusted Manpower Partner For Employers Across Gulf, Asia And Beyond.
             </p>
           </div>
 
@@ -798,13 +868,13 @@ const Home = () => {
               <div className="h-full bg-gradient-to-b from-white via-[#E1F5FE] to-white rounded-3xl border border-[#4FC3F7]/20 shadow-[0_8px_28px_rgba(15,76,92,0.06)] hover:shadow-[0_18px_44px_rgba(79,195,247,0.12)] hover:border-[#4FC3F7]/40 transition-all duration-300 p-5 sm:p-6 relative">
                 <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F]" />
                 <p className="text-[#0A3A47] text-sm sm:text-base leading-relaxed mb-4">
-                  Proudly, <span className="font-semibold text-[#0F4C5C]">Ali Hajveri International (Private) Limited</span> provides professional manpower recruitment and HR consultancy services to employers across international markets. We specialize in sourcing skilled, semi-skilled and unskilled Pakistani manpower for a wide range of industries and job categories across Gulf, Asian and other countries.
+                  Proudly, <span className="font-semibold text-[#0F4C5C]">Ali Hajveri International (Private) Limited</span> Provides Professional Manpower Recruitment And HR Consultancy Services To Employers Across International Markets. We Specialize In Sourcing Skilled, Semi-Skilled And Unskilled Pakistani Manpower For A Wide Range Of Industries And Job Categories Across Gulf, Asian And Other Countries.
                 </p>
                 <p className="text-[#0A3A47] text-sm sm:text-base leading-relaxed mb-4">
-                  Over the years, we have successfully assisted overseas employers in recruiting Pakistani workers for various sectors, including construction, engineering, manufacturing, security, hospitality, technical trades and general labor. Our recent recruitment activities include successful manpower placements for clients in <span className="font-semibold text-[#29B6F6]">China, Tajikistan and Kyrgyzstan</span>, while continuing to expand our services across other international markets.
+                  Over The Years, We Have Successfully Assisted Overseas Employers In Recruiting Pakistani Workers For Various Sectors, Including Construction, Engineering, Manufacturing, Security, Hospitality, Technical Trades And General Labor. Our Recent Recruitment Activities Include Successful Manpower Placements For Clients In <span className="font-semibold text-[#29B6F6]">China, Tajikistan And Kyrgyzstan</span>, While Continuing To Expand Our Services Across Other International Markets.
                 </p>
                 <p className="text-[#0A3A47] text-sm sm:text-base leading-relaxed">
-                  With a dedicated recruitment team and a growing network of qualified candidates, Ali Hajveri International (Private) Limited is committed to providing reliable and efficient manpower solutions to overseas employers.
+                  With A Dedicated Recruitment Team And A Growing Network Of Qualified Candidates, Ali Hajveri International (Private) Limited Is Committed To Providing Reliable And Efficient Manpower Solutions To Overseas Employers.
                 </p>
 
                 <div className="flex flex-wrap gap-2 mt-5 pt-4 border-t border-[#4FC3F7]/20">
@@ -822,16 +892,14 @@ const Home = () => {
               </div>
             </div>
 
-            {/* Map with softer saturation + dark wash → less cluttered */}
             <div className="relative order-1 lg:order-2 reveal-up group">
               <div className="relative h-full min-h-[200px] rounded-3xl overflow-hidden">
                 <img
                   src="/assets/map.png"
-                  alt="World map illustrating countries served by our recruitment services"
+                  alt="World Map Illustrating Countries Served By Our Recruitment Services"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03] saturate-[0.65] contrast-[1.05]"
                   onError={(e) => { e.target.style.display = "none"; }}
                 />
-                {/* soft wash to push detailed map back — decorative */}
                 <div className="absolute inset-0 bg-gradient-to-br from-[#0F4C5C]/35 via-transparent to-[#0F4C5C]/20" aria-hidden="true" />
                 <span className="img-shine" />
               </div>
@@ -843,7 +911,7 @@ const Home = () => {
                   </span>
                   <p className="text-[#0F4C5C] font-bold text-xs">Global Reach</p>
                 </div>
-                <p className="text-[#0A3A47] text-xs leading-relaxed">Serving employers worldwide</p>
+                <p className="text-[#0A3A47] text-xs leading-relaxed">Serving Employers Worldwide</p>
               </div>
 
               <div className="animate-gentle-float-slow absolute top-3 right-3 bg-gradient-to-r from-[#FFD54F] to-[#FFB300] text-[#0F4C5C] rounded-2xl shadow-[0_12px_30px_rgba(255,213,79,0.35)] px-3 py-2 hidden md:block">
@@ -879,7 +947,7 @@ const Home = () => {
               </div>
               <h3 className="font-[Plus_Jakarta_Sans] text-xl sm:text-2xl font-extrabold text-[#0F4C5C] mb-3">Our Mission</h3>
               <p className="text-[#0A3A47] text-sm sm:text-base leading-relaxed">
-                To deliver dependable overseas recruitment solutions that help employers build productive teams, while creating meaningful international career opportunities for Pakistani talent.
+                To Deliver Dependable Overseas Recruitment Solutions That Help Employers Build Productive Teams, While Creating Meaningful International Career Opportunities For Pakistani Talent.
               </p>
             </div>
 
@@ -893,14 +961,14 @@ const Home = () => {
                 Our <span className="bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent">Vision</span>
               </h3>
               <p className="relative text-white/85 text-sm sm:text-base leading-relaxed">
-                To become a trusted international manpower partner known for quality recruitment, responsible deployment and long-term employer relationships.
+                To Become A Trusted International Manpower Partner Known For Quality Recruitment, Responsible Deployment And Long-Term Employer Relationships.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ============ FINAL SECTION (single closing CTA) ============ */}
+      {/* ============ FINAL SECTION ============ */}
       <section className="relative mb-5 section-tight bg-cover bg-center bg-no-repeat overflow-hidden" style={{ backgroundImage: "url(/assets/footer.png)", backgroundColor: "#0F4C5C" }}>
         <div className="absolute inset-0 bg-[#0F4C5C]/70" />
 
@@ -916,7 +984,7 @@ const Home = () => {
           </h2>
 
           <p className="text-white/80 mb-7 sm:mb-8 leading-relaxed text-sm sm:text-base animate-fade-up-delayed">
-            From manpower requirements to successful deployment, {COMPANY_INFO?.fullName || "Ali Hajveri International"} works to connect international employers with suitable manpower from Pakistan through a professional and structured recruitment process.
+            From Manpower Requirements To Successful Deployment, {COMPANY_INFO?.fullName || "Ali Hajveri International"} Works To Connect International Employers With Suitable Manpower From Pakistan Through A Professional And Structured Recruitment Process.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center animate-fade-up-delayed-2">
@@ -932,15 +1000,6 @@ const Home = () => {
 
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
-
-        /* Type scale — text-xs 12 · text-sm 14 · text-base 16 · text-lg 18
-           · text-xl 20 · text-2xl 24 · text-3xl 30 · text-4xl 36 · text-5xl 48 */
-
-        /* Radius — rounded-full, rounded-3xl, rounded-2xl, rounded-xl */
-
-        /* Text colours — 10 total:
-           #0F4C5C  #0A3A47 (×3 opacities)  #29B6F6  #4FC3F7
-           #FFD54F  #FFB300  #22C55E  #FFFFFF */
 
         .section-tight {
           padding-top: 2rem;

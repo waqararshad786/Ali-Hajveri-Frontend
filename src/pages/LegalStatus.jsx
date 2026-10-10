@@ -1,6 +1,7 @@
 // src/pages/LegalStatus.jsx
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import {
   FaArrowRight,
   FaShieldAlt,
@@ -74,6 +75,115 @@ const LegalStatus = () => {
 
   return (
     <>
+      {/* ============ SEO META TAGS ============ */}
+      <Helmet>
+        <title>Legal Status | Licensed Overseas Employment Promoter | Ali Hajveri</title>
+        <meta
+          name="description"
+          content="Legal status of Ali Hajveri International (Pvt.) Limited - SECP incorporated, FBR registered, BEOE licensed overseas employment promoter with OEP License #5224, and ISO certified recruitment processes."
+        />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://ahioep.com/legal-status" />
+        <meta property="og:title" content="Legal Status | Licensed Overseas Employment Promoter | Ali Hajveri" />
+        <meta property="og:description" content="Government registrations, OEP license, and international certifications that authorize our overseas recruitment operations in Pakistan." />
+        <meta property="og:url" content="https://ahioep.com/legal-status" />
+        <meta property="og:type" content="website" />
+      </Helmet>
+
+      {/* ============ SEO CONTENT (Visually Hidden, Sirf Google Ke Liye) ============ */}
+      <div className="sr-only" aria-hidden="true">
+        <h1>Legal Status Of Ali Hajveri International - Licensed Overseas Employment Promoter In Pakistan</h1>
+        <p>
+          Ali Hajveri International (Pvt.) Limited Is A Fully Registered,
+          Licensed, And Certified Overseas Employment Promoter In Pakistan. Our
+          Legal Status Includes Government Registrations, An Active Overseas
+          Employment Promoter License, And International Certifications That
+          Authorize Our Operations In Pakistan And Abroad.
+        </p>
+
+        <h2>SECP Certificate Of Incorporation</h2>
+        <p>
+          Ali Hajveri International (Pvt.) Limited Is Incorporated Under The
+          Companies Act 2017 With The Securities And Exchange Commission Of
+          Pakistan (SECP). Our Corporate Registration Confirms Our Legal
+          Existence As A Private Limited Company Authorized To Conduct
+          Business In Pakistan.
+        </p>
+
+        <h2>FBR Tax Registration</h2>
+        <p>
+          We Are Registered With The Federal Board Of Revenue (FBR) As A
+          Tax-Compliant Business Entity. Our Active Tax Registration Confirms
+          Our Commitment To Financial Transparency And Legal Compliance.
+        </p>
+
+        <h2>BEOE Overseas Employment Promoter License</h2>
+        <p>
+          Ali Hajveri International Holds A Valid Overseas Employment Promoter
+          (OEP) License Number OP&HRD/5224/LHR/2026 Issued By The Bureau Of
+          Emigration And Overseas Employment (BEOE), Ministry Of Overseas
+          Pakistanis And Human Resource Development, Government Of Pakistan.
+          This License Authorizes Us To Recruit Pakistani Workers For Overseas
+          Employment And Is Independently Verifiable On The Official BEOE
+          Portal.
+        </p>
+
+        <h2>ISO Certifications</h2>
+        <p>
+          We Maintain ISO Certified Recruitment Processes Aligned With
+          International Standards. Our Quality Management System Ensures
+          Consistent Excellence In Every Stage Of The Recruitment And
+          Deployment Cycle.
+        </p>
+
+        <h2>Why Legal Status Matters</h2>
+        <p>
+          Choosing A Legally Registered And Licensed Overseas Employment
+          Promoter Is Critical For Both International Employers And Pakistani
+          Candidates. A Valid OEP License Confirms That The Promoter Is
+          Authorized By The Government Of Pakistan To Recruit Workers For
+          Overseas Employment. It Also Provides Legal Protection To Workers
+          And Ensures Proper Documentation And Compliance.
+        </p>
+
+        <h2>How To Verify Our Legal Status</h2>
+        <p>
+          International Employers And Candidates Can Independently Verify Our
+          Legal Status By Checking Our OEP License Number 5224 On The Official
+          BEOE Portal. Our Corporate Registration Can Be Verified Through SECP
+          Records, And Our Tax Registration Is Publicly Available Through FBR.
+        </p>
+
+        <h2>Our Commitment To Legal Compliance</h2>
+        <ul>
+          <li>Full Compliance With BEOE Regulations And Pakistani Laws</li>
+          <li>Complete Documentation For Every Deployed Worker</li>
+          <li>Proper Protector Of Emigrants Formalities</li>
+          <li>Foreign Service Agreement Registration</li>
+          <li>Transparent Financial Practices</li>
+          <li>Ethical Recruitment Standards</li>
+        </ul>
+
+        <h2>Contact Ali Hajveri International</h2>
+        <p>
+          For More Information About Our Legal Status Or To Verify Our
+          Credentials, Contact Ali Hajveri International (Pvt.) Limited.
+          Website: ahioep.com | Email: ahioep.com@gmail.com | Phone: +92 300
+          8578764
+        </p>
+
+        <h2>Internal Links</h2>
+        <nav>
+          <Link to="/legal-status/govt-license">Government License</Link>
+          <Link to="/legal-status/iso-certification">ISO Certification</Link>
+          <Link to="/about">About Us</Link>
+          <Link to="/process/quality-policy">Quality Policy</Link>
+          <Link to="/services">Our Services</Link>
+          <Link to="/contact">Contact Us</Link>
+          <Link to="/faq">FAQ</Link>
+        </nav>
+      </div>
+
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
 
@@ -130,6 +240,16 @@ const LegalStatus = () => {
         .legal-icon {
           transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
+
+        .sr-only {
+          position: absolute;
+          width: 1px; height: 1px;
+          padding: 0; margin: -1px;
+          overflow: hidden;
+          clip: rect(0, 0, 0, 0);
+          white-space: nowrap;
+          border: 0;
+        }
       `}</style>
 
       {/* ============ HERO ============ */}
@@ -138,7 +258,6 @@ const LegalStatus = () => {
           ref={heroRef}
           className="relative w-full min-h-[480px] overflow-hidden"
         >
-          {/* Grid Pattern */}
           <div
             className="absolute inset-0 opacity-[0.06]"
             style={{
@@ -148,7 +267,6 @@ const LegalStatus = () => {
             }}
           />
 
-          {/* Mouse Glow */}
           <div
             className="pointer-events-none absolute inset-0 transition-opacity duration-500"
             style={{
@@ -156,14 +274,12 @@ const LegalStatus = () => {
             }}
           />
 
-          {/* Blobs */}
           <div className="absolute -top-32 -right-40 w-[400px] h-[400px] bg-[#4FC3F7]/25 blur-3xl animate-blob" />
           <div
             className="absolute bottom-0 -left-40 w-[360px] h-[360px] bg-[#FFD54F]/15 blur-3xl animate-blob"
             style={{ animationDelay: "2s" }}
           />
 
-          {/* Floating Particles */}
           {[...Array(8)].map((_, i) => (
             <span
               key={i}
@@ -182,17 +298,14 @@ const LegalStatus = () => {
             />
           ))}
 
-          {/* Content */}
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16">
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-              {/* LEFT — Text */}
               <div className="text-center lg:text-left animate-fadeIn">
                 <div className="inline-flex items-center gap-2 mb-5 bg-white/15 backdrop-blur-md border border-[#4FC3F7]/50 rounded-full px-3.5 py-1.5">
                   <span className="relative flex h-2 w-2">
                     <span className="absolute inline-flex h-full w-full rounded-full bg-[#4FC3F7] opacity-75 animate-ping" />
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-[#4FC3F7]" />
                   </span>
-                  {/* FIX #2 — sentence case, no uppercase */}
                   <span className="text-white text-xs sm:text-sm font-bold tracking-wide">
                     Government Verified · Fully Licensed
                   </span>
@@ -212,8 +325,8 @@ const LegalStatus = () => {
                       "0 1px 3px rgba(0,0,0,0.85), 0 2px 6px rgba(15,76,92,0.7)",
                   }}
                 >
-                  Every registration, license, and certification that gives us
-                  the legal right to serve Pakistan's workforce.
+                  Every Registration, License, And Certification That Gives Us
+                  The Legal Right To Serve Pakistan's Workforce.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
@@ -226,7 +339,6 @@ const LegalStatus = () => {
                     <span className="relative">View Documents</span>
                     <FaArrowRight className="relative text-xs group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                   </a>
-                  {/* FIX #6 — Verify stays ghost on the dark hero */}
                   <Link
                     to="/contact"
                     className="inline-flex items-center justify-center gap-2 border-2 border-white/40 text-white px-6 py-3 rounded-full font-bold hover:bg-white hover:text-[#0F4C5C] hover:border-white transition-all duration-300 text-sm sm:text-base backdrop-blur-md"
@@ -237,10 +349,8 @@ const LegalStatus = () => {
                 </div>
               </div>
 
-              {/* RIGHT — Image */}
               <div className="relative flex items-center justify-center">
                 <div className="relative w-full max-w-[340px] sm:max-w-[380px]">
-                  {/* Rotating rings */}
                   <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                     <div className="w-[110%] h-[110%] rounded-full border border-[#4FC3F7]/20 animate-rotateSlow" />
                     <div
@@ -249,18 +359,15 @@ const LegalStatus = () => {
                     />
                   </div>
 
-                  {/* Glow */}
                   <div className="absolute -inset-8 bg-gradient-to-br from-[#4FC3F7]/30 via-[#FFD54F]/20 to-[#29B6F6]/30 blur-3xl rounded-full opacity-60" />
 
-                  {/* Image Card */}
                   <div className="relative animate-float">
-                    {/* FIX #1 — rounded-2xl instead of rounded-3xl */}
                     <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-[#4FC3F7] via-[#FFD54F] to-[#29B6F6] opacity-50 blur-md" />
 
                     <div className="relative rounded-2xl overflow-hidden border-2 border-white/40 bg-white shadow-[0_30px_70px_rgba(15,76,92,0.3)]">
                       <img
                         src="/src/assets/legal-status.png"
-                        alt="Legal Status"
+                        alt="Legal Status Documents Of Ali Hajveri International - Licensed Overseas Employment Promoter In Pakistan"
                         className="w-full h-auto object-cover"
                         onError={(e) => {
                           e.target.parentElement.innerHTML = `
@@ -271,9 +378,7 @@ const LegalStatus = () => {
                                   <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
                                 </div>
                                 <p class="text-lg font-black text-white mb-1">Legally Verified</p>
-                                <!-- FIX #3 — 9px → 12px, sentence case -->
                                 <p class="text-xs text-white/70 tracking-wide mb-4">Government Of Pakistan</p>
-                                <!-- FIX #4 — 9px → 12px, slightly wider padding -->
                                 <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur border border-white/20">
                                   <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
                                   <span class="text-xs font-bold text-white">OP&HRD/5224/LHR/2026</span>
@@ -285,9 +390,7 @@ const LegalStatus = () => {
                       />
                     </div>
 
-                    {/* Floating badges */}
                     <div className="absolute -top-3 -left-3 px-3 py-1.5 bg-white rounded-xl shadow-lg border border-[#4FC3F7]/20 flex items-center gap-2 animate-float" style={{ animationDelay: "0.5s" }}>
-                      {/* FIX #1 — rounded-lg → rounded-xl */}
                       <span className="w-7 h-7 rounded-xl bg-gradient-to-br from-[#4FC3F7] to-[#29B6F6] flex items-center justify-center">
                         <FaShieldAlt className="text-white text-[10px]" aria-hidden="true" />
                       </span>
@@ -316,7 +419,6 @@ const LegalStatus = () => {
                     </div>
                   </div>
 
-                  {/* Pulse rings */}
                   <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full rounded-full border-2 border-[#4FC3F7]/30 animate-pulseRing pointer-events-none" />
                   <span
                     className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full rounded-full border-2 border-[#FFD54F]/20 animate-pulseRing pointer-events-none"
@@ -347,11 +449,9 @@ const LegalStatus = () => {
         <div className="absolute bottom-0 -right-40 w-[340px] h-[340px] bg-[#FFD54F]/8 blur-3xl" />
 
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Heading */}
           <div className="text-center mb-7 sm:mb-9">
             <div className="inline-flex items-center gap-2 mb-3 bg-white border border-[#4FC3F7]/30 rounded-full px-3.5 py-1.5 shadow-[0_4px_14px_rgba(79,195,247,0.1)]">
               <FaShieldAlt className="text-[#4FC3F7] text-xs" aria-hidden="true" />
-              {/* FIX #2 — drop uppercase tracking-widest */}
               <span className="text-xs sm:text-sm font-extrabold tracking-wide bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent">
                 Our Credentials
               </span>
@@ -364,12 +464,11 @@ const LegalStatus = () => {
               Accountable.
             </h2>
             <p className="text-sm sm:text-base text-[#0A3A47]/70 max-w-xl mx-auto leading-relaxed font-medium">
-              Government registrations and international certifications that
-              authorize our operations in Pakistan and abroad.
+              Government Registrations And International Certifications That
+              Authorize Our Operations In Pakistan And Abroad.
             </p>
           </div>
 
-          {/* Cards Grid — 4 columns (FIX #9 — stronger container affordance) */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
             {legalItems.map((item, idx) => {
               const Icon = item.icon;
@@ -380,17 +479,14 @@ const LegalStatus = () => {
                   className="legal-card group relative bg-white rounded-2xl p-5 border-2 border-[#4FC3F7]/25 hover:border-[#4FC3F7]/70 shadow-[0_10px_30px_rgba(15,76,92,0.10)] hover:shadow-[0_22px_50px_rgba(79,195,247,0.22)] overflow-hidden animate-fadeIn focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4FC3F7] focus-visible:ring-offset-2"
                   style={{ animationDelay: `${idx * 0.1}s` }}
                 >
-                  {/* Top shimmer */}
                   <span className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-[#4FC3F7] via-[#FFD54F] to-[#4FC3F7] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
 
-                  {/* Icon */}
                   <div
                     className={`legal-icon w-12 h-12 rounded-xl bg-gradient-to-br ${item.accent} flex items-center justify-center mb-4 shadow-[0_8px_20px_rgba(79,195,247,0.3)]`}
                   >
                     <Icon className="text-white text-base" aria-hidden="true" />
                   </div>
 
-                  {/* Code badge */}
                   <div className="flex items-center gap-1.5 mb-2">
                     <span className="text-xs sm:text-sm font-extrabold tracking-wide bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent">
                       {item.code}
@@ -398,17 +494,14 @@ const LegalStatus = () => {
                     <FaCheckCircle className="text-green-500 text-xs" aria-hidden="true" />
                   </div>
 
-                  {/* Title */}
                   <h3 className="text-sm font-extrabold text-[#0F4C5C] leading-tight mb-1.5 group-hover:text-[#4FC3F7] transition-colors">
                     {item.title}
                   </h3>
 
-                  {/* Subtitle */}
                   <p className="text-xs sm:text-sm text-[#0A3A47]/60 font-semibold leading-snug mb-4">
                     {item.subtitle}
                   </p>
 
-                  {/* Arrow */}
                   <div className="flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#4FC3F7] opacity-80 group-hover:opacity-100 transition-all">
                     <span>View Details</span>
                     <FaArrowRight className="text-[10px] group-hover:translate-x-1 transition-transform" aria-hidden="true" />
@@ -418,7 +511,6 @@ const LegalStatus = () => {
             })}
           </div>
 
-          {/* Bottom CTA — FIX #6 — Verify is now ghost, matching the hero */}
           <div className="mt-7 sm:mt-9 text-center">
             <Link
               to="/contact"

@@ -1,6 +1,7 @@
 // src/pages/QualityPolicy.jsx
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import {
   FaArrowRight,
   FaDownload,
@@ -24,7 +25,7 @@ import {
 import jsPDF from "jspdf";
 import "jspdf-autotable";
 
-/* Shared action classes (fix #6) */
+/* Shared action classes */
 const SECONDARY_ACTION =
   "inline-flex items-center justify-center gap-2 bg-white border-2 border-[#0F4C5C]/30 " +
   "text-[#0F4C5C] px-6 py-3.5 rounded-full font-bold " +
@@ -63,42 +64,42 @@ const QualityPolicy = () => {
       id: 1,
       icon: <FaBullseye />,
       title: "Accuracy & Precision",
-      desc: "Ensuring all documentation, contracts, and visa processes meet the highest standards of accuracy and comply fully with Pakistani emigration regulations and destination-country requirements.",
+      desc: "Ensuring All Documentation, Contracts, And Visa Processes Meet The Highest Standards Of Accuracy And Comply Fully With Pakistani Emigration Regulations And Destination-Country Requirements.",
       color: "text-[#4FC3F7]",
     },
     {
       id: 2,
       icon: <FaUserTie />,
       title: "Professional Excellence",
-      desc: "Maintaining professional excellence through continuous staff training, updated knowledge of international employment laws, and adoption of best recruitment practices.",
+      desc: "Maintaining Professional Excellence Through Continuous Staff Training, Updated Knowledge Of International Employment Laws, And Adoption Of Best Recruitment Practices.",
       color: "text-[#8B5CF6]",
     },
     {
       id: 3,
       icon: <FaHeart />,
       title: "Candidate Welfare",
-      desc: "Prioritizing the welfare, safety, and rights of Pakistani workers — ensuring fair treatment, transparent processes, and complete support throughout their overseas journey.",
+      desc: "Prioritizing The Welfare, Safety, And Rights Of Pakistani Workers — Ensuring Fair Treatment, Transparent Processes, And Complete Support Throughout Their Overseas Journey.",
       color: "text-[#EC4899]",
     },
     {
       id: 4,
       icon: <FaHandshake />,
       title: "Employer Satisfaction",
-      desc: "Delivering suitable, qualified, and verified manpower that meets employer requirements, with consistent follow-up and post-deployment coordination.",
+      desc: "Delivering Suitable, Qualified, And Verified Manpower That Meets Employer Requirements, With Consistent Follow-Up And Post-Deployment Coordination.",
       color: "text-[#FFB300]",
     },
     {
       id: 5,
       icon: <FaBalanceScale />,
       title: "Legal Compliance",
-      desc: "Full adherence to the Bureau of Emigration & Overseas Employment (BEOE) regulations, Foreign Service Agreement requirements, and all applicable Pakistani laws.",
+      desc: "Full Adherence To The Bureau Of Emigration & Overseas Employment (BEOE) Regulations, Foreign Service Agreement Requirements, And All Applicable Pakistani Laws.",
       color: "text-[#22C55E]",
     },
     {
       id: 6,
       icon: <FaSyncAlt />,
       title: "Continuous Improvement",
-      desc: "Regularly reviewing and improving our recruitment processes, based on feedback, industry changes, and evolving global manpower demands.",
+      desc: "Regularly Reviewing And Improving Our Recruitment Processes, Based On Feedback, Industry Changes, And Evolving Global Manpower Demands.",
       color: "text-[#06B6D4]",
     },
   ];
@@ -107,38 +108,38 @@ const QualityPolicy = () => {
     {
       icon: FaShieldAlt,
       title: "BEOE Registered",
-      desc: "Officially registered Overseas Employment Promoter with the Government of Pakistan.",
+      desc: "Officially Registered Overseas Employment Promoter With The Government Of Pakistan.",
       color: "text-[#22C55E]",
     },
     {
       icon: FaCertificate,
       title: "Fully Licensed",
-      desc: "Valid Overseas Employment License OP&HRD/5224/LHR/2026 issued by the Ministry.",
+      desc: "Valid Overseas Employment License OP&HRD/5224/LHR/2026 Issued By The Ministry.",
       color: "text-[#FFB300]",
     },
     {
       icon: FaClipboardCheck,
       title: "Documented Process",
-      desc: "Every recruitment stage follows a documented, auditable process.",
+      desc: "Every Recruitment Stage Follows A Documented, Auditable Process.",
       color: "text-[#4FC3F7]",
     },
     {
       icon: FaGlobeAsia,
       title: "International Standards",
-      desc: "Compliance with international manpower recruitment best practices.",
+      desc: "Compliance With International Manpower Recruitment Best Practices.",
       color: "text-[#8B5CF6]",
     },
   ];
 
   const commitments = [
-    "We will only engage with licensed and verified overseas employers.",
-    "We will never charge candidates for job placement or selection.",
-    "We will provide accurate and truthful information to all parties.",
-    "We will maintain complete transparency in fees and processes.",
-    "We will protect the confidentiality of candidate and employer data.",
-    "We will comply fully with the laws of Pakistan and destination countries.",
-    "We will ensure trade-tested, qualified candidates for every job.",
-    "We will support workers throughout their overseas employment journey.",
+    "We Will Only Engage With Licensed And Verified Overseas Employers.",
+    "We Will Never Charge Candidates For Job Placement Or Selection.",
+    "We Will Provide Accurate And Truthful Information To All Parties.",
+    "We Will Maintain Complete Transparency In Fees And Processes.",
+    "We Will Protect The Confidentiality Of Candidate And Employer Data.",
+    "We Will Comply Fully With The Laws Of Pakistan And Destination Countries.",
+    "We Will Ensure Trade-Tested, Qualified Candidates For Every Job.",
+    "We Will Support Workers Throughout Their Overseas Employment Journey.",
   ];
 
   const stats = [
@@ -250,6 +251,143 @@ const QualityPolicy = () => {
 
   return (
     <>
+      {/* ============ SEO META TAGS ============ */}
+      <Helmet>
+        <title>Quality Policy | Overseas Recruitment Compliance | Ali Hajveri International</title>
+        <meta
+          name="description"
+          content="Quality policy of Ali Hajveri International (Pvt.) Limited - BEOE registered overseas employment promoter in Pakistan committed to accuracy, compliance, candidate welfare, and continuous improvement in overseas recruitment."
+        />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://ahioep.com/process/quality-policy" />
+        <meta property="og:title" content="Quality Policy | Overseas Recruitment Compliance | Ali Hajveri" />
+        <meta property="og:description" content="Our quality policy ensures compliance, transparency, and excellence in every stage of overseas manpower recruitment from Pakistan." />
+        <meta property="og:url" content="https://ahioep.com/process/quality-policy" />
+        <meta property="og:type" content="article" />
+      </Helmet>
+
+      {/* ============ SEO CONTENT (Visually Hidden, Sirf Google Ke Liye) ============ */}
+      <div className="sr-only" aria-hidden="true">
+        <h1>Quality Policy - Overseas Recruitment Compliance By Ali Hajveri International</h1>
+        <p>
+          Ali Hajveri International (Pvt.) Limited Is Committed To Providing
+          High-Quality Overseas Manpower Recruitment Services From Pakistan. As
+          A BEOE Registered Overseas Employment Promoter With License Number
+          OP&HRD/5224/LHR/2026, We Maintain The Highest Standards Of
+          Professionalism, Transparency, And Compliance With All Applicable
+          Regulations.
+        </p>
+        <p>
+          Our Quality Policy Ensures That Every Recruitment Transaction Protects
+          Both International Employers And Pakistani Candidates. We Focus On
+          Continuous Improvement, Candidate Welfare, Verified Employer
+          Partnerships, And Complete Adherence To The Rules And Regulations Of
+          The Bureau Of Emigration And Overseas Employment (BEOE), Government
+          Of Pakistan.
+        </p>
+
+        <h2>Our Six Core Quality Objectives</h2>
+        <p>
+          Our Quality Policy Is Built On Six Core Objectives That Define Our
+          Approach To Quality And Excellence In Overseas Recruitment.
+        </p>
+        <ul>
+          <li>Accuracy And Precision In Every Documentation, Contract, And Visa Process</li>
+          <li>Professional Excellence Through Continuous Staff Training And Updated Knowledge</li>
+          <li>Candidate Welfare With Fair Treatment And Transparent Processes</li>
+          <li>Employer Satisfaction Through Verified And Qualified Manpower</li>
+          <li>Legal Compliance With BEOE Regulations And Pakistani Laws</li>
+          <li>Continuous Improvement Based On Feedback And Industry Changes</li>
+        </ul>
+
+        <h2>Quality Standards We Maintain</h2>
+        <p>
+          We Are Officially Registered As An Overseas Employment Promoter With
+          The Government Of Pakistan. Our Valid Overseas Employment License
+          OP&HRD/5224/LHR/2026 Is Issued By The Ministry Of Overseas Pakistanis
+          And Human Resource Development. Every Recruitment Stage Follows A
+          Documented, Auditable Process, And We Comply With International
+          Manpower Recruitment Best Practices.
+        </p>
+
+        <h2>Our Commitments To Employers And Candidates</h2>
+        <ul>
+          <li>We Will Only Engage With Licensed And Verified Overseas Employers</li>
+          <li>We Will Never Charge Candidates For Job Placement Or Selection</li>
+          <li>We Will Provide Accurate And Truthful Information To All Parties</li>
+          <li>We Will Maintain Complete Transparency In Fees And Processes</li>
+          <li>We Will Protect The Confidentiality Of Candidate And Employer Data</li>
+          <li>We Will Comply Fully With The Laws Of Pakistan And Destination Countries</li>
+          <li>We Will Ensure Trade-Tested, Qualified Candidates For Every Job</li>
+          <li>We Will Support Workers Throughout Their Overseas Employment Journey</li>
+        </ul>
+
+        <h2>Why Quality Matters In Overseas Recruitment</h2>
+        <p>
+          Overseas Recruitment Involves Complex Legal, Financial, And Human
+          Considerations. Poor Quality Recruitment Practices Can Lead To
+          Disputes, Legal Issues, Financial Losses, And Mistreatment Of Workers.
+          Our Quality Policy Ensures That Every Step Of The Recruitment Process
+          Is Handled Professionally, Ethically, And In Full Compliance With
+          Applicable Regulations.
+        </p>
+
+        <h2>Legal Compliance And BEOE Registration</h2>
+        <p>
+          Ali Hajveri International Is Fully Compliant With The Rules And
+          Regulations Of The Bureau Of Emigration And Overseas Employment
+          (BEOE), Ministry Of Overseas Pakistanis And Human Resource
+          Development, Government Of Pakistan. We Complete All Required
+          Protector Of Emigrants Formalities, Foreign Service Agreement
+          Registration, And Emigration Clearance For Every Deployed Worker.
+        </p>
+
+        <h2>Candidate Welfare And Protection</h2>
+        <p>
+          We Prioritize The Welfare, Safety, And Rights Of Pakistani Workers
+          Throughout Their Overseas Employment Journey. From Pre-Departure
+          Orientation To Post-Deployment Support, We Ensure Every Candidate
+          Receives Fair Treatment, Accurate Information About Employment Terms,
+          And Access To Grievance Resolution Services.
+        </p>
+
+        <h2>Employer Satisfaction Through Quality Placement</h2>
+        <p>
+          We Deliver Suitable, Qualified, And Verified Manpower That Meets
+          Employer Requirements. Our Trade Testing, Skill Assessments, And
+          Documentation Verification Ensure That Employers Receive Workers Who
+          Can Perform The Required Job Effectively And Reliably.
+        </p>
+
+        <h2>Continuous Improvement In Our Recruitment Process</h2>
+        <p>
+          We Regularly Review And Improve Our Recruitment Processes Based On
+          Feedback From Employers And Candidates, Industry Changes, And Evolving
+          Global Manpower Demands. This Commitment To Continuous Improvement
+          Ensures Our Services Remain Effective, Compliant, And Competitive.
+        </p>
+
+        <h2>Contact Ali Hajveri International</h2>
+        <p>
+          For More Information About Our Quality Policy Or To Discuss Your
+          Overseas Recruitment Needs, Contact Ali Hajveri International (Pvt.)
+          Limited. Website: ahioep.com | Email: ahioep.com@gmail.com | Phone:
+          +92 300 8578764
+        </p>
+
+        <h2>Internal Links</h2>
+        <nav>
+          <Link to="/process">Process Overview</Link>
+          <Link to="/process/recruitment">Recruitment Process</Link>
+          <Link to="/process/work-visa">Work Visa Process</Link>
+          <Link to="/services">Our Services</Link>
+          <Link to="/about">About Us</Link>
+          <Link to="/legal-status">Legal Status</Link>
+          <Link to="/contact">Contact Us</Link>
+          <Link to="/faq">FAQ</Link>
+        </nav>
+      </div>
+
       <style>{`
         @keyframes shimmer {
           0% { background-position: 0% 50%; }
@@ -274,10 +412,18 @@ const QualityPolicy = () => {
         .animate-blob { animation: blob 9s ease-in-out infinite; }
         .animate-float { animation: float 4s ease-in-out infinite; }
         .animate-slideUp { animation: slideUp 0.5s ease-out forwards; }
+        .sr-only {
+          position: absolute;
+          width: 1px; height: 1px;
+          padding: 0; margin: -1px;
+          overflow: hidden;
+          clip: rect(0, 0, 0, 0);
+          white-space: nowrap;
+          border: 0;
+        }
       `}</style>
 
       {/* ============ HERO ============ */}
-      {/* FIX #5 — pb-10 → pb-8 to align with the uniform py-10 sm:py-12 rhythm */}
       <section className="relative mt-[-50px] overflow-hidden bg-gradient-to-br from-white via-[#E1F5FE] to-white pt-20 lg:pt-24 pb-8">
         <div
           ref={heroRef}
@@ -309,7 +455,6 @@ const QualityPolicy = () => {
 
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-8 items-center">
-            {/* LEFT — Text */}
             <div className="lg:col-span-7 text-center lg:text-left">
               <div className="inline-flex items-center gap-2 mb-4 bg-white/80 backdrop-blur-md border border-[#4FC3F7]/50 rounded-full px-4 py-2 shadow-[0_6px_18px_rgba(79,195,247,0.15)]">
                 <span className="relative flex h-2 w-2">
@@ -345,8 +490,8 @@ const QualityPolicy = () => {
               </h1>
 
               <p className="text-[#0A3A47]/85 text-sm sm:text-base md:text-lg leading-relaxed mb-5 max-w-xl lg:max-w-2xl mx-auto lg:mx-0 font-medium">
-                A commitment to excellence, compliance, and transparency in
-                every stage of overseas manpower recruitment from Pakistan.
+                A Commitment To Excellence, Compliance, And Transparency In
+                Every Stage Of Overseas Manpower Recruitment From Pakistan.
               </p>
 
               <div className="flex flex-wrap gap-2.5 justify-center lg:justify-start mb-5">
@@ -375,7 +520,6 @@ const QualityPolicy = () => {
                   <span className="relative">Our Objectives</span>
                   <FaArrowRight className="relative text-xs group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                 </a>
-                {/* FIX #6 — Download PDF uses the shared secondary class */}
                 <button onClick={downloadPDF} className={SECONDARY_ACTION}>
                   <FaDownload className="text-sm" aria-hidden="true" />
                   Download PDF
@@ -383,7 +527,6 @@ const QualityPolicy = () => {
               </div>
             </div>
 
-            {/* RIGHT — Stats card (FIX #2 — rounded-2xl, more padding) */}
             <div className="lg:col-span-5">
               <div className="relative max-w-sm mx-auto">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#4FC3F7]/40 to-[#FFD54F]/20 blur-3xl rounded-full" />
@@ -399,7 +542,6 @@ const QualityPolicy = () => {
                       <p className="text-[#0F4C5C] font-extrabold text-sm sm:text-base">
                         Quality Metrics
                       </p>
-                      {/* FIX #1 — was text-[#29B6F6]; now matches brand cyan */}
                       <p className="text-[#0F4C5C]/70 text-xs font-bold tracking-wide">
                         Our Performance
                       </p>
@@ -432,7 +574,6 @@ const QualityPolicy = () => {
       </section>
 
       {/* ============ POLICY STATEMENT ============ */}
-      {/* FIX #5 — uniform py-10 sm:py-12; FIX #2 — single rounded-2xl */}
       <section className="relative py-10 sm:py-12 bg-white overflow-hidden">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative bg-gradient-to-br from-[#E1F5FE] via-white to-[#E1F5FE] rounded-2xl p-6 sm:p-8 border border-[#4FC3F7]/25 shadow-[0_14px_40px_rgba(15,76,92,0.08)] overflow-hidden">
@@ -443,7 +584,6 @@ const QualityPolicy = () => {
                 <FaBullseye className="text-white text-base" aria-hidden="true" />
               </span>
               <div>
-                {/* FIX #1 + #3 — sentence case, brand cyan */}
                 <p className="text-[#4FC3F7] text-xs font-bold tracking-wide">
                   Our Commitment
                 </p>
@@ -457,19 +597,19 @@ const QualityPolicy = () => {
               <strong className="text-[#0F4C5C]">
                 Ali Hajveri International (Pvt.) Ltd.
               </strong>{" "}
-              is committed to providing high-quality overseas manpower
-              recruitment services from Pakistan. We maintain the highest
-              standards of professionalism, transparency, and compliance with
-              all applicable regulations — ensuring both international
-              employers and Pakistani candidates receive ethical, reliable,
-              and compliant recruitment services.
+              Is Committed To Providing High-Quality Overseas Manpower
+              Recruitment Services From Pakistan. We Maintain The Highest
+              Standards Of Professionalism, Transparency, And Compliance With
+              All Applicable Regulations — Ensuring Both International
+              Employers And Pakistani Candidates Receive Ethical, Reliable,
+              And Compliant Recruitment Services.
             </p>
 
             <p className="text-[#0A3A47]/85 leading-relaxed text-sm sm:text-base">
-              Our quality management approach focuses on continuous
-              improvement, candidate welfare, verified employer partnerships,
-              and complete adherence to the rules and regulations of the
-              Bureau of Emigration & Overseas Employment (BEOE), Government of
+              Our Quality Management Approach Focuses On Continuous
+              Improvement, Candidate Welfare, Verified Employer Partnerships,
+              And Complete Adherence To The Rules And Regulations Of The
+              Bureau Of Emigration & Overseas Employment (BEOE), Government Of
               Pakistan.
             </p>
           </div>
@@ -477,7 +617,6 @@ const QualityPolicy = () => {
       </section>
 
       {/* ============ QUALITY OBJECTIVES ============ */}
-      {/* FIX #5 — uniform padding; FIX #11 — left-aligned header; FIX #1 + #3 — label */}
       <section
         id="objectives"
         className="relative py-10 sm:py-12 bg-gradient-to-b from-white via-[#E1F5FE]/40 to-white overflow-hidden"
@@ -497,7 +636,7 @@ const QualityPolicy = () => {
               </span>
             </h2>
             <p className="text-[#0A3A47]/75 text-sm sm:text-base max-w-2xl">
-              Six pillars that define our approach to quality and excellence.
+              Six Pillars That Define Our Approach To Quality And Excellence.
             </p>
           </div>
 
@@ -508,7 +647,6 @@ const QualityPolicy = () => {
                 className="group relative bg-white rounded-2xl p-5 border border-[#4FC3F7]/20 hover:border-[#4FC3F7]/60 hover:shadow-[0_20px_45px_rgba(79,195,247,0.15)] hover:-translate-y-2 transition-all duration-300 overflow-hidden animate-slideUp"
                 style={{ animationDelay: `${idx * 0.08}s` }}
               >
-                {/* FIX #2 — underline no longer rounded-t-2xl */}
                 <span className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500" />
 
                 <span className="absolute top-2 right-4 text-5xl sm:text-6xl font-black text-[#4FC3F7]/8 group-hover:text-[#4FC3F7]/15 transition-colors duration-500 select-none pointer-events-none">
@@ -544,7 +682,6 @@ const QualityPolicy = () => {
         />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* FIX #11 — left-aligned header */}
           <div className="text-left mb-8">
             <div className="inline-flex items-center gap-2 mb-2.5 pl-3 border-l-2 border-[#4FC3F7]">
               <FaCertificate className="text-[#FFB300] text-xs" aria-hidden="true" />
@@ -555,8 +692,7 @@ const QualityPolicy = () => {
             <h2 className="font-[Plus_Jakarta_Sans] text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0F4C5C] mb-2 leading-tight">
               Quality{" "}
               <span className="bg-gradient-to-r from-[#4FC3F7] via-[#FFD54F] to-[#4FC3F7] bg-clip-text text-transparent bg-[length:200%_100%] animate-[gradientShift_4s_ease_infinite]">
-                Standards
-              </span>
+                Standards              </span>
             </h2>
           </div>
 
@@ -587,7 +723,6 @@ const QualityPolicy = () => {
       {/* ============ OUR COMMITMENTS ============ */}
       <section className="relative py-10 sm:py-12 bg-gradient-to-b from-white to-[#E1F5FE] overflow-hidden">
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* FIX #11 — left-aligned header */}
           <div className="text-left mb-8">
             <div className="inline-flex items-center gap-2 mb-2.5 pl-3 border-l-2 border-[#4FC3F7]">
               <FaHandshake className="text-[#FFB300] text-xs" aria-hidden="true" />
@@ -602,7 +737,7 @@ const QualityPolicy = () => {
               </span>
             </h2>
             <p className="text-[#0A3A47]/75 text-sm sm:text-base max-w-2xl">
-              Our ongoing commitment to quality, ethics, and excellence.
+              Our Ongoing Commitment To Quality, Ethics, And Excellence.
             </p>
           </div>
 
@@ -630,7 +765,6 @@ const QualityPolicy = () => {
       </section>
 
       {/* ============ DOWNLOAD CTA ============ */}
-      {/* FIX #6 — secondary action; FIX #2 — single rounded-2xl; FIX #9 — grouped layout */}
       <section className="relative py-8 bg-white overflow-hidden">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative bg-white border border-[#4FC3F7]/25 rounded-2xl px-5 sm:px-7 py-6 shadow-[0_20px_50px_rgba(15,76,92,0.10)] overflow-hidden">
@@ -646,7 +780,7 @@ const QualityPolicy = () => {
                     Want The Full Policy?
                   </h3>
                   <p className="text-[#0A3A47]/75 text-xs sm:text-sm mt-0.5">
-                    Download our complete quality policy as a PDF document.
+                    Download Our Complete Quality Policy As A PDF Document.
                   </p>
                 </div>
               </div>
@@ -660,7 +794,6 @@ const QualityPolicy = () => {
       </section>
 
       {/* ============ FINAL CTA ============ */}
-      {/* FIX #2 — single rounded-2xl; FIX #6 — shared primary class; FIX #7 — arrow on both CTAs */}
       <section className="relative py-10 sm:py-12 bg-[#E1F5FE] overflow-hidden">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative bg-gradient-to-br from-[#0F4C5C] via-[#0A3A47] to-[#06303A] rounded-2xl px-6 sm:px-8 py-8 sm:py-10 text-center overflow-hidden border border-[#4FC3F7]/25 shadow-[0_24px_60px_rgba(15,76,92,0.25)]">
@@ -685,13 +818,12 @@ const QualityPolicy = () => {
               </h2>
 
               <p className="text-white/80 text-sm sm:text-base mb-6 leading-relaxed">
-                Partner with Ali Hajveri International and experience a
-                recruitment process built on quality, transparency, and
-                complete regulatory compliance.
+                Partner With Ali Hajveri International And Experience A
+                Recruitment Process Built On Quality, Transparency, And
+                Complete Regulatory Compliance.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                {/* FIX #6 — shared primary class */}
                 <Link
                   to="/contact"
                   className={PRIMARY_ACTION}
@@ -701,7 +833,6 @@ const QualityPolicy = () => {
                   <span className="relative">Contact Our Team</span>
                   <FaArrowRight className="relative text-xs group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                 </Link>
-                {/* FIX #7 — arrow added so both CTAs share the same icon language */}
                 <Link
                   to="/process/recruitment"
                   className="group inline-flex items-center justify-center gap-2 border border-[#4FC3F7]/40 text-[#4FC3F7] px-6 sm:px-8 py-3.5 rounded-full font-semibold hover:bg-[#4FC3F7]/10 hover:border-[#4FC3F7]/70 hover:scale-105 transition-all duration-300 text-sm sm:text-base"

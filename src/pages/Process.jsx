@@ -1,6 +1,7 @@
 // src/pages/Process.jsx
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import {
   FaArrowRight,
   FaUsers,
@@ -233,6 +234,139 @@ const Process = () => {
 
   return (
     <>
+      {/* ============ SEO META TAGS ============ */}
+      <Helmet>
+        <title>Overseas Recruitment Process In Pakistan | Work Visa Process | Ali Hajveri</title>
+        <meta
+          name="description"
+          content="Complete overseas recruitment process in Pakistan - 8-step recruitment journey, 10-step work visa process, and quality policy for compliance. Learn how Ali Hajveri International deploys Pakistani workers overseas."
+        />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://ahioep.com/process" />
+        <meta property="og:title" content="Overseas Recruitment & Work Visa Process In Pakistan | Ali Hajveri" />
+        <meta property="og:description" content="Complete overseas recruitment, work visa, and quality policy processes for deploying Pakistani workers internationally." />
+        <meta property="og:url" content="https://ahioep.com/process" />
+        <meta property="og:type" content="website" />
+      </Helmet>
+
+      {/* ============ SEO CONTENT (Visually Hidden, Sirf Google Ke Liye) ============ */}
+      <div className="sr-only" aria-hidden="true">
+        <h1>Overseas Recruitment Process In Pakistan - Complete Process Framework</h1>
+        <p>
+          Ali Hajveri International (Pvt.) Limited Follows A Complete, Transparent,
+          And Compliant Overseas Recruitment Process In Pakistan. Our Process
+          Framework Is Divided Into Three Interconnected Stages — Recruitment
+          Process, Work Visa Process, And Quality Policy — Each With Clearly
+          Defined Steps And Responsibilities.
+        </p>
+        <p>
+          From Initial Manpower Requirement Consultation To Final Overseas
+          Deployment, Every Stage Is Handled By Our Licensed Team With Full
+          Documentation, Regulatory Compliance, And Candidate Welfare In Mind.
+        </p>
+
+        <h2>Our Recruitment Process - 8-Step Journey</h2>
+        <p>
+          The Recruitment Process Covers The Complete Journey From Manpower
+          Requirement To Final Selection, Documentation, And Medical Clearance.
+          The Average Duration Is 8 To 10 Weeks Depending On The Trade And
+          Destination Country.
+        </p>
+        <ul>
+          <li>Step 1: Manpower Requirement & Consultation</li>
+          <li>Step 2: Candidate Sourcing From Across Pakistan</li>
+          <li>Step 3: Profile Screening Against Employer Brief</li>
+          <li>Step 4: Technical And Trade Testing</li>
+          <li>Step 5: Employer Interviews And Selection</li>
+          <li>Step 6: Document Verification And Completion</li>
+          <li>Step 7: Medical Fitness Verification</li>
+          <li>Step 8: Final Selection And Confirmation</li>
+        </ul>
+
+        <h2>Our Work Visa Process - 10-Step Journey</h2>
+        <p>
+          The Work Visa Process Covers The Complete Journey From Candidate
+          Selection To Overseas Deployment, Including Contract Signing, FSA
+          Registration, Visa Submission, Protector Of Emigrants Processing, And
+          Travel Arrangements. This Process Typically Takes 4 To 8 Weeks.
+        </p>
+        <ul>
+          <li>Step 1: Selection & Final Confirmation</li>
+          <li>Step 2: Employment Contract Signing</li>
+          <li>Step 3: FSA Registration With BEOE</li>
+          <li>Step 4: Work Visa Submission To Embassy</li>
+          <li>Step 5: Work Visa Approval</li>
+          <li>Step 6: Protector Of Emigrants Processing</li>
+          <li>Step 7: Emigration Clearance</li>
+          <li>Step 8: Air Ticketing And Travel Booking</li>
+          <li>Step 9: Pre-Departure Orientation</li>
+          <li>Step 10: Overseas Deployment And Mobilization</li>
+        </ul>
+
+        <h2>Our Quality Policy - 6 Core Objectives</h2>
+        <p>
+          Our Quality Policy Applies Across All Recruitment And Deployment
+          Processes. It Ensures Compliance With BEOE Regulations, Transparency
+          In Every Transaction, Ethical Recruitment Practices, And Continuous
+          Improvement Based On Employer And Candidate Feedback.
+        </p>
+        <ul>
+          <li>Accuracy And Precision In Every Recruitment Step</li>
+          <li>Professional Excellence Through Ongoing Training</li>
+          <li>Compliance With Pakistani And International Laws</li>
+          <li>Candidate Welfare And Fair Treatment</li>
+          <li>Employer Satisfaction Through Quality Placements</li>
+          <li>Continuous Process Improvement</li>
+        </ul>
+
+        <h2>Why Our Process Is Different</h2>
+        <p>
+          Unlike Many Overseas Employment Promoters, We Separate Recruitment,
+          Visa, And Quality Into Three Distinct, Clearly Defined Processes. This
+          Ensures Full Compliance, Total Transparency, And Quality Assurance At
+          Every Stage. Employers And Candidates Both See The Same Process — No
+          Hidden Steps, No Surprises.
+        </p>
+
+        <h2>Process Duration And Timelines</h2>
+        <p>
+          The Average Duration For A Complete Overseas Recruitment Cycle Is 8 To
+          10 Weeks For The Recruitment Process And 4 To 8 Weeks For The Work
+          Visa Process. Total Time From Requirement To Deployment Is Typically
+          12 To 18 Weeks, Depending On The Trade, Destination Country, And
+          Volume Of Workers Required.
+        </p>
+
+        <h2>Countries We Deploy Workers To</h2>
+        <p>
+          We Currently Deploy Pakistani Workers To Saudi Arabia, UAE, Qatar,
+          Oman, Kuwait, Bahrain, Tajikistan, Kazakhstan, Kyrgyzstan, Uzbekistan,
+          Turkmenistan, Romania, And Other International Markets. Each
+          Destination Country Has Its Own Visa Requirements And Timelines, Which
+          We Manage Completely.
+        </p>
+
+        <h2>Contact Ali Hajveri International</h2>
+        <p>
+          To Learn More About Our Overseas Recruitment Process Or To Discuss
+          Your Specific Manpower Requirements, Contact Ali Hajveri International
+          (Pvt.) Limited. Website: ahioep.com | Email: ahioep.com@gmail.com |
+          Phone: +92 300 8578764
+        </p>
+
+        <h2>Internal Links</h2>
+        <nav>
+          <Link to="/process/recruitment">Recruitment Process</Link>
+          <Link to="/process/work-visa">Work Visa Process</Link>
+          <Link to="/process/quality-policy">Quality Policy</Link>
+          <Link to="/services">Our Services</Link>
+          <Link to="/about">About Us</Link>
+          <Link to="/countries">Countries We Serve</Link>
+          <Link to="/contact">Contact Us</Link>
+          <Link to="/faq">FAQ</Link>
+        </nav>
+      </div>
+
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
 
@@ -349,7 +483,6 @@ const Process = () => {
                 With Compliance, Transparency, And Care At Every Stage.
               </p>
 
-              {/* FIX #9 — hero trust badges: larger, higher contrast, decorative icons hidden */}
               <div className="flex flex-wrap gap-2.5 justify-center lg:justify-start mb-5">
                 {HERO_CHIPS.map(({ icon: Icon, text, color }) => (
                   <span
@@ -381,7 +514,6 @@ const Process = () => {
               </div>
             </div>
 
-            {/* FIX #6 — Process At A Glance: more padding, larger icons */}
             <div className="lg:col-span-5">
               <div className="relative max-w-sm mx-auto">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#4FC3F7]/40 to-[#FFD54F]/20 blur-3xl rounded-full" />
@@ -432,7 +564,6 @@ const Process = () => {
       </section>
 
       {/* ============ STEP PREVIEW — MARQUEE ROW ============ */}
-      {/* FIX #7 — marquee items no longer look like buttons; a11y hidden duplicate list provided */}
       <section
         aria-label="Process steps overview"
         className="relative py-4 bg-white border-y border-[#4FC3F7]/15 overflow-hidden"
@@ -476,7 +607,6 @@ const Process = () => {
           <div className="text-center mb-8">
             <div className="inline-flex items-center gap-2 mb-2.5 bg-[#4FC3F7]/10 border border-[#4FC3F7]/30 rounded-full px-3.5 py-1.5">
               <FaFire className="text-[#F97316] text-xs" aria-hidden="true" />
-              {/* FIX #3 — removed uppercase + tracking-widest */}
               <span className="text-[#0F4C5C] text-xs sm:text-sm font-bold tracking-wide">
                 Our Core Processes
               </span>
@@ -501,7 +631,6 @@ const Process = () => {
                 <Link
                   key={proc.id}
                   to={proc.path}
-                  /* FIX #2 — rounded-3xl → rounded-2xl */
                   className={`group relative animate-slideUp rounded-2xl overflow-hidden border transition-all duration-500 hover:-translate-y-2 ${
                     isCyan
                       ? "border-[#4FC3F7]/25 hover:border-[#4FC3F7]/70 bg-gradient-to-br from-white via-[#E1F5FE]/40 to-white hover:shadow-[0_28px_60px_rgba(79,195,247,0.22)]"
@@ -613,7 +742,6 @@ const Process = () => {
           <div className="text-center mb-8">
             <div className="inline-flex items-center gap-2 mb-2.5 bg-[#4FC3F7]/10 border border-[#4FC3F7]/30 rounded-full px-3.5 py-1.5">
               <FaShieldAlt className="text-[#22C55E] text-xs" aria-hidden="true" />
-              {/* FIX #3 — removed uppercase + tracking-widest */}
               <span className="text-[#0F4C5C] text-xs sm:text-sm font-bold tracking-wide">
                 Why Three Processes
               </span>
@@ -659,7 +787,6 @@ const Process = () => {
       {/* ============ FINAL CTA ============ */}
       <section className="relative py-8 sm:py-10 bg-gradient-to-b from-[#E1F5FE] to-white overflow-hidden">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* FIX #2 — removed sm:rounded-3xl; single rounded-2xl */}
           <div className="relative bg-gradient-to-br from-[#0F4C5C] via-[#0A3A47] to-[#06303A] rounded-2xl px-6 sm:px-8 py-7 sm:py-9 text-center overflow-hidden border border-[#4FC3F7]/25 shadow-[0_24px_60px_rgba(15,76,92,0.25)]">
             <div className="absolute -top-20 -right-20 w-72 h-72 bg-[#4FC3F7]/25 blur-3xl animate-blob" />
             <div

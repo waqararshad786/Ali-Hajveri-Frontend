@@ -1,6 +1,7 @@
 // src/pages/GovtLicense.jsx
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import {
   FaArrowRight,
   FaShieldAlt,
@@ -91,6 +92,117 @@ const GovtLicense = () => {
 
   return (
     <>
+      {/* ============ SEO META TAGS ============ */}
+      <Helmet>
+        <title>Government License & Certificates | Licensed OEP | Ali Hajveri International</title>
+        <meta
+          name="description"
+          content="View official government documents of Ali Hajveri International - SECP Certificate of Incorporation, FBR Tax Registration, and BEOE Overseas Employment Promoter License #5224 issued by Government of Pakistan."
+        />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://ahioep.com/legal-status/govt-license" />
+        <meta property="og:title" content="Government License & Certificates | Ali Hajveri International" />
+        <meta property="og:description" content="Official SECP, FBR, and BEOE documents verifying Ali Hajveri International as a licensed overseas employment promoter in Pakistan." />
+        <meta property="og:url" content="https://ahioep.com/legal-status/govt-license" />
+        <meta property="og:type" content="website" />
+      </Helmet>
+
+      {/* ============ SEO CONTENT (Visually Hidden, Sirf Google Ke Liye) ============ */}
+      <div className="sr-only" aria-hidden="true">
+        <h1>Government License & Certificates - Ali Hajveri International (Pvt.) Limited</h1>
+        <p>
+          Ali Hajveri International (Pvt.) Limited Is A Fully Registered,
+          Licensed, And Certified Overseas Employment Promoter In Pakistan. Our
+          Government Documents Include SECP Certificate Of Incorporation, FBR
+          Tax Registration Certificates, And BEOE Overseas Employment Promoter
+          License Number OP&HRD/5224/LHR/2026.
+        </p>
+
+        <h2>SECP Certificate Of Incorporation</h2>
+        <p>
+          Our Certificate Of Incorporation Is Issued By The Securities And
+          Exchange Commission Of Pakistan (SECP) Under The Companies Act 2017.
+          This Document Confirms Our Legal Registration As A Private Limited
+          Company Authorized To Conduct Business In Pakistan.
+        </p>
+
+        <h2>FBR Tax Registration Certificate</h2>
+        <p>
+          We Are Registered With The Federal Board Of Revenue (FBR) For Both
+          Corporate Tax And Sales Tax. Our Tax Registration Confirms Our
+          Commitment To Financial Transparency And Full Compliance With
+          Pakistani Tax Laws.
+        </p>
+
+        <h2>BEOE Overseas Employment Promoter License</h2>
+        <p>
+          Our Overseas Employment Promoter (OEP) License Number
+          OP&HRD/5224/LHR/2026 Is Issued By The Bureau Of Emigration And
+          Overseas Employment (BEOE), Ministry Of Overseas Pakistanis And Human
+          Resource Development, Government Of Pakistan. This License Authorizes
+          Us To Recruit Pakistani Workers For Overseas Employment And Is
+          Independently Verifiable On The Official BEOE Portal.
+        </p>
+
+        <h2>How To Verify Our Documents</h2>
+        <p>
+          International Employers And Candidates Can Independently Verify Our
+          Government Documents Through Official Channels. Our SECP Registration
+          Can Be Verified Through SECP Records, Our Tax Registration Through
+          FBR, And Our OEP License Through The Bureau Of Emigration And
+          Overseas Employment (BEOE) Portal By Entering License Number 5224.
+        </p>
+
+        <h2>Government Authorities That Regulate Us</h2>
+        <ul>
+          <li>SECP - Securities And Exchange Commission Of Pakistan</li>
+          <li>FBR - Federal Board Of Revenue</li>
+          <li>BEOE - Bureau Of Emigration And Overseas Employment</li>
+          <li>OP&HRD - Ministry Of Overseas Pakistanis And Human Resource Development</li>
+        </ul>
+
+        <h2>Why Legal Documents Matter In Overseas Recruitment</h2>
+        <p>
+          Choosing A Licensed Overseas Employment Promoter Is Critical For Both
+          International Employers And Pakistani Candidates. A Valid OEP License
+          Confirms That The Promoter Is Authorized By The Government Of
+          Pakistan To Recruit Workers For Overseas Employment. It Also
+          Provides Legal Protection To Workers And Ensures Proper Documentation
+          And Compliance Throughout The Recruitment Process.
+        </p>
+
+        <h2>Our Compliance Commitments</h2>
+        <ul>
+          <li>Full Compliance With BEOE Regulations And Pakistani Laws</li>
+          <li>Complete Documentation For Every Deployed Worker</li>
+          <li>Proper Protector Of Emigrants Formalities</li>
+          <li>Foreign Service Agreement Registration</li>
+          <li>Transparent Financial Practices And Tax Compliance</li>
+          <li>Ethical Recruitment Standards</li>
+        </ul>
+
+        <h2>Contact Ali Hajveri International</h2>
+        <p>
+          For More Information About Our Government Licenses Or To Request
+          Copies Of Our Documents, Contact Ali Hajveri International (Pvt.)
+          Limited. Our Office Is Located At Office No. 1, 2nd Floor, Hajveri
+          Plaza, Main Rajbah Road, Near Quaid-E-Azam Interchange, Dera Gujran,
+          Lahore, Pakistan. Website: ahioep.com | Email: ahioep.com@gmail.com |
+          Phone: +92 300 8578764
+        </p>
+
+        <h2>Internal Links</h2>
+        <nav>
+          <Link to="/legal-status">Legal Status</Link>
+          <Link to="/legal-status/iso-certification">ISO Certification</Link>
+          <Link to="/about">About Us</Link>
+          <Link to="/services">Our Services</Link>
+          <Link to="/process/quality-policy">Quality Policy</Link>
+          <Link to="/contact">Contact Us</Link>
+          <Link to="/faq">FAQ</Link>
+        </nav>
+      </div>
+
       <style>{`
         @keyframes fadeIn {
           from { opacity: 0; transform: translateY(15px); }
@@ -184,6 +296,16 @@ const GovtLicense = () => {
         .doc-card:hover .shine-effect {
           transform: translateX(100%);
         }
+
+        .sr-only {
+          position: absolute;
+          width: 1px; height: 1px;
+          padding: 0; margin: -1px;
+          overflow: hidden;
+          clip: rect(0, 0, 0, 0);
+          white-space: nowrap;
+          border: 0;
+        }
       `}</style>
 
       {/* ============ HERO ============ */}
@@ -242,7 +364,7 @@ const GovtLicense = () => {
                       <div className="relative w-full flex items-center justify-center p-3">
                         <img
                           src={doc.imageFront}
-                          alt="License Front"
+                          alt="Overseas Employment Promoter License Front - Ali Hajveri International"
                           className="doc-img w-full h-auto max-h-[240px] object-contain"
                           onError={(e) => {
                             e.target.parentElement.innerHTML =
@@ -254,7 +376,7 @@ const GovtLicense = () => {
                       <div className="crossfade-back absolute inset-0 flex items-center justify-center p-3 bg-white">
                         <img
                           src={doc.imageBack}
-                          alt="License Back"
+                          alt="Overseas Employment Promoter License Back - Ali Hajveri International"
                           className="w-full h-auto max-h-[240px] object-contain"
                           onError={(e) => {
                             e.target.parentElement.innerHTML =
@@ -287,7 +409,7 @@ const GovtLicense = () => {
                       <div className="flex items-center justify-center p-3">
                         <img
                           src={doc.image}
-                          alt={doc.title}
+                          alt={`${doc.title} - ${doc.authority} Certificate Of Ali Hajveri International`}
                           className="doc-img w-full h-auto max-h-[240px] object-contain"
                           onError={(e) => {
                             e.target.parentElement.innerHTML = `<div class="p-8 text-center text-[#0A3A47]/40 text-[10px]">${doc.image.split("/").pop()}</div>`;
@@ -440,6 +562,7 @@ const GovtLicense = () => {
           <button
             onClick={closeModal}
             className="absolute top-4 right-4 sm:top-6 sm:right-6 w-11 h-11 rounded-full bg-white/10 hover:bg-[#4FC3F7]/30 backdrop-blur-md border border-[#4FC3F7]/40 flex items-center justify-center text-white transition-all duration-300 hover:scale-110 z-10"
+            aria-label="Close Document Viewer"
           >
             <FaTimes className="text-sm" />
           </button>
@@ -450,6 +573,7 @@ const GovtLicense = () => {
               prevDoc();
             }}
             className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 hover:bg-[#4FC3F7]/30 backdrop-blur-md border border-[#4FC3F7]/40 flex items-center justify-center text-white transition-all duration-300 hover:scale-110 z-10"
+            aria-label="Previous Document"
           >
             <FaChevronLeft className="text-sm" />
           </button>
@@ -460,6 +584,7 @@ const GovtLicense = () => {
               nextDoc();
             }}
             className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 hover:bg-[#4FC3F7]/30 backdrop-blur-md border border-[#4FC3F7]/40 flex items-center justify-center text-white transition-all duration-300 hover:scale-110 z-10"
+            aria-label="Next Document"
           >
             <FaChevronRight className="text-sm" />
           </button>
@@ -499,7 +624,7 @@ const GovtLicense = () => {
                     <div className="modal-flip-front">
                       <img
                         src={active.imageFront}
-                        alt="Front"
+                        alt="Overseas Employment Promoter License Front Side"
                         className="max-w-full max-h-full object-contain p-4 sm:p-6"
                       />
                       <span className="absolute top-3 left-3 px-2.5 py-1 bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] text-[#0F4C5C] text-[9px] font-extrabold uppercase tracking-widest rounded-full">
@@ -509,7 +634,7 @@ const GovtLicense = () => {
                     <div className="modal-flip-back">
                       <img
                         src={active.imageBack}
-                        alt="Back"
+                        alt="Overseas Employment Promoter License Back Side"
                         className="max-w-full max-h-full object-contain p-4 sm:p-6"
                       />
                       <span className="absolute top-3 left-3 px-2.5 py-1 bg-gradient-to-r from-[#FFD54F] to-[#FFB300] text-[#0F4C5C] text-[9px] font-extrabold uppercase tracking-widest rounded-full">
@@ -522,7 +647,7 @@ const GovtLicense = () => {
                 <div className="w-full h-full flex items-center justify-center p-2 sm:p-4">
                   <img
                     src={active.image}
-                    alt={active.title}
+                    alt={`${active.title} - ${active.authority} Document`}
                     className="max-w-full max-h-full object-contain"
                   />
                 </div>

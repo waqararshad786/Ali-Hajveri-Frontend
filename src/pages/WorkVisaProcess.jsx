@@ -1,6 +1,7 @@
 // src/pages/WorkVisaProcess.jsx
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import {
   FaArrowRight,
   FaDownload,
@@ -27,7 +28,7 @@ import {
 import jsPDF from "jspdf";
 import "jspdf-autotable";
 
-/* Shared action classes (fix #8) */
+/* Shared action classes */
 const SECONDARY_ACTION =
   "inline-flex items-center justify-center gap-2 bg-white border-2 border-[#0F4C5C]/30 " +
   "text-[#0F4C5C] px-6 py-3 rounded-full font-bold " +
@@ -150,7 +151,6 @@ const VISA_STEPS = [
       "FSA Registration & Verification",
       "Statutory Emigration Formalities",
     ],
-    /* FIX #1 — was text-[#F97316]; folded into text-[#FFB300] */
     color: "text-[#FFB300]",
   },
   {
@@ -196,7 +196,6 @@ const VISA_STEPS = [
       "Airport Coordination",
       "Employer Handover At Destination",
     ],
-    /* FIX #1 — was text-[#A78BFA]; folded into text-[#8B5CF6] */
     color: "text-[#8B5CF6]",
   },
 ];
@@ -258,14 +257,6 @@ const WorkVisaProcess = () => {
 
   const toggleStep = (id) => {
     setOpenStep((prev) => (prev === id ? null : id));
-  };
-
-  /* FIX #7 — shared handler for marquee → accordion */
-  const jumpToStep = (id) => {
-    setOpenStep(id);
-    document
-      .getElementById(`visa-step-${id}`)
-      ?.scrollIntoView({ behavior: "smooth", block: "center" });
   };
 
   /* ---------- PDF DOWNLOAD ---------- */
@@ -348,8 +339,171 @@ const WorkVisaProcess = () => {
     doc.save("AHIOEP_Work_Visa_Process.pdf");
   };
 
+  /* ---------- MARQUEE DATA (Recruitment Process ke tarah) ---------- */
+  const marqueeSteps = [...VISA_STEPS, ...VISA_STEPS];
+
   return (
     <>
+      {/* ============ SEO META TAGS ============ */}
+      <Helmet>
+        <title>Work Visa Process For Overseas Employment | 10-Step Guide | Ali Hajveri</title>
+        <meta
+          name="description"
+          content="Complete 10-step work visa process for overseas employment from Pakistan - selection, documentation, medical examination, employment contract, FSA registration, visa submission, protector of emigrants processing, and deployment."
+        />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://ahioep.com/process/work-visa" />
+        <meta property="og:title" content="Work Visa Process For Overseas Employment | Ali Hajveri" />
+        <meta property="og:description" content="Complete 10-step work visa processing guide - from candidate selection to overseas deployment, fully compliant with BEOE regulations." />
+        <meta property="og:url" content="https://ahioep.com/process/work-visa" />
+        <meta property="og:type" content="article" />
+      </Helmet>
+
+      {/* ============ SEO CONTENT (Visually Hidden, Sirf Google Ke Liye) ============ */}
+      <div className="sr-only" aria-hidden="true">
+        <h1>Work Visa Process For Overseas Employment - Complete 10-Step Guide From Pakistan</h1>
+        <p>
+          Ali Hajveri International (Pvt.) Limited Follows A Complete,
+          Compliant, And Transparent 10-Step Work Visa Process For Deploying
+          Pakistani Workers To International Employers. The Work Visa Process
+          Typically Takes 4 To 8 Weeks From Final Candidate Selection To
+          Overseas Deployment, Depending On The Destination Country And Visa
+          Requirements.
+        </p>
+
+        <h2>Step 1: Final Selection And Confirmation</h2>
+        <p>
+          The Overseas Employer Makes The Final Selection Of Candidates Through
+          In-Person Or Video Interviews. Once Selected, Candidates Receive The
+          Job Offer And Employment Terms For Confirmation. A Final Selection
+          List Is Prepared With All Confirmed Candidates.
+        </p>
+
+        <h2>Step 2: Documentation And Verification</h2>
+        <p>
+          Complete Documentation Of The Selected Candidate Is Collected And
+          Verified — Including Passport, CNIC, Educational Certificates,
+          Experience Letters, Technical Certificates, And Police Clearance
+          Where Required. Every Document Is Authenticated Before Further
+          Processing.
+        </p>
+
+        <h2>Step 3: Medical Examination At Approved Centers</h2>
+        <p>
+          Selected Candidates Undergo Medical Examination At GAMCA Approved
+          Medical Centers Or Other Approved Facilities According To The
+          Destination Country's Requirements. This Confirms Medical Fitness
+          Before Further Processing Begins.
+        </p>
+
+        <h2>Step 4: Employment Contract And FSA Registration</h2>
+        <p>
+          The Employment / Service Agreement And Foreign Service Agreement
+          (FSA) Are Prepared, Signed, And Registered As Per Applicable
+          Pakistani Regulations And Destination-Country Requirements. Both
+          Employer And Candidate Sign The Contract Before FSA Registration.
+        </p>
+
+        <h2>Step 5: Work Visa Documentation</h2>
+        <p>
+          Complete Work Visa Documentation Is Coordinated With The Employer
+          Including Visa Application, Employment Contract, Insurance
+          Requirements, And Destination-Specific Documents Required By
+          Immigration Authorities.
+        </p>
+
+        <h2>Step 6: Visa Submission And Approval</h2>
+        <p>
+          The Visa Application Is Submitted Through The Relevant Authorities In
+          Coordination With The Employer. Approval Is Subject To The Destination
+          Country's Immigration Requirements And Fulfillment Of Applicable
+          Criteria. This Stage Typically Takes 2 To 4 Weeks.
+        </p>
+
+        <h2>Step 7: Protector Of Emigrants Processing</h2>
+        <p>
+          The Case Is Processed Through The Protector Of Emigrants (BEOE) For
+          Overseas Employment Registration, FSA Registration, And Other
+          Statutory Emigration Formalities Required In Pakistan.
+        </p>
+
+        <h2>Step 8: Insurance And Government Registrations</h2>
+        <p>
+          Required Insurance Coverage And Government Registrations Are Completed
+          As Per Applicable Regulations To Ensure Complete Protection And
+          Compliance For The Deployed Worker.
+        </p>
+
+        <h2>Step 9: Pre-Departure Orientation</h2>
+        <p>
+          Workers Receive Briefing On Employment Terms, Job Responsibilities,
+          Employer Policies, Workplace Discipline, Health And Safety
+          Requirements, Destination-Country Laws, And Cultural Awareness Before
+          Departure.
+        </p>
+
+        <h2>Step 10: Travel And Overseas Mobilization</h2>
+        <p>
+          Once All Formalities Are Completed, Flight Scheduling, Ticket
+          Coordination, Worker Grouping, Departure Schedules, Airport
+          Coordination, And Travel Documentation Checks Are Arranged For
+          Successful Deployment.
+        </p>
+
+        <h2>Required Documents For Work Visa</h2>
+        <ul>
+          <li>Valid Passport With Minimum 6 Months Validity</li>
+          <li>CNIC And Identity Documents</li>
+          <li>Educational Certificates And Transcripts</li>
+          <li>Experience Letters From Previous Employers</li>
+          <li>Technical And Professional Certificates</li>
+          <li>Police Clearance Certificate Where Required</li>
+          <li>Medical Fitness Certificate</li>
+          <li>Passport-Size Photographs As Per Specifications</li>
+          <li>Employment Contract And FSA</li>
+          <li>Destination-Specific Documents</li>
+        </ul>
+
+        <h2>Why Choose Ali Hajveri International For Work Visa Processing</h2>
+        <ul>
+          <li>BEOE Registered And Fully Compliant With Pakistani Emigration Regulations</li>
+          <li>Only Working With Licensed Overseas Employers With Valid Job Orders</li>
+          <li>Structured 4 To 8 Week Visa Processing With Regular Status Updates</li>
+          <li>Work Visa Processing For 25+ Countries Across The World</li>
+        </ul>
+
+        <h2>Work Visa Processing Duration</h2>
+        <p>
+          The Complete Work Visa Process Takes Approximately 4 To 8 Weeks From
+          Final Selection To Overseas Deployment. Individual Stages Include:
+          Selection And Confirmation, Documentation And Verification, Medical
+          Examination, Employment Contract And FSA, Visa Documentation, Visa
+          Submission And Approval, Protector Of Emigrants Processing, Insurance
+          And Government Registrations, Pre-Departure Orientation, And Travel
+          And Mobilization.
+        </p>
+
+        <h2>Contact Ali Hajveri International</h2>
+        <p>
+          For More Information About Our Work Visa Process Or To Apply For
+          Overseas Employment, Contact Ali Hajveri International (Pvt.)
+          Limited. Website: ahioep.com | Email: ahioep.com@gmail.com | Phone:
+          +92 300 8578764
+        </p>
+
+        <h2>Internal Links</h2>
+        <nav>
+          <Link to="/process">Process Overview</Link>
+          <Link to="/process/recruitment">Recruitment Process</Link>
+          <Link to="/process/quality-policy">Quality Policy</Link>
+          <Link to="/services">Our Services</Link>
+          <Link to="/about">About Us</Link>
+          <Link to="/countries">Countries We Serve</Link>
+          <Link to="/contact">Contact Us</Link>
+          <Link to="/submit-cv">Submit CV</Link>
+        </nav>
+      </div>
+
       <style>{`
         @keyframes shimmer {
           0% { background-position: 0% 50%; }
@@ -384,11 +538,17 @@ const WorkVisaProcess = () => {
         .animate-slideUp { animation: slideUp 0.5s ease-out forwards; }
         .animate-fadeIn { animation: fadeIn 0.3s ease-out forwards; }
         .animate-marquee-left { animation: marquee-left 45s linear infinite; }
-        /* FIX #7 — pause marquee on hover/focus so items are clickable */
-        .animate-marquee-left:hover,
-        .animate-marquee-left:focus-within { animation-play-state: paused; }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .sr-only {
+          position: absolute;
+          width: 1px; height: 1px;
+          padding: 0; margin: -1px;
+          overflow: hidden;
+          clip: rect(0, 0, 0, 0);
+          white-space: nowrap;
+          border: 0;
+        }
       `}</style>
 
       {/* ============ HERO ============ */}
@@ -486,7 +646,6 @@ const WorkVisaProcess = () => {
                   <span className="relative">View Process</span>
                   <FaArrowRight className="relative text-xs group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                 </a>
-                {/* FIX #8 — Download PDF uses the shared secondary class */}
                 <button onClick={downloadPDF} className={SECONDARY_ACTION}>
                   <FaDownload className="text-xs" aria-hidden="true" />
                   Download PDF
@@ -543,31 +702,28 @@ const WorkVisaProcess = () => {
         </div>
       </section>
 
-      {/* ============ STEP NAVIGATION BAR ============ */}
-      {/* FIX #6 + #7 — sticky, real horizontal scroller, drives the accordion */}
+      {/* ============ STEP PREVIEW — MARQUEE ROW (Recruitment Process style) ============ */}
       <section
         aria-label="Quick jump to visa step"
-        className="sticky top-16 z-20 py-3 bg-white/95 backdrop-blur-md border-y border-[#4FC3F7]/15 overflow-hidden"
+        className="relative py-4 bg-white border-y border-[#4FC3F7]/15 overflow-hidden"
       >
-        <div className="relative w-full">
-          <div className="absolute left-0 top-0 h-full w-8 sm:w-14 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 h-full w-8 sm:w-14 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+        <div className="relative w-full overflow-hidden">
+          <div className="absolute left-0 top-0 h-full w-12 sm:w-20 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 h-full w-12 sm:w-20 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
-          <div className="flex flex-nowrap items-center gap-3 overflow-x-auto snap-x snap-mandatory py-1 px-1">
-            {VISA_STEPS.map((step) => {
+          <div className="flex flex-nowrap items-center gap-3 animate-marquee-left w-max py-1">
+            {marqueeSteps.map((step, idx) => {
               const Icon = step.icon;
+              const targetId = `visa-step-${step.id}`;
               const isOpen = openStep === step.id;
               return (
-                <a
-                  key={step.id}
-                  href={`#visa-step-${step.id}`}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    jumpToStep(step.id);
-                  }}
-                  aria-controls={`visa-step-${step.id}`}
+                <button
+                  key={`${step.id}-${idx}`}
+                  type="button"
+                  onClick={() => jumpToStep(step.id)}
+                  aria-controls={targetId}
                   aria-expanded={isOpen}
-                  className="group flex-shrink-0 snap-start flex items-center gap-2.5 bg-[#E1F5FE]/60 hover:bg-[#E1F5FE] border border-[#4FC3F7]/25 hover:border-[#4FC3F7]/60 rounded-full pl-2 pr-4 py-2 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(79,195,247,0.15)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4FC3F7] focus-visible:ring-offset-2"
+                  className="group flex-shrink-0 flex items-center gap-2.5 bg-[#E1F5FE]/60 hover:bg-[#E1F5FE] border border-[#4FC3F7]/25 hover:border-[#4FC3F7]/60 rounded-full pl-2 pr-4 py-2 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(79,195,247,0.15)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4FC3F7] focus-visible:ring-offset-2"
                 >
                   <span className="w-6 h-6 rounded-full bg-gradient-to-br from-[#4FC3F7] to-[#29B6F6] text-white text-xs font-bold flex items-center justify-center flex-shrink-0 shadow-[0_4px_10px_rgba(79,195,247,0.3)] group-hover:scale-110 transition-transform">
                     {step.num}
@@ -576,7 +732,7 @@ const WorkVisaProcess = () => {
                   <span className="text-xs sm:text-sm font-bold text-[#0F4C5C] whitespace-nowrap">
                     {step.short}
                   </span>
-                </a>
+                </button>
               );
             })}
           </div>
@@ -590,7 +746,6 @@ const WorkVisaProcess = () => {
       >
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-7">
-            {/* FIX #3 — label no longer pill-shaped or all-caps */}
             <div className="inline-flex items-center gap-2 mb-2.5 pl-3 border-l-2 border-[#4FC3F7]">
               <FaFire className="text-[#FFB300] text-xs" aria-hidden="true" />
               <span className="text-[#0F4C5C] text-xs sm:text-sm font-bold tracking-wide">
@@ -695,7 +850,6 @@ const WorkVisaProcess = () => {
                           {step.desc}
                         </p>
 
-                        {/* FIX #4 — bullets raised to 12/14px */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2">
                           {step.bullets.map((b) => (
                             <div
@@ -730,7 +884,6 @@ const WorkVisaProcess = () => {
 
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-7">
-            {/* FIX #3 — label no longer all-caps */}
             <div className="inline-flex items-center gap-2 mb-2.5 pl-3 border-l-2 border-[#4FC3F7]">
               <FaClipboardCheck className="text-[#FFB300] text-xs" aria-hidden="true" />
               <span className="text-[#0F4C5C] text-xs sm:text-sm font-bold tracking-wide">
@@ -775,7 +928,6 @@ const WorkVisaProcess = () => {
       <section className="relative py-8 sm:py-10 bg-gradient-to-b from-white to-[#E1F5FE] overflow-hidden">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-7">
-            {/* FIX #3 — label no longer all-caps */}
             <div className="inline-flex items-center gap-2 mb-2.5 pl-3 border-l-2 border-[#4FC3F7]">
               <FaHandshake className="text-[#FFB300] text-xs" aria-hidden="true" />
               <span className="text-[#0F4C5C] text-xs sm:text-sm font-bold tracking-wide">
@@ -815,7 +967,6 @@ const WorkVisaProcess = () => {
       </section>
 
       {/* ============ DOWNLOAD CTA ============ */}
-      {/* FIX #2 — single rounded-2xl; FIX #8 — secondary button; FIX #9 — grouped layout */}
       <section className="relative py-7 bg-white overflow-hidden">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative bg-white border border-[#4FC3F7]/25 rounded-2xl px-5 sm:px-7 py-5 shadow-[0_20px_50px_rgba(15,76,92,0.10)] overflow-hidden">
@@ -847,7 +998,6 @@ const WorkVisaProcess = () => {
       {/* ============ FINAL CTA ============ */}
       <section className="relative py-8 sm:py-10 bg-[#E1F5FE] overflow-hidden">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* FIX #2 — single rounded-2xl, no responsive override */}
           <div className="relative bg-gradient-to-br from-[#0F4C5C] via-[#0A3A47] to-[#06303A] rounded-2xl px-6 sm:px-8 py-7 sm:py-9 text-center overflow-hidden border border-[#4FC3F7]/25 shadow-[0_24px_60px_rgba(15,76,92,0.25)]">
             <div className="absolute -top-20 -right-20 w-72 h-72 bg-[#4FC3F7]/25 blur-3xl animate-blob" />
             <div
@@ -875,7 +1025,6 @@ const WorkVisaProcess = () => {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                {/* FIX #8 — Submit CV uses the shared primary class */}
                 <Link
                   to="/submit-cv"
                   className={PRIMARY_ACTION}

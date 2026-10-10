@@ -1,6 +1,7 @@
 // src/pages/OurTeam.jsx
 import React from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import {
   FaArrowRight,
   FaLinkedinIn,
@@ -32,6 +33,130 @@ const TEAM_MEMBERS = [
 const OurTeam = () => {
   return (
     <>
+      {/* ============ SEO META TAGS ============ */}
+      <Helmet>
+        <title>Our Team | Overseas Recruitment Experts | Ali Hajveri International</title>
+        <meta
+          name="description"
+          content="Meet the expert team behind Ali Hajveri International - licensed overseas employment promoter in Pakistan. Our recruitment specialists, compliance officers, and documentation experts ensure successful overseas placements."
+        />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://ahioep.com/our-team" />
+        <meta property="og:title" content="Our Team | Overseas Recruitment Experts | Ali Hajveri" />
+        <meta property="og:description" content="Dedicated team of recruitment specialists, compliance officers, and overseas employment experts connecting Pakistani talent with global employers." />
+        <meta property="og:url" content="https://ahioep.com/our-team" />
+        <meta property="og:type" content="website" />
+      </Helmet>
+
+      {/* ============ SEO CONTENT (Visually Hidden, Sirf Google Ke Liye) ============ */}
+      <div className="sr-only" aria-hidden="true">
+        <h1>Our Team - Overseas Recruitment Experts At Ali Hajveri International</h1>
+        <p>
+          Meet The Dedicated Team Behind Ali Hajveri International (Pvt.)
+          Limited - A Government-Licensed Overseas Employment Promoter In
+          Pakistan. Our Team Combines Expertise In Recruitment, Compliance,
+          Documentation, Trade Testing, And Overseas Deployment To Deliver
+          Reliable Manpower Solutions To International Employers.
+        </p>
+
+        <h2>Our Leadership Team</h2>
+        <p>
+          Our Leadership Includes Experienced Professionals Who Have Successfully
+          Managed Thousands Of Overseas Placements Over The Years. From Our CEO
+          To Our Operations Director, Every Leader Brings Deep Knowledge Of
+          Pakistan's Overseas Employment Sector And International Recruitment
+          Standards.
+        </p>
+
+        <h2>Recruitment Specialists</h2>
+        <p>
+          Our Recruitment Team Sources Skilled, Semi-Skilled, And Unskilled
+          Pakistani Workers Across All Trades And Industries. They Understand
+          Job Requirements Deeply, Screen Candidates Effectively, And Match
+          The Right Talent With The Right Opportunity For International
+          Employers.
+        </p>
+
+        <h2>Compliance And Documentation Experts</h2>
+        <p>
+          Our Compliance Officers And Documentation Specialists Ensure Every
+          Placement Follows BEOE Regulations, Foreign Service Agreement
+          Requirements, And Destination-Country Legal Standards. They Handle
+          Passports, Contracts, Visa Processing, Protector Of Emigrants
+          Formalities, And All Other Required Documentation.
+        </p>
+
+        <h2>Trade Testing And Skills Verification</h2>
+        <p>
+          Our Trade Test Coordinators Organize Practical Skill Assessments For
+          Technical And Skilled Trades. This Ensures Employers Receive Workers
+          Who Can Actually Perform The Required Job On Site, Reducing Risk And
+          Improving Project Outcomes.
+        </p>
+
+        <h2>Candidate Support And Welfare</h2>
+        <p>
+          Our Candidate Support Officers Guide Pakistani Workers Through Every
+          Stage Of The Recruitment Process - From Initial Application To Final
+          Deployment And Post-Placement Follow-Up. We Ensure Candidates
+          Understand Their Rights, Employment Terms, And Destination Country
+          Conditions Before Departure.
+        </p>
+
+        <h2>Client Relations And Business Development</h2>
+        <p>
+          Our Client Relations Managers And Business Development Team Work
+          Directly With International Employers To Understand Their Manpower
+          Requirements And Deliver Customized Recruitment Solutions. They
+          Coordinate Interviews, Provide Regular Updates, And Ensure Complete
+          Employer Satisfaction.
+        </p>
+
+        <h2>Visa Processing And Deployment</h2>
+        <p>
+          Our Visa Processing Officers Manage Embassy Submissions, Visa
+          Approvals, Protector Of Emigrants Registration, And Travel
+          Arrangements. They Ensure Every Worker Reaches Their Destination
+          Safely And Legally, With All Required Documents In Order.
+        </p>
+
+        <h2>Why Our Team Is Different</h2>
+        <ul>
+          <li>Government-Licensed Overseas Employment Promoter</li>
+          <li>ISO 9001:2015 Certified Recruitment Operations</li>
+          <li>Years Of Experience In International Manpower Recruitment</li>
+          <li>Dedicated Support For Both Employers And Candidates</li>
+          <li>Global Network Across Gulf Countries And East Asia</li>
+          <li>Full Compliance With BEOE And Pakistani Regulations</li>
+        </ul>
+
+        <h2>Join Our Team</h2>
+        <p>
+          We Are Always Looking For Talented Professionals To Join Our Growing
+          Team. If You Are Passionate About International Recruitment And Want
+          To Help Pakistani Workers Build Careers Abroad, Explore Career
+          Opportunities At Ali Hajveri International.
+        </p>
+
+        <h2>Contact Ali Hajveri International</h2>
+        <p>
+          To Discuss Your Overseas Manpower Requirements Or To Learn More About
+          Our Team, Contact Ali Hajveri International (Pvt.) Limited. Website:
+          ahioep.com | Email: ahioep.com@gmail.com | Phone: +92 300 8578764
+        </p>
+
+        <h2>Internal Links</h2>
+        <nav>
+          <Link to="/about">About Us</Link>
+          <Link to="/services">Our Services</Link>
+          <Link to="/process">Recruitment Process</Link>
+          <Link to="/contact">Contact Us</Link>
+          <Link to="/careers">Careers</Link>
+          <Link to="/submit-cv">Submit CV</Link>
+          <Link to="/faq">FAQ</Link>
+        </nav>
+      </div>
+
       <style>{`
         @keyframes fadeIn {
           from { opacity: 0; transform: translateY(15px); }
@@ -53,6 +178,15 @@ const OurTeam = () => {
         .animate-pulse-slow { animation: pulseSlow 4s ease-in-out infinite; }
         .animate-ping-slow { animation: pingSlow 2.5s cubic-bezier(0, 0, 0.2, 1) infinite; }
         .title-case { text-transform: capitalize; }
+        .sr-only {
+          position: absolute;
+          width: 1px; height: 1px;
+          padding: 0; margin: -1px;
+          overflow: hidden;
+          clip: rect(0, 0, 0, 0);
+          white-space: nowrap;
+          border: 0;
+        }
       `}</style>
 
       {/* ================= HERO ================= */}
@@ -103,11 +237,10 @@ const OurTeam = () => {
                 className="group relative bg-white rounded-2xl overflow-hidden border border-[#4FC3F7]/20 hover:border-[#4FC3F7]/60 shadow-[0_6px_20px_rgba(15,76,92,0.06)] hover:shadow-[0_18px_40px_rgba(79,195,247,0.20)] hover:-translate-y-2 transition-all duration-500 animate-fadeIn"
                 style={{ animationDelay: `${idx * 0.05}s` }}
               >
-                {/* ================= IMAGE ================= */}
                 <div className="relative h-[240px] sm:h-[260px] lg:h-[280px] overflow-hidden bg-[#E1F5FE]">
                   <img
                     src={member.img}
-                    alt={member.name}
+                    alt={`${member.name} - ${member.designation} At Ali Hajveri International`}
                     className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                     onError={(e) => {
                       e.target.parentElement.innerHTML = `
@@ -128,7 +261,7 @@ const OurTeam = () => {
                     <a
                       href="#"
                       onClick={(e) => e.preventDefault()}
-                      aria-label={`${member.name} LinkedIn`}
+                      aria-label={`${member.name} LinkedIn Profile`}
                       className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#0F4C5C] hover:bg-[#4FC3F7] hover:text-white transition-colors shadow-lg"
                     >
                       <FaLinkedinIn className="text-sm" />
@@ -144,7 +277,6 @@ const OurTeam = () => {
                   </div>
                 </div>
 
-                {/* ================= INFO ================= */}
                 <div className="p-3.5 sm:p-4 text-center bg-white">
                   <h3 className="font-[Plus_Jakarta_Sans] text-sm sm:text-base font-extrabold text-[#0F4C5C] leading-tight mb-1 truncate title-case">
                     {member.name}

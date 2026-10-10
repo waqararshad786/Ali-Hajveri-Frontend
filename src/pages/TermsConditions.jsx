@@ -1,6 +1,7 @@
 // src/pages/TermsConditions.jsx
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { COMPANY_INFO } from "../utilis/constants";
 import {
   FaFileContract,
@@ -41,16 +42,16 @@ const SECTIONS = [
     content: (
       <>
         <p className="text-[#0A3A47]/85 text-sm leading-relaxed mb-3">
-          Welcome to{" "}
+          Welcome To{" "}
           <strong className="text-[#0F4C5C]">{COMPANY_INFO.fullName}</strong>{" "}
-          (referred to as "we", "our", or "us"). By accessing our website,
-          submitting your CV, requesting manpower, or using any of our
-          recruitment services, you agree to comply with the following terms
-          and conditions.
+          (Referred To As "We", "Our", Or "Us"). By Accessing Our Website,
+          Submitting Your CV, Requesting Manpower, Or Using Any Of Our
+          Recruitment Services, You Agree To Comply With The Following Terms
+          And Conditions.
         </p>
         <p className="text-[#0A3A47]/85 text-sm leading-relaxed">
-          If you do not agree with any part of these terms, please refrain from
-          using our website or services.
+          If You Do Not Agree With Any Part Of These Terms, Please Refrain From
+          Using Our Website Or Services.
         </p>
       </>
     ),
@@ -68,18 +69,18 @@ const SECTIONS = [
     content: (
       <>
         <p className="text-[#0A3A47]/85 text-sm leading-relaxed mb-4">
-          {COMPANY_INFO.fullName} provides overseas manpower recruitment
-          services exclusively from Pakistan to international employers. Our
-          services include:
+          {COMPANY_INFO.fullName} Provides Overseas Manpower Recruitment
+          Services Exclusively From Pakistan To International Employers. Our
+          Services Include:
         </p>
         <div className="grid sm:grid-cols-2 gap-2">
           {[
-            "Sourcing skilled, semi-skilled, technical, and professional Pakistani workers.",
-            "Screening, shortlisting, and coordinating interviews / trade tests.",
-            "Assisting with documentation, medical exams, and visa processing.",
-            "Coordinating deployment and employer handover at destination.",
-            "Supporting employers with manpower demand planning.",
-            "Pre-departure orientation and mobilization support.",
+            "Sourcing Skilled, Semi-Skilled, Technical, And Professional Pakistani Workers.",
+            "Screening, Shortlisting, And Coordinating Interviews / Trade Tests.",
+            "Assisting With Documentation, Medical Exams, And Visa Processing.",
+            "Coordinating Deployment And Employer Handover At Destination.",
+            "Supporting Employers With Manpower Demand Planning.",
+            "Pre-Departure Orientation And Mobilization Support.",
           ].map((text) => (
             <div
               key={text}
@@ -106,12 +107,12 @@ const SECTIONS = [
     content: (
       <div className="space-y-2.5">
         {[
-          "You will use our services only for lawful purposes related to overseas employment or manpower recruitment.",
-          "You will provide accurate, truthful, and complete information in all forms, CVs, and documents.",
-          "You will not submit forged, altered, or misleading documents, certificates, or experience letters.",
-          "You will not use our platform for fraud, impersonation, or any illegal activity.",
-          "You are responsible for maintaining the confidentiality of any account credentials.",
-          "You will not attempt to bypass, hack, or disrupt our website or services.",
+          "You Will Use Our Services Only For Lawful Purposes Related To Overseas Employment Or Manpower Recruitment.",
+          "You Will Provide Accurate, Truthful, And Complete Information In All Forms, CVs, And Documents.",
+          "You Will Not Submit Forged, Altered, Or Misleading Documents, Certificates, Or Experience Letters.",
+          "You Will Not Use Our Platform For Fraud, Impersonation, Or Any Illegal Activity.",
+          "You Are Responsible For Maintaining The Confidentiality Of Any Account Credentials.",
+          "You Will Not Attempt To Bypass, Hack, Or Disrupt Our Website Or Services.",
         ].map((text) => (
           <div
             key={text}
@@ -139,17 +140,17 @@ const SECTIONS = [
     content: (
       <>
         <p className="text-[#0A3A47]/85 text-sm leading-relaxed mb-4">
-          If you are a Pakistani candidate seeking overseas employment through
-          us, you acknowledge and agree that:
+          If You Are A Pakistani Candidate Seeking Overseas Employment Through
+          Us, You Acknowledge And Agree That:
         </p>
         <div className="space-y-2.5">
           {[
-            "You must meet the qualifications, experience, and eligibility criteria of the specific overseas vacancy.",
-            "You must provide a valid passport, CNIC, educational certificates, and experience letters as required.",
-            "You will complete medical examinations, trade tests, and police clearance as applicable.",
-            "You understand that final selection depends on the employer and is not guaranteed by us.",
-            "You understand that visa approval is subject to the relevant government and immigration authorities.",
-            "You will not pay or offer any unauthorized payment to any person for job placement.",
+            "You Must Meet The Qualifications, Experience, And Eligibility Criteria Of The Specific Overseas Vacancy.",
+            "You Must Provide A Valid Passport, CNIC, Educational Certificates, And Experience Letters As Required.",
+            "You Will Complete Medical Examinations, Trade Tests, And Police Clearance As Applicable.",
+            "You Understand That Final Selection Depends On The Employer And Is Not Guaranteed By Us.",
+            "You Understand That Visa Approval Is Subject To The Relevant Government And Immigration Authorities.",
+            "You Will Not Pay Or Offer Any Unauthorized Payment To Any Person For Job Placement.",
           ].map((text) => (
             <div
               key={text}
@@ -178,17 +179,17 @@ const SECTIONS = [
     content: (
       <>
         <p className="text-[#0A3A47]/85 text-sm leading-relaxed mb-4">
-          If you are an international employer requesting Pakistani manpower
-          through us, you acknowledge and agree that:
+          If You Are An International Employer Requesting Pakistani Manpower
+          Through Us, You Acknowledge And Agree That:
         </p>
         <div className="space-y-2.5">
           {[
-            "You will provide accurate and complete details of your manpower requirements.",
-            "You will provide a valid job order and comply with applicable laws of your country and Pakistan.",
-            "You will honor the agreed salary, benefits, working hours, and employment terms stated in the demand.",
-            "You will not discriminate based on caste, religion, gender, or ethnicity.",
-            "You will cooperate with the visa processing, medical, and pre-departure procedures.",
-            "You will ensure proper reception and onboarding of deployed workers at the destination.",
+            "You Will Provide Accurate And Complete Details Of Your Manpower Requirements.",
+            "You Will Provide A Valid Job Order And Comply With Applicable Laws Of Your Country And Pakistan.",
+            "You Will Honor The Agreed Salary, Benefits, Working Hours, And Employment Terms Stated In The Demand.",
+            "You Will Not Discriminate Based On Caste, Religion, Gender, Or Ethnicity.",
+            "You Will Cooperate With The Visa Processing, Medical, And Pre-Departure Procedures.",
+            "You Will Ensure Proper Reception And Onboarding Of Deployed Workers At The Destination.",
           ].map((text) => (
             <div
               key={text}
@@ -220,21 +221,21 @@ const SECTIONS = [
           <FaShieldAlt className="text-[#FFB300] text-lg flex-shrink-0 mt-0.5" />
           <p className="text-[#0A3A47]/90 text-sm leading-relaxed font-medium">
             <strong className="text-[#0F4C5C]">
-              {COMPANY_INFO.fullName} does not guarantee
+              {COMPANY_INFO.fullName} Does Not Guarantee
             </strong>{" "}
-            employment, selection, visa approval, or deployment.
+            Employment, Selection, Visa Approval, Or Deployment.
           </p>
         </div>
         <p className="text-[#0A3A47]/85 text-sm leading-relaxed mb-3">
-          The following factors are outside our control:
+          The Following Factors Are Outside Our Control:
         </p>
         <div className="space-y-2.5">
           {[
-            "The final selection decision always rests with the overseas employer.",
-            "Visa approval is subject to the relevant government and immigration authorities.",
-            "Medical fitness, trade test results, and background verification affect eligibility.",
-            "Candidate availability and job order status may change without notice.",
-            "Employers may withdraw or modify their requirements at any time.",
+            "The Final Selection Decision Always Rests With The Overseas Employer.",
+            "Visa Approval Is Subject To The Relevant Government And Immigration Authorities.",
+            "Medical Fitness, Trade Test Results, And Background Verification Affect Eligibility.",
+            "Candidate Availability And Job Order Status May Change Without Notice.",
+            "Employers May Withdraw Or Modify Their Requirements At Any Time.",
           ].map((text) => (
             <div
               key={text}
@@ -265,17 +266,17 @@ const SECTIONS = [
         <div className="flex items-start gap-3 bg-gradient-to-br from-[#4FC3F7]/10 to-[#4FC3F7]/5 border border-[#4FC3F7]/40 rounded-xl p-4 mb-4">
           <FaCheckCircle className="text-[#22C55E] text-lg flex-shrink-0 mt-0.5" />
           <p className="text-[#0A3A47]/90 text-sm leading-relaxed font-medium">
-            Submitting your CV and using our website is{" "}
-            <strong className="text-[#0F4C5C]">completely FREE</strong> for
-            candidates.
+            Submitting Your CV And Using Our Website Is{" "}
+            <strong className="text-[#0F4C5C]">Completely FREE</strong> For
+            Candidates.
           </p>
         </div>
         <div className="space-y-2.5">
           {[
-            "We never charge candidates for job placement or selection.",
-            "Any legitimate government fees (visa, medical, passport) are paid directly to authorities.",
-            "Employers may be charged service fees as per the signed recruitment agreement.",
-            "All payments are documented with proper receipts and records.",
+            "We Never Charge Candidates For Job Placement Or Selection.",
+            "Any Legitimate Government Fees (Visa, Medical, Passport) Are Paid Directly To Authorities.",
+            "Employers May Be Charged Service Fees As Per The Signed Recruitment Agreement.",
+            "All Payments Are Documented With Proper Receipts And Records.",
           ].map((text) => (
             <div
               key={text}
@@ -303,12 +304,12 @@ const SECTIONS = [
     shadow: "shadow-[0_10px_24px_rgba(167,139,250,0.4)]",
     content: (
       <p className="text-[#0A3A47]/85 text-sm leading-relaxed">
-        All content on this website — including logos, trademarks, text,
-        images, graphics, design, and code — is the property of{" "}
+        All Content On This Website — Including Logos, Trademarks, Text,
+        Images, Graphics, Design, And Code — Is The Property Of{" "}
         <strong className="text-[#0F4C5C]">{COMPANY_INFO.fullName}</strong>{" "}
-        and is protected by applicable copyright and intellectual property
-        laws. You may not reproduce, distribute, modify, or create derivative
-        works without our prior written consent.
+        And Is Protected By Applicable Copyright And Intellectual Property
+        Laws. You May Not Reproduce, Distribute, Modify, Or Create Derivative
+        Works Without Our Prior Written Consent.
       </p>
     ),
   },
@@ -324,12 +325,12 @@ const SECTIONS = [
     shadow: "shadow-[0_10px_24px_rgba(249,115,22,0.4)]",
     content: (
       <p className="text-[#0A3A47]/85 text-sm leading-relaxed">
-        {COMPANY_INFO.fullName} is not liable for any direct, indirect,
-        incidental, or consequential damages arising from the use of our
-        website or services. This includes, but is not limited to, loss of
-        data, revenue, opportunity, or employment. We facilitate the
-        recruitment process but do not control final employer decisions,
-        government approvals, or third-party actions.
+        {COMPANY_INFO.fullName} Is Not Liable For Any Direct, Indirect,
+        Incidental, Or Consequential Damages Arising From The Use Of Our
+        Website Or Services. This Includes, But Is Not Limited To, Loss Of
+        Data, Revenue, Opportunity, Or Employment. We Facilitate The
+        Recruitment Process But Do Not Control Final Employer Decisions,
+        Government Approvals, Or Third-Party Actions.
       </p>
     ),
   },
@@ -345,10 +346,10 @@ const SECTIONS = [
     shadow: "shadow-[0_10px_24px_rgba(236,72,153,0.4)]",
     content: (
       <p className="text-[#0A3A47]/85 text-sm leading-relaxed">
-        Our website may contain links to external websites, employer portals,
-        or government resources. We are not responsible for the content,
-        policies, or practices of those third parties. Any interaction with
-        third-party services is at your own discretion and risk.
+        Our Website May Contain Links To External Websites, Employer Portals,
+        Or Government Resources. We Are Not Responsible For The Content,
+        Policies, Or Practices Of Those Third Parties. Any Interaction With
+        Third-Party Services Is At Your Own Discretion And Risk.
       </p>
     ),
   },
@@ -364,10 +365,10 @@ const SECTIONS = [
     shadow: "shadow-[0_10px_24px_rgba(99,102,241,0.4)]",
     content: (
       <p className="text-[#0A3A47]/85 text-sm leading-relaxed">
-        These Terms &amp; Conditions are governed by the laws of the Islamic
-        Republic of Pakistan. Any disputes arising out of or relating to these
-        terms or our services shall be subject to the exclusive jurisdiction
-        of the competent courts in Lahore, Pakistan.
+        These Terms &amp; Conditions Are Governed By The Laws Of The Islamic
+        Republic Of Pakistan. Any Disputes Arising Out Of Or Relating To These
+        Terms Or Our Services Shall Be Subject To The Exclusive Jurisdiction
+        Of The Competent Courts In Lahore, Pakistan.
       </p>
     ),
   },
@@ -383,10 +384,10 @@ const SECTIONS = [
     shadow: "shadow-[0_10px_24px_rgba(6,182,212,0.4)]",
     content: (
       <p className="text-[#0A3A47]/85 text-sm leading-relaxed">
-        We reserve the right to update, modify, or replace these Terms &amp;
-        Conditions at any time. The revised version will be posted on this
-        page with an updated "Last Updated" date. Continued use of our website
-        or services after changes constitutes acceptance of the revised terms.
+        We Reserve The Right To Update, Modify, Or Replace These Terms &amp;
+        Conditions At Any Time. The Revised Version Will Be Posted On This
+        Page With An Updated "Last Updated" Date. Continued Use Of Our Website
+        Or Services After Changes Constitutes Acceptance Of The Revised Terms.
       </p>
     ),
   },
@@ -440,6 +441,146 @@ const TermsConditions = () => {
 
   return (
     <>
+      {/* ============ SEO META TAGS ============ */}
+      <Helmet>
+        <title>Terms & Conditions | Legal Terms Of Service | Ali Hajveri International</title>
+        <meta
+          name="description"
+          content="Terms and conditions of Ali Hajveri International (Pvt.) Limited - governing your use of our website and overseas manpower recruitment services. Read our legal terms, candidate responsibilities, and employer obligations."
+        />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://ahioep.com/terms-conditions" />
+        <meta property="og:title" content="Terms & Conditions | Ali Hajveri International" />
+        <meta property="og:description" content="Legal terms of service for overseas manpower recruitment through Ali Hajveri International." />
+        <meta property="og:url" content="https://ahioep.com/terms-conditions" />
+        <meta property="og:type" content="website" />
+      </Helmet>
+
+      {/* ============ SEO CONTENT (Visually Hidden, Sirf Google Ke Liye) ============ */}
+      <div className="sr-only" aria-hidden="true">
+        <h1>Terms & Conditions - Legal Terms Of Service At Ali Hajveri International</h1>
+        <p>
+          These Terms And Conditions Govern Your Use Of The Ali Hajveri
+          International (Pvt.) Limited Website And Overseas Manpower
+          Recruitment Services. By Accessing Our Website, Submitting Your CV,
+          Or Using Any Of Our Services, You Agree To Comply With These Terms.
+        </p>
+
+        <h2>Acceptance Of Terms</h2>
+        <p>
+          By Accessing Our Website, Submitting Your CV, Requesting Manpower,
+          Or Using Any Of Our Recruitment Services, You Agree To Comply With
+          These Terms And Conditions. If You Do Not Agree With Any Part Of
+          These Terms, Please Refrain From Using Our Website Or Services.
+        </p>
+
+        <h2>Scope Of Services</h2>
+        <ul>
+          <li>Sourcing Skilled, Semi-Skilled, Technical, And Professional Pakistani Workers</li>
+          <li>Screening, Shortlisting, And Coordinating Interviews And Trade Tests</li>
+          <li>Assisting With Documentation, Medical Exams, And Visa Processing</li>
+          <li>Coordinating Deployment And Employer Handover At Destination</li>
+          <li>Supporting Employers With Manpower Demand Planning</li>
+          <li>Pre-Departure Orientation And Mobilization Support</li>
+        </ul>
+
+        <h2>Acceptable Use Of Services</h2>
+        <p>
+          You Will Use Our Services Only For Lawful Purposes Related To
+          Overseas Employment. You Will Provide Accurate And Truthful
+          Information. You Will Not Submit Forged Or Misleading Documents Or
+          Use Our Platform For Fraud Or Illegal Activity.
+        </p>
+
+        <h2>Candidate Responsibilities</h2>
+        <ul>
+          <li>Meet The Qualifications And Eligibility Criteria Of The Overseas Vacancy</li>
+          <li>Provide Valid Passport, CNIC, Educational Certificates, And Experience Letters</li>
+          <li>Complete Medical Examinations, Trade Tests, And Police Clearance</li>
+          <li>Understand That Final Selection Depends On The Employer</li>
+          <li>Understand That Visa Approval Is Subject To Government Authorities</li>
+          <li>Not Pay Or Offer Any Unauthorized Payment For Job Placement</li>
+        </ul>
+
+        <h2>Employer Responsibilities</h2>
+        <ul>
+          <li>Provide Accurate And Complete Details Of Manpower Requirements</li>
+          <li>Provide Valid Job Order And Comply With Applicable Laws</li>
+          <li>Honor The Agreed Salary, Benefits, And Employment Terms</li>
+          <li>Not Discriminate Based On Caste, Religion, Gender, Or Ethnicity</li>
+          <li>Cooperate With Visa Processing And Pre-Departure Procedures</li>
+          <li>Ensure Proper Reception Of Deployed Workers At Destination</li>
+        </ul>
+
+        <h2>No Guarantee Of Employment Or Visa</h2>
+        <p>
+          Ali Hajveri International Does Not Guarantee Employment, Selection,
+          Visa Approval, Or Deployment. Final Selection Decisions Rest With The
+          Overseas Employer. Visa Approval Is Subject To Government And
+          Immigration Authorities. Medical Fitness, Trade Test Results, And
+          Background Verification Affect Eligibility.
+        </p>
+
+        <h2>Fees And Payments</h2>
+        <p>
+          Submitting Your CV And Using Our Website Is Completely Free For
+          Candidates. We Never Charge Candidates For Job Placement Or
+          Selection. Any Legitimate Government Fees (Visa, Medical, Passport)
+          Are Paid Directly To Authorities. Employers May Be Charged Service
+          Fees As Per The Signed Recruitment Agreement.
+        </p>
+
+        <h2>Intellectual Property</h2>
+        <p>
+          All Content On This Website Including Logos, Trademarks, Text,
+          Images, Graphics, Design, And Code Is The Property Of Ali Hajveri
+          International And Is Protected By Applicable Copyright And
+          Intellectual Property Laws.
+        </p>
+
+        <h2>Limitation Of Liability</h2>
+        <p>
+          Ali Hajveri International Is Not Liable For Any Direct, Indirect,
+          Incidental, Or Consequential Damages Arising From The Use Of Our
+          Website Or Services. We Facilitate The Recruitment Process But Do
+          Not Control Final Employer Decisions, Government Approvals, Or
+          Third-Party Actions.
+        </p>
+
+        <h2>Governing Law And Disputes</h2>
+        <p>
+          These Terms And Conditions Are Governed By The Laws Of The Islamic
+          Republic Of Pakistan. Any Disputes Arising Out Of Or Relating To
+          These Terms Or Our Services Shall Be Subject To The Exclusive
+          Jurisdiction Of The Competent Courts In Lahore, Pakistan.
+        </p>
+
+        <h2>Changes To These Terms</h2>
+        <p>
+          We Reserve The Right To Update, Modify, Or Replace These Terms And
+          Conditions At Any Time. The Revised Version Will Be Posted On This
+          Page With An Updated Date. Continued Use Of Our Website Or Services
+          After Changes Constitutes Acceptance Of The Revised Terms.
+        </p>
+
+        <h2>Contact Ali Hajveri International</h2>
+        <p>
+          If You Have Questions About These Terms And Conditions, Contact Us
+          At ahioep.com@gmail.com Or +92 300 8578764. Our Office Is Located At
+          Office No. 1, 2nd Floor, Hajveri Plaza, Main Rajbah Road, Near
+          Quaid-E-Azam Interchange, Dera Gujran, Lahore, Pakistan.
+        </p>
+
+        <h2>Internal Links</h2>
+        <nav>
+          <Link to="/privacy-policy">Privacy Policy</Link>
+          <Link to="/about">About Us</Link>
+          <Link to="/contact">Contact Us</Link>
+          <Link to="/faq">FAQ</Link>
+          <Link to="/legal-status">Legal Status</Link>
+        </nav>
+      </div>
+
       <style>{`
         @keyframes shimmer {
           0% { background-position: 0% 50%; }
@@ -459,6 +600,16 @@ const TermsConditions = () => {
         }
         .animate-blob { animation: blob 9s ease-in-out infinite; }
         .animate-float { animation: float 4s ease-in-out infinite; }
+
+        .sr-only {
+          position: absolute;
+          width: 1px; height: 1px;
+          padding: 0; margin: -1px;
+          overflow: hidden;
+          clip: rect(0, 0, 0, 0);
+          white-space: nowrap;
+          border: 0;
+        }
       `}</style>
 
       <div className="relative">
@@ -564,133 +715,138 @@ const TermsConditions = () => {
           </div>
         </div>
 
-        {/* ============ HERO ============ */}
-        <section className="relative min-h-[70vh] overflow-hidden bg-gradient-to-br from-white via-[#E1F5FE] to-white pt-24 lg:pt-32 pb-16">
-          <div
-            className="absolute inset-0 opacity-[0.04]"
+  
+                          {/* ============ HERO ============ */}
+      <section className="relative mt-[-6rem] min-h-[70vh] overflow-hidden bg-gradient-to-br from-white via-[#E1F5FE] to-white pt-24 lg:pt-32 pb-16">
+        <div
+          className="absolute  inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle, #0F4C5C 1px, transparent 1px)",
+            backgroundSize: "28px 28px",
+          }}
+        />
+
+        <div className="absolute top-20 -left-40 w-[420px] h-[420px] bg-[#4FC3F7]/20 blur-3xl animate-blob" />
+        <div
+          className="absolute bottom-0 -right-40 w-[380px] h-[380px] bg-[#FFD54F]/12 blur-3xl animate-blob"
+          style={{ animationDelay: "2s" }}
+        />
+
+        {[...Array(8)].map((_, i) => (
+          <span
+            key={i}
+            className="absolute w-1.5 h-1.5 rounded-full bg-[#4FC3F7] opacity-50 animate-float"
             style={{
-              backgroundImage:
-                "radial-gradient(circle, #0F4C5C 1px, transparent 1px)",
-              backgroundSize: "28px 28px",
+              left: `${8 + i * 11}%`,
+              top: `${18 + (i % 4) * 20}%`,
+              animationDelay: `${i * 0.4}s`,
             }}
           />
+        ))}
 
-          <div className="absolute top-20 -left-40 w-[420px] h-[420px] bg-[#4FC3F7]/20 blur-3xl animate-blob" />
-          <div
-            className="absolute bottom-0 -right-40 w-[380px] h-[380px] bg-[#FFD54F]/12 blur-3xl animate-blob"
-            style={{ animationDelay: "2s" }}
-          />
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-12 gap-8 items-center">
 
-          {[...Array(8)].map((_, i) => (
-            <span
-              key={i}
-              className="absolute w-1.5 h-1.5 rounded-full bg-[#4FC3F7] opacity-50 animate-float"
-              style={{
-                left: `${8 + i * 11}%`,
-                top: `${18 + (i % 4) * 20}%`,
-                animationDelay: `${i * 0.4}s`,
-              }}
-            />
-          ))}
-
-          <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-12 gap-8 items-center">
-              <div className="lg:col-span-7">
-                <div className="inline-flex items-center gap-2 mb-5 bg-white/80 backdrop-blur-md border border-[#4FC3F7]/50 rounded-full px-4 py-2 shadow-[0_6px_18px_rgba(79,195,247,0.15)]">
-                  <span className="relative flex h-2 w-2">
-                    <span className="absolute inline-flex h-full w-full rounded-full bg-[#4FC3F7] opacity-75 animate-ping" />
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#4FC3F7]" />
-                  </span>
-                  <span className="text-[#0F4C5C] text-xs sm:text-sm font-bold tracking-wide">
-                    Legal &amp; Terms
-                  </span>
-                </div>
-
-                <h1 className="font-[Plus_Jakarta_Sans] text-4xl sm:text-5xl md:text-6xl font-extrabold text-[#0F4C5C] leading-[1.1] mb-5">
-                  Terms &amp;{" "}
-                  <span className="relative inline-block">
-                    <span className="bg-gradient-to-r from-[#4FC3F7] via-[#FFD54F] to-[#4FC3F7] bg-clip-text text-transparent bg-[length:200%_100%] animate-[gradientShift_4s_ease_infinite]">
-                      Conditions
-                    </span>
-                    <svg
-                      className="absolute -bottom-2 left-0 w-full"
-                      height="10"
-                      viewBox="0 0 100 10"
-                      preserveAspectRatio="none"
-                    >
-                      <path
-                        d="M0,5 Q25,0 50,5 T100,5"
-                        stroke="#4FC3F7"
-                        strokeWidth="2.5"
-                        fill="none"
-                        strokeLinecap="round"
-                      />
-                    </svg>
-                  </span>
-                </h1>
-
-                <p className="text-[#0A3A47]/85 text-sm sm:text-base md:text-lg leading-relaxed mb-6 max-w-xl">
-                  Please read these terms carefully before using our website or
-                  services. They outline your rights and responsibilities when
-                  engaging with{" "}
-                  <strong className="text-[#0F4C5C]">
-                    {COMPANY_INFO.fullName}
-                  </strong>
-                  .
-                </p>
-
-                <div className="flex flex-wrap items-center gap-3">
-                  <div className="inline-flex items-center gap-2 bg-white border border-[#FFB300]/30 rounded-full px-3.5 py-1.5 shadow-[0_4px_14px_rgba(255,179,0,0.1)]">
-                    <FaSyncAlt className="text-[#FFB300] text-[10px]" />
-                    <span className="text-[#0F4C5C] text-[10px] sm:text-xs font-bold">
-                      Last Updated: September 2026
-                    </span>
-                  </div>
-                  <div className="inline-flex items-center gap-2 bg-white border border-[#4FC3F7]/30 rounded-full px-3.5 py-1.5 shadow-[0_4px_14px_rgba(79,195,247,0.1)]">
-                    <FaFileContract className="text-[#4FC3F7] text-[10px]" />
-                    <span className="text-[#0F4C5C] text-[10px] sm:text-xs font-bold">
-                      {SECTIONS.length} Sections
-                    </span>
-                  </div>
-                </div>
+            {/* ============ LEFT: TEXT DIV (Independent) ============ */}
+            <div className="lg:col-span-7 mt-[2rem] self-center">
+              <div className="inline-flex items-center gap-2 mb-5 bg-white/80 backdrop-blur-md border border-[#4FC3F7]/50 rounded-full px-4 py-2 shadow-[0_6px_18px_rgba(79,195,247,0.15)]">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full rounded-full bg-[#4FC3F7] opacity-75 animate-ping" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#4FC3F7]" />
+                </span>
+                <span className="text-[#0F4C5C] text-xs sm:text-sm font-bold tracking-wide">
+                  Legal &amp; Terms
+                </span>
               </div>
 
-              <div className="lg:col-span-5">
-                <div className="relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#4FC3F7]/30 to-[#FFD54F]/20 blur-3xl rounded-full" />
+              <h1 className="font-[Plus_Jakarta_Sans] text-4xl sm:text-5xl md:text-6xl font-extrabold text-[#0F4C5C] leading-[1.1] mb-5">
+                Terms &amp;{" "}
+                <span className="relative inline-block">
+                  <span className="bg-gradient-to-r from-[#4FC3F7] via-[#FFD54F] to-[#4FC3F7] bg-clip-text text-transparent bg-[length:200%_100%] animate-[gradientShift_4s_ease_infinite]">
+                    Conditions
+                  </span>
+                  <svg
+                    className="absolute -bottom-2 left-0 w-full"
+                    height="10"
+                    viewBox="0 0 100 10"
+                    preserveAspectRatio="none"
+                  >
+                    <path
+                      d="M0,5 Q25,0 50,5 T100,5"
+                      stroke="#4FC3F7"
+                      strokeWidth="2.5"
+                      fill="none"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                </span>
+              </h1>
 
-                  <div className="relative bg-white rounded-3xl p-6 sm:p-8 border border-[#4FC3F7]/25 shadow-[0_20px_50px_rgba(15,76,92,0.15)] overflow-hidden">
-                    <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#4FC3F7] via-[#FFD54F] to-[#4FC3F7] bg-[length:200%_100%] animate-[shimmer_3s_linear_infinite]" />
+              <p className="text-[#0A3A47]/85 text-sm sm:text-base md:text-lg leading-relaxed mb-6 max-w-xl">
+                Please Read These Terms Carefully Before Using Our Website Or
+                Services. They Outline Your Rights And Responsibilities When
+                Engaging With{" "}
+                <strong className="text-[#0F4C5C]">
+                  {COMPANY_INFO.fullName}
+                </strong>
+                .
+              </p>
 
-                    <FaQuoteLeft className="text-[#4FC3F7]/20 text-4xl mb-3" />
-
-                    <p className="text-[#0A3A47] text-sm sm:text-base leading-relaxed italic font-medium mb-5">
-                      "Transparency and fairness are the foundation of every
-                      relationship we build — with our candidates, our
-                      employers, and our community."
-                    </p>
-
-                    <div className="flex items-center gap-3 pt-4 border-t border-[#4FC3F7]/20">
-                      <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#4FC3F7] to-[#29B6F6] flex items-center justify-center shadow-[0_8px_20px_rgba(79,195,247,0.4)]">
-                        <FaFileContract className="text-white text-base" />
-                      </div>
-                      <div>
-                        <p className="text-[#0F4C5C] font-extrabold text-sm">
-                          {COMPANY_INFO.fullName}
-                        </p>
-                        <p className="text-[#4FC3F7] text-[10px] font-bold tracking-wide uppercase">
-                          Legal Department
-                        </p>
-                      </div>
-                    </div>
-
-                    <span className="absolute -bottom-6 -right-6 w-24 h-24 rounded-full bg-[#4FC3F7]/10 blur-2xl" />
-                  </div>
+              <div className="flex flex-wrap items-center gap-3">
+                <div className="inline-flex items-center gap-2 bg-white border border-[#FFB300]/30 rounded-full px-3.5 py-1.5 shadow-[0_4px_14px_rgba(255,179,0,0.1)]">
+                  <FaSyncAlt className="text-[#FFB300] text-[10px]" />
+                  <span className="text-[#0F4C5C] text-[10px] sm:text-xs font-bold">
+                    Last Updated: September 2026
+                  </span>
+                </div>
+                <div className="inline-flex items-center gap-2 bg-white border border-[#4FC3F7]/30 rounded-full px-3.5 py-1.5 shadow-[0_4px_14px_rgba(79,195,247,0.1)]">
+                  <FaFileContract className="text-[#4FC3F7] text-[10px]" />
+                  <span className="text-[#0F4C5C] text-[10px] sm:text-xs font-bold">
+                    {SECTIONS.length} Sections
+                  </span>
                 </div>
               </div>
             </div>
+
+            {/* ============ RIGHT: CARD DIV (Independent) ============ */}
+            <div className="lg:col-span-5 mt-[5rem] self-center">
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#4FC3F7]/30 to-[#FFD54F]/20 blur-3xl rounded-full" />
+
+                <div className="relative bg-white rounded-3xl p-6 sm:p-8 border border-[#4FC3F7]/25 shadow-[0_20px_50px_rgba(15,76,92,0.15)] overflow-hidden">
+                  <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#4FC3F7] via-[#FFD54F] to-[#4FC3F7] bg-[length:200%_100%] animate-[shimmer_3s_linear_infinite]" />
+
+                  <FaQuoteLeft className="text-[#4FC3F7]/20 text-4xl mb-3" />
+
+                  <p className="text-[#0A3A47] text-sm sm:text-base leading-relaxed italic font-medium mb-5">
+                    "Transparency And Fairness Are The Foundation Of Every
+                    Relationship We Build — With Our Candidates, Our
+                    Employers, And Our Community."
+                  </p>
+
+                  <div className="flex items-center gap-3 pt-4 border-t border-[#4FC3F7]/20">
+                    <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#4FC3F7] to-[#29B6F6] flex items-center justify-center shadow-[0_8px_20px_rgba(79,195,247,0.4)]">
+                      <FaFileContract className="text-white text-base" />
+                    </div>
+                    <div>
+                      <p className="text-[#0F4C5C] font-extrabold text-sm">
+                        {COMPANY_INFO.fullName}
+                      </p>
+                      <p className="text-[#4FC3F7] text-[10px] font-bold tracking-wide uppercase">
+                        Legal Department
+                      </p>
+                    </div>
+                  </div>
+
+                  <span className="absolute -bottom-6 -right-6 w-24 h-24 rounded-full bg-[#4FC3F7]/10 blur-2xl" />
+                </div>
+              </div>
+            </div>
+
           </div>
-        </section>
+        </div>
+      </section>
 
         {/* ============ MAIN CONTENT ============ */}
         <section className="relative bg-gradient-to-b from-white via-[#E1F5FE]/40 to-white py-12 sm:py-16 overflow-hidden">

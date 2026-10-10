@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 import { COMPANY_INFO } from '../utilis/constants';
 import { loadJobs } from "../data/jobsData";
 import { 
@@ -48,9 +50,9 @@ const Contact = () => {
   ];
 
   const socialLinks = [
-    { icon: <FaFacebook />, color: 'hover:bg-blue-600', link: 'https://www.facebook.com/ahioep' },
-    { icon: <FaInstagram />, color: 'hover:bg-pink-600', link: 'https://www.instagram.com/ahioep3/' },
-    { icon: <FaTwitter />, color: 'hover:bg-sky-500', link: 'https://x.com/ahioep' },
+    { icon: <FaFacebook />, color: 'hover:bg-blue-600', link: 'https://www.facebook.com/ahioep', label: 'Facebook' },
+    { icon: <FaInstagram />, color: 'hover:bg-pink-600', link: 'https://www.instagram.com/ahioep3/', label: 'Instagram' },
+    { icon: <FaTwitter />, color: 'hover:bg-sky-500', link: 'https://x.com/ahioep', label: 'Twitter' },
   ];
 
   // Encode the exact address
@@ -64,16 +66,138 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen mt-5 bg-gradient-to-br from-gray-50 to-gray-100">
+
+      {/* ============ SEO META TAGS ============ */}
+      <Helmet>
+        <title>Contact Us | Overseas Employment Promoter In Pakistan | Ali Hajveri</title>
+        <meta
+          name="description"
+          content="Contact Ali Hajveri International (Pvt.) Limited - licensed overseas employment promoter in Pakistan. Office in Dera Gujran, Lahore. Phone: +92 300 8578764. Email: ahioep.com@gmail.com."
+        />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://ahioep.com/contact" />
+        <meta property="og:title" content="Contact Us | Ali Hajveri International | Licensed OEP In Pakistan" />
+        <meta property="og:description" content="Contact our overseas employment agency in Lahore, Pakistan. Request manpower, submit CV, or discuss recruitment requirements with our team." />
+        <meta property="og:url" content="https://ahioep.com/contact" />
+        <meta property="og:type" content="website" />
+      </Helmet>
+
+      {/* ============ SEO CONTENT (Visually Hidden, Sirf Google Ke Liye) ============ */}
+      <div className="sr-only" aria-hidden="true">
+        <h1>Contact Ali Hajveri International - Licensed Overseas Employment Promoter In Pakistan</h1>
+        <p>
+          Contact Ali Hajveri International (Pvt.) Limited For All Your Overseas
+          Manpower Recruitment Needs. We Are A Government-Licensed Overseas
+          Employment Promoter In Pakistan With OEP License Number 5224, Based
+          In Lahore, Pakistan.
+        </p>
+
+        <h2>Our Office Address In Lahore, Pakistan</h2>
+        <p>
+          Office No. 1, 2nd Floor, Hajveri Plaza, Main Rajbah Road, Near
+          Quaid-E-Azam Interchange, Dera Gujran, Lahore, Pakistan.
+        </p>
+
+        <h2>Contact Information</h2>
+        <ul>
+          <li>Phone: +92 300 8578764</li>
+          <li>Email: ahioep.com@gmail.com</li>
+          <li>Website: ahioep.com</li>
+          <li>Business Hours: Monday To Saturday, 9:00 AM To 6:00 PM</li>
+        </ul>
+
+        <h2>Request Manpower For Overseas Recruitment</h2>
+        <p>
+          International Employers Can Contact Us To Request Skilled,
+          Semi-Skilled, Or Unskilled Pakistani Manpower. Share Your Job
+          Requirements, Trade Details, Headcount, And Destination Country, And
+          Our Team Will Provide A Customized Recruitment Proposal With
+          Timelines And Cost Estimates.
+        </p>
+
+        <h2>Submit CV For Overseas Jobs</h2>
+        <p>
+          Pakistani Candidates Seeking Overseas Employment Can Submit Their CV
+          Through Our Website Or Contact Us Directly. Our Team Will Match Your
+          Skills And Experience With Suitable Job Openings In Gulf Countries,
+          Central Asia, Europe, And East Asia.
+        </p>
+
+        <h2>General Inquiries And Support</h2>
+        <p>
+          For General Questions About Our Recruitment Services, Quality Policy,
+          Legal Status, Or Ongoing Deployments, Contact Us Through Phone,
+          Email, Or The Contact Form On This Page. Our Team Responds To All
+          Inquiries Within 24 Business Hours.
+        </p>
+
+        <h2>Post-Deployment Support Contact</h2>
+        <p>
+          Deployed Workers And International Employers Can Reach Our Support
+          Team For Post-Deployment Assistance, Grievance Resolution,
+          Replacement Requests, Or Repatriation Coordination. We Remain
+          Available Throughout The Employment Contract Period.
+        </p>
+
+        <h2>Why Contact Ali Hajveri International</h2>
+        <ul>
+          <li>Licensed Overseas Employment Promoter With BEOE</li>
+          <li>OEP License Number OP&HRD/5224/LHR/2026</li>
+          <li>Transparent Communication At Every Step</li>
+          <li>Fast Response To All Inquiries</li>
+          <li>Dedicated Support Team For Employers And Candidates</li>
+          <li>Located In Lahore, Pakistan With Global Reach</li>
+        </ul>
+
+        <h2>Connect With Us On Social Media</h2>
+        <p>
+          Follow Ali Hajveri International On Facebook, Instagram, And Twitter
+          For Updates On Available Jobs, Recruitment News, And Company
+          Announcements.
+        </p>
+
+        <h2>Internal Links</h2>
+        <nav>
+          <Link to="/about">About Us</Link>
+          <Link to="/services">Our Services</Link>
+          <Link to="/process">Recruitment Process</Link>
+          <Link to="/countries">Countries We Serve</Link>
+          <Link to="/submit-cv">Submit CV</Link>
+          <Link to="/faq">FAQ</Link>
+          <Link to="/legal-status">Legal Status</Link>
+        </nav>
+      </div>
+
+      <style>{`
+        @keyframes fadeUp {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-\\[fadeUp_0\\.6s_ease-out\\] { animation: fadeUp 0.6s ease-out forwards; }
+        .animate-\\[fadeUp_0\\.8s_ease-out\\] { animation: fadeUp 0.8s ease-out forwards; }
+        .animate-\\[fadeUp_1s_ease-out\\] { animation: fadeUp 1s ease-out forwards; }
+        .animate-\\[fadeUp_1\\.2s_ease-out\\] { animation: fadeUp 1.2s ease-out forwards; }
+        .sr-only {
+          position: absolute;
+          width: 1px; height: 1px;
+          padding: 0; margin: -1px;
+          overflow: hidden;
+          clip: rect(0, 0, 0, 0);
+          white-space: nowrap;
+          border: 0;
+        }
+      `}</style>
+
       <div className="absolute top-0 right-0 w-48 h-48 bg-[#4FC3F7]/10 rounded-full blur-3xl -z-10"></div>
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#0F4C5C]/5 rounded-full blur-3xl -z-10"></div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 relative z-10">
         <div className="text-center mb-6 animate-[fadeUp_0.6s_ease-out]">
           <h1 className="text-3xl md:text-4xl font-bold text-[#0F4C5C] mb-1">
-            Get in <span className="text-[#4FC3F7]">Touch</span>
+            Get In <span className="text-[#4FC3F7]">Touch</span>
           </h1>
           <p className="text-gray-500 text-sm max-w-xl mx-auto">
-            Let's discuss your manpower requirements
+            Let's Discuss Your Manpower Requirements
           </p>
         </div>
 
@@ -82,7 +206,7 @@ const Contact = () => {
           <div className="md:flex-[3] bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl border border-white/50 animate-[fadeUp_0.8s_ease-out]">
             <h2 className="text-lg font-bold text-[#0F4C5C] mb-4 flex items-center gap-2">
               <FaPaperPlane className="text-[#4FC3F7] text-sm" />
-              Send a Message
+              Send A Message
             </h2>
 
             {submitStatus.message && (
@@ -135,7 +259,7 @@ const Contact = () => {
                 <FaPaperPlane className="absolute left-3 top-2.5 text-[#8B5CF6] text-sm" />
                 <textarea
                   name="message"
-                  placeholder="Tell us about your requirements..."
+                  placeholder="Tell Us About Your Requirements..."
                   rows="3"
                   value={form.message}
                   onChange={handleChange}
@@ -169,7 +293,7 @@ const Contact = () => {
 
           {/* Contact Info */}
           <div className="md:flex-[2] bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg p-5 transition-all duration-300 hover:shadow-xl border border-white/50 animate-[fadeUp_1s_ease-out] flex flex-col">
-            <h2 className="text-lg font-bold text-[#0F4C5C] mb-3">Get in Touch</h2>
+            <h2 className="text-lg font-bold text-[#0F4C5C] mb-3">Get In Touch</h2>
             <div className="space-y-2 flex-1">
               {contactDetails.map((item, idx) => (
                 <div key={idx} className="flex items-start gap-3 p-2.5 bg-gray-50/80 rounded-lg transition-all hover:bg-[#E1F5FE] group">
@@ -185,7 +309,7 @@ const Contact = () => {
             </div>
 
             <div className="mt-4 pt-3 border-t border-gray-200">
-              <p className="text-xs text-gray-500 mb-2">Connect with us</p>
+              <p className="text-xs text-gray-500 mb-2">Connect With Us</p>
               <div className="flex gap-3">
                 {socialLinks.map((social, idx) => (
                   <a
@@ -193,6 +317,7 @@ const Contact = () => {
                     href={social.link}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={social.label}
                     className={`w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 text-sm transition-all duration-300 hover:text-white ${social.color} hover:scale-110 hover:shadow-md`}
                   >
                     {social.icon}
@@ -206,14 +331,14 @@ const Contact = () => {
         {/* Map Section */}
         <div className="mt-8 animate-[fadeUp_1.2s_ease-out]">
           <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden border border-white/50 transition-all hover:shadow-xl">
-            {/* Clickable map wrapper */}
             <a
               href={mapOpenLink}
               target="_blank"
               rel="noopener noreferrer"
               className="block relative w-full cursor-pointer group"
               style={{ paddingBottom: '30%', height: 0 }}
-              title="Click to open in Google Maps"
+              title="Click To Open In Google Maps"
+              aria-label="Open Our Office Location In Google Maps"
             >
               <iframe
                 src={mapEmbedSrc}
@@ -222,13 +347,12 @@ const Contact = () => {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Office Location"
+                title="Ali Hajveri International Office Location In Lahore, Pakistan"
               ></iframe>
-              {/* Hover overlay */}
               <div className="absolute inset-0 bg-transparent group-hover:bg-[#0F4C5C]/20 transition-colors duration-300 flex items-center justify-center">
                 <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white text-[#0F4C5C] text-xs sm:text-sm font-bold px-4 py-2 rounded-full shadow-[0_8px_24px_rgba(15,76,92,0.25)] flex items-center gap-2">
                   <FaMapMarkerAlt className="text-[#22C55E]" />
-                  Open in Google Maps
+                  Open In Google Maps
                 </span>
               </div>
             </a>
@@ -239,17 +363,6 @@ const Contact = () => {
           </div>
         </div>
       </div>
-
-      <style>{`
-        @keyframes fadeUp {
-          from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-\\[fadeUp_0\\.6s_ease-out\\] { animation: fadeUp 0.6s ease-out forwards; }
-        .animate-\\[fadeUp_0\\.8s_ease-out\\] { animation: fadeUp 0.8s ease-out forwards; }
-        .animate-\\[fadeUp_1s_ease-out\\] { animation: fadeUp 1s ease-out forwards; }
-        .animate-\\[fadeUp_1\\.2s_ease-out\\] { animation: fadeUp 1.2s ease-out forwards; }
-      `}</style>
     </div>
   );
 };

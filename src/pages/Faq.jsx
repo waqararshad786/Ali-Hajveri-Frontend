@@ -1,6 +1,7 @@
 // src/pages/FAQ.jsx
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import {
   FaChevronDown,
   FaSearch,
@@ -378,6 +379,118 @@ const Faq = () => {
 
   return (
     <>
+      {/* ============ SEO META TAGS ============ */}
+      <Helmet>
+        <title>FAQ | Overseas Employment Questions & Answers | Ali Hajveri International</title>
+        <meta
+          name="description"
+          content="Frequently asked questions about overseas employment in Pakistan. Learn about recruitment process, visa, medical, documents, interviews, and more from Ali Hajveri International - licensed OEP."
+        />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://ahioep.com/faq" />
+        <meta property="og:title" content="FAQ | Overseas Employment Questions & Answers | Ali Hajveri" />
+        <meta property="og:description" content="Answers to common questions about overseas recruitment, visa process, documentation, and deployment from Pakistan." />
+        <meta property="og:url" content="https://ahioep.com/faq" />
+        <meta property="og:type" content="website" />
+      </Helmet>
+
+      {/* ============ SEO CONTENT (Visually Hidden, Sirf Google Ke Liye) ============ */}
+      <div className="sr-only" aria-hidden="true">
+        <h1>Frequently Asked Questions About Overseas Employment From Pakistan</h1>
+        <p>
+          Find Answers To The Most Common Questions About Overseas Employment
+          From Pakistan. Ali Hajveri International (Pvt.) Limited - A
+          Government-Licensed Overseas Employment Promoter With OEP License
+          Number 5224 - Provides Complete Information About Recruitment
+          Process, Visa, Documentation, And Deployment.
+        </p>
+
+        <h2>General Questions About Our Services</h2>
+        <p>
+          We Are A Pakistan-Based Manpower Recruitment Company Specializing In
+          Connecting International Employers With Suitable Pakistani Workers.
+          We Recruit Skilled, Semi-Skilled, Technical, Professional, And
+          General Workers Exclusively From Pakistan.
+        </p>
+
+        <h2>Questions For International Employers</h2>
+        <p>
+          International Employers Can Request Pakistani Manpower By Contacting
+          Our Team With Detailed Requirements Including Job Positions, Number
+          Of Workers, Qualifications, Experience, Salary, And Employment
+          Conditions. We Source And Shortlist Candidates According To Your
+          Specific Criteria And Coordinate Interviews And Trade Tests.
+        </p>
+
+        <h2>Questions For Pakistani Candidates</h2>
+        <p>
+          Pakistani Citizens Who Meet The Qualifications, Skills, And
+          Experience Requirements Of Available Overseas Vacancies Can Apply.
+          Candidates Can Submit Their CV For Consideration Against Suitable
+          Jobs. A Valid Passport Is Generally Required For International
+          Travel And Overseas Employment.
+        </p>
+
+        <h2>Recruitment Process Questions</h2>
+        <p>
+          Our Recruitment Process Includes: Manpower Requirement, Candidate
+          Sourcing, Screening, Interview Or Trade Test, Employer Selection,
+          Documentation, Medical Examination, Visa Processing, Pre-Departure
+          Guidance, And Deployment. The Final Selection Is Made By The
+          International Employer Where An Employer Interview Is Conducted.
+        </p>
+
+        <h2>Visa And Deployment Questions</h2>
+        <p>
+          Visa Approval Is Subject To The Relevant Government And Immigration
+          Authorities And Depends On Fulfillment Of Applicable Requirements.
+          Processing Time Varies Depending On The Destination Country, Visa
+          Category, And Employer. Travel Arrangements Depend On The Specific
+          Job Order And Recruitment Agreement.
+        </p>
+
+        <h2>Trust And Safety Questions</h2>
+        <p>
+          Overseas Jobs Are Not Guaranteed - Employment Depends On Available
+          Vacancies, Employer Requirements, Candidate Eligibility, Selection,
+          Documentation, Visa Approval, And Applicable Procedures. Pakistan's
+          Bureau Of Emigration And Overseas Employment Advises Job Seekers To
+          Verify The Validity Of An Overseas Employment Promoter, The Demand,
+          And The Terms And Conditions Before Proceeding.
+        </p>
+
+        <h2>Documents Required For Overseas Employment</h2>
+        <ul>
+          <li>Valid Passport With Sufficient Validity</li>
+          <li>CNIC And Identity Documents</li>
+          <li>Educational Certificates And Transcripts</li>
+          <li>Experience Letters From Previous Employers</li>
+          <li>Technical Or Professional Certifications</li>
+          <li>Passport-Size Photographs</li>
+          <li>Medical Fitness Certificate</li>
+          <li>Police Clearance Certificate (If Required)</li>
+        </ul>
+
+        <h2>Contact Ali Hajveri International</h2>
+        <p>
+          Still Have Questions? Contact Ali Hajveri International (Pvt.)
+          Limited For More Information About Overseas Employment.
+          Website: ahioep.com | Email: ahioep.com@gmail.com | Phone: +92 300
+          8578764
+        </p>
+
+        <h2>Internal Links</h2>
+        <nav>
+          <Link to="/about">About Us</Link>
+          <Link to="/services">Our Services</Link>
+          <Link to="/process">Recruitment Process</Link>
+          <Link to="/contact">Contact Us</Link>
+          <Link to="/submit-cv">Submit CV</Link>
+          <Link to="/careers">Browse Jobs</Link>
+          <Link to="/legal-status">Legal Status</Link>
+        </nav>
+      </div>
+
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
 
@@ -427,6 +540,16 @@ const Faq = () => {
         .img-shine { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 2; }
         .img-shine::after { content: ""; position: absolute; top: 0; left: 0; width: 40%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.45), transparent); transform: translateX(-120%) skewX(-20deg); }
         .group:hover .img-shine::after { animation: shine 1s ease-out; }
+
+        .sr-only {
+          position: absolute;
+          width: 1px; height: 1px;
+          padding: 0; margin: -1px;
+          overflow: hidden;
+          clip: rect(0, 0, 0, 0);
+          white-space: nowrap;
+          border: 0;
+        }
       `}</style>
 
       {/* ============ HERO ============ */}
@@ -438,7 +561,6 @@ const Faq = () => {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-14 items-start">
 
-            {/* LEFT */}
             <div className="text-center lg:text-left">
               <div className="inline-flex items-center gap-2 mb-4 sm:mb-5 bg-white/95 backdrop-blur-sm border border-[#4FC3F7]/40 rounded-full px-3 sm:px-4 py-1.5 sm:py-2 shadow-[0_4px_14px_rgba(15,76,92,0.12)]">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#4FC3F7] animate-ping-slow" />
@@ -486,7 +608,6 @@ const Faq = () => {
                 </div>
               </div>
 
-              {/* Search */}
               <div className="max-w-xl mb-4 mx-auto lg:mx-0">
                 <div className="relative group/search">
                   <span className="absolute inset-0 rounded-full bg-[#4FC3F7]/30 blur-xl opacity-0 group-focus-within/search:opacity-100 transition-opacity duration-500" />
@@ -501,7 +622,6 @@ const Faq = () => {
                 </div>
               </div>
 
-              {/* Popular */}
               <div className="max-w-2xl mb-6 sm:mb-8 mx-auto lg:mx-0">
                 <div className="flex flex-wrap items-center justify-center lg:justify-start gap-1.5">
                   <span className="text-[#0A3A47]/60 text-xs font-semibold tracking-wide mr-1">
@@ -530,7 +650,6 @@ const Faq = () => {
                 </div>
               </div>
 
-              {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
                 <a
                   href="#faq-list"
@@ -549,14 +668,13 @@ const Faq = () => {
               </div>
             </div>
 
-            {/* RIGHT */}
             <div className="relative reveal-up group order-first lg:order-last lg:mt-[52px]">
               <div className="absolute inset-0 bg-gradient-to-br from-[#4FC3F7]/20 to-transparent rounded-3xl rotate-3 scale-[1.02] hidden sm:block" />
 
               <div className="relative h-[280px] sm:h-[340px] lg:h-[440px] rounded-3xl overflow-hidden border border-[#4FC3F7]/20 shadow-[0_20px_50px_rgba(15,76,92,0.15)]">
                 <img
                   src="/assets/faq-hero-img.png"
-                  alt="Customer Support Team Available To Answer Questions"
+                  alt="Customer Support Team Available To Answer Overseas Employment Questions"
                   className="w-full h-full object-cover saturate-[0.7] contrast-[1.02] transition-transform duration-700 group-hover:scale-[1.03]"
                   onError={(e) => { e.target.style.display = "none"; }}
                 />
@@ -567,7 +685,6 @@ const Faq = () => {
                 <span className="img-shine" />
               </div>
 
-              {/* bottom-left badge */}
               <div className="animate-gentle-float absolute bottom-3 left-3 bg-white rounded-2xl shadow-[0_16px_36px_rgba(15,76,92,0.12)] border border-[#4FC3F7]/25 px-4 py-3 max-w-[170px] hidden sm:block">
                 <div className="flex items-center gap-2 mb-1">
                   <span className="w-6 h-6 rounded-full bg-[#4FC3F7]/12 flex items-center justify-center">
@@ -580,7 +697,6 @@ const Faq = () => {
                 </p>
               </div>
 
-              {/* top-right badge */}
               <div className="animate-gentle-float-slow absolute top-3 right-3 bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] text-[#0F4C5C] rounded-2xl shadow-[0_12px_30px_rgba(79,195,247,0.35)] px-3.5 py-2.5 hidden md:block">
                 <p className="text-xs uppercase tracking-wider opacity-90 font-semibold">
                   Quick

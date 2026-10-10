@@ -11,7 +11,6 @@ import { COMPANY_INFO } from '../../utilis/constants';
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-  /* Updated social links */
   const socialLinks = [
     { icon: FaFacebook, url: 'https://www.facebook.com/profile.php?id=61592978483330', color: '#1877F2', label: 'Facebook' },
     { icon: FaInstagram, url: 'https://www.instagram.com/ahioep5224/', color: '#E4405F', label: 'Instagram' },
@@ -39,19 +38,15 @@ const Footer = () => {
 
   return (
     <>
-      {/* ============ MAIN FOOTER ============ */}
-      <footer className="relative bg-[#0F4C5C] text-white overflow-hidden">
+      <footer className="relative bg-[#0F4C5C] text-white overflow-hidden" aria-label="Footer">
 
-        {/* Multi-color top strip */}
         <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#4FC3F7] via-[#FFD54F] to-[#29B6F6]" />
 
-        {/* Glow blobs */}
         <div className="absolute -top-32 -right-32 w-[280px] h-[280px] rounded-full bg-[#4FC3F7]/10 blur-3xl" />
         <div className="absolute -bottom-32 -left-32 w-[260px] h-[260px] rounded-full bg-[#FFD54F]/8 blur-3xl" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-6">
 
-          {/* ==== MIDDLE: 4 equal columns on lg (fixes unbalanced layout) ==== */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
 
             {/* Company Info */}
@@ -59,22 +54,20 @@ const Footer = () => {
               <div className="flex items-center gap-3 mb-5">
                 <img
                   src="/assets/logo.jpeg"
-                  alt="Ali Hajveri International (Pvt.) Ltd."
+                  alt="Ali Hajveri International - Licensed Overseas Employment Promoter in Pakistan"
                   className="h-16 rounded-2xl w-auto object-contain bg-transparent"
                 />
               </div>
 
               <p className="text-white/75 text-sm leading-relaxed mb-5">
-                {COMPANY_INFO.fullName} — Supplying Skilled, Semi-skilled And Unskilled Pakistani Workforce To 25+ Countries Worldwide.
+                {COMPANY_INFO.fullName} — Supplying Skilled, Semi-skilled And Unskilled Pakistani Workforce To 25+ Countries Worldwide. Licensed Overseas Employment Promoter In Pakistan.
               </p>
 
-              {/* License badge */}
               <div className="inline-flex items-center gap-2 bg-[#4FC3F7]/15 border border-[#4FC3F7]/40 rounded-full px-3 py-1.5 text-xs text-[#4FC3F7] font-bold mb-5">
                 <FaShieldAlt className="text-[#4FC3F7]" aria-hidden="true" />
                 Licensed &amp; Regulated · #{COMPANY_INFO.license}
               </div>
 
-              {/* Social Icons */}
               <div className="flex gap-3">
                 {socialLinks.map((social, i) => (
                   <a
@@ -99,7 +92,6 @@ const Footer = () => {
 
             {/* Quick Links */}
             <div>
-              {/* Heading level fixed: h4 → h3 */}
               <h3 className="relative font-bold text-white mb-2 text-sm tracking-wider inline-block">
                 Quick Links
                 <span className="absolute -bottom-1 left-0 h-0.5 w-8 bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] rounded-full" />
@@ -110,6 +102,7 @@ const Footer = () => {
                     <Link
                       to={path}
                       className="group relative inline-flex items-center gap-2 text-white/75 hover:text-[#FFD54F] transition-colors duration-300 text-sm py-0.5"
+                      aria-label={`${label} - Ali Hajveri International`}
                     >
                       <span className="w-1.5 h-1.5 rounded-full bg-[#4FC3F7] group-hover:bg-[#FFD54F] group-hover:scale-150 transition-all duration-300" />
                       <span className="relative font-medium">
@@ -124,7 +117,6 @@ const Footer = () => {
 
             {/* Our Services */}
             <div>
-              {/* Heading level fixed: h4 → h3 */}
               <h3 className="relative font-bold text-white mb-2 text-sm tracking-wider inline-block">
                 Our Services
                 <span className="absolute -bottom-1 left-0 h-0.5 w-8 bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] rounded-full" />
@@ -135,6 +127,7 @@ const Footer = () => {
                     <Link
                       to={path}
                       className="group relative inline-flex items-center gap-2 text-white/75 hover:text-[#FFD54F] transition-colors duration-300 text-sm py-0.5"
+                      aria-label={`${label} - Overseas Recruitment Services`}
                     >
                       <span className="w-1.5 h-1.5 rounded-full bg-[#4FC3F7] group-hover:bg-[#FFD54F] group-hover:scale-150 transition-all duration-300" />
                       <span className="relative font-medium">
@@ -149,73 +142,69 @@ const Footer = () => {
 
             {/* Get in Touch */}
             <div>
-              {/* Heading level fixed: h4 → h3 */}
               <h3 className="relative font-bold text-white mb-4 text-sm tracking-wider inline-block">
-                Get in Touch
+                Get In Touch
                 <span className="absolute -bottom-1 left-0 h-0.5 w-8 bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] rounded-full" />
               </h3>
-              <ul className="flex flex-col items-start gap-2">
+              <address className="not-italic">
+                <ul className="flex flex-col items-start gap-2">
 
-                {/* Address card (keeps full width since address is long) */}
-                <li className="w-full group flex items-start gap-2.5 bg-white/5 border border-[#22C55E]/20 hover:border-[#22C55E]/50 rounded-xl px-2.5 py-2 transition-all duration-300">
-                  <span className="w-7 h-7 rounded-xl bg-[#22C55E] flex items-center justify-center flex-shrink-0 mt-0.5 shadow-[0_6px_14px_rgba(34,197,94,0.4)]">
-                    <FaMapMarkerAlt className="text-white text-[11px]" aria-hidden="true" />
-                  </span>
-                  <span className="text-white/75 text-xs leading-relaxed group-hover:text-white transition-colors">
-                    {COMPANY_INFO.address}
-                  </span>
-                </li>
+                  <li className="w-full group flex items-start gap-2.5 bg-white/5 border border-[#22C55E]/20 hover:border-[#22C55E]/50 rounded-xl px-2.5 py-2 transition-all duration-300">
+                    <span className="w-7 h-7 rounded-xl bg-[#22C55E] flex items-center justify-center flex-shrink-0 mt-0.5 shadow-[0_6px_14px_rgba(34,197,94,0.4)]">
+                      <FaMapMarkerAlt className="text-white text-[11px]" aria-hidden="true" />
+                    </span>
+                    <span className="text-white/75 text-xs leading-relaxed group-hover:text-white transition-colors">
+                      {COMPANY_INFO.address}
+                    </span>
+                  </li>
 
-                {/* Phone card — w-fit so short value doesn't stretch */}
-                <li>
-                  <a
-                    href={`tel:${COMPANY_INFO.phone}`}
-                    className="flex w-fit items-center gap-2.5 bg-white/5 border border-[#4FC3F7]/20 hover:border-[#4FC3F7]/50 rounded-xl px-2.5 py-2 transition-all duration-300"
-                  >
-                    <span className="w-7 h-7 rounded-xl bg-[#4FC3F7] flex items-center justify-center flex-shrink-0 shadow-[0_6px_14px_rgba(79,195,247,0.4)]">
-                      <FaPhone className="text-white text-[11px]" aria-hidden="true" />
-                    </span>
-                    <span className="text-white/75 text-xs font-medium group-hover:text-[#FFD54F] transition-colors">
-                      {COMPANY_INFO.phone}
-                    </span>
-                  </a>
-                </li>
+                  <li>
+                    <a
+                      href={`tel:${COMPANY_INFO.phone}`}
+                      className="flex w-fit items-center gap-2.5 bg-white/5 border border-[#4FC3F7]/20 hover:border-[#4FC3F7]/50 rounded-xl px-2.5 py-2 transition-all duration-300"
+                      aria-label="Call Ali Hajveri International"
+                    >
+                      <span className="w-7 h-7 rounded-xl bg-[#4FC3F7] flex items-center justify-center flex-shrink-0 shadow-[0_6px_14px_rgba(79,195,247,0.4)]">
+                        <FaPhone className="text-white text-[11px]" aria-hidden="true" />
+                      </span>
+                      <span className="text-white/75 text-xs font-medium group-hover:text-[#FFD54F] transition-colors">
+                        {COMPANY_INFO.phone}
+                      </span>
+                    </a>
+                  </li>
 
-                {/* Email card — w-fit so shorter email doesn't stretch */}
-                <li>
-                  <a
-                    href={`mailto:${COMPANY_INFO.email}`}
-                    className="flex w-fit max-w-full items-center gap-2.5 bg-white/5 border border-[#FFB300]/20 hover:border-[#FFB300]/50 rounded-xl px-2.5 py-2 transition-all duration-300"
-                  >
-                    <span className="w-7 h-7 rounded-xl bg-[#FFB300] flex items-center justify-center flex-shrink-0 shadow-[0_6px_14px_rgba(255,179,0,0.4)]">
-                      <FaEnvelope className="text-white text-[11px]" aria-hidden="true" />
-                    </span>
-                    <span className="text-white/75 text-xs font-medium group-hover:text-[#FFD54F] transition-colors truncate">
-                      {COMPANY_INFO.email}
-                    </span>
-                  </a>
-                </li>
-              </ul>
+                  <li>
+                    <a
+                      href={`mailto:${COMPANY_INFO.email}`}
+                      className="flex w-fit max-w-full items-center gap-2.5 bg-white/5 border border-[#FFB300]/20 hover:border-[#FFB300]/50 rounded-xl px-2.5 py-2 transition-all duration-300"
+                      aria-label="Email Ali Hajveri International"
+                    >
+                      <span className="w-7 h-7 rounded-xl bg-[#FFB300] flex items-center justify-center flex-shrink-0 shadow-[0_6px_14px_rgba(255,179,0,0.4)]">
+                        <FaEnvelope className="text-white text-[11px]" aria-hidden="true" />
+                      </span>
+                      <span className="text-white/75 text-xs font-medium group-hover:text-[#FFD54F] transition-colors truncate">
+                        {COMPANY_INFO.email}
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+              </address>
             </div>
           </div>
 
-          {/* ==== DIVIDER ==== */}
           <div className="relative mt-12 mb-6">
             <div className="h-px bg-gradient-to-r from-transparent via-[#4FC3F7]/40 to-transparent" />
           </div>
 
-          {/* ==== BOTTOM BAR ==== */}
           <div className="bg-[#0A3A47] border border-[#4FC3F7]/20 rounded-xl px-4 sm:px-6 py-4">
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
 
-              {/* Copyright */}
               <p className="text-sm text-white/60 text-center sm:text-left">
                 &copy; {currentYear}{" "}
                 <span className="font-bold text-white/90">{COMPANY_INFO.fullName}</span>.
-                All rights reserved.
+                All Rights Reserved.
               </p>
 
-              {/* Legal quick links */}
               <div className="flex items-center gap-4 text-xs font-medium">
                 <Link to="/privacy-policy" className="text-white/60 hover:text-[#4FC3F7] transition-colors">
                   Privacy
@@ -230,7 +219,6 @@ const Footer = () => {
                 </Link>
               </div>
 
-              {/* Trust line — no longer all-caps (17-char string) */}
               <div className="flex items-center gap-1.5 text-xs text-white/60 font-semibold tracking-wide">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#4FC3F7] animate-pulse" />
                 <span className="w-1.5 h-1.5 rounded-full bg-[#FFD54F] animate-pulse" style={{ animationDelay: '0.3s' }} />
@@ -243,13 +231,12 @@ const Footer = () => {
         </div>
       </footer>
 
-      {/* ============ Floating WhatsApp Button ============ */}
       <a
         href="https://wa.me/923008578764"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-50 bg-green-500 text-white rounded-full p-4 shadow-2xl hover:bg-green-600 transition-colors duration-300 flex items-center justify-center"
-        aria-label="Chat on WhatsApp"
+        aria-label="Chat On WhatsApp With Ali Hajveri International"
       >
         <FaWhatsapp size={28} aria-hidden="true" />
       </a>

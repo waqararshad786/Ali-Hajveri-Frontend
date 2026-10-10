@@ -1,6 +1,7 @@
 // src/pages/PrivacyPolicy.jsx
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { COMPANY_INFO } from "../utilis/constants";
 import {
   FaShieldAlt,
@@ -41,8 +42,8 @@ const SECTIONS = [
     content: (
       <>
         <p className="text-[#0A3A47]/85 mb-4 text-xs sm:text-sm">
-          When you interact with our website — especially when submitting your
-          CV or contacting us — we may collect the following information:
+          When You Interact With Our Website — Especially When Submitting Your
+          CV Or Contacting Us — We May Collect The Following Information:
         </p>
 
         <div className="space-y-4">
@@ -53,10 +54,10 @@ const SECTIONS = [
             </h4>
             <div className="grid sm:grid-cols-2 gap-1.5">
               {[
-                "Full name",
-                "Email address",
-                "Phone & WhatsApp number",
-                "City and country of residence",
+                "Full Name",
+                "Email Address",
+                "Phone & WhatsApp Number",
+                "City And Country Of Residence",
               ].map((text) => (
                 <div
                   key={text}
@@ -76,13 +77,13 @@ const SECTIONS = [
             </h4>
             <div className="grid sm:grid-cols-2 gap-1.5">
               {[
-                "Position applying for",
-                "Worker category",
-                "Years of experience",
-                "Highest education level",
-                "Key skills & competencies",
-                "Passport number (if provided)",
-                "Any additional details in your message",
+                "Position Applying For",
+                "Worker Category",
+                "Years Of Experience",
+                "Highest Education Level",
+                "Key Skills & Competencies",
+                "Passport Number (If Provided)",
+                "Any Additional Details In Your Message",
               ].map((text) => (
                 <div
                   key={text}
@@ -103,7 +104,7 @@ const SECTIONS = [
             <div className="grid sm:grid-cols-2 gap-1.5">
               {[
                 "Your CV / Resume (PDF, DOC, DOCX)",
-                "Additional documents you share voluntarily",
+                "Additional Documents You Share Voluntarily",
               ].map((text) => (
                 <div
                   key={text}
@@ -123,10 +124,10 @@ const SECTIONS = [
             </h4>
             <div className="grid sm:grid-cols-2 gap-1.5">
               {[
-                "IP address and browser type",
-                "Pages visited and time spent",
-                "Device and approximate location",
-                "Cookies & tracking technologies",
+                "IP Address And Browser Type",
+                "Pages Visited And Time Spent",
+                "Device And Approximate Location",
+                "Cookies & Tracking Technologies",
               ].map((text) => (
                 <div
                   key={text}
@@ -154,14 +155,14 @@ const SECTIONS = [
     content: (
       <div className="space-y-2.5">
         {[
-          "To review your CV and match your profile with suitable overseas job opportunities.",
-          "To contact you about shortlisting, interviews, trade tests, or documentation.",
-          "To respond to your inquiries and provide manpower recruitment support.",
-          "To verify qualifications, experience, and identity during the recruitment process.",
-          "To process visa applications, medical checks, and pre-departure arrangements (where applicable).",
-          "To share relevant candidate information with overseas employers you consent to be considered by.",
-          "To improve our website, services, and user experience.",
-          "To send occasional updates about new opportunities (with easy opt-out).",
+          "To Review Your CV And Match Your Profile With Suitable Overseas Job Opportunities.",
+          "To Contact You About Shortlisting, Interviews, Trade Tests, Or Documentation.",
+          "To Respond To Your Inquiries And Provide Manpower Recruitment Support.",
+          "To Verify Qualifications, Experience, And Identity During The Recruitment Process.",
+          "To Process Visa Applications, Medical Checks, And Pre-Departure Arrangements (Where Applicable).",
+          "To Share Relevant Candidate Information With Overseas Employers You Consent To Be Considered By.",
+          "To Improve Our Website, Services, And User Experience.",
+          "To Send Occasional Updates About New Opportunities (With Easy Opt-Out).",
         ].map((text) => (
           <div
             key={text}
@@ -188,17 +189,17 @@ const SECTIONS = [
     content: (
       <>
         <p className="text-[#0A3A47]/85 mb-4 text-xs sm:text-sm">
-          We <strong className="text-[#0F4C5C]">never sell</strong> your
-          personal data. We only share your information in the following
-          limited circumstances:
+          We <strong className="text-[#0F4C5C]">Never Sell</strong> Your
+          Personal Data. We Only Share Your Information In The Following
+          Limited Circumstances:
         </p>
         <div className="space-y-2.5">
           {[
-            "With overseas employers — only for vacancies you have applied for or consented to.",
-            "With government authorities (BEOE, immigration, embassy) — only as required for visa compliance.",
-            "With medical centers or trade-testing bodies — only when required for your application.",
-            "With our internal recruitment team — for reviewing and processing your application.",
-            "With legal authorities — if required by law or to protect our legal rights.",
+            "With Overseas Employers — Only For Vacancies You Have Applied For Or Consented To.",
+            "With Government Authorities (BEOE, Immigration, Embassy) — Only As Required For Visa Compliance.",
+            "With Medical Centers Or Trade-Testing Bodies — Only When Required For Your Application.",
+            "With Our Internal Recruitment Team — For Reviewing And Processing Your Application.",
+            "With Legal Authorities — If Required By Law Or To Protect Our Legal Rights.",
           ].map((text) => (
             <div
               key={text}
@@ -225,11 +226,11 @@ const SECTIONS = [
     hoverBorder: "hover:border-[#FFB300]/50",
     content: (
       <p className="text-[#0A3A47]/85 text-xs sm:text-sm leading-relaxed">
-        We implement industry-standard administrative, technical, and physical
-        safeguards to protect your personal information from unauthorized
-        access, alteration, or disclosure. Access is limited to authorized
-        personnel only. However, no online transmission or storage method is
-        100% secure, and we cannot guarantee absolute security.
+        We Implement Industry-Standard Administrative, Technical, And Physical
+        Safeguards To Protect Your Personal Information From Unauthorized
+        Access, Alteration, Or Disclosure. Access Is Limited To Authorized
+        Personnel Only. However, No Online Transmission Or Storage Method Is
+        100% Secure, And We Cannot Guarantee Absolute Security.
       </p>
     ),
   },
@@ -244,10 +245,10 @@ const SECTIONS = [
     hoverBorder: "hover:border-[#06B6D4]/50",
     content: (
       <p className="text-[#0A3A47]/85 text-xs sm:text-sm leading-relaxed">
-        We retain your CV and application details for as long as your profile
-        remains relevant for overseas recruitment opportunities. If you wish to
-        have your data removed, you may request deletion at any time by
-        contacting us at{" "}
+        We Retain Your CV And Application Details For As Long As Your Profile
+        Remains Relevant For Overseas Recruitment Opportunities. If You Wish To
+        Have Your Data Removed, You May Request Deletion At Any Time By
+        Contacting Us At{" "}
         <strong className="text-[#0F4C5C]">{COMPANY_INFO.email}</strong>.
       </p>
     ),
@@ -263,10 +264,10 @@ const SECTIONS = [
     hoverBorder: "hover:border-[#F97316]/50",
     content: (
       <p className="text-[#0A3A47]/85 text-xs sm:text-sm leading-relaxed">
-        We use cookies and similar technologies to enhance website
-        functionality, remember your preferences, and analyze traffic patterns.
-        You can disable cookies in your browser settings at any time — though
-        some features of the website may not function properly as a result.
+        We Use Cookies And Similar Technologies To Enhance Website
+        Functionality, Remember Your Preferences, And Analyze Traffic Patterns.
+        You Can Disable Cookies In Your Browser Settings At Any Time — Though
+        Some Features Of The Website May Not Function Properly As A Result.
       </p>
     ),
   },
@@ -281,11 +282,11 @@ const SECTIONS = [
     hoverBorder: "hover:border-[#EC4899]/50",
     content: (
       <p className="text-[#0A3A47]/85 text-xs sm:text-sm leading-relaxed">
-        Our website may contain links to external sites (such as employer
-        websites, government portals, or partner organizations). We are not
-        responsible for the privacy practices of those sites. We encourage you
-        to review their privacy policies before providing any personal
-        information.
+        Our Website May Contain Links To External Sites (Such As Employer
+        Websites, Government Portals, Or Partner Organizations). We Are Not
+        Responsible For The Privacy Practices Of Those Sites. We Encourage You
+        To Review Their Privacy Policies Before Providing Any Personal
+        Information.
       </p>
     ),
   },
@@ -301,15 +302,15 @@ const SECTIONS = [
     content: (
       <>
         <p className="text-[#0A3A47]/85 mb-4 text-xs sm:text-sm">
-          You have the right to:
+          You Have The Right To:
         </p>
         <div className="space-y-2.5 mb-4">
           {[
-            "Access the personal data we hold about you.",
-            "Request corrections to inaccurate or incomplete data.",
-            "Request deletion of your CV and personal information.",
-            "Withdraw consent for certain processing activities.",
-            "Opt out of promotional or update emails at any time.",
+            "Access The Personal Data We Hold About You.",
+            "Request Corrections To Inaccurate Or Incomplete Data.",
+            "Request Deletion Of Your CV And Personal Information.",
+            "Withdraw Consent For Certain Processing Activities.",
+            "Opt Out Of Promotional Or Update Emails At Any Time.",
           ].map((text) => (
             <div
               key={text}
@@ -323,7 +324,7 @@ const SECTIONS = [
           ))}
         </div>
         <p className="text-[#0A3A47]/85 text-xs sm:text-sm">
-          To exercise any of these rights, contact us at{" "}
+          To Exercise Any Of These Rights, Contact Us At{" "}
           <strong className="text-[#0F4C5C]">{COMPANY_INFO.email}</strong>.
         </p>
       </>
@@ -340,10 +341,10 @@ const SECTIONS = [
     hoverBorder: "hover:border-[#14B8A6]/50",
     content: (
       <p className="text-[#0A3A47]/85 text-xs sm:text-sm leading-relaxed">
-        Our services are intended for adults seeking overseas employment. We do
-        not knowingly collect personal information from individuals under the
-        age of 18. If we become aware that we have inadvertently collected such
-        data, we will delete it promptly.
+        Our Services Are Intended For Adults Seeking Overseas Employment. We Do
+        Not Knowingly Collect Personal Information From Individuals Under The
+        Age Of 18. If We Become Aware That We Have Inadvertently Collected Such
+        Data, We Will Delete It Promptly.
       </p>
     ),
   },
@@ -358,10 +359,10 @@ const SECTIONS = [
     hoverBorder: "hover:border-[#A78BFA]/50",
     content: (
       <p className="text-[#0A3A47]/85 text-xs sm:text-sm leading-relaxed">
-        We may update this Privacy Policy from time to time. The revised
-        version will be posted on this page with an updated "Last Updated"
-        date. We encourage you to review it periodically to stay informed
-        about how we protect your information.
+        We May Update This Privacy Policy From Time To Time. The Revised
+        Version Will Be Posted On This Page With An Updated "Last Updated"
+        Date. We Encourage You To Review It Periodically To Stay Informed
+        About How We Protect Your Information.
       </p>
     ),
   },
@@ -407,6 +408,126 @@ const PrivacyPolicy = () => {
 
   return (
     <>
+      {/* ============ SEO META TAGS ============ */}
+      <Helmet>
+        <title>Privacy Policy | Data Protection & Security | Ali Hajveri International</title>
+        <meta
+          name="description"
+          content="Privacy policy of Ali Hajveri International (Pvt.) Limited - how we collect, use, and protect your personal information. GDPR compliant data protection for candidates and employers."
+        />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://ahioep.com/privacy-policy" />
+        <meta property="og:title" content="Privacy Policy | Ali Hajveri International" />
+        <meta property="og:description" content="Learn how we collect, use, and protect your personal information at Ali Hajveri International." />
+        <meta property="og:url" content="https://ahioep.com/privacy-policy" />
+        <meta property="og:type" content="website" />
+      </Helmet>
+
+      {/* ============ SEO CONTENT (Visually Hidden, Sirf Google Ke Liye) ============ */}
+      <div className="sr-only" aria-hidden="true">
+        <h1>Privacy Policy - Data Protection & Security At Ali Hajveri International</h1>
+        <p>
+          This Privacy Policy Explains How Ali Hajveri International (Pvt.)
+          Limited Collects, Uses, Protects, And Shares Personal Information
+          From Candidates Submitting CVs, Employers Requesting Manpower, And
+          Visitors To Our Website. Your Privacy Is Important To Us, And We Are
+          Committed To Protecting Your Personal Data.
+        </p>
+
+        <h2>Information We Collect</h2>
+        <p>
+          We Collect Personal Information Such As Full Name, Email Address,
+          Phone Number, WhatsApp Number, City, And Country Of Residence. We
+          Also Collect Professional Information Including Position Applied
+          For, Worker Category, Years Of Experience, Education, Key Skills,
+          And Passport Number If Provided. Technical Data Includes IP Address,
+          Browser Type, Pages Visited, And Cookies.
+        </p>
+
+        <h2>How We Use Your Information</h2>
+        <ul>
+          <li>To Review Your CV And Match Your Profile With Overseas Job Opportunities</li>
+          <li>To Contact You About Shortlisting, Interviews, And Trade Tests</li>
+          <li>To Respond To Your Inquiries And Provide Recruitment Support</li>
+          <li>To Verify Qualifications, Experience, And Identity</li>
+          <li>To Process Visa Applications And Pre-Departure Arrangements</li>
+          <li>To Share Your Information With Employers You Consent To</li>
+          <li>To Improve Our Website And Services</li>
+        </ul>
+
+        <h2>When We Share Your Information</h2>
+        <p>
+          We Never Sell Your Personal Data. We Only Share Information With
+          Overseas Employers (For Vacancies You Applied For), Government
+          Authorities (For Visa Compliance), Medical Centers (For Medical
+          Checks), And Legal Authorities (If Required By Law).
+        </p>
+
+        <h2>Data Security</h2>
+        <p>
+          We Implement Industry-Standard Administrative, Technical, And
+          Physical Safeguards To Protect Your Personal Information From
+          Unauthorized Access, Alteration, Or Disclosure. Access Is Limited To
+          Authorized Personnel Only.
+        </p>
+
+        <h2>Data Retention</h2>
+        <p>
+          We Retain Your CV And Application Details For As Long As Your Profile
+          Remains Relevant For Overseas Recruitment Opportunities. You May
+          Request Deletion At Any Time By Contacting Us At
+          ahioep.com@gmail.com.
+        </p>
+
+        <h2>Cookies And Tracking</h2>
+        <p>
+          We Use Cookies And Similar Technologies To Enhance Website
+          Functionality, Remember Preferences, And Analyze Traffic Patterns.
+          You Can Disable Cookies In Your Browser Settings At Any Time.
+        </p>
+
+        <h2>Your Rights</h2>
+        <ul>
+          <li>Access The Personal Data We Hold About You</li>
+          <li>Request Corrections To Inaccurate Data</li>
+          <li>Request Deletion Of Your CV And Personal Information</li>
+          <li>Withdraw Consent For Certain Processing Activities</li>
+          <li>Opt Out Of Promotional Emails At Any Time</li>
+        </ul>
+
+        <h2>Children's Privacy</h2>
+        <p>
+          Our Services Are Intended For Adults Seeking Overseas Employment. We
+          Do Not Knowingly Collect Personal Information From Individuals Under
+          The Age Of 18.
+        </p>
+
+        <h2>Changes To This Policy</h2>
+        <p>
+          We May Update This Privacy Policy From Time To Time. The Revised
+          Version Will Be Posted On This Page With An Updated Date. We
+          Encourage You To Review It Periodically.
+        </p>
+
+        <h2>Contact Ali Hajveri International</h2>
+        <p>
+          If You Have Questions About This Privacy Policy Or How We Handle Your
+          Data, Contact Us At ahioep.com@gmail.com Or +92 300 8578764. Our
+          Office Is Located At Office No. 1, 2nd Floor, Hajveri Plaza, Main
+          Rajbah Road, Near Quaid-E-Azam Interchange, Dera Gujran, Lahore,
+          Pakistan.
+        </p>
+
+        <h2>Internal Links</h2>
+        <nav>
+          <Link to="/terms-conditions">Terms & Conditions</Link>
+          <Link to="/about">About Us</Link>
+          <Link to="/contact">Contact Us</Link>
+          <Link to="/faq">FAQ</Link>
+          <Link to="/legal-status">Legal Status</Link>
+        </nav>
+      </div>
+
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
 
@@ -434,15 +555,58 @@ const PrivacyPolicy = () => {
           0%, 100% { opacity: 0.4; transform: scale(1); }
           50% { opacity: 0.7; transform: scale(1.15); }
         }
+        @keyframes gentleFloat {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-8px); }
+        }
+        @keyframes shine {
+          0% { transform: translateX(-120%) skewX(-20deg); }
+          100% { transform: translateX(220%) skewX(-20deg); }
+        }
+
         .animate-blob { animation: blob 9s ease-in-out infinite; }
         .animate-float { animation: float 4s ease-in-out infinite; }
         .animate-fadeIn { animation: fadeIn 0.4s ease-out forwards; }
         .animate-pulse-slow { animation: pulse-slow 8s ease-in-out infinite; }
+        .animate-gentle-float { animation: gentleFloat 4s ease-in-out infinite; }
+        .animate-gentle-float-slow { animation: gentleFloat 5.5s ease-in-out infinite; }
+
+        /* ============ WHITE SHINE ON HOVER (Image) ============ */
+        .img-shine {
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+          overflow: hidden;
+          border-radius: inherit;
+          z-index: 2;
+        }
+        .img-shine::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 40%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.55), transparent);
+          transform: translateX(-120%) skewX(-20deg);
+        }
+        .group:hover .img-shine::after {
+          animation: shine 1s ease-out;
+        }
+
+        .sr-only {
+          position: absolute;
+          width: 1px; height: 1px;
+          padding: 0; margin: -1px;
+          overflow: hidden;
+          clip: rect(0, 0, 0, 0);
+          white-space: nowrap;
+          border: 0;
+        }
       `}</style>
 
-      {/* ============ HERO — ATTRACTIVE WITH IMAGE ============ */}
+      {/* ============ HERO ============ */}
       <section className="relative mt-[-90px] pt-40 sm:pt-28 md:pt-32 lg:pt-36 pb-10 sm:pb-14 overflow-hidden bg-gradient-to-b from-white via-[#E1F5FE] to-white">
-        {/* Glow orbs */}
         <div className="absolute -top-32 -right-40 w-[280px] sm:w-[380px] md:w-[480px] h-[280px] sm:h-[380px] md:h-[480px] rounded-full bg-[#4FC3F7]/10 blur-3xl animate-pulse-slow" />
         <div className="absolute top-40 -left-40 w-[220px] sm:w-[300px] md:w-[380px] h-[220px] sm:h-[300px] md:h-[380px] rounded-full bg-[#FFD54F]/10 blur-3xl" />
         <div className="absolute bottom-0 left-1/3 w-[180px] sm:w-[220px] md:w-[260px] h-[180px] sm:h-[220px] md:h-[260px] rounded-full bg-[#4FC3F7]/8 blur-3xl" />
@@ -452,7 +616,6 @@ const PrivacyPolicy = () => {
 
             {/* LEFT: Content */}
             <div className="text-center lg:text-left">
-              {/* Badge */}
               <div className="inline-flex items-center gap-2 mb-3 bg-white/95 backdrop-blur-sm border border-[#4FC3F7]/40 rounded-full px-3 sm:px-4 py-1.5 shadow-[0_4px_14px_rgba(15,76,92,0.12)]">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full rounded-full bg-[#4FC3F7] opacity-75 animate-ping" />
@@ -463,7 +626,6 @@ const PrivacyPolicy = () => {
                 </span>
               </div>
 
-              {/* Heading */}
               <h1 className="font-[Plus_Jakarta_Sans] text-3xl sm:text-4xl md:text-5xl lg:text-[3.2rem] font-extrabold text-[#0F4C5C] leading-[1.15] mb-4 sm:mb-5">
                 Your Privacy{" "}
                 <span className="relative inline-block">
@@ -487,7 +649,6 @@ const PrivacyPolicy = () => {
                 </span>
               </h1>
 
-              {/* Animated line */}
               <div className="text-base sm:text-lg md:text-xl text-[#0F4C5C] mb-4 min-h-[28px] sm:h-7 font-bold">
                 How We{" "}
                 <span className="bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent font-bold">
@@ -496,7 +657,6 @@ const PrivacyPolicy = () => {
                 <span className="text-[#0F4C5C] animate-pulse font-bold">|</span>
               </div>
 
-              {/* Subtext */}
               <div className="flex justify-center lg:justify-start mb-5">
                 <div className="max-w-2xl">
                   <p className="text-[#0A3A47] text-sm sm:text-base md:text-lg leading-relaxed font-medium">
@@ -505,7 +665,6 @@ const PrivacyPolicy = () => {
                 </div>
               </div>
 
-              {/* Last Updated */}
               <div className="inline-flex items-center gap-2 bg-white border border-[#4FC3F7]/30 rounded-full px-3.5 py-1.5 shadow-[0_4px_14px_rgba(15,76,92,0.08)] mb-5">
                 <FaSyncAlt className="text-[#FFB300] text-xs" />
                 <span className="text-[#0F4C5C] text-xs sm:text-sm font-semibold">
@@ -513,7 +672,6 @@ const PrivacyPolicy = () => {
                 </span>
               </div>
 
-              {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-5">
                 <a
                   href="#privacy-content-top"
@@ -538,29 +696,31 @@ const PrivacyPolicy = () => {
               <div className="relative h-[280px] sm:h-[340px] lg:h-[420px] rounded-2xl sm:rounded-3xl overflow-hidden border border-[#4FC3F7]/20 shadow-[0_20px_50px_rgba(15,76,92,0.15)]">
                 <img
                   src="/assets/privacy-img-3.png"
-                  alt="Privacy Policy"
+                  alt="Privacy Policy - Data Protection At Ali Hajveri International"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                   onError={(e) => { e.target.style.display = "none"; }}
                 />
                 <span className="img-shine" />
               </div>
 
-              {/* Floating badge — bottom-left */}
-              <div className="animate-gentle-float absolute -bottom-4 sm:-bottom-5 -left-4 sm:-left-5 bg-white rounded-2xl shadow-[0_16px_36px_rgba(15,76,92,0.12)] border border-[#4FC3F7]/25 px-4 py-3 max-w-[170px] hidden sm:block">
+              {/* ============ FLOATING BADGES — INSIDE IMAGE ============ */}
+
+              {/* Bottom-Left Badge — INSIDE image */}
+              <div className="animate-gentle-float absolute bottom-3 left-3 bg-white rounded-2xl shadow-[0_16px_36px_rgba(15,76,92,0.12)] border border-[#4FC3F7]/25 px-4 py-3 max-w-[170px] hidden sm:block">
                 <div className="flex items-center gap-2 mb-1">
                   <span className="w-6 h-6 rounded-full bg-[#4FC3F7]/12 flex items-center justify-center">
                     <FaShieldAlt className="text-[#22C55E] text-xs" />
                   </span>
                   <p className="text-[#0F4C5C] font-bold text-xs">100% Secure</p>
                 </div>
-                <p className="text-[#0A3A47] text-[10px] leading-relaxed">
+                <p className="text-[#0A3A47] text-xs leading-relaxed">
                   Your Data Is Protected
                 </p>
               </div>
 
-              {/* Floating badge — top-right */}
-              <div className="animate-gentle-float-slow absolute top-4 -right-3 sm:top-5 sm:-right-4 bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] text-[#0F4C5C] rounded-xl shadow-[0_12px_30px_rgba(79,195,247,0.35)] px-3.5 py-2.5 hidden md:block">
-                <p className="text-[10px] uppercase tracking-wider opacity-90 font-semibold">
+              {/* Top-Right Badge — INSIDE image */}
+              <div className="animate-gentle-float-slow absolute top-3 right-3 bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] text-[#0F4C5C] rounded-2xl shadow-[0_12px_30px_rgba(79,195,247,0.35)] px-3.5 py-2.5 hidden md:block">
+                <p className="text-xs uppercase tracking-wider opacity-90 font-semibold">
                   GDPR
                 </p>
                 <p className="text-sm font-extrabold">Compliant</p>
@@ -587,7 +747,6 @@ const PrivacyPolicy = () => {
           className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24"
         >
           <div className="grid lg:grid-cols-12 gap-6 lg:gap-8 items-start">
-            {/* ===== SIDEBAR ===== */}
             <aside className="lg:col-span-4 xl:col-span-3">
               <button
                 onClick={() => setMobileNavOpen(!mobileNavOpen)}
@@ -668,7 +827,6 @@ const PrivacyPolicy = () => {
               </div>
             </aside>
 
-            {/* ===== MAIN CONTENT ===== */}
             <div className="lg:col-span-8 xl:col-span-9">
               <div className="space-y-5">
                 {currentSection && (
@@ -705,7 +863,6 @@ const PrivacyPolicy = () => {
                   </div>
                 )}
 
-                {/* Prev / Next Navigation */}
                 <div className="flex items-center justify-between gap-3">
                   {currentIndex > 0 ? (
                     <button
@@ -740,7 +897,6 @@ const PrivacyPolicy = () => {
                   )}
                 </div>
 
-                {/* ===== CONTACT BOX — MIDDLE ALIGNED ===== */}
                 <div className="relative bg-gradient-to-br from-[#0F4C5C] via-[#0A3A47] to-[#06303A] rounded-2xl p-6 sm:p-8 overflow-hidden border border-[#4FC3F7]/25 shadow-[0_20px_50px_rgba(15,76,92,0.25)] mt-8">
                   <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-[#4FC3F7] to-transparent bg-[length:200%_100%] animate-[shimmer_4s_linear_infinite]" />
 
@@ -751,7 +907,6 @@ const PrivacyPolicy = () => {
                   />
 
                   <div className="relative z-10 text-center max-w-3xl mx-auto">
-                    {/* Icon + Heading */}
                     <div className="flex flex-col items-center gap-3 mb-4">
                       <span className="w-12 h-12 rounded-xl bg-[#4FC3F7]/20 border border-[#4FC3F7]/40 flex items-center justify-center">
                         <FaEnvelope className="text-[#FFB300] text-lg" />
@@ -771,7 +926,6 @@ const PrivacyPolicy = () => {
                       How We Handle Your Data, Please Reach Out:
                     </p>
 
-                    {/* Contact Cards */}
                     <div className="grid sm:grid-cols-3 gap-3 max-w-2xl mx-auto">
                       <a
                         href={`mailto:${COMPANY_INFO.email}`}
@@ -824,7 +978,6 @@ const PrivacyPolicy = () => {
                   </div>
                 </div>
 
-                {/* ===== RETURN HOME ===== */}
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
                   <p className="text-xs sm:text-sm text-[#0A3A47]/60 font-semibold flex items-center gap-2">
                     <FaCheckCircle className="text-[#22C55E]" />

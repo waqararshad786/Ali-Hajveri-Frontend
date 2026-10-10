@@ -1,6 +1,7 @@
 // src/pages/SubmitCV.jsx
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import {
   FaUser,
   FaEnvelope,
@@ -51,12 +52,12 @@ const getProgressColor = (progress) => {
 };
 
 const getProgressMessage = (progress) => {
-  if (progress === 0) return "Let's get started";
-  if (progress < 30) return "Keep going...";
-  if (progress < 60) return "Looking good!";
-  if (progress < 90) return "Almost there!";
-  if (progress < 100) return "Just a bit more!";
-  return "Ready to submit!";
+  if (progress === 0) return "Let's Get Started";
+  if (progress < 30) return "Keep Going...";
+  if (progress < 60) return "Looking Good!";
+  if (progress < 90) return "Almost There!";
+  if (progress < 100) return "Just A Bit More!";
+  return "Ready To Submit!";
 };
 
 /* ============================================================
@@ -177,7 +178,6 @@ const SubmitCV = () => {
   const formRef = useRef(null);
   const progressRef = useRef(null);
 
-  /* ---------- Progress ---------- */
   useEffect(() => {
     const fields = [
       form.fullName,
@@ -196,7 +196,6 @@ const SubmitCV = () => {
     setProgress(Math.round((filled / fields.length) * 100));
   }, [form]);
 
-  /* ---------- Sticky Progress on Scroll ---------- */
   useEffect(() => {
     const handleScroll = () => {
       if (progressRef.current) {
@@ -215,14 +214,14 @@ const SubmitCV = () => {
 
   const validate = () => {
     const e = {};
-    if (!form.fullName.trim()) e.fullName = "Full name is required";
-    if (!form.email.trim()) e.email = "Email is required";
+    if (!form.fullName.trim()) e.fullName = "Full Name Is Required";
+    if (!form.email.trim()) e.email = "Email Is Required";
     else if (!/^\S+@\S+\.\S+$/.test(form.email))
-      e.email = "Enter a valid email";
-    if (!form.phone.trim()) e.phone = "Phone number is required";
-    if (!form.country.trim()) e.country = "Country is required";
-    if (!form.position.trim()) e.position = "Position is required";
-    if (!form.category) e.category = "Please select a category";
+      e.email = "Enter A Valid Email";
+    if (!form.phone.trim()) e.phone = "Phone Number Is Required";
+    if (!form.country.trim()) e.country = "Country Is Required";
+    if (!form.position.trim()) e.position = "Position Is Required";
+    if (!form.category) e.category = "Please Select A Category";
     return e;
   };
 
@@ -305,80 +304,201 @@ const SubmitCV = () => {
   /* ============ SUCCESS SCREEN ============ */
   if (submitted) {
     return (
-      <section className="relative min-h-screen bg-gradient-to-br from-[#0F4C5C] via-[#0A3A47] to-[#06303A] pt-24 sm:pt-28 pb-16 overflow-hidden flex items-center">
-        <div className="absolute top-10 left-10 w-72 h-72 rounded-full bg-[#4FC3F7]/20 blur-3xl animate-pulse" />
-        <div
-          className="absolute bottom-10 right-10 w-80 h-80 rounded-full bg-[#FFD54F]/15 blur-3xl animate-pulse"
-          style={{ animationDelay: "1s" }}
-        />
+      <>
+        <Helmet>
+          <title>CV Submitted Successfully | Ali Hajveri International</title>
+          <meta name="robots" content="noindex, follow" />
+          <link rel="canonical" href="https://ahioep.com/submit-cv" />
+        </Helmet>
 
-        <div className="relative w-full sm:w-[80%] max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="relative bg-white/95 backdrop-blur-xl rounded-3xl p-8 sm:p-12 shadow-[0_24px_80px_rgba(15,76,92,0.45)] border border-[#4FC3F7]/30 overflow-hidden">
-            <span className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[#4FC3F7] via-[#FFD54F] to-[#4FC3F7] bg-[length:200%_100%] animate-[shimmer_3s_linear_infinite]" />
+        <section className="relative min-h-screen bg-gradient-to-br from-[#0F4C5C] via-[#0A3A47] to-[#06303A] pt-24 sm:pt-28 pb-16 overflow-hidden flex items-center">
+          <div className="absolute top-10 left-10 w-72 h-72 rounded-full bg-[#4FC3F7]/20 blur-3xl animate-pulse" />
+          <div
+            className="absolute bottom-10 right-10 w-80 h-80 rounded-full bg-[#FFD54F]/15 blur-3xl animate-pulse"
+            style={{ animationDelay: "1s" }}
+          />
 
-            <div className="relative w-24 h-24 mx-auto mb-6">
-              <span className="absolute inset-0 rounded-full bg-[#22C55E]/30 animate-ping" />
-              <span
-                className="absolute inset-2 rounded-full bg-[#22C55E]/20 animate-ping"
-                style={{ animationDelay: "0.5s" }}
-              />
-              <div className="relative w-full h-full rounded-full bg-gradient-to-br from-[#22C55E] to-[#16A34A] flex items-center justify-center shadow-[0_12px_40px_rgba(34,197,94,0.5)]">
-                <FaCheckCircle className="text-white text-4xl" aria-hidden="true" />
+          <div className="relative w-full sm:w-[80%] max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div className="relative bg-white/95 backdrop-blur-xl rounded-3xl p-8 sm:p-12 shadow-[0_24px_80px_rgba(15,76,92,0.45)] border border-[#4FC3F7]/30 overflow-hidden">
+              <span className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[#4FC3F7] via-[#FFD54F] to-[#4FC3F7] bg-[length:200%_100%] animate-[shimmer_3s_linear_infinite]" />
+
+              <div className="relative w-24 h-24 mx-auto mb-6">
+                <span className="absolute inset-0 rounded-full bg-[#22C55E]/30 animate-ping" />
+                <span
+                  className="absolute inset-2 rounded-full bg-[#22C55E]/20 animate-ping"
+                  style={{ animationDelay: "0.5s" }}
+                />
+                <div className="relative w-full h-full rounded-full bg-gradient-to-br from-[#22C55E] to-[#16A34A] flex items-center justify-center shadow-[0_12px_40px_rgba(34,197,94,0.5)]">
+                  <FaCheckCircle className="text-white text-4xl" aria-hidden="true" />
+                </div>
+              </div>
+
+              <div className="inline-flex items-center gap-1.5 mb-3">
+                {[...Array(5)].map((_, i) => (
+                  <FaStar
+                    key={i}
+                    className="text-[#FFD54F] text-sm animate-pulse"
+                    style={{ animationDelay: `${i * 0.15}s` }}
+                    aria-hidden="true"
+                  />
+                ))}
+              </div>
+
+              <h1 className="text-3xl sm:text-4xl font-extrabold text-[#0F4C5C] mb-4">
+                CV Submitted{" "}
+                <span className="bg-gradient-to-r from-[#22C55E] to-[#16A34A] bg-clip-text text-transparent">
+                  Successfully!
+                </span>
+              </h1>
+
+              <p className="text-[#0A3A47] text-sm sm:text-base leading-relaxed mb-8 max-w-lg mx-auto">
+                Thank You For Submitting Your CV. Our Recruitment Team Will
+                Review Your Profile And Contact You Within{" "}
+                <span className="font-bold text-[#0F4C5C]">
+                  3–5 Business Days
+                </span>{" "}
+                If A Suitable Overseas Opportunity Matches Your Qualifications.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <Link
+                  to="/careers"
+                  className="group relative inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] text-[#0F4C5C] px-7 py-3.5 rounded-full font-bold shadow-[0_12px_30px_rgba(79,195,247,0.5)] hover:shadow-[0_16px_40px_rgba(255,213,79,0.6)] hover:-translate-y-1 transition-all duration-300 text-sm overflow-hidden"
+                >
+                  <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+                  Browse Jobs
+                  <FaArrowRight className="text-xs group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+                </Link>
+                <Link
+                  to="/"
+                  className="inline-flex items-center justify-center gap-2 border-2 border-[#0F4C5C]/30 text-[#0F4C5C] px-7 py-3.5 rounded-full font-bold hover:bg-[#E1F5FE] hover:border-[#4FC3F7]/60 transition-all duration-300 text-sm"
+                >
+                  Back To Home
+                </Link>
               </div>
             </div>
-
-            <div className="inline-flex items-center gap-1.5 mb-3">
-              {[...Array(5)].map((_, i) => (
-                <FaStar
-                  key={i}
-                  className="text-[#FFD54F] text-sm animate-pulse"
-                  style={{ animationDelay: `${i * 0.15}s` }}
-                  aria-hidden="true"
-                />
-              ))}
-            </div>
-
-            <h1 className="text-3xl sm:text-4xl font-extrabold text-[#0F4C5C] mb-4">
-              CV Submitted{" "}
-              <span className="bg-gradient-to-r from-[#22C55E] to-[#16A34A] bg-clip-text text-transparent">
-                Successfully!
-              </span>
-            </h1>
-
-            <p className="text-[#0A3A47] text-sm sm:text-base leading-relaxed mb-8 max-w-lg mx-auto">
-              Thank You For Submitting Your CV. Our Recruitment Team Will
-              Review Your Profile And Contact You Within{" "}
-              <span className="font-bold text-[#0F4C5C]">
-                3–5 Business Days
-              </span>{" "}
-              If A Suitable Overseas Opportunity Matches Your Qualifications.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Link
-                to="/careers"
-                className="group relative inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] text-[#0F4C5C] px-7 py-3.5 rounded-full font-bold shadow-[0_12px_30px_rgba(79,195,247,0.5)] hover:shadow-[0_16px_40px_rgba(255,213,79,0.6)] hover:-translate-y-1 transition-all duration-300 text-sm overflow-hidden"
-              >
-                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-                Browse Jobs
-                <FaArrowRight className="text-xs group-hover:translate-x-1 transition-transform" aria-hidden="true" />
-              </Link>
-              <Link
-                to="/"
-                className="inline-flex items-center justify-center gap-2 border-2 border-[#0F4C5C]/30 text-[#0F4C5C] px-7 py-3.5 rounded-full font-bold hover:bg-[#E1F5FE] hover:border-[#4FC3F7]/60 transition-all duration-300 text-sm"
-              >
-                Back To Home
-              </Link>
-            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </>
     );
   }
 
   /* ============ FORM SCREEN ============ */
   return (
     <>
+      {/* ============ SEO META TAGS ============ */}
+      <Helmet>
+        <title>Submit CV For Overseas Jobs | Free Registration | Ali Hajveri International</title>
+        <meta
+          name="description"
+          content="Submit your CV for overseas jobs in Gulf, Asia, and Europe. Free registration with Ali Hajveri International - licensed overseas employment promoter in Pakistan. No hidden charges for candidates."
+        />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://ahioep.com/submit-cv" />
+        <meta property="og:title" content="Submit CV For Overseas Jobs | Ali Hajveri International" />
+        <meta property="og:description" content="Free CV submission for skilled, semi-skilled, and professional Pakistani workers seeking overseas employment opportunities." />
+        <meta property="og:url" content="https://ahioep.com/submit-cv" />
+        <meta property="og:type" content="website" />
+      </Helmet>
+
+      {/* ============ SEO CONTENT (Visually Hidden, Sirf Google Ke Liye) ============ */}
+      <div className="sr-only" aria-hidden="true">
+        <h1>Submit CV For Overseas Jobs - Free Registration By Ali Hajveri International</h1>
+        <p>
+          Submit Your CV Through Ali Hajveri International (Pvt.) Limited For
+          Overseas Job Opportunities In Gulf Countries, Central Asia, Europe,
+          And East Asia. Our Free Registration Process Allows Skilled,
+          Semi-Skilled, And Professional Pakistani Workers To Be Considered For
+          International Employment Opportunities.
+        </p>
+
+        <h2>Free CV Submission For Pakistani Workers</h2>
+        <p>
+          We Never Charge Candidates For Submitting CV Or For Job Placement.
+          Our Registration Is Completely Free For All Pakistani Workers Seeking
+          Overseas Employment. Simply Fill In Your Details, Upload Your CV, And
+          Our Recruitment Team Will Contact You When A Suitable Opportunity
+          Becomes Available.
+        </p>
+
+        <h2>Who Can Submit CV</h2>
+        <ul>
+          <li>Skilled Workers - Engineers, Technicians, Welders, Electricians</li>
+          <li>Semi-Skilled Workers - Machine Operators, Drivers, Helpers</li>
+          <li>Unskilled Workers - General Labour, Loaders, Cleaners</li>
+          <li>Technical Staff - Supervisors, Draftsmen, Quality Control</li>
+          <li>Professional Staff - Accountants, IT Professionals, Nurses</li>
+        </ul>
+
+        <h2>What Information You Need</h2>
+        <ul>
+          <li>Full Name And Contact Details</li>
+          <li>Email Address And Phone Number</li>
+          <li>City And Country Of Residence</li>
+          <li>Position Or Trade You Are Applying For</li>
+          <li>Worker Category (Skilled, Semi-Skilled, Unskilled)</li>
+          <li>Years Of Experience And Education</li>
+          <li>Passport Number (If Available)</li>
+          <li>Key Skills And Certifications</li>
+          <li>Updated CV In PDF, DOC, Or DOCX Format (Max 5 MB)</li>
+        </ul>
+
+        <h2>Overseas Job Opportunities We Offer</h2>
+        <p>
+          Through Our Licensed Overseas Employment Promoter Operations, We
+          Place Pakistani Workers In Various Industries And Countries Including
+          Saudi Arabia, UAE, Qatar, Oman, Kuwait, Bahrain, Tajikistan,
+          Kazakhstan, Kyrgyzstan, Uzbekistan, Turkmenistan, Romania, China, And
+          Other International Markets.
+        </p>
+
+        <h2>What Happens After You Submit CV</h2>
+        <ol>
+          <li>Our Team Reviews Your CV And Profile</li>
+          <li>We Match Your Skills With Available Job Opportunities</li>
+          <li>We Contact You If A Suitable Position Is Available</li>
+          <li>You Attend Interview Or Trade Test If Shortlisted</li>
+          <li>Upon Selection, We Handle Documentation And Deployment</li>
+        </ol>
+
+        <h2>Our Commitment To Candidates</h2>
+        <ul>
+          <li>Free Registration And CV Submission</li>
+          <li>No Hidden Charges At Any Stage</li>
+          <li>Transparent Communication Throughout The Process</li>
+          <li>Complete Support From Selection To Deployment</li>
+          <li>Post-Deployment Support For Deployed Workers</li>
+          <li>Full Compliance With BEOE Regulations</li>
+        </ul>
+
+        <h2>Trusted By 5,000+ Pakistani Workers</h2>
+        <p>
+          Ali Hajveri International Has Successfully Placed Over 5,000
+          Pakistani Workers In International Employment Across 25+ Countries.
+          Our OEP License Number OP&HRD/5224/LHR/2026 Confirms Our Government
+          Authorization To Recruit Pakistani Workers For Overseas Employment.
+        </p>
+
+        <h2>Contact Ali Hajveri International</h2>
+        <p>
+          For More Information About CV Submission Or Overseas Job
+          Opportunities, Contact Ali Hajveri International (Pvt.) Limited.
+          Website: ahioep.com | Email: ahioep.com@gmail.com | Phone: +92 300
+          8578764
+        </p>
+
+        <h2>Internal Links</h2>
+        <nav>
+          <Link to="/careers">Browse Jobs</Link>
+          <Link to="/services">Our Services</Link>
+          <Link to="/process">Recruitment Process</Link>
+          <Link to="/about">About Us</Link>
+          <Link to="/contact">Contact Us</Link>
+          <Link to="/faq">FAQ</Link>
+          <Link to="/legal-status">Legal Status</Link>
+        </nav>
+      </div>
+
       <style>{`
         @keyframes shimmer {
           0% { background-position: 0% 50%; }
@@ -421,191 +541,182 @@ const SubmitCV = () => {
         .img-shine { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 2; }
         .img-shine::after { content: ""; position: absolute; top: 0; left: 0; width: 40%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.45), transparent); transform: translateX(-120%) skewX(-20deg); }
         .group:hover .img-shine::after { animation: shine 1s ease-out; }
+
+        .sr-only {
+          position: absolute;
+          width: 1px; height: 1px;
+          padding: 0; margin: -1px;
+          overflow: hidden;
+          clip: rect(0, 0, 0, 0);
+          white-space: nowrap;
+          border: 0;
+        }
       `}</style>
 
-      {/* ============ HERO — aligned with Home.jsx ============ */}
-<section className="relative mt-[-6rem] pt-44 sm:pt-28 md:pt-32 lg:pt-36 pb-12 sm:pb-16 overflow-hidden bg-gradient-to-b from-white via-[#E1F5FE] to-white">
-  {/* Decorative background blobs */}
-  <div className="absolute -top-32 -right-40 w-[280px] sm:w-[380px] md:w-[480px] h-[280px] sm:h-[380px] md:h-[480px] rounded-full bg-[#4FC3F7]/10 blur-3xl animate-pulse-slow" />
-  <div className="absolute top-40 -left-40 w-[220px] sm:w-[300px] md:w-[380px] h-[220px] sm:h-[300px] md:h-[380px] rounded-full bg-[#FFD54F]/10 blur-3xl" />
-  <div className="absolute bottom-0 left-1/3 w-[180px] sm:w-[220px] md:w-[260px] h-[180px] sm:h-[220px] md:h-[260px] rounded-full bg-[#4FC3F7]/8 blur-3xl" />
+      {/* ============ HERO ============ */}
+      <section className="relative mt-[-6rem] pt-44 sm:pt-28 md:pt-32 lg:pt-36 pb-12 sm:pb-16 overflow-hidden bg-gradient-to-b from-white via-[#E1F5FE] to-white">
+        <div className="absolute -top-32 -right-40 w-[280px] sm:w-[380px] md:w-[480px] h-[280px] sm:h-[380px] md:h-[480px] rounded-full bg-[#4FC3F7]/10 blur-3xl animate-pulse-slow" />
+        <div className="absolute top-40 -left-40 w-[220px] sm:w-[300px] md:w-[380px] h-[220px] sm:h-[300px] md:h-[380px] rounded-full bg-[#FFD54F]/10 blur-3xl" />
+        <div className="absolute bottom-0 left-1/3 w-[180px] sm:w-[220px] md:w-[260px] h-[180px] sm:h-[220px] md:h-[260px] rounded-full bg-[#4FC3F7]/8 blur-3xl" />
 
-  <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-14 items-start">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-14 items-start">
 
-      {/* =========================================================
-          LEFT — TEXT DIV (independent; own margins)
-      ========================================================= */}
-      <div className="text-center lg:text-left">
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 mb-4 sm:mb-5 bg-white/95 backdrop-blur-sm border border-[#4FC3F7]/40 rounded-full px-3 sm:px-4 py-1.5 sm:py-2 shadow-[0_4px_14px_rgba(15,76,92,0.12)]">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#4FC3F7] animate-ping-slow" />
-          <span
-            className="text-[#0F4C5C] text-xs sm:text-sm font-bold"
-            style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}
-          >
-            Candidate Registration
-          </span>
-        </div>
+            <div className="text-center lg:text-left">
+              <div className="inline-flex items-center gap-2 mb-4 sm:mb-5 bg-white/95 backdrop-blur-sm border border-[#4FC3F7]/40 rounded-full px-3 sm:px-4 py-1.5 sm:py-2 shadow-[0_4px_14px_rgba(15,76,92,0.12)]">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#4FC3F7] animate-ping-slow" />
+                <span
+                  className="text-[#0F4C5C] text-xs sm:text-sm font-bold"
+                  style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}
+                >
+                  Candidate Registration
+                </span>
+              </div>
 
-        {/* Heading */}
-        <h1
-          className="font-[Plus_Jakarta_Sans] text-3xl sm:text-4xl md:text-5xl lg:text-[3.2rem] font-extrabold text-[#0F4C5C] leading-[1.15] mb-4 sm:mb-5"
-          style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}
-        >
-          Submit Your{" "}
-          <span className="relative inline-block">
-            <span className="bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent">
-              CV
-            </span>
-            <svg
-              className="absolute -bottom-2 left-0 w-full"
-              height="10"
-              viewBox="0 0 100 10"
-              preserveAspectRatio="none"
-            >
-              <path
-                d="M0,5 Q25,0 50,5 T100,5"
-                stroke="#4FC3F7"
-                strokeWidth="2.5"
-                fill="none"
-                strokeLinecap="round"
-              />
-            </svg>
-          </span>
-        </h1>
-
-        {/* Sub-headline */}
-        <div
-          className="text-sm sm:text-base md:text-lg text-[#0A3A47] mb-4 min-h-[24px] sm:h-7 font-semibold"
-          style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}
-        >
-          Verified{" "}
-          <span className="text-[#29B6F6] font-semibold">
-            Overseas Opportunities
-          </span>
-        </div>
-
-        {/* Paragraph */}
-        <div className="flex justify-center lg:justify-start mb-6 sm:mb-8">
-          <div className="max-w-2xl">
-            <p
-              className="text-[#0A3A47] text-sm sm:text-base md:text-lg leading-relaxed font-medium"
-              style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}
-            >
-              Fill In Your Details Below. Our Recruitment Team Will
-              Review Your Profile And Contact You When A Suitable
-              Overseas Opportunity Becomes Available.
-            </p>
-          </div>
-        </div>
-
-        {/* CTAs */}
-        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start mb-8 sm:mb-10">
-          <Link
-            to="/careers"
-            className="btn-shine group inline-flex items-center justify-center gap-2 bg-white border-2 border-[#0F4C5C]/30 text-[#0F4C5C] px-6 sm:px-8 py-3 sm:py-3.5 rounded-full font-bold hover:border-[#4FC3F7] hover:bg-[#E1F5FE] hover:-translate-y-0.5 transition-all duration-300 text-sm sm:text-base"
-          >
-            Browse Jobs
-            <FaArrowRight className="text-sm group-hover:translate-x-1 transition-transform" aria-hidden="true" />
-          </Link>
-          <Link
-            to="/contact"
-            className="btn-shine group inline-flex items-center justify-center gap-2 bg-white border-2 border-[#0F4C5C]/30 text-[#0F4C5C] px-6 sm:px-8 py-3 sm:py-3.5 rounded-full font-bold hover:border-[#4FC3F7] hover:bg-[#E1F5FE] transition-all duration-300 text-sm sm:text-base"
-          >
-            Contact Us
-            <FaArrowRight className="text-sm group-hover:translate-x-1 transition-transform" aria-hidden="true" />
-          </Link>
-        </div>
-
-        {/* Stats */}
-        <div className="flex flex-wrap justify-center lg:justify-start gap-6 sm:gap-10 md:gap-14">
-          {[
-            { value: "5000+", label: "Workers Placed" },
-            { value: "50+", label: "Global Employers" },
-            { value: "100%", label: "Free Registration" },
-          ].map((stat) => (
-            <div key={stat.label} className="text-center lg:text-left">
-              <p
-                className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[#0F4C5C] tabular-nums"
+              <h1
+                className="font-[Plus_Jakarta_Sans] text-3xl sm:text-4xl md:text-5xl lg:text-[3.2rem] font-extrabold text-[#0F4C5C] leading-[1.15] mb-4 sm:mb-5"
                 style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}
               >
-                {stat.value}
-              </p>
-              <p
-                className="text-xs sm:text-sm text-[#0F4C5C] font-bold mt-1"
+                Submit Your{" "}
+                <span className="relative inline-block">
+                  <span className="bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] bg-clip-text text-transparent">
+                    CV
+                  </span>
+                  <svg
+                    className="absolute -bottom-2 left-0 w-full"
+                    height="10"
+                    viewBox="0 0 100 10"
+                    preserveAspectRatio="none"
+                  >
+                    <path
+                      d="M0,5 Q25,0 50,5 T100,5"
+                      stroke="#4FC3F7"
+                      strokeWidth="2.5"
+                      fill="none"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                </span>
+              </h1>
+
+              <div
+                className="text-sm sm:text-base md:text-lg text-[#0A3A47] mb-4 min-h-[24px] sm:h-7 font-semibold"
                 style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}
               >
-                {stat.label}
-              </p>
+                Verified{" "}
+                <span className="text-[#29B6F6] font-semibold">
+                  Overseas Opportunities
+                </span>
+              </div>
+
+              <div className="flex justify-center lg:justify-start mb-6 sm:mb-8">
+                <div className="max-w-2xl">
+                  <p
+                    className="text-[#0A3A47] text-sm sm:text-base md:text-lg leading-relaxed font-medium"
+                    style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}
+                  >
+                    Fill In Your Details Below. Our Recruitment Team Will
+                    Review Your Profile And Contact You When A Suitable
+                    Overseas Opportunity Becomes Available.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start mb-8 sm:mb-10">
+                <Link
+                  to="/careers"
+                  className="btn-shine group inline-flex items-center justify-center gap-2 bg-white border-2 border-[#0F4C5C]/30 text-[#0F4C5C] px-6 sm:px-8 py-3 sm:py-3.5 rounded-full font-bold hover:border-[#4FC3F7] hover:bg-[#E1F5FE] hover:-translate-y-0.5 transition-all duration-300 text-sm sm:text-base"
+                >
+                  Browse Jobs
+                  <FaArrowRight className="text-sm group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+                </Link>
+                <Link
+                  to="/contact"
+                  className="btn-shine group inline-flex items-center justify-center gap-2 bg-white border-2 border-[#0F4C5C]/30 text-[#0F4C5C] px-6 sm:px-8 py-3 sm:py-3.5 rounded-full font-bold hover:border-[#4FC3F7] hover:bg-[#E1F5FE] transition-all duration-300 text-sm sm:text-base"
+                >
+                  Contact Us
+                  <FaArrowRight className="text-sm group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+                </Link>
+              </div>
+
+              <div className="flex flex-wrap justify-center lg:justify-start gap-6 sm:gap-10 md:gap-14">
+                {[
+                  { value: "5000+", label: "Workers Placed" },
+                  { value: "50+", label: "Global Employers" },
+                  { value: "100%", label: "Free Registration" },
+                ].map((stat) => (
+                  <div key={stat.label} className="text-center lg:text-left">
+                    <p
+                      className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[#0F4C5C] tabular-nums"
+                      style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}
+                    >
+                      {stat.value}
+                    </p>
+                    <p
+                      className="text-xs sm:text-sm text-[#0F4C5C] font-bold mt-1"
+                      style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}
+                    >
+                      {stat.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
-          ))}
-        </div>
-      </div>
 
-      {/* =========================================================
-          RIGHT — IMAGE DIV (independent; own margins)
-          Change `lg:mt-[52px]` to whatever you want.
-          Changing this will NOT affect the left div at all.
-      ========================================================= */}
-      <div className="relative reveal-up group order-first lg:order-last lg:mt-[52px]">
-        {/* Rotated gradient backdrop */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#4FC3F7]/20 to-transparent rounded-3xl rotate-3 scale-[1.02] hidden sm:block" />
+            <div className="relative reveal-up group order-first lg:order-last lg:mt-[52px]">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#4FC3F7]/20 to-transparent rounded-3xl rotate-3 scale-[1.02] hidden sm:block" />
 
-        {/* Image frame */}
-        <div className="relative h-[280px] sm:h-[340px] lg:h-[440px] rounded-3xl overflow-hidden border border-[#4FC3F7]/20 shadow-[0_20px_50px_rgba(15,76,92,0.15)]">
-          <img
-            src="/assets/submitcv-hero-img.png"
-            alt="Submit Your CV For Overseas Opportunities"
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-            onError={(e) => {
-              e.target.style.display = "none";
-            }}
-          />
-          <span className="img-shine" />
-        </div>
+              <div className="relative h-[280px] sm:h-[340px] lg:h-[440px] rounded-3xl overflow-hidden border border-[#4FC3F7]/20 shadow-[0_20px_50px_rgba(15,76,92,0.15)]">
+                <img
+                  src="/assets/submitcv-hero-img.png"
+                  alt="Submit CV For Overseas Job Opportunities In Gulf, Asia, And Europe"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  onError={(e) => {
+                    e.target.style.display = "none";
+                  }}
+                />
+                <span className="img-shine" />
+              </div>
 
-        {/* Floating badge — bottom-left, INSIDE image */}
-        <div className="animate-gentle-float absolute bottom-3 left-3 bg-white rounded-2xl shadow-[0_16px_36px_rgba(15,76,92,0.12)] border border-[#4FC3F7]/25 px-4 py-3 max-w-[170px] hidden sm:block">
-          <div className="flex items-center gap-2 mb-1">
-            <span className="w-6 h-6 rounded-full bg-[#4FC3F7]/12 flex items-center justify-center">
-              <FaCheckCircle className="text-[#22C55E] text-xs" aria-hidden="true" />
-            </span>
-            <p
-              className="text-[#0F4C5C] font-bold text-xs"
-              style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}
-            >
-              Free To Apply
-            </p>
+              <div className="animate-gentle-float absolute bottom-3 left-3 bg-white rounded-2xl shadow-[0_16px_36px_rgba(15,76,92,0.12)] border border-[#4FC3F7]/25 px-4 py-3 max-w-[170px] hidden sm:block">
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="w-6 h-6 rounded-full bg-[#4FC3F7]/12 flex items-center justify-center">
+                    <FaCheckCircle className="text-[#22C55E] text-xs" aria-hidden="true" />
+                  </span>
+                  <p
+                    className="text-[#0F4C5C] font-bold text-xs"
+                    style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}
+                  >
+                    Free To Apply
+                  </p>
+                </div>
+                <p
+                  className="text-[#0A3A47] text-xs leading-relaxed"
+                  style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}
+                >
+                  No Registration Fee
+                </p>
+              </div>
+
+              <div className="animate-gentle-float-slow absolute top-3 right-3 bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] text-[#0F4C5C] rounded-2xl shadow-[0_12px_30px_rgba(79,195,247,0.35)] px-3.5 py-2.5 hidden md:block">
+                <p
+                  className="text-xs uppercase tracking-wider opacity-90 font-semibold"
+                  style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}
+                >
+                  Reviewed By
+                </p>
+                <p
+                  className="text-sm font-extrabold"
+                  style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}
+                >
+                  Our Team
+                </p>
+              </div>
+            </div>
+
           </div>
-          <p
-            className="text-[#0A3A47] text-xs leading-relaxed"
-            style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}
-          >
-            No Registration Fee
-          </p>
         </div>
-
-        {/* Floating badge — top-right, INSIDE image */}
-        <div className="animate-gentle-float-slow absolute top-3 right-3 bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] text-[#0F4C5C] rounded-2xl shadow-[0_12px_30px_rgba(79,195,247,0.35)] px-3.5 py-2.5 hidden md:block">
-          <p
-            className="text-xs uppercase tracking-wider opacity-90 font-semibold"
-            style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}
-          >
-            Reviewed By
-          </p>
-          <p
-            className="text-sm font-extrabold"
-            style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}
-          >
-            Our Team
-          </p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
+      </section>
 
       {/* ============ STICKY PROGRESS BAR ============ */}
       <div
@@ -652,7 +763,6 @@ const SubmitCV = () => {
         />
 
         <div className="relative w-[95%] sm:w-[92%] max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* In-page Progress Bar */}
           <div
             ref={progressRef}
             className="mb-3 bg-white rounded-2xl p-4 border border-[#E2E8F0] shadow-[0_4px_20px_rgba(15,76,92,0.06)]"
@@ -681,7 +791,6 @@ const SubmitCV = () => {
             </p>
           </div>
 
-          {/* Form */}
           <form onSubmit={handleSubmit}>
             {errors.form && (
               <div className="relative mb-3 flex items-center gap-2 bg-red-50 border border-red-200 rounded-xl px-4 py-2.5 animate-slideUp">
@@ -692,11 +801,10 @@ const SubmitCV = () => {
               </div>
             )}
 
-            {/* ==== 01 Personal Info ==== */}
             <SectionCard
               number="01"
               title="Personal Information"
-              subtitle="Let us know who you are"
+              subtitle="Let Us Know Who You Are"
             >
               <div className="grid sm:grid-cols-2 gap-3 sm:gap-3.5">
                 <div data-error={!!errors.fullName}>
@@ -780,7 +888,7 @@ const SubmitCV = () => {
                   iconColor="text-[#14B8A6]"
                   optional
                   focused={focusedField === "whatsapp"}
-                  hint="If different from your phone number"
+                  hint="If Different From Your Phone Number"
                 >
                   <input
                     type="tel"
@@ -795,11 +903,10 @@ const SubmitCV = () => {
               </div>
             </SectionCard>
 
-            {/* ==== 02 Location ==== */}
             <SectionCard
               number="02"
               title="Location"
-              subtitle="Where are you based?"
+              subtitle="Where Are You Based?"
             >
               <div className="grid sm:grid-cols-2 gap-3 sm:gap-3.5">
                 <Field
@@ -808,7 +915,7 @@ const SubmitCV = () => {
                   iconColor="text-[#F97316]"
                   optional
                   focused={focusedField === "city"}
-                  hint="Your current city"
+                  hint="Your Current City"
                 >
                   <input
                     type="text"
@@ -848,11 +955,10 @@ const SubmitCV = () => {
               </div>
             </SectionCard>
 
-            {/* ==== 03 Job Preference ==== */}
             <SectionCard
               number="03"
               title="Job Preference"
-              subtitle="Tell us what you're looking for"
+              subtitle="Tell Us What You're Looking For"
             >
               <div className="grid sm:grid-cols-2 gap-3 sm:gap-3.5">
                 <div data-error={!!errors.position}>
@@ -965,7 +1071,7 @@ const SubmitCV = () => {
                   iconColor="text-[#06B6D4]"
                   optional
                   focused={focusedField === "passport"}
-                  hint="Only if you have a valid passport"
+                  hint="Only If You Have A Valid Passport"
                 >
                   <input
                     type="text"
@@ -984,7 +1090,7 @@ const SubmitCV = () => {
                   iconColor="text-[#F97316]"
                   optional
                   focused={focusedField === "skills"}
-                  hint="Separate with commas — e.g. Welding, Fitting"
+                  hint="Separate With Commas — e.g. Welding, Fitting"
                 >
                   <input
                     type="text"
@@ -999,11 +1105,10 @@ const SubmitCV = () => {
               </div>
             </SectionCard>
 
-            {/* ==== 04 Upload CV ==== */}
             <SectionCard
               number="04"
               title="Upload CV"
-              subtitle="PDF, DOC, or DOCX (Max 5 MB)"
+              subtitle="PDF, DOC, Or DOCX (Max 5 MB)"
             >
               <label
                 htmlFor="cv-file"
@@ -1043,8 +1148,8 @@ const SubmitCV = () => {
                 </span>
                 <span className="relative text-xs sm:text-sm text-[#64748B] font-medium">
                   {form.fileName
-                    ? "File ready to submit"
-                    : "PDF, DOC, or DOCX (Max 5 MB)"}
+                    ? "File Ready To Submit"
+                    : "PDF, DOC, Or DOCX (Max 5 MB)"}
                 </span>
 
                 <input
@@ -1083,11 +1188,10 @@ const SubmitCV = () => {
               )}
             </SectionCard>
 
-            {/* ==== 05 Message ==== */}
             <SectionCard
               number="05"
               title="Additional Message"
-              subtitle="Anything else we should know?"
+              subtitle="Anything Else We Should Know?"
             >
               <Field
                 label="Tell Us Anything Else"
@@ -1095,7 +1199,7 @@ const SubmitCV = () => {
                 iconColor="text-[#8B5CF6]"
                 optional
                 focused={focusedField === "message"}
-                hint="Describe your experience, certifications, or preferred countries"
+                hint="Describe Your Experience, Certifications, Or Preferred Countries"
               >
                 <textarea
                   rows={3}
@@ -1103,21 +1207,20 @@ const SubmitCV = () => {
                   onChange={(e) => update("message", e.target.value)}
                   onFocus={() => setFocusedField("message")}
                   onBlur={() => setFocusedField(null)}
-                  placeholder="e.g. I have 5 years of welding experience in UAE and I am available for immediate deployment..."
+                  placeholder="e.g. I Have 5 Years Of Welding Experience In UAE And I Am Available For Immediate Deployment..."
                   className={`${inputClass("message")} resize-none`}
                 />
               </Field>
             </SectionCard>
 
-            {/* Consent + Submit */}
             <div className="mt-3 bg-white rounded-2xl border border-[#E2E8F0] shadow-[0_4px_20px_rgba(15,76,92,0.06)] p-4 sm:p-5">
               <div className="flex items-start gap-2 mb-3 p-3 rounded-xl bg-[#22C55E]/5 border border-[#22C55E]/20">
                 <FaShieldAlt className="text-[#22C55E] text-sm mt-0.5 flex-shrink-0" aria-hidden="true" />
                 <p className="text-xs text-[#0A3A47]/80 leading-relaxed">
-                  By submitting this form, you confirm that the information
-                  provided is accurate and agree to be contacted by Ali
-                  Hajveri International regarding suitable overseas employment
-                  opportunities.
+                  By Submitting This Form, You Confirm That The Information
+                  Provided Is Accurate And Agree To Be Contacted By Ali
+                  Hajveri International Regarding Suitable Overseas Employment
+                  Opportunities.
                 </p>
               </div>
 
@@ -1162,8 +1265,8 @@ const SubmitCV = () => {
               </span>
             </h2>
             <p className="text-[#64748B] text-sm sm:text-base max-w-xl mx-auto">
-              Join thousands of candidates who have successfully launched
-              their overseas careers through our platform.
+              Join Thousands Of Candidates Who Have Successfully Launched
+              Their Overseas Careers Through Our Platform.
             </p>
           </div>
 
@@ -1172,19 +1275,19 @@ const SubmitCV = () => {
               {
                 icon: FaUser,
                 title: "Verified Profile",
-                desc: "Your data is securely stored and reviewed only by our recruitment team.",
+                desc: "Your Data Is Securely Stored And Reviewed Only By Our Recruitment Team.",
                 color: "from-[#4FC3F7] to-[#29B6F6]",
               },
               {
                 icon: FaGlobe,
                 title: "Overseas Opportunities",
-                desc: "Get considered for placements across Gulf, Asia, and other countries.",
+                desc: "Get Considered For Placements Across Gulf, Asia, And Other Countries.",
                 color: "from-[#22C55E] to-[#16A34A]",
               },
               {
                 icon: FaCheckCircle,
                 title: "No Hidden Charges",
-                desc: "We never ask for any payment to submit your CV or to register.",
+                desc: "We Never Ask For Any Payment To Submit Your CV Or To Register.",
                 color: "from-[#FFB300] to-[#F59E0B]",
               },
             ].map(({ icon: Icon, title, desc, color }) => (

@@ -70,6 +70,7 @@ const Navbar = () => {
             : "shadow-[0_1px_0_rgba(79,195,247,0.25)]"
         }
       `}
+      aria-label="Main navigation"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 lg:h-20">
@@ -78,10 +79,11 @@ const Navbar = () => {
             to="/"
             className="flex items-center gap-3 flex-shrink-0 group"
             onClick={closeMenu}
+            aria-label="Ali Hajveri International - Home"
           >
             <img
               src="/assets/logo-2.png"
-              alt="AHIOEP Logo"
+              alt="Ali Hajveri International - Overseas Employment Promoter in Pakistan"
               className="h-14 sm:h-12 lg:h-14 w-auto object-contain bg-transparent transition-transform duration-300 group-hover:scale-105"
             />
           </Link>
@@ -179,7 +181,6 @@ const Navbar = () => {
 
           {/* ---- RIGHT: CTA links ---- */}
           <div className="hidden lg:flex items-center gap-2 flex-shrink-0">
-            {/* ✅ Submit CV — Primary (solid cyan) */}
             <NavLink
               to="/submit-cv"
               className={({ isActive }) =>
@@ -194,7 +195,6 @@ const Navbar = () => {
               <span className="relative">Submit CV</span>
             </NavLink>
 
-            {/* ✅ Find Jobs — Secondary (solid navy) */}
             <NavLink
               to="/careers"
               className={({ isActive }) =>
@@ -246,6 +246,7 @@ const Navbar = () => {
                         )
                       }
                       className="w-full flex items-center justify-between px-4 py-3 text-sm font-bold rounded-lg text-[#0F4C5C] hover:text-white hover:bg-[#0F4C5C]/10 transition-colors"
+                      aria-expanded={openDropdown === link.name}
                     >
                       {link.name}
                       <FaChevronDown
@@ -302,7 +303,6 @@ const Navbar = () => {
             ))}
 
             <div className="mt-3 flex flex-col gap-2">
-              {/* ✅ Submit CV — Primary (solid cyan) — mobile */}
               <NavLink
                 to="/submit-cv"
                 onClick={closeMenu}
@@ -311,7 +311,6 @@ const Navbar = () => {
                 Submit CV
               </NavLink>
 
-              {/* ✅ Find Jobs — Secondary (solid navy) — mobile */}
               <NavLink
                 to="/careers"
                 onClick={closeMenu}

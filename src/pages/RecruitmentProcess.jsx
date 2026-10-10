@@ -1,6 +1,7 @@
 // src/pages/RecruitmentProcess.jsx
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { COMPANY_INFO } from "../utilis/constants";
 import {
   FaArrowRight,
@@ -106,7 +107,6 @@ const PROCESS_STEPS = [
       "Skill-Based Assessments",
       "Final Candidate Selection",
     ],
-    /* FIX #1 — was text-[#A78BFA]; folded into text-[#8B5CF6] */
     color: "text-[#8B5CF6]",
   },
   {
@@ -192,7 +192,6 @@ const WHY_PROCESS_WORKS = [
   { icon: FaShieldAlt, title: "Full Legal Compliance", desc: "Every Step Follows Pakistan's Bureau Of Emigration & Overseas Employment (BEOE) Regulations.", color: "text-[#22C55E]" },
   { icon: FaHandshake, title: "Verified Employers Only", desc: "We Only Work With Licensed And Verified Overseas Employers With Valid Job Orders.", color: "text-[#FFB300]" },
   { icon: FaUsers, title: "Candidate-First Approach", desc: "We Guide Candidates Through Every Stage With Transparency, Honesty, And Support.", color: "text-[#4FC3F7]" },
-  /* FIX #1 — was text-[#F97316]; folded into text-[#FFB300] */
   { icon: FaClock, title: "Time-Bound Execution", desc: "A Structured 8–10 Week Process That Keeps Both Employers And Candidates Informed.", color: "text-[#FFB300]" },
   { icon: FaBriefcase, title: "Trade-Tested Talent", desc: "Technical And Practical Skill Assessments Ensure The Right Candidate For The Right Job.", color: "text-[#8B5CF6]" },
   { icon: FaGlobe, title: "Global Deployment", desc: "Successfully Deployed Pakistani Talent To 18+ Countries Across The Middle East, Asia, And Europe.", color: "text-[#06B6D4]" },
@@ -224,7 +223,6 @@ const RecruitmentProcess = () => {
     setOpenStep((prev) => (prev === id ? null : id));
   };
 
-  /* FIX #6 — shared handler for marquee → accordion */
   const jumpToStep = (id) => {
     setOpenStep(id);
     document
@@ -312,11 +310,143 @@ const RecruitmentProcess = () => {
     doc.save("AHIOEP_Recruitment_Process.pdf");
   };
 
-  /* ---------- MARQUEE DATA ---------- */
   const marqueeSteps = [...PROCESS_STEPS, ...PROCESS_STEPS];
 
   return (
     <>
+      {/* ============ SEO META TAGS ============ */}
+      <Helmet>
+        <title>Overseas Recruitment Process - 8-Step Guide | Ali Hajveri International</title>
+        <meta
+          name="description"
+          content="Complete 8-step overseas recruitment process in Pakistan - manpower requirement, candidate sourcing, screening, interviews, trade tests, documentation, medical examination, visa processing, and overseas deployment."
+        />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://ahioep.com/process/recruitment" />
+        <meta property="og:title" content="Overseas Recruitment Process - 8-Step Guide | Ali Hajveri" />
+        <meta property="og:description" content="Complete 8-step overseas recruitment process from manpower requirement to overseas deployment - fully compliant with BEOE regulations." />
+        <meta property="og:url" content="https://ahioep.com/process/recruitment" />
+        <meta property="og:type" content="article" />
+      </Helmet>
+
+      {/* ============ SEO CONTENT (Visually Hidden, Sirf Google Ke Liye) ============ */}
+      <div className="sr-only" aria-hidden="true">
+        <h1>Overseas Recruitment Process - Complete 8-Step Guide For Pakistani Workers</h1>
+        <p>
+          Ali Hajveri International (Pvt.) Limited Follows A Structured,
+          Transparent, And Fully Compliant 8-Step Overseas Recruitment Process
+          For Deploying Pakistani Workers To International Employers. The
+          Complete Process Typically Takes 8 To 10 Weeks From Initial Manpower
+          Requirement To Final Overseas Deployment.
+        </p>
+
+        <h2>Step 1: Manpower Requirement Consultation</h2>
+        <p>
+          The Overseas Employer Contacts Us With A Detailed Manpower Demand
+          Including Job Positions, Number Of Workers Required, Qualifications,
+          Experience Criteria, Salary And Benefits Structure, Contract Duration,
+          And Working Hours. This Initial Consultation Sets The Foundation For
+          The Entire Recruitment Process.
+        </p>
+
+        <h2>Step 2: Candidate Sourcing Across Pakistan</h2>
+        <p>
+          We Source Suitable Pakistani Candidates Through Our Extensive
+          Recruitment Network, Internal Candidate Database, Targeted Job
+          Advertisements, Regional Recruitment Campaigns, And Referral Networks
+          Across Pakistan. This Stage Typically Takes 1 To 2 Weeks.
+        </p>
+
+        <h2>Step 3: Candidate Screening And Verification</h2>
+        <p>
+          Candidates Are Screened According To The Employer's Specific
+          Requirements Including Qualifications, Experience, Technical Skills,
+          And Certifications. This Includes CV Verification, Document Checks,
+          Experience Assessment, Qualification Validation, And Pre-Interview
+          Shortlisting.
+        </p>
+
+        <h2>Step 4: Employer Interviews And Trade Tests</h2>
+        <p>
+          Shortlisted Candidates Appear For Employer Interviews (Online Or
+          In-Person) And Technical / Practical Trade Tests Where Required By The
+          Job. This Ensures Only Qualified And Capable Workers Are Selected For
+          Overseas Employment.
+        </p>
+
+        <h2>Step 5: Documentation And Compliance</h2>
+        <p>
+          Selected Candidates Complete Required Documentation Including
+          Passport, CNIC Copies, Educational Certificates, Experience Letters,
+          Police Clearance Certificate, And Other Applicable Documents. Every
+          Document Is Verified For Authenticity.
+        </p>
+
+        <h2>Step 6: Medical Examination At Approved Centers</h2>
+        <p>
+          Candidates Undergo Medical Examinations At GAMCA Approved Medical
+          Centers Or Other Approved Facilities As Required By The Destination
+          Country. Fit-For-Work Certification And Health Clearance Documentation
+          Are Completed At This Stage.
+        </p>
+
+        <h2>Step 7: Work Visa Processing</h2>
+        <p>
+          Visa Applications Are Processed Through The Relevant Government And
+          Immigration Authorities In Coordination With The Employer. This
+          Includes Employer Visa Documentation, Embassy Submission, Visa
+          Stamping, Verification, And Government Compliance Checks. Visa
+          Processing Typically Takes 3 To 4 Weeks.
+        </p>
+
+        <h2>Step 8: Pre-Departure Orientation And Deployment</h2>
+        <p>
+          Selected Candidates Receive Pre-Departure Orientation Covering
+          Destination Country Culture, Work Environment, Labor Laws, And
+          Practical Guidelines. Travel Arrangements, Airport Coordination, And
+          Employer Handover At Destination Are All Managed By Our Team.
+        </p>
+
+        <h2>Why Our Recruitment Process Works</h2>
+        <ul>
+          <li>Full Legal Compliance With BEOE Regulations</li>
+          <li>Only Verified And Licensed Overseas Employers</li>
+          <li>Candidate-First Approach With Transparency And Support</li>
+          <li>Time-Bound Execution Within 8 To 10 Weeks</li>
+          <li>Trade-Tested Talent For Every Position</li>
+          <li>Global Deployment To 18+ Countries</li>
+        </ul>
+
+        <h2>Process Timeline And Duration</h2>
+        <p>
+          The Complete Overseas Recruitment Process Takes Approximately 8 To 10
+          Weeks From Initial Manpower Requirement To Final Deployment. Individual
+          Stages Include: Requirement (Day 1), Sourcing (Week 1-2), Screening
+          (Week 2-3), Interview (Week 3-4), Documentation (Week 4-5), Medical
+          (Week 5), Visa Processing (Week 5-8), And Deployment (Week 8-10).
+        </p>
+
+        <h2>Contact Ali Hajveri International</h2>
+        <p>
+          For More Information About Our Overseas Recruitment Process Or To
+          Discuss Your Manpower Requirements, Contact Ali Hajveri International
+          (Pvt.) Limited. Website: ahioep.com | Email: ahioep.com@gmail.com |
+          Phone: +92 300 8578764
+        </p>
+
+        <h2>Internal Links</h2>
+        <nav>
+          <Link to="/process">Process Overview</Link>
+          <Link to="/process/work-visa">Work Visa Process</Link>
+          <Link to="/process/quality-policy">Quality Policy</Link>
+          <Link to="/services">Our Services</Link>
+          <Link to="/about">About Us</Link>
+          <Link to="/countries">Countries We Serve</Link>
+          <Link to="/contact">Contact Us</Link>
+          <Link to="/submit-cv">Submit CV</Link>
+        </nav>
+      </div>
+
       <style>{`
         @keyframes shimmer {
           0% { background-position: 0% 50%; }
@@ -351,11 +481,19 @@ const RecruitmentProcess = () => {
         .animate-slideUp { animation: slideUp 0.5s ease-out forwards; }
         .animate-fadeIn { animation: fadeIn 0.3s ease-out forwards; }
         .animate-marquee-left { animation: marquee-left 40s linear infinite; }
-        /* FIX #6 — pause marquee on hover/focus so items are clickable */
         .animate-marquee-left:hover,
-        .animate-marquee-left:focus-within { animation-play-state: paused; }
+        {/* .animate-marquee-left:focus-within { animation-play-state: paused; } */}
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .sr-only {
+          position: absolute;
+          width: 1px; height: 1px;
+          padding: 0; margin: -1px;
+          overflow: hidden;
+          clip: rect(0, 0, 0, 0);
+          white-space: nowrap;
+          border: 0;
+        }
       `}</style>
 
       {/* ============ HERO ============ */}
@@ -430,7 +568,6 @@ const RecruitmentProcess = () => {
                 Stage With Precision, Integrity, And Care.
               </p>
 
-              {/* FIX #3 — hero chips raised from text-[10px] to readable sizes */}
               <div className="flex flex-wrap gap-2.5 justify-center lg:justify-start mb-5">
                 {HERO_CHIPS.map(({ icon: Icon, text, color }) => (
                   <span
@@ -444,7 +581,6 @@ const RecruitmentProcess = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
-                {/* FIX #7 — shared PRIMARY_CTA class */}
                 <Link
                   to="/contact"
                   className={PRIMARY_CTA}
@@ -464,7 +600,6 @@ const RecruitmentProcess = () => {
               </div>
             </div>
 
-            {/* FIX #3 / #10 — summary card: larger padding, larger icons, readable label */}
             <div className="lg:col-span-5">
               <div className="relative max-w-sm mx-auto">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#4FC3F7]/40 to-[#FFD54F]/20 blur-3xl rounded-full" />
@@ -480,7 +615,6 @@ const RecruitmentProcess = () => {
                       <p className="text-[#0F4C5C] font-extrabold text-sm sm:text-base">
                         Process At A Glance
                       </p>
-                      {/* FIX #10 — larger, higher-contrast label */}
                       <p className="text-[#0F4C5C]/70 text-xs font-bold tracking-wide">
                         Proven Results
                       </p>
@@ -516,7 +650,6 @@ const RecruitmentProcess = () => {
       </section>
 
       {/* ============ STEP PREVIEW — MARQUEE ROW ============ */}
-      {/* FIX #6 — marquee items are now <button>s that drive the accordion */}
       <section
         aria-label="Quick jump to process step"
         className="relative py-4 bg-white border-y border-[#4FC3F7]/15 overflow-hidden"
@@ -560,7 +693,6 @@ const RecruitmentProcess = () => {
       >
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-7">
-            {/* FIX #4 + #9 — label no longer pill-shaped; sentence case */}
             <div className="inline-flex items-center gap-2 mb-2.5 pl-3 border-l-2 border-[#4FC3F7]">
               <FaFire className="text-[#FFB300] text-xs" aria-hidden="true" />
               <span className="text-[#0F4C5C] text-xs sm:text-sm font-bold tracking-wide">
@@ -667,7 +799,6 @@ const RecruitmentProcess = () => {
                           {step.desc}
                         </p>
 
-                        {/* FIX #3 — bullets raised from 10/11px to 12/14px */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2">
                           {step.bullets.map((b) => (
                             <div
@@ -702,7 +833,6 @@ const RecruitmentProcess = () => {
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-7">
-            {/* FIX #4 + #9 — label no longer pill-shaped; sentence case */}
             <div className="inline-flex items-center gap-2 mb-2.5 pl-3 border-l-2 border-[#4FC3F7]">
               <FaShieldAlt className="text-[#22C55E] text-xs" aria-hidden="true" />
               <span className="text-[#0F4C5C] text-xs sm:text-sm font-bold tracking-wide">
@@ -744,7 +874,6 @@ const RecruitmentProcess = () => {
       {/* ============ FINAL CTA ============ */}
       <section className="relative py-8 sm:py-10 bg-gradient-to-b from-[#E1F5FE] to-white overflow-hidden">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* FIX #2 — single rounded-2xl, no responsive override */}
           <div className="relative bg-gradient-to-br from-[#0F4C5C] via-[#0A3A47] to-[#06303A] rounded-2xl px-6 sm:px-8 py-7 sm:py-9 text-center overflow-hidden border border-[#4FC3F7]/25 shadow-[0_24px_60px_rgba(15,76,92,0.25)]">
             <div className="absolute -top-20 -right-20 w-72 h-72 bg-[#4FC3F7]/25 blur-3xl animate-blob" />
             <div
@@ -773,7 +902,6 @@ const RecruitmentProcess = () => {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                {/* FIX #7 — shared PRIMARY_CTA class */}
                 <Link
                   to="/contact"
                   className={PRIMARY_CTA}
