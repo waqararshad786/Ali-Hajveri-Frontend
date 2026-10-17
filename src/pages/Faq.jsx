@@ -381,14 +381,14 @@ const Faq = () => {
     <>
       {/* ============ SEO META TAGS ============ */}
       <Helmet>
-        <title>FAQ | Overseas Employment Questions & Answers | Ali Hajveri International</title>
+        <title>FAQ | Overseas Employment Questions & Answers | Ali Hajveri International (Pvt.) Limited</title>
         <meta
           name="description"
           content="Frequently asked questions about overseas employment in Pakistan. Learn about recruitment process, visa, medical, documents, interviews, and more from Ali Hajveri International - licensed OEP."
         />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://ahioep.com/faq" />
-        <meta property="og:title" content="FAQ | Overseas Employment Questions & Answers | Ali Hajveri" />
+        <meta property="og:title" content="FAQ | Overseas Employment Questions & Answers | Ali Hajveri International (Pvt.) Limited" />
         <meta property="og:description" content="Answers to common questions about overseas recruitment, visa process, documentation, and deployment from Pakistan." />
         <meta property="og:url" content="https://ahioep.com/faq" />
         <meta property="og:type" content="website" />
@@ -471,7 +471,7 @@ const Faq = () => {
           <li>Police Clearance Certificate (If Required)</li>
         </ul>
 
-        <h2>Contact Ali Hajveri International</h2>
+        <h2>Contact Ali Hajveri International (Pvt.) Limited</h2>
         <p>
           Still Have Questions? Contact Ali Hajveri International (Pvt.)
           Limited For More Information About Overseas Employment.

@@ -443,22 +443,22 @@ const TermsConditions = () => {
     <>
       {/* ============ SEO META TAGS ============ */}
       <Helmet>
-        <title>Terms & Conditions | Legal Terms Of Service | Ali Hajveri International</title>
+        <title>Terms & Conditions | Legal Terms Of Service | Ali Hajveri International (Pvt.) Limited</title>
         <meta
           name="description"
           content="Terms and conditions of Ali Hajveri International (Pvt.) Limited - governing your use of our website and overseas manpower recruitment services. Read our legal terms, candidate responsibilities, and employer obligations."
         />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://ahioep.com/terms-conditions" />
-        <meta property="og:title" content="Terms & Conditions | Ali Hajveri International" />
-        <meta property="og:description" content="Legal terms of service for overseas manpower recruitment through Ali Hajveri International." />
+        <meta property="og:title" content="Terms & Conditions | Ali Hajveri International (Pvt.) Limited" />
+        <meta property="og:description" content="Legal terms of service for overseas manpower recruitment through Ali Hajveri International (Pvt.) Limited." />
         <meta property="og:url" content="https://ahioep.com/terms-conditions" />
         <meta property="og:type" content="website" />
       </Helmet>
 
       {/* ============ SEO CONTENT (Visually Hidden, Sirf Google Ke Liye) ============ */}
       <div className="sr-only" aria-hidden="true">
-        <h1>Terms & Conditions - Legal Terms Of Service At Ali Hajveri International</h1>
+        <h1>Terms & Conditions - Legal Terms Of Service At Ali Hajveri International (Pvt.) Limited</h1>
         <p>
           These Terms And Conditions Govern Your Use Of The Ali Hajveri
           International (Pvt.) Limited Website And Overseas Manpower
@@ -563,7 +563,7 @@ const TermsConditions = () => {
           After Changes Constitutes Acceptance Of The Revised Terms.
         </p>
 
-        <h2>Contact Ali Hajveri International</h2>
+        <h2>Contact Ali Hajveri International (Pvt.) Limited</h2>
         <p>
           If You Have Questions About These Terms And Conditions, Contact Us
           At ahioep.com@gmail.com Or +92 300 8578764. Our Office Is Located At

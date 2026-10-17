@@ -267,14 +267,14 @@ const Careers = () => {
     <>
       {/* ============ SEO META TAGS ============ */}
       <Helmet>
-        <title>Overseas Jobs In Pakistan | Find Jobs Abroad | Ali Hajveri International</title>
+        <title>Overseas Jobs In Pakistan | Find Jobs Abroad | Ali Hajveri International (Pvt.) Limited</title>
         <meta
           name="description"
-          content="Find verified overseas jobs in Pakistan. Browse live opportunities for skilled, semi-skilled, and professional Pakistani workers in Gulf, Asia, and Europe. Free to apply with Ali Hajveri International."
+          content="Find verified overseas jobs in Pakistan. Browse live opportunities for skilled, semi-skilled, and professional Pakistani workers in Gulf, Asia, and Europe. Free to apply with Ali Hajveri International (Pvt.) Limited."
         />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://ahioep.com/careers" />
-        <meta property="og:title" content="Overseas Jobs In Pakistan | Find Jobs Abroad | Ali Hajveri" />
+        <meta property="og:title" content="Overseas Jobs In Pakistan | Find Jobs Abroad | Ali Hajveri International (Pvt.) Limited" />
         <meta property="og:description" content="Browse verified overseas job opportunities for Pakistani workers. Free to apply, no hidden charges." />
         <meta property="og:url" content="https://ahioep.com/careers" />
         <meta property="og:type" content="website" />
@@ -348,7 +348,7 @@ const Careers = () => {
           Every Week.
         </p>
 
-        <h2>Contact Ali Hajveri International</h2>
+        <h2>Contact Ali Hajveri International (Pvt.) Limited</h2>
         <p>
           For More Information About Overseas Jobs Or To Discuss Your
           Application, Contact Ali Hajveri International (Pvt.) Limited.

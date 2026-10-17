@@ -253,14 +253,14 @@ const QualityPolicy = () => {
     <>
       {/* ============ SEO META TAGS ============ */}
       <Helmet>
-        <title>Quality Policy | Overseas Recruitment Compliance | Ali Hajveri International</title>
+        <title>Quality Policy | Overseas Recruitment Compliance | Ali Hajveri International (Pvt.) Limited</title>
         <meta
           name="description"
           content="Quality policy of Ali Hajveri International (Pvt.) Limited - BEOE registered overseas employment promoter in Pakistan committed to accuracy, compliance, candidate welfare, and continuous improvement in overseas recruitment."
         />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://ahioep.com/process/quality-policy" />
-        <meta property="og:title" content="Quality Policy | Overseas Recruitment Compliance | Ali Hajveri" />
+        <meta property="og:title" content="Quality Policy | Overseas Recruitment Compliance | Ali Hajveri International (Pvt.) Limited" />
         <meta property="og:description" content="Our quality policy ensures compliance, transparency, and excellence in every stage of overseas manpower recruitment from Pakistan." />
         <meta property="og:url" content="https://ahioep.com/process/quality-policy" />
         <meta property="og:type" content="article" />
@@ -268,7 +268,7 @@ const QualityPolicy = () => {
 
       {/* ============ SEO CONTENT (Visually Hidden, Sirf Google Ke Liye) ============ */}
       <div className="sr-only" aria-hidden="true">
-        <h1>Quality Policy - Overseas Recruitment Compliance By Ali Hajveri International</h1>
+        <h1>Quality Policy - Overseas Recruitment Compliance By Ali Hajveri International (Pvt.) Limited</h1>
         <p>
           Ali Hajveri International (Pvt.) Limited Is Committed To Providing
           High-Quality Overseas Manpower Recruitment Services From Pakistan. As
@@ -367,7 +367,7 @@ const QualityPolicy = () => {
           Ensures Our Services Remain Effective, Compliant, And Competitive.
         </p>
 
-        <h2>Contact Ali Hajveri International</h2>
+        <h2>Contact Ali Hajveri International (Pvt.) Limited</h2>
         <p>
           For More Information About Our Quality Policy Or To Discuss Your
           Overseas Recruitment Needs, Contact Ali Hajveri International (Pvt.)

@@ -27,6 +27,7 @@
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.4",
     "@vitejs/plugin-react": "^6.1.0",
+    "esbuild": "^0.28.2",
     "oxlint": "^1.79.0",
     "react-snap": "^1.23.0",
     "sitemap": "^9.0.1",
@@ -46,7 +47,6 @@
       "/legal-status",
       "/legal-status/govt-license",
       "/legal-status/iso-certification",
-
       "/contact",
       "/submit-cv",
       "/careers",

@@ -346,14 +346,14 @@ const WorkVisaProcess = () => {
     <>
       {/* ============ SEO META TAGS ============ */}
       <Helmet>
-        <title>Work Visa Process For Overseas Employment | 10-Step Guide | Ali Hajveri</title>
+        <title>Work Visa Process For Overseas Employment | 10-Step Guide | Ali Hajveri International (Pvt.) Limited</title>
         <meta
           name="description"
           content="Complete 10-step work visa process for overseas employment from Pakistan - selection, documentation, medical examination, employment contract, FSA registration, visa submission, protector of emigrants processing, and deployment."
         />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://ahioep.com/process/work-visa" />
-        <meta property="og:title" content="Work Visa Process For Overseas Employment | Ali Hajveri" />
+        <meta property="og:title" content="Work Visa Process For Overseas Employment | Ali Hajveri International (Pvt.) Limited" />
         <meta property="og:description" content="Complete 10-step work visa processing guide - from candidate selection to overseas deployment, fully compliant with BEOE regulations." />
         <meta property="og:url" content="https://ahioep.com/process/work-visa" />
         <meta property="og:type" content="article" />
@@ -464,7 +464,7 @@ const WorkVisaProcess = () => {
           <li>Destination-Specific Documents</li>
         </ul>
 
-        <h2>Why Choose Ali Hajveri International For Work Visa Processing</h2>
+        <h2>Why Choose Ali Hajveri International (Pvt.) Limited For Work Visa Processing</h2>
         <ul>
           <li>BEOE Registered And Fully Compliant With Pakistani Emigration Regulations</li>
           <li>Only Working With Licensed Overseas Employers With Valid Job Orders</li>
@@ -483,7 +483,7 @@ const WorkVisaProcess = () => {
           And Mobilization.
         </p>
 
-        <h2>Contact Ali Hajveri International</h2>
+        <h2>Contact Ali Hajveri International (Pvt.) Limited</h2>
         <p>
           For More Information About Our Work Visa Process Or To Apply For
           Overseas Employment, Contact Ali Hajveri International (Pvt.)

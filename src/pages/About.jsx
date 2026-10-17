@@ -100,14 +100,14 @@ const About = () => {
 
       {/* ============ SEO META TAGS ============ */}
       <Helmet>
-        <title>About Us | Licensed Overseas Employment Promoter | Ali Hajveri</title>
+        <title>About Us | Licensed Overseas Employment Promoter | Ali Hajveri International (Pvt.) Limited</title>
         <meta
           name="description"
           content="Learn about Ali Hajveri International (Pvt.) Limited - a government-licensed overseas employment promoter in Pakistan with OEP License #5224, connecting skilled Pakistani workers with international employers."
         />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://ahioep.com/about" />
-        <meta property="og:title" content="About Ali Hajveri International | Licensed OEP In Pakistan" />
+        <meta property="og:title" content="About Ali Hajveri International Private Limited | Licensed OEP In Pakistan" />
         <meta property="og:description" content="Government-licensed overseas employment promoter with OEP License #5224, connecting skilled Pakistani workers with international employers worldwide." />
         <meta property="og:url" content="https://ahioep.com/about" />
         <meta property="og:type" content="website" />
@@ -115,7 +115,7 @@ const About = () => {
 
       {/* ============ SEO CONTENT (Visually Hidden, Sirf Google Ke Liye) ============ */}
       <div className="sr-only" aria-hidden="true">
-        <h1>About Ali Hajveri International - Licensed Overseas Employment Promoter In Pakistan</h1>
+        <h1>About Ali Hajveri International Private Limited - Licensed Overseas Employment Promoter In Pakistan</h1>
         <p>
           Ali Hajveri International (Pvt.) Limited Is A Government-Licensed Overseas
           Employment Promoter In Pakistan With OEP License Number 5224. We Are A

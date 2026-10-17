@@ -410,22 +410,22 @@ const PrivacyPolicy = () => {
     <>
       {/* ============ SEO META TAGS ============ */}
       <Helmet>
-        <title>Privacy Policy | Data Protection & Security | Ali Hajveri International</title>
+        <title>Privacy Policy | Data Protection & Security | Ali Hajveri International (Pvt.) Limited</title>
         <meta
           name="description"
           content="Privacy policy of Ali Hajveri International (Pvt.) Limited - how we collect, use, and protect your personal information. GDPR compliant data protection for candidates and employers."
         />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://ahioep.com/privacy-policy" />
-        <meta property="og:title" content="Privacy Policy | Ali Hajveri International" />
-        <meta property="og:description" content="Learn how we collect, use, and protect your personal information at Ali Hajveri International." />
+        <meta property="og:title" content="Privacy Policy | Ali Hajveri International (Pvt.) Limited" />
+        <meta property="og:description" content="Learn how we collect, use, and protect your personal information at Ali Hajveri International (Pvt.) Limited." />
         <meta property="og:url" content="https://ahioep.com/privacy-policy" />
         <meta property="og:type" content="website" />
       </Helmet>
 
       {/* ============ SEO CONTENT (Visually Hidden, Sirf Google Ke Liye) ============ */}
       <div className="sr-only" aria-hidden="true">
-        <h1>Privacy Policy - Data Protection & Security At Ali Hajveri International</h1>
+        <h1>Privacy Policy - Data Protection & Security At Ali Hajveri International (Pvt.) Limited</h1>
         <p>
           This Privacy Policy Explains How Ali Hajveri International (Pvt.)
           Limited Collects, Uses, Protects, And Shares Personal Information
@@ -509,7 +509,7 @@ const PrivacyPolicy = () => {
           Encourage You To Review It Periodically.
         </p>
 
-        <h2>Contact Ali Hajveri International</h2>
+        <h2>Contact Ali Hajveri International (Pvt.) Limited</h2>
         <p>
           If You Have Questions About This Privacy Policy Or How We Handle Your
           Data, Contact Us At ahioep.com@gmail.com Or +92 300 8578764. Our

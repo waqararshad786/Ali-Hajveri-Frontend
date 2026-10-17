@@ -388,14 +388,14 @@ const SubmitCV = () => {
     <>
       {/* ============ SEO META TAGS ============ */}
       <Helmet>
-        <title>Submit CV For Overseas Jobs | Free Registration | Ali Hajveri International</title>
+        <title>Submit CV For Overseas Jobs | Free Registration | Ali Hajveri International (Pvt.) Limited</title>
         <meta
           name="description"
-          content="Submit your CV for overseas jobs in Gulf, Asia, and Europe. Free registration with Ali Hajveri International - licensed overseas employment promoter in Pakistan. No hidden charges for candidates."
+          content="Submit your CV for overseas jobs in Gulf, Asia, and Europe. Free registration with Ali Hajveri International (Pvt.) Limited - licensed overseas employment promoter in Pakistan. No hidden charges for candidates."
         />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://ahioep.com/submit-cv" />
-        <meta property="og:title" content="Submit CV For Overseas Jobs | Ali Hajveri International" />
+        <meta property="og:title" content="Submit CV For Overseas Jobs | Ali Hajveri International (Pvt.) Limited" />
         <meta property="og:description" content="Free CV submission for skilled, semi-skilled, and professional Pakistani workers seeking overseas employment opportunities." />
         <meta property="og:url" content="https://ahioep.com/submit-cv" />
         <meta property="og:type" content="website" />
@@ -403,7 +403,7 @@ const SubmitCV = () => {
 
       {/* ============ SEO CONTENT (Visually Hidden, Sirf Google Ke Liye) ============ */}
       <div className="sr-only" aria-hidden="true">
-        <h1>Submit CV For Overseas Jobs - Free Registration By Ali Hajveri International</h1>
+        <h1>Submit CV For Overseas Jobs - Free Registration By Ali Hajveri International (Pvt.) Limited</h1>
         <p>
           Submit Your CV Through Ali Hajveri International (Pvt.) Limited For
           Overseas Job Opportunities In Gulf Countries, Central Asia, Europe,
@@ -479,7 +479,7 @@ const SubmitCV = () => {
           Authorization To Recruit Pakistani Workers For Overseas Employment.
         </p>
 
-        <h2>Contact Ali Hajveri International</h2>
+        <h2>Contact Ali Hajveri International (Pvt.) Limited</h2>
         <p>
           For More Information About CV Submission Or Overseas Job
           Opportunities, Contact Ali Hajveri International (Pvt.) Limited.

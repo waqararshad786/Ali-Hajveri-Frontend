@@ -77,14 +77,14 @@ const LegalStatus = () => {
     <>
       {/* ============ SEO META TAGS ============ */}
       <Helmet>
-        <title>Legal Status | Licensed Overseas Employment Promoter | Ali Hajveri</title>
+        <title>Legal Status | Licensed Overseas Employment Promoter | Ali Hajveri International (Pvt.) Limited</title>
         <meta
           name="description"
           content="Legal status of Ali Hajveri International (Pvt.) Limited - SECP incorporated, FBR registered, BEOE licensed overseas employment promoter with OEP License #5224, and ISO certified recruitment processes."
         />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://ahioep.com/legal-status" />
-        <meta property="og:title" content="Legal Status | Licensed Overseas Employment Promoter | Ali Hajveri" />
+        <meta property="og:title" content="Legal Status | Licensed Overseas Employment Promoter | Ali Hajveri International (Pvt.) Limited" />
         <meta property="og:description" content="Government registrations, OEP license, and international certifications that authorize our overseas recruitment operations in Pakistan." />
         <meta property="og:url" content="https://ahioep.com/legal-status" />
         <meta property="og:type" content="website" />
@@ -92,7 +92,7 @@ const LegalStatus = () => {
 
       {/* ============ SEO CONTENT (Visually Hidden, Sirf Google Ke Liye) ============ */}
       <div className="sr-only" aria-hidden="true">
-        <h1>Legal Status Of Ali Hajveri International - Licensed Overseas Employment Promoter In Pakistan</h1>
+        <h1>Legal Status Of Ali Hajveri International (Pvt.) Limited - Licensed Overseas Employment Promoter In Pakistan</h1>
         <p>
           Ali Hajveri International (Pvt.) Limited Is A Fully Registered,
           Licensed, And Certified Overseas Employment Promoter In Pakistan. Our
@@ -164,7 +164,7 @@ const LegalStatus = () => {
           <li>Ethical Recruitment Standards</li>
         </ul>
 
-        <h2>Contact Ali Hajveri International</h2>
+        <h2>Contact Ali Hajveri International (Pvt.) Limited</h2>
         <p>
           For More Information About Our Legal Status Or To Verify Our
           Credentials, Contact Ali Hajveri International (Pvt.) Limited.

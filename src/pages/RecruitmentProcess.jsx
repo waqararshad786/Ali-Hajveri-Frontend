@@ -316,14 +316,14 @@ const RecruitmentProcess = () => {
     <>
       {/* ============ SEO META TAGS ============ */}
       <Helmet>
-        <title>Overseas Recruitment Process - 8-Step Guide | Ali Hajveri International</title>
+        <title>Overseas Recruitment Process - 8-Step Guide | Ali Hajveri International (Pvt.) Limited</title>
         <meta
           name="description"
           content="Complete 8-step overseas recruitment process in Pakistan - manpower requirement, candidate sourcing, screening, interviews, trade tests, documentation, medical examination, visa processing, and overseas deployment."
         />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://ahioep.com/process/recruitment" />
-        <meta property="og:title" content="Overseas Recruitment Process - 8-Step Guide | Ali Hajveri" />
+        <meta property="og:title" content="Overseas Recruitment Process - 8-Step Guide | Ali Hajveri International (Pvt.) Limited" />
         <meta property="og:description" content="Complete 8-step overseas recruitment process from manpower requirement to overseas deployment - fully compliant with BEOE regulations." />
         <meta property="og:url" content="https://ahioep.com/process/recruitment" />
         <meta property="og:type" content="article" />
@@ -426,7 +426,7 @@ const RecruitmentProcess = () => {
           (Week 5), Visa Processing (Week 5-8), And Deployment (Week 8-10).
         </p>
 
-        <h2>Contact Ali Hajveri International</h2>
+        <h2>Contact Ali Hajveri International (Pvt.) Limited</h2>
         <p>
           For More Information About Our Overseas Recruitment Process Or To
           Discuss Your Manpower Requirements, Contact Ali Hajveri International

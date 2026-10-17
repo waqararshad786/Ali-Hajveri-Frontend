@@ -200,14 +200,14 @@ const Services = () => {
 
       {/* ============ SEO META TAGS ============ */}
       <Helmet>
-        <title>Overseas Recruitment Services In Pakistan | Manpower Supply | Ali Hajveri</title>
+        <title>Overseas Recruitment Services In Pakistan | Manpower Supply | Ali Hajveri International (Pvt.) Limited</title>
         <meta
           name="description"
           content="Complete overseas recruitment services in Pakistan - manpower planning, candidate sourcing, screening, trade testing, documentation, visa processing, deployment, and post-placement support for international employers."
         />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://ahioep.com/services" />
-        <meta property="og:title" content="Overseas Recruitment Services In Pakistan | Ali Hajveri" />
+        <meta property="og:title" content="Overseas Recruitment Services In Pakistan | Ali Hajveri International (Pvt.) Limited" />
         <meta property="og:description" content="End-to-end overseas manpower recruitment services - sourcing, screening, trade testing, documentation, deployment, and post-placement support." />
         <meta property="og:url" content="https://ahioep.com/services" />
         <meta property="og:type" content="website" />
@@ -340,7 +340,7 @@ const Services = () => {
           <li>Which Countries Do You Deploy Workers To? We Currently Place Workers In Saudi Arabia, UAE, Qatar, Oman, Kuwait, And Bahrain.</li>
         </ul>
 
-        <h2>Contact Ali Hajveri International For Overseas Recruitment</h2>
+        <h2>Contact Ali Hajveri International (Pvt.) Limited For Overseas Recruitment</h2>
         <p>
           To Discuss Your Overseas Manpower Requirements Or Request A Quote,
           Contact Ali Hajveri International (Pvt.) Limited. Website: ahioep.com

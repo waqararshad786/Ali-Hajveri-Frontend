@@ -236,14 +236,14 @@ const Process = () => {
     <>
       {/* ============ SEO META TAGS ============ */}
       <Helmet>
-        <title>Overseas Recruitment Process In Pakistan | Work Visa Process | Ali Hajveri</title>
+        <title>Overseas Recruitment Process In Pakistan | Work Visa Process | Ali Hajveri International (Pvt.) Limited</title>
         <meta
           name="description"
-          content="Complete overseas recruitment process in Pakistan - 8-step recruitment journey, 10-step work visa process, and quality policy for compliance. Learn how Ali Hajveri International deploys Pakistani workers overseas."
+          content="Complete overseas recruitment process in Pakistan - 8-step recruitment journey, 10-step work visa process, and quality policy for compliance. Learn how Ali Hajveri International (Pvt.) Limited deploys Pakistani workers overseas."
         />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://ahioep.com/process" />
-        <meta property="og:title" content="Overseas Recruitment & Work Visa Process In Pakistan | Ali Hajveri" />
+        <meta property="og:title" content="Overseas Recruitment & Work Visa Process In Pakistan | Ali Hajveri International (Pvt.) Limited" />
         <meta property="og:description" content="Complete overseas recruitment, work visa, and quality policy processes for deploying Pakistani workers internationally." />
         <meta property="og:url" content="https://ahioep.com/process" />
         <meta property="og:type" content="website" />
@@ -346,7 +346,7 @@ const Process = () => {
           We Manage Completely.
         </p>
 
-        <h2>Contact Ali Hajveri International</h2>
+        <h2>Contact Ali Hajveri International (Pvt.) Limited</h2>
         <p>
           To Learn More About Our Overseas Recruitment Process Or To Discuss
           Your Specific Manpower Requirements, Contact Ali Hajveri International

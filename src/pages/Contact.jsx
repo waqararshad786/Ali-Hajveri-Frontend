@@ -69,14 +69,14 @@ const Contact = () => {
 
       {/* ============ SEO META TAGS ============ */}
       <Helmet>
-        <title>Contact Us | Overseas Employment Promoter In Pakistan | Ali Hajveri</title>
+        <title>Contact Us | Overseas Employment Promoter In Pakistan | Ali Hajveri International (Pvt.) Limited</title>
         <meta
           name="description"
           content="Contact Ali Hajveri International (Pvt.) Limited - licensed overseas employment promoter in Pakistan. Office in Dera Gujran, Lahore. Phone: +92 300 8578764. Email: ahioep.com@gmail.com."
         />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://ahioep.com/contact" />
-        <meta property="og:title" content="Contact Us | Ali Hajveri International | Licensed OEP In Pakistan" />
+        <meta property="og:title" content="Contact Us | Ali Hajveri International (Pvt.) Limited | Licensed OEP In Pakistan" />
         <meta property="og:description" content="Contact our overseas employment agency in Lahore, Pakistan. Request manpower, submit CV, or discuss recruitment requirements with our team." />
         <meta property="og:url" content="https://ahioep.com/contact" />
         <meta property="og:type" content="website" />
@@ -84,7 +84,7 @@ const Contact = () => {
 
       {/* ============ SEO CONTENT (Visually Hidden, Sirf Google Ke Liye) ============ */}
       <div className="sr-only" aria-hidden="true">
-        <h1>Contact Ali Hajveri International - Licensed Overseas Employment Promoter In Pakistan</h1>
+        <h1>Contact Ali Hajveri International (Pvt.) Limited - Licensed Overseas Employment Promoter In Pakistan</h1>
         <p>
           Contact Ali Hajveri International (Pvt.) Limited For All Your Overseas
           Manpower Recruitment Needs. We Are A Government-Licensed Overseas
@@ -139,7 +139,7 @@ const Contact = () => {
           Available Throughout The Employment Contract Period.
         </p>
 
-        <h2>Why Contact Ali Hajveri International</h2>
+        <h2>Why Contact Ali Hajveri International (Pvt.) Limited</h2>
         <ul>
           <li>Licensed Overseas Employment Promoter With BEOE</li>
           <li>OEP License Number OP&HRD/5224/LHR/2026</li>

@@ -20,14 +20,14 @@ const IsoCertification = () => {
     <>
       {/* ============ SEO META TAGS ============ */}
       <Helmet>
-        <title>ISO Certification | ISO Certified Recruitment Agency | Ali Hajveri International</title>
+        <title>ISO Certification | ISO Certified Recruitment Agency | Ali Hajveri International (Pvt.) Limited</title>
         <meta
           name="description"
-          content="Ali Hajveri International holds ISO certification as a licensed manpower recruitment agency in Pakistan. ISO 9001, ISO 14001, ISO 45001, ISO 37001 certified for international standards in overseas recruitment."
+          content="Ali Hajveri International (Pvt.) Limited holds ISO certification as a licensed manpower recruitment agency in Pakistan. ISO 9001, ISO 14001, ISO 45001, ISO 37001 certified for international standards in overseas recruitment."
         />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://ahioep.com/legal-status/iso-certification" />
-        <meta property="og:title" content="ISO Certification | Ali Hajveri International" />
+        <meta property="og:title" content="ISO Certification | Ali Hajveri International (Pvt.) Limited" />
         <meta property="og:description" content="ISO certified overseas recruitment agency in Pakistan - internationally recognized for quality, safety, and compliance standards." />
         <meta property="og:url" content="https://ahioep.com/legal-status/iso-certification" />
         <meta property="og:type" content="website" />
@@ -110,7 +110,7 @@ const IsoCertification = () => {
           For Independent Verification.
         </p>
 
-        <h2>Contact Ali Hajveri International</h2>
+        <h2>Contact Ali Hajveri International (Pvt.) Limited</h2>
         <p>
           For More Information About Our ISO Certifications Or To Verify Our
           Credentials, Contact Ali Hajveri International (Pvt.) Limited. Our

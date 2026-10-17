@@ -1,7 +1,6 @@
 // src/App.jsx
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import { Helmet } from "react-helmet-async"; // ✅ ADDED
 import Layout from "./components/layout/Layout";
 import ScrollToTop from "./components/common/ScrollToTop";
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -48,22 +47,6 @@ import AdminProfile from "./pages/AdminProfile";
 function App() {
   return (
     <AuthProvider>
-      {/* ✅ ADDED HELMET BLOCK FOR SITE NAME & FAVICON */}
-      <Helmet>
-        <title>ahi oep - Ali Hajveri Enterprises Overseas Employment</title>
-        <script type="application/ld+json">
-          {`
-            {
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              "name": "ahi oep",
-              "alternateName": ["AHIOEP", "Ali Hajveri Enterprises Overseas Employment", "Ali Hajveri International"],
-              "url": "https://ahioep.com/"
-            }
-          `}
-        </script>
-      </Helmet>
-
       <div>
         <ScrollToTop />
         <Routes>

@@ -94,15 +94,15 @@ const GovtLicense = () => {
     <>
       {/* ============ SEO META TAGS ============ */}
       <Helmet>
-        <title>Government License & Certificates | Licensed OEP | Ali Hajveri International</title>
+        <title>Government License & Certificates | Licensed OEP | Ali Hajveri International (Pvt.) Limited</title>
         <meta
           name="description"
-          content="View official government documents of Ali Hajveri International - SECP Certificate of Incorporation, FBR Tax Registration, and BEOE Overseas Employment Promoter License #5224 issued by Government of Pakistan."
+          content="View official government documents of Ali Hajveri International (Pvt.) Limited - SECP Certificate of Incorporation, FBR Tax Registration, and BEOE Overseas Employment Promoter License #5224 issued by Government of Pakistan."
         />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://ahioep.com/legal-status/govt-license" />
-        <meta property="og:title" content="Government License & Certificates | Ali Hajveri International" />
-        <meta property="og:description" content="Official SECP, FBR, and BEOE documents verifying Ali Hajveri International as a licensed overseas employment promoter in Pakistan." />
+        <meta property="og:title" content="Government License & Certificates | Ali Hajveri International (Pvt.) Limited" />
+        <meta property="og:description" content="Official SECP, FBR, and BEOE documents verifying Ali Hajveri International (Pvt.) Limited as a licensed overseas employment promoter in Pakistan." />
         <meta property="og:url" content="https://ahioep.com/legal-status/govt-license" />
         <meta property="og:type" content="website" />
       </Helmet>
@@ -181,7 +181,7 @@ const GovtLicense = () => {
           <li>Ethical Recruitment Standards</li>
         </ul>
 
-        <h2>Contact Ali Hajveri International</h2>
+        <h2>Contact Ali Hajveri International (Pvt.) Limited</h2>
         <p>
           For More Information About Our Government Licenses Or To Request
           Copies Of Our Documents, Contact Ali Hajveri International (Pvt.)

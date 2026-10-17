@@ -48,7 +48,7 @@ const CLIENT_LOGOS = Array.from({ length: 15 }, (_, i) => ({
 const STATS = [
   { icon: FaGlobe, value: "25+", label: "Countries Served", desc: "Middle East, Asia & Beyond", color: "text-[#22C55E]" },
   { icon: FaIndustry, value: "120+", label: "Companies Served", desc: "Across Multiple Industries", color: "text-[#FFB300]" },
-  { icon: FaThumbsUp, value: "98%", label: "Satisfaction Rate", desc: "From Employers & Candidates", color: "text-[#29B6F6]" },
+  { icon: FaThumbsUp, value: "100%", label: "Satisfaction Rate", desc: "From Employers & Candidates", color: "text-[#29B6F6]" },
   { icon: FaUsers, value: "5,000+", label: "Workers Deployed", desc: "Skilled, Semi & General", color: "text-[#4FC3F7]" },
 ];
 
@@ -179,14 +179,14 @@ const Home = () => {
     <>
       {/* ============ SEO META TAGS ============ */}
       <Helmet>
-        <title>Overseas Employment Promoter In Pakistan | Ali Hajveri</title>
+        <title>ahioep | Overseas Employment Promoter In Pakistan | Ali Hajveri International (Pvt.) Limited</title>
         <meta
           name="description"
-          content="Ali Hajveri International Is A Licensed Overseas Employment Promoter In Pakistan, Connecting Skilled, Semi-Skilled, And Professional Pakistani Workers With International Employers."
+          content="Ali Hajveri International (Pvt.) Limited Is A Licensed Overseas Employment Promoter In Pakistan, Connecting Skilled, Semi-Skilled, And Professional Pakistani Workers With International Employers."
         />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://ahioep.com/" />
-        <meta property="og:title" content="Overseas Employment Promoter In Pakistan | Ali Hajveri" />
+        <meta property="og:title" content="Overseas Employment Promoter In Pakistan | Ali Hajveri International (Pvt.) Limited" />
         <meta property="og:description" content="Licensed Overseas Employment Promoter In Pakistan Connecting Skilled And Professional Pakistani Workers With International Employers." />
         <meta property="og:url" content="https://ahioep.com/" />
         <meta property="og:type" content="website" />
@@ -214,7 +214,7 @@ const Home = () => {
           Coordination, And Recruitment Support.
         </p>
 
-        <h2>Why Choose Ali Hajveri International?</h2>
+        <h2>Why Choose Ali Hajveri International (Pvt.) Limited ?</h2>
         <ul>
           <li>Licensed Overseas Employment Promoter</li>
           <li>OEP License Number: 5224</li>

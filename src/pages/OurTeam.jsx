@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import {
   FaArrowRight,
-  FaLinkedinIn,
-  FaEnvelope,
   FaUsers,
   FaAward,
   FaGlobeAsia,
@@ -13,21 +11,16 @@ import {
 } from "react-icons/fa";
 
 const TEAM_MEMBERS = [
-  { name: "Muhammad Ahmad", designation: "Chief Executive Officer", img: "/assets/our-team/img-1.png" },
-  { name: "Fatima Khan", designation: "Director Operations", img: "/assets/our-team/img-2.png" },
-  { name: "Ali Hassan", designation: "Head Of Recruitment", img: "/assets/our-team/img-8.png" },
-  { name: "Ayesha Siddiqui", designation: "HR Manager", img: "/assets/our-team/img-9.png" },
-  { name: "Usman Tariq", designation: "Overseas Employment Manager", img: "/assets/our-team/img-10.png" },
-  { name: "Zainab Malik", designation: "Client Relations Manager", img: "/assets/our-team/img-6.png" },
-  { name: "Bilal Ahmed", designation: "Visa Processing Officer", img: "/assets/our-team/img-.png" },
-  { name: "Hira Sheikh", designation: "Documentation Specialist", img: "/assets/our-team/img-13.png" },
-  { name: "Kamran Yousaf", designation: "Trade Test Coordinator", img: "/assets/our-team/img-.png" },
-  { name: "Sana Riaz", designation: "Compliance Officer", img: "/assets/our-team/img-.png" },
-  { name: "Imran Ali", designation: "Marketing Manager", img: "/assets/our-team/img-.png" },
-  { name: "Nadia Iqbal", designation: "Accounts Manager", img: "/assets/our-team/img-.png" },
-  { name: "Faisal Mehmood", designation: "IT Support Specialist", img: "/assets/our-team/img-.png" },
-  { name: "Maryam Nawaz", designation: "Candidate Support Officer", img: "/assets/our-team/img-.png" },
-  { name: "Shahid Bhatti", designation: "Business Development Manager", img: "/assets/our-team/img-x.png" },
+  { name: "Mr Muhammad Ijaz", designation: "Chief Executive Officer", img: "/assets/our-team/MR-IJAZ-2.png" },
+  { name: "Mr Muhammad Bilal", designation: "General Director", img: "/assets/our-team/MR-BILAL-2.png" },
+  { name: "Mr Muhammad Zeeshan", designation: "Director", img: "/assets/our-team/MR-ZEESHAN.png" },
+  { name: "Mr Malik Muhammad Nasir", designation: "General Manager", img: "/assets/our-team/MR-NASIR.jpeg" },
+  { name: "Ms Iram Shehzadi", designation: "HR Manager", img: "/assets/our-team/MS-IRAM.jpeg" },
+  { name: "Mr Ali Haider", designation: "PRO Cordinator", img: "/assets/our-team/MR-ALI-2.png" },
+  { name: "Ms Kiran Shehzadi", designation: "Documentation Officer", img: "/assets/our-team/MS-KIRAN-2.png" },
+  { name: "Mr Muhammad Aswat Ali", designation: "Computer Operator", img: "/assets/our-team/MR-ASWAT-2.png" },
+  { name: "Mr Muhammad Waqar", designation: "Marketing Assistant", img: "/assets/our-team/MR-WAQAR-2.png" },
+  { name: "Ms Maleeha Naeem", designation: "Documentation Officer Assistant", img: "/assets/our-team/MS-MALEEHA.jpeg" },
 ];
 
 const OurTeam = () => {
@@ -35,14 +28,14 @@ const OurTeam = () => {
     <>
       {/* ============ SEO META TAGS ============ */}
       <Helmet>
-        <title>Our Team | Overseas Recruitment Experts | Ali Hajveri International</title>
+        <title>Our Team | Overseas Recruitment Experts | Ali Hajveri International (Pvt.) Limited</title>
         <meta
           name="description"
-          content="Meet the expert team behind Ali Hajveri International - licensed overseas employment promoter in Pakistan. Our recruitment specialists, compliance officers, and documentation experts ensure successful overseas placements."
+          content="Meet the expert team behind Ali Hajveri International (Pvt.) Limited - licensed overseas employment promoter in Pakistan. Our recruitment specialists, compliance officers, and documentation experts ensure successful overseas placements."
         />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://ahioep.com/our-team" />
-        <meta property="og:title" content="Our Team | Overseas Recruitment Experts | Ali Hajveri" />
+        <meta property="og:title" content="Our Team | Overseas Recruitment Experts | Ali Hajveri International (Pvt.) Limited" />
         <meta property="og:description" content="Dedicated team of recruitment specialists, compliance officers, and overseas employment experts connecting Pakistani talent with global employers." />
         <meta property="og:url" content="https://ahioep.com/our-team" />
         <meta property="og:type" content="website" />
@@ -50,7 +43,7 @@ const OurTeam = () => {
 
       {/* ============ SEO CONTENT (Visually Hidden, Sirf Google Ke Liye) ============ */}
       <div className="sr-only" aria-hidden="true">
-        <h1>Our Team - Overseas Recruitment Experts At Ali Hajveri International</h1>
+        <h1>Our Team - Overseas Recruitment Experts At Ali Hajveri International (Pvt.) Limited</h1>
         <p>
           Meet The Dedicated Team Behind Ali Hajveri International (Pvt.)
           Limited - A Government-Licensed Overseas Employment Promoter In
@@ -138,7 +131,7 @@ const OurTeam = () => {
           Opportunities At Ali Hajveri International.
         </p>
 
-        <h2>Contact Ali Hajveri International</h2>
+        <h2>Contact Ali Hajveri International (Pvt.) Limited</h2>
         <p>
           To Discuss Your Overseas Manpower Requirements Or To Learn More About
           Our Team, Contact Ali Hajveri International (Pvt.) Limited. Website:
@@ -174,6 +167,10 @@ const OurTeam = () => {
           0% { transform: scale(1); opacity: 0.75; }
           75%, 100% { transform: scale(2); opacity: 0; }
         }
+        @keyframes shine {
+          0% { transform: translateX(-120%) skewX(-20deg); }
+          100% { transform: translateX(220%) skewX(-20deg); }
+        }
         .animate-fadeIn { animation: fadeIn 0.6s ease-out forwards; }
         .animate-pulse-slow { animation: pulseSlow 4s ease-in-out infinite; }
         .animate-ping-slow { animation: pingSlow 2.5s cubic-bezier(0, 0, 0.2, 1) infinite; }
@@ -186,6 +183,30 @@ const OurTeam = () => {
           clip: rect(0, 0, 0, 0);
           white-space: nowrap;
           border: 0;
+        }
+        .img-shine {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          pointer-events: none;
+          z-index: 2;
+        }
+        .img-shine::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 40%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.45), transparent);
+          transform: translateX(-120%) skewX(-20deg);
+        }
+        .group:hover .img-shine::after {
+          animation: shine 1s ease-out;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .animate-fadeIn, .animate-pulse-slow, .animate-ping-slow,
+          .img-shine::after { animation: none !important; }
         }
       `}</style>
 
@@ -234,14 +255,14 @@ const OurTeam = () => {
             {TEAM_MEMBERS.map((member, idx) => (
               <div
                 key={`${member.name}-${idx}`}
-                className="group relative bg-white rounded-2xl overflow-hidden border border-[#4FC3F7]/20 hover:border-[#4FC3F7]/60 shadow-[0_6px_20px_rgba(15,76,92,0.06)] hover:shadow-[0_18px_40px_rgba(79,195,247,0.20)] hover:-translate-y-2 transition-all duration-500 animate-fadeIn"
+                className="group relative bg-white rounded-2xl overflow-hidden border border-[#4FC3F7]/20 shadow-[0_6px_20px_rgba(15,76,92,0.06)] animate-fadeIn"
                 style={{ animationDelay: `${idx * 0.05}s` }}
               >
                 <div className="relative h-[240px] sm:h-[260px] lg:h-[280px] overflow-hidden bg-[#E1F5FE]">
                   <img
                     src={member.img}
                     alt={`${member.name} - ${member.designation} At Ali Hajveri International`}
-                    className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                    className="w-full h-full object-cover object-top"
                     onError={(e) => {
                       e.target.parentElement.innerHTML = `
                         <div class="flex flex-col items-center justify-center h-full w-full bg-gradient-to-br from-[#E1F5FE] to-white">
@@ -254,27 +275,8 @@ const OurTeam = () => {
                       `;
                     }}
                   />
-
-                  <div className="absolute inset-0 bg-white/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                  <div className="absolute inset-0 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <a
-                      href="#"
-                      onClick={(e) => e.preventDefault()}
-                      aria-label={`${member.name} LinkedIn Profile`}
-                      className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#0F4C5C] hover:bg-[#4FC3F7] hover:text-white transition-colors shadow-lg"
-                    >
-                      <FaLinkedinIn className="text-sm" />
-                    </a>
-                    <a
-                      href="#"
-                      onClick={(e) => e.preventDefault()}
-                      aria-label={`Email ${member.name}`}
-                      className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#0F4C5C] hover:bg-[#4FC3F7] hover:text-white transition-colors shadow-lg"
-                    >
-                      <FaEnvelope className="text-sm" />
-                    </a>
-                  </div>
+                  {/* Diagonal shine sweep effect only (no shade overlay) */}
+                  <span className="img-shine" />
                 </div>
 
                 <div className="p-3.5 sm:p-4 text-center bg-white">
@@ -316,20 +318,18 @@ const OurTeam = () => {
             ].map(({ icon: Icon, title, desc, gradient }, idx) => (
               <div
                 key={title}
-                className="group relative bg-white rounded-2xl p-5 border border-[#4FC3F7]/20 hover:border-[#4FC3F7]/60 hover:shadow-[0_20px_45px_rgba(79,195,247,0.15)] hover:-translate-y-2 transition-all duration-300 overflow-hidden animate-fadeIn"
+                className="group relative bg-white rounded-2xl p-5 border border-[#4FC3F7]/20 overflow-hidden animate-fadeIn"
                 style={{ animationDelay: `${idx * 0.08}s` }}
               >
-                <span className="absolute inset-x-0 top-0 h-0.5 rounded-t-2xl bg-gradient-to-r from-[#4FC3F7] to-[#FFD54F] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500" />
-
-                <div className={`w-11 h-11 rounded-xl bg-gradient-to-br ${gradient} flex items-center justify-center mb-3 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-md`}>
+                <div className={`relative w-11 h-11 rounded-xl bg-gradient-to-br ${gradient} flex items-center justify-center mb-3 shadow-md`}>
                   <Icon className="text-white text-sm" />
                 </div>
 
-                <h3 className="font-[Plus_Jakarta_Sans] text-sm font-extrabold text-[#0F4C5C] mb-1.5 leading-tight title-case">
+                <h3 className="relative font-[Plus_Jakarta_Sans] text-sm font-extrabold text-[#0F4C5C] mb-1.5 leading-tight title-case">
                   {title}
                 </h3>
 
-                <p className="text-[11px] text-[#0A3A47]/75 leading-relaxed title-case">
+                <p className="relative text-[11px] text-[#0A3A47]/75 leading-relaxed title-case">
                   {desc}
                 </p>
               </div>
