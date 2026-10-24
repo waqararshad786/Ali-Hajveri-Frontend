@@ -668,9 +668,11 @@ const SubmitCV = () => {
 
               <div className="relative h-[280px] sm:h-[340px] lg:h-[440px] rounded-3xl overflow-hidden border border-[#4FC3F7]/20 shadow-[0_20px_50px_rgba(15,76,92,0.15)]">
                 <img
-                  src="/assets/submitcv-hero-img.png"
+                  src="/assets/submitcv-hero-img.webp"
                   alt="Submit CV For Overseas Job Opportunities In Gulf, Asia, And Europe"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  loading="eager"
+                  fetchpriority="high"
                   onError={(e) => {
                     e.target.style.display = "none";
                   }}

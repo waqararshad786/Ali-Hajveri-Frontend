@@ -42,7 +42,7 @@ const HERO_ROLES = [
 
 const CLIENT_LOGOS = Array.from({ length: 15 }, (_, i) => ({
   name: `Client ${i + 1}`,
-  src: `/assets/logos/c-logo-${i + 1}.png`,
+  src: `/assets/logos/c-logo-${i + 1}.webp`, // Updated to .webp
 }));
 
 const STATS = [
@@ -331,9 +331,11 @@ const Home = () => {
 
               <div className="relative h-[280px] sm:h-[340px] lg:h-[440px] rounded-3xl overflow-hidden border border-[#4FC3F7]/20 shadow-[0_20px_50px_rgba(15,76,92,0.15)]">
                 <img
-                  src="/assets/hero-4-image.png"
+                  src="/assets/hero-4-image.webp"
                   alt="Pakistani Workforce Ready For Overseas Deployment"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  loading="eager"
+                  fetchpriority="high"
                   onError={(e) => { e.target.style.display = "none"; }}
                 />
                 <span className="img-shine" />
@@ -473,7 +475,7 @@ const Home = () => {
 
             <div className="order-1 lg:order-2 relative reveal-up group">
               <div className="h-full max-h-[400px] sm:max-h-[440px] lg:max-h-[520px] rounded-2xl overflow-hidden border border-[#4FC3F7]/20 shadow-[0_8px_28px_rgba(15,76,92,0.08)] relative">
-                <img src="/assets/licensed-img.png" alt="ISO Certified & Licensed Recruitment" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" onError={(e) => { e.target.style.display = "none"; }} />
+                <img src="/assets/licensed-img.webp" alt="ISO Certified & Licensed Recruitment" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" loading="lazy" onError={(e) => { e.target.style.display = "none"; }} />
                 <span className="img-shine" />
               </div>
             </div>
@@ -588,7 +590,7 @@ const Home = () => {
 
             <div className="relative order-first lg:order-last reveal-up group">
               <div className="relative w-full h-[260px] sm:h-[340px] lg:h-[420px] rounded-3xl overflow-hidden">
-                <img src="/assets/const-2.png" alt="Recruitment Services In Action" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" onError={(e) => { e.target.style.display = "none"; }} />
+                <img src="/assets/const-2.webp" alt="Recruitment Services In Action" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" loading="lazy" onError={(e) => { e.target.style.display = "none"; }} />
                 <span className="img-shine" />
               </div>
 
@@ -655,7 +657,7 @@ const Home = () => {
 
               <div className="relative order-first lg:order-last group">
                 <div className="relative w-full h-[240px] sm:h-[320px] lg:h-[400px] rounded-3xl overflow-hidden">
-                  <img src="/assets/home-image.png" alt="Pakistani Manpower Ready For Deployment" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" onError={(e) => { e.target.style.display = "none"; }} />
+                  <img src="/assets/home-image.webp" alt="Pakistani Manpower Ready For Deployment" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" loading="lazy" onError={(e) => { e.target.style.display = "none"; }} />
                   <span className="img-shine" />
                 </div>
 
@@ -731,16 +733,17 @@ const Home = () => {
                 <div className="relative w-full flex-1 flex items-center justify-center py-0">
                   <div className="absolute inset-0 bg-[#4FC3F7]/5 blur-2xl rounded-full" />
                   <a
-                    href="/assets/license-1.png"
+                    href="/assets/license-1.webp" // Updated to .webp
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group/license relative block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4FC3F7] focus-visible:ring-offset-2 rounded-xl"
                     aria-label="View Full-Size Overseas Employment License"
                   >
                     <img
-                      src="/assets/license-1.png"
+                      src="/assets/license-1.webp" // Updated to .webp
                       alt="Overseas Employment License"
                       className="relative w-[80%] mx-auto max-h-[230px] sm:max-h-[310px] object-contain rounded-xl drop-shadow-[0_12px_28px_rgba(15,76,92,0.15)] group-hover/license:scale-[1.02] transition-transform duration-500"
+                      loading="lazy"
                       onError={(e) => {
                         e.target.style.display = "none";
                       }}
@@ -797,9 +800,10 @@ const Home = () => {
                     <div className="w-full h-full rounded-full bg-white" />
                   </div>
                   <img
-                    src="/assets/ceo.jpeg"
+                    src="/assets/ceo.webp" // Updated to .webp
                     alt="CEO"
                     className="relative w-14 sm:w-16 h-14 sm:h-16 rounded-full object-cover"
+                    loading="lazy"
                     onError={(e) => {
                       e.target.style.display = "none";
                     }}
@@ -895,9 +899,10 @@ const Home = () => {
             <div className="relative order-1 lg:order-2 reveal-up group">
               <div className="relative h-full min-h-[200px] rounded-3xl overflow-hidden">
                 <img
-                  src="/assets/map.png"
+                  src="/assets/map.webp" // Updated to .webp
                   alt="World Map Illustrating Countries Served By Our Recruitment Services"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03] saturate-[0.65] contrast-[1.05]"
+                  loading="lazy"
                   onError={(e) => { e.target.style.display = "none"; }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-br from-[#0F4C5C]/35 via-transparent to-[#0F4C5C]/20" aria-hidden="true" />
@@ -969,7 +974,7 @@ const Home = () => {
       </section>
 
       {/* ============ FINAL SECTION ============ */}
-      <section className="relative mb-5 section-tight bg-cover bg-center bg-no-repeat overflow-hidden" style={{ backgroundImage: "url(/assets/footer.png)", backgroundColor: "#0F4C5C" }}>
+      <section className="relative mb-5 section-tight bg-cover bg-center bg-no-repeat overflow-hidden" style={{ backgroundImage: "url(/assets/footer.webp)", backgroundColor: "#0F4C5C" }}>
         <div className="absolute inset-0 bg-[#0F4C5C]/70" />
 
         <div className="absolute inset-0 overflow-hidden">

@@ -26,26 +26,26 @@ const GovtLicense = () => {
       id: 1,
       authority: "SECP",
       title: "Certificate Of Incorporation",
-      image: "/assets/certificates/certificate-of-incorporation.png",
+      image: "/assets/certificates/certificate-of-incorporation.webp", // Updated to .webp
     },
     {
       id: 2,
       authority: "FBR",
       title: "Tax Registration Certificate",
-      image: "/assets/certificates/fbr.png",
+      image: "/assets/certificates/fbr.webp", // Updated to .webp
     },
     {
       id: 3,
       authority: "FBR",
       title: "Taxpayer Registration Certificate",
-      image: "/assets/certificates/tax-payer-regetration.png",
+      image: "/assets/certificates/tax-payer-regetration.webp", // Updated to .webp
     },
     {
       id: 4,
       authority: "BEOE",
       title: "Overseas Employment Promoter License",
-      imageFront: "/assets/license-1.png",
-      imageBack: "/assets/certificates/license-bg.png",
+      imageFront: "/assets/license-1.webp", // Updated to .webp
+      imageBack: "/assets/certificates/license-bg.webp", // Updated to .webp
       isLicense: true,
     },
   ];
@@ -366,9 +366,10 @@ const GovtLicense = () => {
                           src={doc.imageFront}
                           alt="Overseas Employment Promoter License Front - Ali Hajveri International"
                           className="doc-img w-full h-auto max-h-[240px] object-contain"
+                          loading="lazy"
                           onError={(e) => {
                             e.target.parentElement.innerHTML =
-                              '<div class="p-8 text-center text-[#0A3A47]/40 text-[10px]">license-1.png</div>';
+                              '<div class="p-8 text-center text-[#0A3A47]/40 text-[10px]">license-1.webp</div>';
                           }}
                         />
                       </div>
@@ -378,9 +379,10 @@ const GovtLicense = () => {
                           src={doc.imageBack}
                           alt="Overseas Employment Promoter License Back - Ali Hajveri International"
                           className="w-full h-auto max-h-[240px] object-contain"
+                          loading="lazy"
                           onError={(e) => {
                             e.target.parentElement.innerHTML =
-                              '<div class="p-8 text-center text-[#0A3A47]/40 text-[10px]">license-bg.png</div>';
+                              '<div class="p-8 text-center text-[#0A3A47]/40 text-[10px]">license-bg.webp</div>';
                           }}
                         />
                       </div>
@@ -411,6 +413,7 @@ const GovtLicense = () => {
                           src={doc.image}
                           alt={`${doc.title} - ${doc.authority} Certificate Of Ali Hajveri International`}
                           className="doc-img w-full h-auto max-h-[240px] object-contain"
+                          loading="lazy"
                           onError={(e) => {
                             e.target.parentElement.innerHTML = `<div class="p-8 text-center text-[#0A3A47]/40 text-[10px]">${doc.image.split("/").pop()}</div>`;
                           }}

@@ -41,20 +41,20 @@ const WORKFORCE_CATEGORIES = [
 ];
 
 const INDUSTRIES = [
-  { name: "Import / Export", icon: FaShip, img: "/assets/industries/industry-1.png" },
-  { name: "Medical & Healthcare", icon: FaHospital, img: "/assets/industries/industry-2.png" },
-  { name: "Hotels & Restaurants", icon: FaUtensils, img: "/assets/industries/industry-3.png" },
-  { name: "Garments & FMCG", icon: FaCogs, img: "/assets/industries/industry-4.png" },
-  { name: "Industrial Automation", icon: FaIndustry, img: "/assets/industries/industry-5.png" },
-  { name: "Shipping & Logistics", icon: FaTruck, img: "/assets/industries/industry-6.png" },
-  { name: "Automotives", icon: FaCar, img: "/assets/industries/industry-7.png" },
-  { name: "Agriculture", icon: FaSeedling, img: "/assets/industries/industry-8.png" },
-  { name: "Petrochemical", icon: FaFlask, img: "/assets/industries/industry-9.png" },
-  { name: "Security & Surveillance", icon: FaCamera, img: "/assets/industries/industry-10.png" },
-  { name: "Construction & Planning", icon: FaBuilding, img: "/assets/industries/industry-11.png" },
-  { name: "Computer & IT", icon: FaLaptop, img: "/assets/industries/industry-12.png" },
-  { name: "Finance & Accounts", icon: FaChartLine, img: "/assets/industries/industry-13.png" },
-  { name: "Telecommunication", icon: FaPhone, img: "/assets/industries/industry-14.png" },
+  { name: "Import / Export", icon: FaShip, img: "/assets/industries/industry-1.webp" },
+  { name: "Medical & Healthcare", icon: FaHospital, img: "/assets/industries/industry-2.webp" },
+  { name: "Hotels & Restaurants", icon: FaUtensils, img: "/assets/industries/industry-3.webp" },
+  { name: "Garments & FMCG", icon: FaCogs, img: "/assets/industries/industry-4.webp" },
+  { name: "Industrial Automation", icon: FaIndustry, img: "/assets/industries/industry-5.webp" },
+  { name: "Shipping & Logistics", icon: FaTruck, img: "/assets/industries/industry-6.webp" },
+  { name: "Automotives", icon: FaCar, img: "/assets/industries/industry-7.webp" },
+  { name: "Agriculture", icon: FaSeedling, img: "/assets/industries/industry-8.webp" },
+  { name: "Petrochemical", icon: FaFlask, img: "/assets/industries/industry-9.webp" },
+  { name: "Security & Surveillance", icon: FaCamera, img: "/assets/industries/industry-10.webp" },
+  { name: "Construction & Planning", icon: FaBuilding, img: "/assets/industries/industry-11.webp" },
+  { name: "Computer & IT", icon: FaLaptop, img: "/assets/industries/industry-12.webp" },
+  { name: "Finance & Accounts", icon: FaChartLine, img: "/assets/industries/industry-13.webp" },
+  { name: "Telecommunication", icon: FaPhone, img: "/assets/industries/industry-14.webp" },
 ];
 
 const DESTINATION_COUNTRIES = [
@@ -67,10 +67,10 @@ const DESTINATION_COUNTRIES = [
 ];
 
 const GALLERY_IMAGES = [
-  { src: "/assets/gallery-site.png", alt: "Pakistani Workers On An Active Construction Site For Overseas Project", caption: "On-Site Trades & Construction Manpower" },
-  { src: "/assets/gallery-interview.png", alt: "Candidate Interview Session For Overseas Employment Recruitment", caption: "Employer Interviews & Assessments" },
-  { src: "/assets/gallery-documents.png", alt: "Passport And Travel Documentation For Overseas Employment", caption: "Documentation & Compliance Support" },
-  { src: "/assets/gallery-departure.png", alt: "Pakistani Workers Departing For Overseas Deployment", caption: "Pre-Departure & Mobilization" },
+  { src: "/assets/gallery-site.webp", alt: "Pakistani Workers On An Active Construction Site For Overseas Project", caption: "On-Site Trades & Construction Manpower" },
+  { src: "/assets/gallery-interview.webp", alt: "Candidate Interview Session For Overseas Employment Recruitment", caption: "Employer Interviews & Assessments" },
+  { src: "/assets/gallery-documents.webp", alt: "Passport And Travel Documentation For Overseas Employment", caption: "Documentation & Compliance Support" },
+  { src: "/assets/gallery-departure.webp", alt: "Pakistani Workers Departing For Overseas Deployment", caption: "Pre-Departure & Mobilization" },
 ];
 
 const WHY_CHIPS = [
@@ -422,9 +422,11 @@ const Services = () => {
 
               <div className="relative h-[280px] sm:h-[340px] lg:h-[380px] rounded-3xl overflow-hidden border border-[#4FC3F7]/20 shadow-[0_20px_50px_rgba(15,76,92,0.15)]">
                 <img
-                  src="/assets/const-2.png"
+                  src="/assets/const-2.webp"
                   alt="Pakistani Workforce Ready For Overseas Deployment - Overseas Recruitment Services In Pakistan"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  loading="eager"
+                  fetchpriority="high"
                   onError={(e) => { e.target.style.display = "none"; }}
                 />
                 <span className="img-shine" />
@@ -981,6 +983,7 @@ const Services = () => {
                     src={img}
                     alt={`${name} Industry - Overseas Manpower Recruitment From Pakistan`}
                     className="w-full h-full object-cover"
+                    loading="lazy"
                     onError={(e) => { e.target.style.display = "none"; }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0F4C5C]/60 to-transparent" />
@@ -1167,7 +1170,7 @@ const Services = () => {
             {GALLERY_IMAGES.map((img, idx) => (
               <Link
                 key={img.src}
-                to={`/process/recruitment#${img.src.split("/").pop().replace(".png", "")}`}
+                to={`/process/recruitment#${img.src.split("/").pop().replace(".webp", "")}`}
                 className="group reveal-up block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4FC3F7] focus-visible:ring-offset-2 rounded-2xl"
                 style={{ animationDelay: `${idx * 0.08}s` }}
               >
@@ -1176,6 +1179,7 @@ const Services = () => {
                     src={img.src}
                     alt={img.alt}
                     className="w-full h-44 object-cover transition-transform duration-700 group-hover:scale-110"
+                    loading="lazy"
                     onError={(e) => { e.target.style.display = "none"; }}
                   />
                   <span className="img-shine" />

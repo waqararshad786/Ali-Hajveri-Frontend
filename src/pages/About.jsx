@@ -66,29 +66,29 @@ const SOURCING_STEPS = [
 ];
 
 const PREMIER_PARTNERS = [
-  { name: "Partner 1", src: "/assets/logos/c-logo-1.png" },
-  { name: "Partner 2", src: "/assets/logos/c-logo-2.png" },
-  { name: "Partner 3", src: "/assets/logos/c-logo-3.png" },
-  { name: "Partner 4", src: "/assets/logos/c-logo-4.png" },
-  { name: "Partner 5", src: "/assets/logos/c-logo-5.png" },
-  { name: "Partner 6", src: "/assets/logos/c-logo-6.png" },
-  { name: "Partner 7", src: "/assets/logos/c-logo-7.png" },
-  { name: "Partner 8", src: "/assets/logos/c-logo-8.png" },
+  { name: "Partner 1", src: "/assets/logos/c-logo-1.webp" },
+  { name: "Partner 2", src: "/assets/logos/c-logo-2.webp" },
+  { name: "Partner 3", src: "/assets/logos/c-logo-3.webp" },
+  { name: "Partner 4", src: "/assets/logos/c-logo-4.webp" },
+  { name: "Partner 5", src: "/assets/logos/c-logo-5.webp" },
+  { name: "Partner 6", src: "/assets/logos/c-logo-6.webp" },
+  { name: "Partner 7", src: "/assets/logos/c-logo-7.webp" },
+  { name: "Partner 8", src: "/assets/logos/c-logo-8.webp" },
 ];
 
 const SERVED_COUNTRIES = [
-  { name: "Saudi Arabia", flag: "🇸🇦", img: "/assets/countries/saudia.png" },
-  { name: "Bahrain", flag: "🇧🇭", img: "/assets/countries/bahrain.png" },
-  { name: "China", flag: "🇨🇳", img: "/assets/countries/china.png" },
-  { name: "Kazakhstan", flag: "🇰🇿", img: "/assets/countries/kazakhstan.png" },
-  { name: "Kyrgyzstan", flag: "🇰🇬", img: "/assets/countries/krygyzstan.png" },
-  { name: "Oman", flag: "🇴🇲", img: "/assets/countries/oman.png" },
-  { name: "Qatar", flag: "🇶🇦", img: "/assets/countries/qatar.png" },
-  { name: "Romania", flag: "🇷🇴", img: "/assets/countries/romania.png" },
-  { name: "Tajikistan", flag: "🇹🇯", img: "/assets/countries/tajikistan.png" },
-  { name: "Turkmenistan", flag: "🇹🇲", img: "/assets/countries/turkmanistan.png" },
-  { name: "Uae", flag: "🇦🇪", img: "/assets/countries/uae.png" },
-  { name: "Uzbekistan", flag: "🇺🇿", img: "/assets/countries/uzbekistan.png" },
+  { name: "Saudi Arabia", flag: "🇸🇦", img: "/assets/countries/saudia.webp" },
+  { name: "Bahrain", flag: "🇧🇭", img: "/assets/countries/bahrain.webp" },
+  { name: "China", flag: "🇨🇳", img: "/assets/countries/china.webp" },
+  { name: "Kazakhstan", flag: "🇰🇿", img: "/assets/countries/kazakhstan.webp" },
+  { name: "Kyrgyzstan", flag: "🇰🇬", img: "/assets/countries/krygyzstan.webp" },
+  { name: "Oman", flag: "🇴🇲", img: "/assets/countries/oman.webp" },
+  { name: "Qatar", flag: "🇶🇦", img: "/assets/countries/qatar.webp" },
+  { name: "Romania", flag: "🇷🇴", img: "/assets/countries/romania.webp" },
+  { name: "Tajikistan", flag: "🇹🇯", img: "/assets/countries/tajikistan.webp" },
+  { name: "Turkmenistan", flag: "🇹🇲", img: "/assets/countries/turkmanistan.webp" },
+  { name: "Uae", flag: "🇦🇪", img: "/assets/countries/uae.webp" },
+  { name: "Uzbekistan", flag: "🇺🇿", img: "/assets/countries/uzbekistan.webp" },
 ];
 
 /* ============================================================
@@ -291,9 +291,11 @@ const About = () => {
 
               <div className="relative h-[280px] sm:h-[340px] lg:h-[440px] rounded-3xl overflow-hidden border border-[#4FC3F7]/20 shadow-[0_20px_50px_rgba(15,76,92,0.15)]">
                 <img
-                  src="/assets/about-hero-img.png"
+                  src="/assets/about-hero-img.webp"
                   alt="About Ali Hajveri International - Government Licensed Overseas Employment Promoter In Pakistan"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  loading="eager"
+                  fetchpriority="high"
                   onError={(e) => {
                     e.target.style.display = "none";
                   }}
@@ -336,9 +338,10 @@ const About = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-[#4FC3F7]/20 to-transparent rounded-3xl rotate-3 scale-[1.02] hidden sm:block" />
               <div className="relative h-[280px] sm:h-[340px] rounded-3xl overflow-hidden border border-[#4FC3F7]/20 shadow-[0_20px_50px_rgba(15,76,92,0.15)]">
                 <img
-                  src="/assets/about.png"
+                  src="/assets/about.webp"
                   alt="Ali Hajveri International Team - Overseas Recruitment Experts In Pakistan"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  loading="lazy"
                   onError={(e) => { e.target.style.display = "none"; }}
                 />
                 <span className="img-shine" />
@@ -696,16 +699,17 @@ const About = () => {
                 <div className="relative w-full flex-1 flex items-center justify-center py-0">
                   <div className="absolute inset-0 bg-[#4FC3F7]/5 blur-2xl rounded-full" />
                   <a
-                    href="/assets/license-1.png"
+                    href="/assets/license-1.webp"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group/license relative block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4FC3F7] focus-visible:ring-offset-2 rounded-xl"
                     aria-label="View Full-Size Overseas Employment License Of Ali Hajveri International"
                   >
                     <img
-                      src="/assets/license-1.png"
+                      src="/assets/license-1.webp"
                       alt="Overseas Employment License Of Ali Hajveri International - OEP License 5224"
                       className="relative w-[80%] mx-auto max-h-[230px] sm:max-h-[310px] object-contain rounded-xl drop-shadow-[0_12px_28px_rgba(15,76,92,0.15)] group-hover/license:scale-[1.02] transition-transform duration-500"
+                      loading="lazy"
                       onError={(e) => {
                         e.target.style.display = "none";
                       }}
@@ -762,9 +766,10 @@ const About = () => {
                     <div className="w-full h-full rounded-full bg-white" />
                   </div>
                   <img
-                    src="/assets/ceo.jpeg"
+                    src="/assets/ceo.webp"
                     alt="Muhammad Ijaz - Chief Executive Officer Of Ali Hajveri International"
                     className="relative w-14 sm:w-16 h-14 sm:h-16 rounded-full object-cover"
+                    loading="lazy"
                     onError={(e) => {
                       e.target.style.display = "none";
                     }}
@@ -851,9 +856,10 @@ const About = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-[#4FC3F7]/20 to-transparent rounded-3xl -rotate-3 scale-[1.02] hidden sm:block" />
               <div className="relative h-full rounded-3xl overflow-hidden border border-[#4FC3F7]/20 shadow-[0_14px_40px_rgba(15,76,92,0.12)]">
                 <img
-                  src="/assets/licensed-img.png"
+                  src="/assets/licensed-img.webp"
                   alt="Muhammad Bilal - General Director Of Ali Hajveri International"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  loading="lazy"
                   onError={(e) => {
                     e.target.style.display = "none";
                   }}

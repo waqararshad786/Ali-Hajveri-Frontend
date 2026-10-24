@@ -324,9 +324,11 @@ const IsoCertification = () => {
               {/* Image frame — height reduced to 200px */}
               <div className="relative h-[450px] rounded-2xl sm:rounded-3xl overflow-hidden border border-[#4FC3F7]/20 shadow-[0_16px_30px_rgba(15,76,92,0.18)]">
                 <img
-                  src="/assets/licensed-img.png"
+                  src="/assets/licensed-img.webp"
                   alt="ISO 9001:2015 Certified Recruitment Agency - Ali Hajveri International Licensed Manpower Recruiter In Pakistan"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  loading="eager"
+                  fetchpriority="high"
                   onError={(e) => { e.target.style.display = "none"; }}
                 />
                 <span className="img-shine" />

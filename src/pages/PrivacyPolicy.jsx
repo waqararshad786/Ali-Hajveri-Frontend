@@ -695,9 +695,11 @@ const PrivacyPolicy = () => {
 
               <div className="relative h-[280px] sm:h-[340px] lg:h-[420px] rounded-2xl sm:rounded-3xl overflow-hidden border border-[#4FC3F7]/20 shadow-[0_20px_50px_rgba(15,76,92,0.15)]">
                 <img
-                  src="/assets/privacy-img-3.png"
+                  src="/assets/privacy-img-3.webp"
                   alt="Privacy Policy - Data Protection At Ali Hajveri International"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  loading="eager"
+                  fetchpriority="high"
                   onError={(e) => { e.target.style.display = "none"; }}
                 />
                 <span className="img-shine" />

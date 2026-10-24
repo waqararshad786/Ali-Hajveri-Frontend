@@ -673,9 +673,11 @@ const Faq = () => {
 
               <div className="relative h-[280px] sm:h-[340px] lg:h-[440px] rounded-3xl overflow-hidden border border-[#4FC3F7]/20 shadow-[0_20px_50px_rgba(15,76,92,0.15)]">
                 <img
-                  src="/assets/faq-hero-img.png"
+                  src="/assets/faq-hero-img.webp"
                   alt="Customer Support Team Available To Answer Overseas Employment Questions"
                   className="w-full h-full object-cover saturate-[0.7] contrast-[1.02] transition-transform duration-700 group-hover:scale-[1.03]"
+                  loading="eager"
+                  fetchpriority="high"
                   onError={(e) => { e.target.style.display = "none"; }}
                 />
                 <div

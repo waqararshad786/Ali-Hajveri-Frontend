@@ -82,7 +82,7 @@ const Navbar = () => {
             aria-label="Ali Hajveri International - Home"
           >
             <img
-              src="/assets/logo-2.png"
+              src="/assets/logo-2.webp"
               alt="Ali Hajveri International - Overseas Employment Promoter in Pakistan"
               className="h-14 sm:h-12 lg:h-14 w-auto object-contain bg-transparent transition-transform duration-300 group-hover:scale-105"
             />

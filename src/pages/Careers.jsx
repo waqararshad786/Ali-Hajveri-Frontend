@@ -510,9 +510,11 @@ const Careers = () => {
 
               <div className="relative h-[240px] sm:h-[300px] lg:h-[380px] rounded-3xl overflow-hidden border border-[#4FC3F7]/20 shadow-[0_20px_50px_rgba(15,76,92,0.15)]">
                 <img
-                  src="/assets/find-jobs-2.png"
+                  src="/assets/find-jobs-2.webp"
                   alt="Find Overseas Jobs In Pakistan - Verified International Employment Opportunities"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  loading="eager"
+                  fetchpriority="high"
                   onError={(e) => {
                     e.target.style.display = "none";
                   }}

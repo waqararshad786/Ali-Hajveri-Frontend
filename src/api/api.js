@@ -4,9 +4,6 @@ export const API_URL =
   import.meta.env.VITE_API_URL ||
   "https://ali-hajveri-backend-3.onrender.com/api";
 
-/* ============================================================
-   API ENDPOINTS
-============================================================ */
 export const API_ENDPOINTS = {
   AUTH: {
     SEED: "/auth/seed",
@@ -52,9 +49,6 @@ export const API_ENDPOINTS = {
   },
 };
 
-/* ============================================================
-   AUTH STORAGE
-============================================================ */
 const SESSION_KEY = "ahioep_session";
 
 export const setToken = (token, user = null) => {
@@ -93,9 +87,6 @@ export const removeToken = () => {
   } catch {}
 };
 
-/* ============================================================
-   REQUEST WRAPPER
-============================================================ */
 const request = async (endpoint, options = {}) => {
   const token = getToken();
   const isFormData = options.body instanceof FormData;
@@ -124,9 +115,6 @@ const request = async (endpoint, options = {}) => {
   return data;
 };
 
-/* ============================================================
-   AUTH API
-============================================================ */
 export const authApi = {
   login: async (email, password) => {
     const data = await request(API_ENDPOINTS.AUTH.LOGIN, {
@@ -162,9 +150,6 @@ export const authApi = {
   logout: () => removeToken(),
 };
 
-/* ============================================================
-   JOBS API
-============================================================ */
 export const jobsApi = {
   getAll: () => request(API_ENDPOINTS.JOBS.LIST),
   getOne: (id) => request(API_ENDPOINTS.JOBS.GET(id)),
@@ -182,9 +167,6 @@ export const jobsApi = {
   seed: () => request(API_ENDPOINTS.JOBS.SEED, { method: "POST" }),
 };
 
-/* ============================================================
-   APPLICATIONS API
-============================================================ */
 export const applicationsApi = {
   submit: (payload) => {
     const isFormData = payload instanceof FormData;
@@ -202,7 +184,6 @@ export const applicationsApi = {
   delete: (id) =>
     request(API_ENDPOINTS.APPLICATIONS.DELETE(id), { method: "DELETE" }),
 
-  /* ✅ Reply To Applicant — `data` object bhejo */
   reply: (id, data) =>
     request(API_ENDPOINTS.APPLICATIONS.REPLY(id), {
       method: "POST",
@@ -210,9 +191,6 @@ export const applicationsApi = {
     }),
 };
 
-/* ============================================================
-   CONTACT API
-============================================================ */
 export const contactApi = {
   submit: (contact) =>
     request(API_ENDPOINTS.CONTACT.SUBMIT, {
@@ -236,9 +214,6 @@ export const contactApi = {
     }),
 };
 
-/* ============================================================
-   CV API
-============================================================ */
 export const cvApi = {
   submit: (formData) =>
     request(API_ENDPOINTS.CV.SUBMIT, {
@@ -253,7 +228,6 @@ export const cvApi = {
     }),
   delete: (id) => request(API_ENDPOINTS.CV.DELETE(id), { method: "DELETE" }),
 
-  /* ✅ Reply To CV Applicant — `data` object bhejo */
   reply: (id, data) =>
     request(API_ENDPOINTS.CV.REPLY(id), {
       method: "POST",

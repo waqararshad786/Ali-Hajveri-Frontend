@@ -53,7 +53,7 @@ const Footer = () => {
             <div>
               <div className="flex items-center gap-3 mb-5">
                 <img
-                  src="/assets/logo.jpeg"
+                  src="/assets/logo.webp"
                   alt="Ali Hajveri International - Licensed Overseas Employment Promoter in Pakistan"
                   className="h-16 rounded-2xl w-auto object-contain bg-transparent"
                 />

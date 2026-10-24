@@ -11,16 +11,16 @@ import {
 } from "react-icons/fa";
 
 const TEAM_MEMBERS = [
-  { name: "Mr Muhammad Ijaz", designation: "Chief Executive Officer", img: "/assets/our-team/MR-IJAZ-2.png" },
-  { name: "Mr Muhammad Bilal", designation: "General Director", img: "/assets/our-team/MR-BILAL-2.png" },
-  { name: "Mr Muhammad Zeeshan", designation: "Director", img: "/assets/our-team/MR-ZEESHAN.png" },
-  { name: "Mr Malik Muhammad Nasir", designation: "General Manager", img: "/assets/our-team/MR-NASIR.jpeg" },
-  { name: "Ms Iram Shehzadi", designation: "HR Manager", img: "/assets/our-team/MS-IRAM.jpeg" },
-  { name: "Mr Ali Haider", designation: "PRO Cordinator", img: "/assets/our-team/MR-ALI-2.png" },
-  { name: "Ms Kiran Shehzadi", designation: "Documentation Officer", img: "/assets/our-team/MS-KIRAN-2.png" },
-  { name: "Mr Muhammad Aswat Ali", designation: "Computer Operator", img: "/assets/our-team/MR-ASWAT-2.png" },
-  { name: "Mr Muhammad Waqar", designation: "Marketing Assistant", img: "/assets/our-team/MR-WAQAR-2.png" },
-  { name: "Ms Maleeha Naeem", designation: "Documentation Officer Assistant", img: "/assets/our-team/MS-MALEEHA.jpeg" },
+  { name: "Mr Muhammad Ijaz", designation: "Chief Executive Officer", img: "/assets/our-team/MR-IJAZ-2.webp" },
+  { name: "Mr Muhammad Bilal", designation: "General Director", img: "/assets/our-team/MR-BILAL-2.webp" },
+  { name: "Mr Muhammad Zeeshan", designation: "Director", img: "/assets/our-team/MR-ZEESHAN.webp" },
+  { name: "Mr Malik Muhammad Nasir", designation: "General Manager", img: "/assets/our-team/MR-NASIR.webp" },
+  { name: "Ms Iram Shehzadi", designation: "HR Manager", img: "/assets/our-team/MS-IRAM.webp" },
+  { name: "Mr Ali Haider", designation: "PRO Cordinator", img: "/assets/our-team/MR-ALI-2.webp" },
+  { name: "Ms Kiran Shehzadi", designation: "Documentation Officer", img: "/assets/our-team/MS-KIRAN-2.webp" },
+  { name: "Mr Muhammad Aswat Ali", designation: "Computer Operator", img: "/assets/our-team/MR-ASWAT-2.webp" },
+  { name: "Mr Muhammad Waqar", designation: "Marketing Assistant", img: "/assets/our-team/MR-WAQAR-2.webp" },
+  { name: "Ms Maleeha Naeem", designation: "Documentation Officer Assistant", img: "/assets/our-team/MS-MALEEHA.webp" },
 ];
 
 const OurTeam = () => {
@@ -263,6 +263,7 @@ const OurTeam = () => {
                     src={member.img}
                     alt={`${member.name} - ${member.designation} At Ali Hajveri International`}
                     className="w-full h-full object-cover object-top"
+                    loading="lazy"
                     onError={(e) => {
                       e.target.parentElement.innerHTML = `
                         <div class="flex flex-col items-center justify-center h-full w-full bg-gradient-to-br from-[#E1F5FE] to-white">
