@@ -487,7 +487,7 @@ const WorkVisaProcess = () => {
         <p>
           For More Information About Our Work Visa Process Or To Apply For
           Overseas Employment, Contact Ali Hajveri International (Pvt.)
-          Limited. Website: ahioep.com | Email: ahioep.com@gmail.com | Phone:
+          Limited. Website: ahioep.com | Email: info@ahioep.com | Phone:
           +92 300 8578764
         </p>
 

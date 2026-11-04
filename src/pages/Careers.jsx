@@ -416,7 +416,7 @@ const Careers = () => {
               <div className="flex flex-wrap justify-center lg:justify-start gap-5 sm:gap-8 md:gap-12">
                 {[
                   { value: `${jobs.length}+`, label: "Live Jobs" },
-                  { value: "50+", label: "Countries" },
+                  { value: "25+", label: "Countries" },
                   { value: "100%", label: "Free To Apply" },
                 ].map((stat) => (
                   <div key={stat.label} className="text-center lg:text-left">

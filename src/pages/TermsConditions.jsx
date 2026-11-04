@@ -566,7 +566,7 @@ const TermsConditions = () => {
         <h2>Contact Ali Hajveri International (Pvt.) Limited</h2>
         <p>
           If You Have Questions About These Terms And Conditions, Contact Us
-          At ahioep.com@gmail.com Or +92 300 8578764. Our Office Is Located At
+          At info@ahioep.com Or +92 300 8578764. Our Office Is Located At
           Office No. 1, 2nd Floor, Hajveri Plaza, Main Rajbah Road, Near
           Quaid-E-Azam Interchange, Dera Gujran, Lahore, Pakistan.
         </p>

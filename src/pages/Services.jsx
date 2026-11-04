@@ -344,7 +344,7 @@ const Services = () => {
         <p>
           To Discuss Your Overseas Manpower Requirements Or Request A Quote,
           Contact Ali Hajveri International (Pvt.) Limited. Website: ahioep.com
-          | Email: ahioep.com@gmail.com | Phone: +92 300 8578764
+          | Email: info@ahioep.com | Phone: +92 300 8578764
         </p>
 
         <h2>Internal Links</h2>

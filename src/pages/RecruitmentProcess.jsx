@@ -430,7 +430,7 @@ const RecruitmentProcess = () => {
         <p>
           For More Information About Our Overseas Recruitment Process Or To
           Discuss Your Manpower Requirements, Contact Ali Hajveri International
-          (Pvt.) Limited. Website: ahioep.com | Email: ahioep.com@gmail.com |
+          (Pvt.) Limited. Website: ahioep.com | Email: info@ahioep.com |
           Phone: +92 300 8578764
         </p>
 
@@ -443,7 +443,7 @@ const RecruitmentProcess = () => {
           <Link to="/about">About Us</Link>
           <Link to="/countries">Countries We Serve</Link>
           <Link to="/contact">Contact Us</Link>
-          <Link to="/submit-cv">Submit CV</Link>
+          {/* <Link to="/submit-cv">Submit CV</Link> */}
         </nav>
       </div>
 
