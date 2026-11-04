@@ -475,7 +475,7 @@ const Faq = () => {
         <p>
           Still Have Questions? Contact Ali Hajveri International (Pvt.)
           Limited For More Information About Overseas Employment.
-          Website: ahioep.com | Email: ahioep.com@gmail.com | Phone: +92 300
+          Website: ahioep.com | Email: info@ahioep.com | Phone: +92 300
           8578764
         </p>
 

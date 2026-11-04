@@ -239,7 +239,7 @@ const Home = () => {
           Looking For A Trusted Overseas Employment Promoter In Pakistan? Contact
           Ali Hajveri International (Pvt.) Limited To Discuss Your Manpower
           Requirements Or Learn More About Our Recruitment Services.
-          Website: ahioep.com | Email: ahioep.com@gmail.com | Phone: +92 300 8578764 |
+          Website: ahioep.com | Email: info@ahioep.com | Phone: +92 300 8578764 |
           Office: Office No. 1, 2nd Floor, Hajveri Plaza, Main Rajbah Road,
           Near Quaid-E-Azam Interchange, Dera Gujran, Lahore, Pakistan.
         </p>

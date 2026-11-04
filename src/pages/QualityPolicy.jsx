@@ -371,7 +371,7 @@ const QualityPolicy = () => {
         <p>
           For More Information About Our Quality Policy Or To Discuss Your
           Overseas Recruitment Needs, Contact Ali Hajveri International (Pvt.)
-          Limited. Website: ahioep.com | Email: ahioep.com@gmail.com | Phone:
+          Limited. Website: ahioep.com | Email: info@ahioep.com | Phone:
           +92 300 8578764
         </p>
 

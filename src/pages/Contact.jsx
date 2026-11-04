@@ -101,7 +101,7 @@ const Contact = () => {
         <h2>Contact Information</h2>
         <ul>
           <li>Phone: +92 300 8578764</li>
-          <li>Email: ahioep.com@gmail.com</li>
+          <li>Email: info@ahioep.com</li>
           <li>Website: ahioep.com</li>
           <li>Business Hours: Monday To Saturday, 9:00 AM To 6:00 PM</li>
         </ul>
@@ -162,7 +162,7 @@ const Contact = () => {
           <Link to="/services">Our Services</Link>
           <Link to="/process">Recruitment Process</Link>
           <Link to="/countries">Countries We Serve</Link>
-          <Link to="/submit-cv">Submit CV</Link>
+          {/* <Link to="/submit-cv">Submit CV</Link> */}
           <Link to="/faq">FAQ</Link>
           <Link to="/legal-status">Legal Status</Link>
         </nav>

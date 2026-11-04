@@ -512,7 +512,7 @@ const PrivacyPolicy = () => {
         <h2>Contact Ali Hajveri International (Pvt.) Limited</h2>
         <p>
           If You Have Questions About This Privacy Policy Or How We Handle Your
-          Data, Contact Us At ahioep.com@gmail.com Or +92 300 8578764. Our
+          Data, Contact Us At info@ahioep.com Or +92 300 8578764. Our
           Office Is Located At Office No. 1, 2nd Floor, Hajveri Plaza, Main
           Rajbah Road, Near Quaid-E-Azam Interchange, Dera Gujran, Lahore,
           Pakistan.

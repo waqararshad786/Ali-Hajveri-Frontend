@@ -116,7 +116,7 @@ const IsoCertification = () => {
           Credentials, Contact Ali Hajveri International (Pvt.) Limited. Our
           Office Is Located At Office No. 1, 2nd Floor, Hajveri Plaza, Main
           Rajbah Road, Near Quaid-E-Azam Interchange, Dera Gujran, Lahore,
-          Pakistan. Website: ahioep.com | Email: ahioep.com@gmail.com | Phone:
+          Pakistan. Website: ahioep.com | Email: info@ahioep.com | Phone:
           +92 300 8578764
         </p>
 

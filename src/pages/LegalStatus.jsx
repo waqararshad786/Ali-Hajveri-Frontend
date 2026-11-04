@@ -168,7 +168,7 @@ const LegalStatus = () => {
         <p>
           For More Information About Our Legal Status Or To Verify Our
           Credentials, Contact Ali Hajveri International (Pvt.) Limited.
-          Website: ahioep.com | Email: ahioep.com@gmail.com | Phone: +92 300
+          Website: ahioep.com | Email: info@ahioep.com | Phone: +92 300
           8578764
         </p>
 

@@ -350,7 +350,7 @@ const Process = () => {
         <p>
           To Learn More About Our Overseas Recruitment Process Or To Discuss
           Your Specific Manpower Requirements, Contact Ali Hajveri International
-          (Pvt.) Limited. Website: ahioep.com | Email: ahioep.com@gmail.com |
+          (Pvt.) Limited. Website: ahioep.com | Email: info@ahioep.com |
           Phone: +92 300 8578764
         </p>
 

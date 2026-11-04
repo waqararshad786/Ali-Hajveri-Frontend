@@ -135,7 +135,7 @@ const OurTeam = () => {
         <p>
           To Discuss Your Overseas Manpower Requirements Or To Learn More About
           Our Team, Contact Ali Hajveri International (Pvt.) Limited. Website:
-          ahioep.com | Email: ahioep.com@gmail.com | Phone: +92 300 8578764
+          ahioep.com | Email: info@ahioep.com | Phone: +92 300 8578764
         </p>
 
         <h2>Internal Links</h2>
@@ -145,7 +145,7 @@ const OurTeam = () => {
           <Link to="/process">Recruitment Process</Link>
           <Link to="/contact">Contact Us</Link>
           <Link to="/careers">Careers</Link>
-          <Link to="/submit-cv">Submit CV</Link>
+          {/* <Link to="/submit-cv">Submit CV</Link> */}
           <Link to="/faq">FAQ</Link>
         </nav>
       </div>
