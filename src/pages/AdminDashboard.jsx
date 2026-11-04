@@ -272,7 +272,7 @@ const AdminDashboard = () => {
             ) : (
               recentJobs.map((job) => (
                 <Link
-                  key={job._id}
+                  key={job.id} // ✅ _id → id
                   to="/admin/jobs"
                   className="group flex items-center gap-2.5 p-2.5 rounded-xl bg-[#E1F5FE]/40 hover:bg-[#E1F5FE] border border-[#4FC3F7]/15 hover:border-[#4FC3F7]/40 transition-all"
                 >
@@ -340,7 +340,7 @@ const AdminDashboard = () => {
             ) : (
               recentMessages.map((msg) => (
                 <Link
-                  key={msg._id}
+                  key={msg.id} // ✅ _id → id
                   to="/admin/messages"
                   className="group flex items-start gap-2.5 p-2.5 rounded-xl bg-[#E1F5FE]/40 hover:bg-[#E1F5FE] border border-[#4FC3F7]/15 hover:border-[#4FC3F7]/40 transition-all"
                 >
@@ -381,7 +381,7 @@ const AdminDashboard = () => {
               Backend Connected
             </h4>
             <p className="text-[#0A3A47]/70 text-[11px] leading-relaxed">
-              All changes saved to MongoDB and appear instantly on the public
+              All changes saved to MySQL and appear instantly on the public
               careers page.
             </p>
           </div>

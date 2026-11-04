@@ -93,12 +93,25 @@ const AdminJobs = () => {
   };
 
   const openEdit = (job) => {
+    // ✅ ERROR FIX: Array check lagaya hai taake SQL se string aane par .join() crash na ho
+    let tagsArr = [];
+    if (Array.isArray(job.tags)) tagsArr = job.tags;
+    else if (typeof job.tags === "string") {
+      try { tagsArr = JSON.parse(job.tags); } catch { tagsArr = job.tags.split(","); }
+    }
+
+    let reqArr = [];
+    if (Array.isArray(job.requirements)) reqArr = job.requirements;
+    else if (typeof job.requirements === "string") {
+      try { reqArr = JSON.parse(job.requirements); } catch { reqArr = job.requirements.split("\n"); }
+    }
+
     setForm({
       ...job,
-      tags: (job.tags || []).join(", "),
-      requirements: (job.requirements || []).join("\n"),
+      tags: (tagsArr || []).join(", "),
+      requirements: (reqArr || []).join("\n"),
     });
-    setEditingId(job._id || job.id);
+    setEditingId(job.id);
     setShowForm(true);
     setErrors({});
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -698,7 +711,7 @@ const AdminJobs = () => {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {filteredJobs.map((job) => (
             <div
-              key={job._id || job.id}
+              key={job.id} // ✅ _id → id
               className="group relative bg-white rounded-2xl border border-[#4FC3F7]/20 hover:border-[#4FC3F7]/50 p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_14px_35px_rgba(79,195,247,0.15)] overflow-hidden"
             >
               <span className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-[#4FC3F7] via-[#FFD54F] to-[#4FC3F7] bg-[length:200%_100%] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
@@ -747,7 +760,7 @@ const AdminJobs = () => {
                   Edit
                 </button>
                 <button
-                  onClick={() => setConfirmDelete(job._id || job.id)}
+                  onClick={() => setConfirmDelete(job.id)} // ✅ _id → id
                   className="flex-1 inline-flex items-center justify-center gap-1.5 text-[11px] font-bold text-red-500 bg-red-50 hover:bg-red-100 border border-red-200 px-3 py-1.5 rounded-full transition-all"
                 >
                   <FaTrash className="text-[9px]" />

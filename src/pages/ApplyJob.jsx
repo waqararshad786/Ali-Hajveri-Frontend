@@ -120,7 +120,7 @@ const ApplyJob = () => {
     try {
       /* ✅ FormData Banao */
       const formData = new FormData();
-      formData.append("jobId", job._id || job.id);
+      formData.append("jobId", job.id); // ✅ _id hata diya, ab sirf id hai
       formData.append("fullName", form.fullName);
       formData.append("email", form.email);
       formData.append("phone", form.phone);

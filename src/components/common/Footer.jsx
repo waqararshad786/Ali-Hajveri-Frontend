@@ -1,66 +1,98 @@
 // src/components/common/Footer.jsx
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 import {
-  FaFacebook, FaInstagram, FaTiktok, FaTwitter,
-  FaEnvelope, FaPhone, FaMapMarkerAlt, FaShieldAlt, FaWhatsapp,
-  FaGlobe, FaUserTie, FaBriefcase, FaAward
-} from 'react-icons/fa';
-import { COMPANY_INFO } from '../../utilis/constants';
+  FaFacebook,
+  FaInstagram,
+  FaTiktok,
+  FaTwitter,
+  FaEnvelope,
+  FaPhone,
+  FaMapMarkerAlt,
+  FaShieldAlt,
+  FaWhatsapp,
+  FaGlobe,
+  FaUserTie,
+  FaBriefcase,
+  FaAward,
+} from "react-icons/fa";
+import { COMPANY_INFO } from "../../utilis/constants";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: FaFacebook, url: 'https://www.facebook.com/profile.php?id=61592978483330', color: '#1877F2', label: 'Facebook' },
-    { icon: FaInstagram, url: 'https://www.instagram.com/ahioep5224/', color: '#E4405F', label: 'Instagram' },
-    { icon: FaTiktok, url: 'https://www.tiktok.com/@ahioep.com', color: '#000000', label: 'TikTok' },
-    { icon: FaTwitter, url: 'https://x.com/ahioep', color: '#000000', label: 'X (Twitter)' },
+    {
+      icon: FaFacebook,
+      url: "https://www.facebook.com/profile.php?id=61592978483330",
+      color: "#1877F2",
+      label: "Facebook",
+    },
+    {
+      icon: FaInstagram,
+      url: "https://www.instagram.com/ahioep5224/",
+      color: "#E4405F",
+      label: "Instagram",
+    },
+    {
+      icon: FaTiktok,
+      url: "https://www.tiktok.com/@ahioep",
+      color: "#000000",
+      label: "TikTok",
+    },
+    {
+      icon: FaTwitter,
+      url: "https://x.com/ahioep",
+      color: "#000000",
+      label: "X (Twitter)",
+    },
   ];
 
   const quickLinks = [
-    ['/', 'Home'],
-    ['/about', 'About Us'],
-    ['/services', 'Services'],
-    ['/process', 'Process'],
-    ['/countries', 'Countries'],
-    ['/contact', 'Contact'],
+    ["/", "Home"],
+    ["/about", "About Us"],
+    ["/services", "Services"],
+    ["/process", "Process"],
+    ["/countries", "Countries"],
+    ["/contact", "Contact"],
   ];
 
   const serviceLinks = [
-    ['/services', 'Manpower Sourcing'],
-    ['/services', 'Trade Testing'],
-    ['/services', 'Documentation Support'],
-    ['/services', 'Overseas Deployment'],
-    ['/services', 'Skill Upgrading'],
-    ['/services', 'Post-Placement'],
+    ["/services", "Manpower Sourcing"],
+    ["/services", "Trade Testing"],
+    ["/services", "Documentation Support"],
+    ["/services", "Overseas Deployment"],
+    ["/services", "Skill Upgrading"],
+    ["/services", "Post-Placement"],
   ];
 
   return (
     <>
-      <footer className="relative bg-[#0F4C5C] text-white overflow-hidden" aria-label="Footer">
-
+      <footer
+        className="relative bg-[#0F4C5C] text-white overflow-hidden"
+        aria-label="Footer"
+      >
         <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#4FC3F7] via-[#FFD54F] to-[#29B6F6]" />
 
         <div className="absolute -top-32 -right-32 w-[280px] h-[280px] rounded-full bg-[#4FC3F7]/10 blur-3xl" />
         <div className="absolute -bottom-32 -left-32 w-[260px] h-[260px] rounded-full bg-[#FFD54F]/8 blur-3xl" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-6">
-
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
-
             {/* Company Info */}
             <div>
               <div className="flex items-center gap-3 mb-5">
                 <img
-                  src="/assets/logo.webp"
+                  src="/assets/logo.jpeg"
                   alt="Ali Hajveri International - Licensed Overseas Employment Promoter in Pakistan"
                   className="h-16 rounded-2xl w-auto object-contain bg-transparent"
                 />
               </div>
 
               <p className="text-white/75 text-sm leading-relaxed mb-5">
-                {COMPANY_INFO.fullName} — Supplying Skilled, Semi-skilled And Unskilled Pakistani Workforce To 25+ Countries Worldwide. Licensed Overseas Employment Promoter In Pakistan.
+                {COMPANY_INFO.fullName} — Supplying Skilled, Semi-skilled And
+                Unskilled Pakistani Workforce To 25+ Countries Worldwide.
+                Licensed Overseas Employment Promoter In Pakistan.
               </p>
 
               <div className="inline-flex items-center gap-2 bg-[#4FC3F7]/15 border border-[#4FC3F7]/40 rounded-full px-3 py-1.5 text-xs text-[#4FC3F7] font-bold mb-5">
@@ -148,10 +180,12 @@ const Footer = () => {
               </h3>
               <address className="not-italic">
                 <ul className="flex flex-col items-start gap-2">
-
                   <li className="w-full group flex items-start gap-2.5 bg-white/5 border border-[#22C55E]/20 hover:border-[#22C55E]/50 rounded-xl px-2.5 py-2 transition-all duration-300">
                     <span className="w-7 h-7 rounded-xl bg-[#22C55E] flex items-center justify-center flex-shrink-0 mt-0.5 shadow-[0_6px_14px_rgba(34,197,94,0.4)]">
-                      <FaMapMarkerAlt className="text-white text-[11px]" aria-hidden="true" />
+                      <FaMapMarkerAlt
+                        className="text-white text-[11px]"
+                        aria-hidden="true"
+                      />
                     </span>
                     <span className="text-white/75 text-xs leading-relaxed group-hover:text-white transition-colors">
                       {COMPANY_INFO.address}
@@ -165,7 +199,10 @@ const Footer = () => {
                       aria-label="Call Ali Hajveri International"
                     >
                       <span className="w-7 h-7 rounded-xl bg-[#4FC3F7] flex items-center justify-center flex-shrink-0 shadow-[0_6px_14px_rgba(79,195,247,0.4)]">
-                        <FaPhone className="text-white text-[11px]" aria-hidden="true" />
+                        <FaPhone
+                          className="text-white text-[11px]"
+                          aria-hidden="true"
+                        />
                       </span>
                       <span className="text-white/75 text-xs font-medium group-hover:text-[#FFD54F] transition-colors">
                         {COMPANY_INFO.phone}
@@ -180,7 +217,10 @@ const Footer = () => {
                       aria-label="Email Ali Hajveri International"
                     >
                       <span className="w-7 h-7 rounded-xl bg-[#FFB300] flex items-center justify-center flex-shrink-0 shadow-[0_6px_14px_rgba(255,179,0,0.4)]">
-                        <FaEnvelope className="text-white text-[11px]" aria-hidden="true" />
+                        <FaEnvelope
+                          className="text-white text-[11px]"
+                          aria-hidden="true"
+                        />
                       </span>
                       <span className="text-white/75 text-xs font-medium group-hover:text-[#FFD54F] transition-colors truncate">
                         {COMPANY_INFO.email}
@@ -198,36 +238,51 @@ const Footer = () => {
 
           <div className="bg-[#0A3A47] border border-[#4FC3F7]/20 rounded-xl px-4 sm:px-6 py-4">
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-
               <p className="text-sm text-white/60 text-center sm:text-left">
                 &copy; {currentYear}{" "}
-                <span className="font-bold text-white/90">{COMPANY_INFO.fullName}</span>.
-                All Rights Reserved.
+                <span className="font-bold text-white/90">
+                  {COMPANY_INFO.fullName}
+                </span>
+                . All Rights Reserved.
               </p>
 
               <div className="flex items-center gap-4 text-xs font-medium">
-                <Link to="/privacy-policy" className="text-white/60 hover:text-[#4FC3F7] transition-colors">
+                <Link
+                  to="/privacy-policy"
+                  className="text-white/60 hover:text-[#4FC3F7] transition-colors"
+                >
                   Privacy
                 </Link>
                 <span className="w-1 h-1 rounded-full bg-white/30" />
-                <Link to="/terms-conditions" className="text-white/60 hover:text-[#4FC3F7] transition-colors">
+                <Link
+                  to="/terms-conditions"
+                  className="text-white/60 hover:text-[#4FC3F7] transition-colors"
+                >
                   Terms
                 </Link>
                 <span className="w-1 h-1 rounded-full bg-white/30" />
-                <Link to="/faq" className="text-white/60 hover:text-[#4FC3F7] transition-colors">
+                <Link
+                  to="/faq"
+                  className="text-white/60 hover:text-[#4FC3F7] transition-colors"
+                >
                   FAQ
                 </Link>
               </div>
 
               <div className="flex items-center gap-1.5 text-xs text-white/60 font-semibold tracking-wide">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#4FC3F7] animate-pulse" />
-                <span className="w-1.5 h-1.5 rounded-full bg-[#FFD54F] animate-pulse" style={{ animationDelay: '0.3s' }} />
-                <span className="w-1.5 h-1.5 rounded-full bg-[#29B6F6] animate-pulse" style={{ animationDelay: '0.6s' }} />
+                <span
+                  className="w-1.5 h-1.5 rounded-full bg-[#FFD54F] animate-pulse"
+                  style={{ animationDelay: "0.3s" }}
+                />
+                <span
+                  className="w-1.5 h-1.5 rounded-full bg-[#29B6F6] animate-pulse"
+                  style={{ animationDelay: "0.6s" }}
+                />
                 <span className="ml-1.5">Trusted Worldwide</span>
               </div>
             </div>
           </div>
-
         </div>
       </footer>
 

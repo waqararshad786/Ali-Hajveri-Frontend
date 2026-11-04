@@ -1,6 +1,5 @@
 // src/services/contactService.js
-
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
+import { API_URL } from "../api/api"; // ✅ API_URL ab ek hi jagah se aayega
 
 export const sendContactMessage = async (formData) => {
   try {

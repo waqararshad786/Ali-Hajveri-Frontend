@@ -1,12 +1,15 @@
 // src/api/api.js
-// export const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
-export const API_URL =
-  import.meta.env.VITE_API_URL ||
-  "https://ali-hajveri-backend-3.onrender.com/api";
+
+// ✅ LOCAL TESTING KE LIYE (Abhi ke liye yeh use karein)
+export const API_URL = "https://gl6gio9aoh.c35.airoapp.ai/api";
+
+// (Jab GoDaddy par deploy karein, tab upar wali line comment karke neeche wali uncomment kar dein)
+// export const API_URL = import.meta.env.VITE_API_URL || "https://ali-hajveri-backend-3.onrender.com/api";
 
 export const API_ENDPOINTS = {
   AUTH: {
-    SEED: "/auth/seed",
+    // ✅ FIX: Backend me seed route "/api/seed-now" hai
+    SEED: "/seed-now",
     LOGIN: "/auth/login",
     ME: "/auth/me",
     REGISTER: "/auth/register",
@@ -206,7 +209,6 @@ export const contactApi = {
   delete: (id) =>
     request(API_ENDPOINTS.CONTACT.DELETE(id), { method: "DELETE" }),
 
-  /* ✅ Reply To Contact — `data` object bhejo */
   reply: (id, data) =>
     request(API_ENDPOINTS.CONTACT.REPLY(id), {
       method: "POST",

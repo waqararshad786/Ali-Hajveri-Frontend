@@ -999,9 +999,7 @@ const Services = () => {
           </div>
         </div>
 
-        <p className="text-center text-[#0A3A47]/70 text-xs mt-4">
-          Auto-scrolling — hover to pause
-        </p>
+        
       </section>
 
       {/* ============ WHY CHOOSE US ============ */}

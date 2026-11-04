@@ -25,7 +25,7 @@ const STATUS_COLORS = {
    CV FILE URL HELPER
 ============================================================ */
 const getCvFileUrl = (cv, download = false) => {
-  if (!cv || !cv._id) return "";
+  if (!cv || !cv.id) return ""; // ✅ _id → id
 
   const token = (() => {
     try {
@@ -42,7 +42,7 @@ const getCvFileUrl = (cv, download = false) => {
     return rawPath;
   }
 
-  const base = `${API_URL}/cv/${cv._id}/file`;
+  const base = `${API_URL}/cv/${cv.id}/file`; // ✅ _id → id
   const params = new URLSearchParams();
   if (token) params.set("token", token);
   if (download) params.set("download", "1");
@@ -141,7 +141,7 @@ const AdminApplications = () => {
       await cvApi.updateStatus(id, status);
       showToast(`Marked As ${status}`);
       fetchCVs();
-      if (selected && selected._id === id) {
+      if (selected && selected.id === id) { // ✅ _id → id
         setSelected({ ...selected, status });
       }
     } catch (error) {
@@ -178,7 +178,7 @@ const AdminApplications = () => {
     try {
       // ⚠️ Backend endpoint baad mein banayenge
       // Filhaal yeh code ready hai — backend ready hone pe kaam karega
-      const result = await cvApi.reply(replyModal._id, {
+      const result = await cvApi.reply(replyModal.id, { // ✅ _id → id
         replyMessage: replyText.trim(),
       });
 
@@ -740,7 +740,7 @@ const AdminApplications = () => {
 
                 {selected.status === "new" && (
                   <button
-                    onClick={() => handleStatusChange(selected._id, "reviewed")}
+                    onClick={() => handleStatusChange(selected.id, "reviewed")} // ✅ _id → id
                     className="inline-flex items-center gap-1.5 text-xs font-bold text-yellow-700 bg-yellow-50 border border-yellow-300 px-4 py-2 rounded-full hover:bg-yellow-100 hover:-translate-y-0.5 transition-all"
                   >
                     <FaEnvelopeOpen className="text-[10px]" />
@@ -751,7 +751,7 @@ const AdminApplications = () => {
                 <button
                   onClick={() =>
                     selected.status !== "shortlisted" &&
-                    handleStatusChange(selected._id, "shortlisted")
+                    handleStatusChange(selected.id, "shortlisted") // ✅ _id → id
                   }
                   disabled={selected.status === "shortlisted"}
                   className={`inline-flex items-center gap-1.5 text-xs font-bold px-4 py-2 rounded-full transition-all ${
@@ -769,7 +769,7 @@ const AdminApplications = () => {
                 <button
                   onClick={() =>
                     selected.status !== "rejected" &&
-                    handleStatusChange(selected._id, "rejected")
+                    handleStatusChange(selected.id, "rejected") // ✅ _id → id
                   }
                   disabled={selected.status === "rejected"}
                   className={`inline-flex items-center gap-1.5 text-xs font-bold px-4 py-2 rounded-full transition-all ${
@@ -783,7 +783,7 @@ const AdminApplications = () => {
                 </button>
 
                 <button
-                  onClick={() => setConfirmDelete(selected._id)}
+                  onClick={() => setConfirmDelete(selected.id)} // ✅ _id → id
                   className="ml-auto inline-flex items-center gap-1.5 text-xs font-bold text-red-500 bg-red-50 border border-red-200 px-4 py-2 rounded-full hover:bg-red-100 transition-all"
                 >
                   <FaTrash className="text-[10px]" />
@@ -868,7 +868,7 @@ const AdminApplications = () => {
         <div className="grid gap-3">
           {filtered.map((cv) => (
             <div
-              key={cv._id}
+              key={cv.id} // ✅ _id → id
               className="group relative bg-white rounded-2xl border border-[#4FC3F7]/20 hover:border-[#4FC3F7]/50 p-4 transition-all duration-300 hover:shadow-[0_14px_35px_rgba(79,195,247,0.15)] overflow-hidden animate-slideUp"
             >
               <span className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-[#4FC3F7] via-[#FFD54F] to-[#4FC3F7] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
@@ -952,7 +952,7 @@ const AdminApplications = () => {
 
                 {cv.status === "new" && (
                   <button
-                    onClick={() => handleStatusChange(cv._id, "reviewed")}
+                    onClick={() => handleStatusChange(cv.id, "reviewed")} // ✅ _id → id
                     className="inline-flex items-center gap-1.5 text-[11px] font-bold text-yellow-700 bg-yellow-50 border border-yellow-300 px-3 py-1.5 rounded-full transition-all hover:bg-yellow-100"
                   >
                     <FaEnvelopeOpen className="text-[9px]" />
@@ -963,7 +963,7 @@ const AdminApplications = () => {
                 <button
                   onClick={() =>
                     cv.status !== "shortlisted" &&
-                    handleStatusChange(cv._id, "shortlisted")
+                    handleStatusChange(cv.id, "shortlisted") // ✅ _id → id
                   }
                   disabled={cv.status === "shortlisted"}
                   className={`inline-flex items-center gap-1.5 text-[11px] font-bold px-3 py-1.5 rounded-full transition-all ${
@@ -979,7 +979,7 @@ const AdminApplications = () => {
                 <button
                   onClick={() =>
                     cv.status !== "rejected" &&
-                    handleStatusChange(cv._id, "rejected")
+                    handleStatusChange(cv.id, "rejected") // ✅ _id → id
                   }
                   disabled={cv.status === "rejected"}
                   className={`inline-flex items-center gap-1.5 text-[11px] font-bold px-3 py-1.5 rounded-full transition-all ${
@@ -993,7 +993,7 @@ const AdminApplications = () => {
                 </button>
 
                 <button
-                  onClick={() => setConfirmDelete(cv._id)}
+                  onClick={() => setConfirmDelete(cv.id)} // ✅ _id → id
                   className="ml-auto inline-flex items-center gap-1.5 text-[11px] font-bold text-red-500 bg-red-50 border border-red-200 px-3 py-1.5 rounded-full transition-all hover:bg-red-100"
                 >
                   <FaTrash className="text-[9px]" />

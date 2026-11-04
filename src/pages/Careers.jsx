@@ -28,142 +28,152 @@ import { jobsApi } from "../api/api";
 /* ============================================================
    JOB CARD
 ============================================================ */
-const JobCard = ({ job, index, saved, onSave }) => (
-  <div
-    className="group relative bg-white rounded-2xl border border-[#4FC3F7]/20 hover:border-[#4FC3F7]/60 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_28px_55px_rgba(79,195,247,0.20)] overflow-hidden animate-slideUp"
-    style={{ animationDelay: `${index * 0.06}s` }}
-  >
-    <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#4FC3F7] via-[#FFD54F] to-[#29B6F6] bg-[length:200%_100%] animate-[shimmer_3s_linear_infinite]" />
+const JobCard = ({ job, index, saved, onSave }) => {
+  // ✅ FIX: Tags string aaye toh usko array mein convert karo
+  let displayTags = [];
+  if (Array.isArray(job.tags)) {
+    displayTags = job.tags;
+  } else if (typeof job.tags === "string") {
+    try {
+      displayTags = JSON.parse(job.tags);
+      if (!Array.isArray(displayTags)) displayTags = job.tags.split(",");
+    } catch {
+      displayTags = job.tags.split(",");
+    }
+  }
 
-    <div className="absolute top-5 right-5 flex gap-1.5 z-10">
-      {job.featured && (
-        <span className="inline-flex items-center gap-1 bg-gradient-to-r from-[#FFD54F] to-[#FFB300] text-[#0F4C5C] text-[9px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-[0_6px_14px_rgba(255,213,79,0.45)]">
-          <FaStar className="text-[8px]" />
-          Featured
-        </span>
-      )}
-      {job.urgent && (
-        <span className="inline-flex items-center gap-1 bg-gradient-to-r from-red-500 to-red-600 text-white text-[9px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-[0_6px_14px_rgba(239,68,68,0.45)] animate-pulse">
-          <FaFire className="text-[8px]" />
-          Urgent
-        </span>
-      )}
-    </div>
-
-    <button
-      onClick={(e) => {
-        e.preventDefault();
-        onSave(job._id || job.id);
-      }}
-      className={`group/save absolute bottom-5 right-5 w-11 h-11 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 z-10 border ${
-        saved
-          ? "bg-[#FFB300] text-white border-[#FFB300]"
-          : "bg-white text-[#0A3A47]/70 border-[#4FC3F7]/25 hover:text-[#FFB300] hover:border-[#FFB300]"
-      }`}
-      aria-label={saved ? "Remove From Saved Jobs" : "Save Job"}
-      aria-pressed={saved}
+  return (
+    <div
+      className="group relative bg-white rounded-2xl border border-[#4FC3F7]/20 hover:border-[#4FC3F7]/60 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_28px_55px_rgba(79,195,247,0.20)] overflow-hidden animate-slideUp"
+      style={{ animationDelay: `${index * 0.06}s` }}
     >
-      <FaStar className="text-sm" />
-      <span
-        role="tooltip"
-        className="pointer-events-none absolute right-full mr-2 whitespace-nowrap text-[11px] font-bold text-white bg-[#0F4C5C] px-2 py-1 rounded-md shadow-md opacity-0 translate-x-1 group-hover/save:opacity-100 group-hover/save:translate-x-0 group-focus-visible/save:opacity-100 group-focus-visible/save:translate-x-0 transition-all duration-200"
-      >
-        {saved ? "Saved" : "Save"}
-      </span>
-    </button>
+      <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#4FC3F7] via-[#FFD54F] to-[#29B6F6] bg-[length:200%_100%] animate-[shimmer_3s_linear_infinite]" />
 
-    <div className="p-6 pt-8">
-      <div className="flex items-start gap-4 mb-5">
-        <div className="relative flex-shrink-0">
-          <span className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#4FC3F7] to-[#29B6F6] blur-lg opacity-40 group-hover:opacity-70 transition-opacity duration-500" />
-          <span className="relative w-14 h-14 rounded-2xl bg-gradient-to-br from-[#0F4C5C] to-[#0A3A47] text-white flex items-center justify-center shadow-[0_10px_24px_rgba(15,76,92,0.3)] group-hover:from-[#4FC3F7] group-hover:to-[#29B6F6] group-hover:scale-110 transition-all duration-500">
-            <FaBriefcase className="text-lg" />
+      <div className="absolute top-5 right-5 flex gap-1.5 z-10">
+        {job.featured && (
+          <span className="inline-flex items-center gap-1 bg-gradient-to-r from-[#FFD54F] to-[#FFB300] text-[#0F4C5C] text-[9px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-[0_6px_14px_rgba(255,213,79,0.45)]">
+            <FaStar className="text-[8px]" />
+            Featured
           </span>
-        </div>
-
-        <div className="flex-1 min-w-0">
-          <h2 className="font-extrabold text-[#0F4C5C] text-base sm:text-lg leading-tight mb-1.5 group-hover:text-[#29B6F6] transition-colors duration-300">
-            {job.title}
-          </h2>
-          <p className="text-xs sm:text-sm text-[#0A3A47]/70 font-semibold flex items-center gap-1.5 truncate">
-            <FaBuilding className="text-[10px] text-[#22C55E] flex-shrink-0" />
-            {job.company}
-          </p>
-        </div>
+        )}
+        {job.urgent && (
+          <span className="inline-flex items-center gap-1 bg-gradient-to-r from-red-500 to-red-600 text-white text-[9px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-[0_6px_14px_rgba(239,68,68,0.45)] animate-pulse">
+            <FaFire className="text-[8px]" />
+            Urgent
+          </span>
+        )}
       </div>
 
-      <div className="grid grid-cols-2 gap-2.5 mb-5">
-        <div className="flex items-center gap-2 text-[11px] text-[#0A3A47]/70 font-semibold bg-[#E1F5FE]/50 rounded-lg p-2.5">
-          <FaMapMarkerAlt className="text-[#22C55E] text-[10px] flex-shrink-0" />
-          <span className="truncate">{job.location}</span>
-        </div>
-        <div className="flex items-center gap-2 text-[11px] text-[#0A3A47]/70 font-semibold bg-[#E1F5FE]/50 rounded-lg p-2.5">
-          <FaClock className="text-[#FFB300] text-[10px] flex-shrink-0" />
-          <span className="truncate">{job.type}</span>
-        </div>
-      </div>
+      <button
+        onClick={(e) => {
+          e.preventDefault();
+          onSave(job._id || job.id);
+        }}
+        className={`group/save absolute bottom-5 right-5 w-11 h-11 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 z-10 border ${
+          saved
+            ? "bg-[#FFB300] text-white border-[#FFB300]"
+            : "bg-white text-[#0A3A47]/70 border-[#4FC3F7]/25 hover:text-[#FFB300] hover:border-[#FFB300]"
+        }`}
+        aria-label={saved ? "Remove From Saved Jobs" : "Save Job"}
+        aria-pressed={saved}
+      >
+        <FaStar className="text-sm" />
+      </button>
 
-      <div className="relative mb-5">
-        <div className="h-px bg-gradient-to-r from-transparent via-[#4FC3F7]/25 to-transparent" />
-      </div>
-
-      <div className="flex items-center justify-between mb-5">
-        <div>
-          <div className="flex items-center gap-1.5 mb-0.5">
-            <FaMoneyBillWave className="text-[#22C55E] text-[10px]" />
-            <span className="text-[9px] font-bold text-[#0A3A47]/50 uppercase tracking-widest">
-              Salary
+      <div className="p-6 pt-8">
+        <div className="flex items-start gap-4 mb-5">
+          <div className="relative flex-shrink-0">
+            <span className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#4FC3F7] to-[#29B6F6] blur-lg opacity-40 group-hover:opacity-70 transition-opacity duration-500" />
+            <span className="relative w-14 h-14 rounded-2xl bg-gradient-to-br from-[#0F4C5C] to-[#0A3A47] text-white flex items-center justify-center shadow-[0_10px_24px_rgba(15,76,92,0.3)] group-hover:from-[#4FC3F7] group-hover:to-[#29B6F6] group-hover:scale-110 transition-all duration-500">
+              <FaBriefcase className="text-lg" />
             </span>
           </div>
-          <p className="text-sm font-extrabold bg-gradient-to-r from-[#0F4C5C] to-[#29B6F6] bg-clip-text text-transparent">
-            {job.salary}
-          </p>
-        </div>
 
-        <div className="text-right">
-          <div className="flex items-center gap-1.5 mb-0.5 justify-end">
-            <FaGraduationCap className="text-[#29B6F6] text-[10px]" />
-            <span className="text-[9px] font-bold text-[#0A3A47]/50 uppercase tracking-widest">
-              Experience
-            </span>
+          <div className="flex-1 min-w-0">
+            <h2 className="font-extrabold text-[#0F4C5C] text-base sm:text-lg leading-tight mb-1.5 group-hover:text-[#29B6F6] transition-colors duration-300">
+              {job.title}
+            </h2>
+            <p className="text-xs sm:text-sm text-[#0A3A47]/70 font-semibold flex items-center gap-1.5 truncate">
+              <FaBuilding className="text-[10px] text-[#22C55E] flex-shrink-0" />
+              {job.company}
+            </p>
           </div>
-          <p className="text-sm font-extrabold text-[#0F4C5C]">
-            {job.experience}
-          </p>
         </div>
-      </div>
 
-      {job.tags && job.tags.length > 0 && (
-        <div className="flex flex-wrap gap-1.5 mb-5">
-          {job.tags.slice(0, 3).map((tag) => (
-            <span
-              key={tag}
-              className="text-xs font-bold text-[#0F4C5C] bg-[#E1F5FE] border border-[#4FC3F7]/30 px-2.5 py-1 rounded-full"
-            >
-              #{tag}
-            </span>
-          ))}
+        <div className="grid grid-cols-2 gap-2.5 mb-5">
+          <div className="flex items-center gap-2 text-[11px] text-[#0A3A47]/70 font-semibold bg-[#E1F5FE]/50 rounded-lg p-2.5">
+            <FaMapMarkerAlt className="text-[#22C55E] text-[10px] flex-shrink-0" />
+            <span className="truncate">{job.location}</span>
+          </div>
+          <div className="flex items-center gap-2 text-[11px] text-[#0A3A47]/70 font-semibold bg-[#E1F5FE]/50 rounded-lg p-2.5">
+            <FaClock className="text-[#FFB300] text-[10px] flex-shrink-0" />
+            <span className="truncate">{job.type}</span>
+          </div>
         </div>
-      )}
 
-      <div className="flex items-center justify-between pt-4 border-t border-[#4FC3F7]/15">
-        <span className="text-[10px] text-[#0A3A47]/50 font-semibold flex items-center gap-1.5">
-          <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-          {job.posted || "Recently"}
-        </span>
+        <div className="relative mb-5">
+          <div className="h-px bg-gradient-to-r from-transparent via-[#4FC3F7]/25 to-transparent" />
+        </div>
 
-        <Link
-          to={`/apply/${job._id || job.id}`}
-          className="group/btn relative inline-flex items-center gap-1.5 text-xs font-extrabold text-[#0F4C5C] bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] px-4 py-2 rounded-full shadow-[0_8px_18px_rgba(79,195,247,0.35)] hover:shadow-[0_12px_28px_rgba(255,213,79,0.5)] hover:-translate-y-0.5 transition-all duration-300 overflow-hidden"
-        >
-          <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700" />
-          <span className="relative">Apply Now</span>
-          <FaArrowRight className="relative text-[9px] group-hover/btn:translate-x-0.5 transition-transform" />
-        </Link>
+        <div className="flex items-center justify-between mb-5">
+          <div>
+            <div className="flex items-center gap-1.5 mb-0.5">
+              <FaMoneyBillWave className="text-[#22C55E] text-[10px]" />
+              <span className="text-[9px] font-bold text-[#0A3A47]/50 uppercase tracking-widest">
+                Salary
+              </span>
+            </div>
+            <p className="text-sm font-extrabold bg-gradient-to-r from-[#0F4C5C] to-[#29B6F6] bg-clip-text text-transparent">
+              {job.salary}
+            </p>
+          </div>
+
+          <div className="text-right">
+            <div className="flex items-center gap-1.5 mb-0.5 justify-end">
+              <FaGraduationCap className="text-[#29B6F6] text-[10px]" />
+              <span className="text-[9px] font-bold text-[#0A3A47]/50 uppercase tracking-widest">
+                Experience
+              </span>
+            </div>
+            <p className="text-sm font-extrabold text-[#0F4C5C]">
+              {job.experience}
+            </p>
+          </div>
+        </div>
+
+        {/* ✅ Yahan displayTags use kiya hai taake string/array dono chalein */}
+        {displayTags.length > 0 && (
+          <div className="flex flex-wrap gap-1.5 mb-5">
+            {displayTags.slice(0, 3).map((tag, i) => (
+              <span
+                key={i}
+                className="text-xs font-bold text-[#0F4C5C] bg-[#E1F5FE] border border-[#4FC3F7]/30 px-2.5 py-1 rounded-full"
+              >
+                #{tag.trim()}
+              </span>
+            ))}
+          </div>
+        )}
+
+        <div className="flex items-center justify-between pt-4 border-t border-[#4FC3F7]/15">
+          <span className="text-[10px] text-[#0A3A47]/50 font-semibold flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+            {job.posted || "Recently"}
+          </span>
+
+          <Link
+            to={`/apply/${job._id || job.id}`}
+            className="group/btn relative inline-flex items-center gap-1.5 text-xs font-extrabold text-[#0F4C5C] bg-gradient-to-r from-[#4FC3F7] to-[#29B6F6] px-4 py-2 rounded-full shadow-[0_8px_18px_rgba(79,195,247,0.35)] hover:shadow-[0_12px_28px_rgba(255,213,79,0.5)] hover:-translate-y-0.5 transition-all duration-300 overflow-hidden"
+          >
+            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700" />
+            <span className="relative">Apply Now</span>
+            <FaArrowRight className="relative text-[9px] group-hover/btn:translate-x-0.5 transition-transform" />
+          </Link>
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 /* ============================================================
    PAGE
@@ -241,12 +251,21 @@ const Careers = () => {
 
   const filteredJobs = jobs.filter((job) => {
     const term = search.trim().toLowerCase();
+    
+    // Search ke liye tags parse karna
+    let parsedTags = [];
+    if (Array.isArray(job.tags)) parsedTags = job.tags;
+    else if (typeof job.tags === "string") {
+      try { parsedTags = JSON.parse(job.tags); } catch { parsedTags = job.tags.split(","); }
+    }
+
     const matchesSearch =
       !term ||
       job.title?.toLowerCase().includes(term) ||
       job.company?.toLowerCase().includes(term) ||
       job.location?.toLowerCase().includes(term) ||
-      (job.tags && job.tags.some((t) => t.toLowerCase().includes(term)));
+      (parsedTags.length > 0 && parsedTags.some((t) => t.toLowerCase().includes(term)));
+      
     const matchesCategory =
       activeCategory === "all" || job.category === activeCategory;
     const matchesCountry =
@@ -265,7 +284,6 @@ const Careers = () => {
 
   return (
     <>
-      {/* ============ SEO META TAGS ============ */}
       <Helmet>
         <title>Overseas Jobs In Pakistan | Find Jobs Abroad | Ali Hajveri International (Pvt.) Limited</title>
         <meta
@@ -274,99 +292,7 @@ const Careers = () => {
         />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://ahioep.com/careers" />
-        <meta property="og:title" content="Overseas Jobs In Pakistan | Find Jobs Abroad | Ali Hajveri International (Pvt.) Limited" />
-        <meta property="og:description" content="Browse verified overseas job opportunities for Pakistani workers. Free to apply, no hidden charges." />
-        <meta property="og:url" content="https://ahioep.com/careers" />
-        <meta property="og:type" content="website" />
       </Helmet>
-
-      {/* ============ SEO CONTENT (Visually Hidden, Sirf Google Ke Liye) ============ */}
-      <div className="sr-only" aria-hidden="true">
-        <h1>Overseas Jobs In Pakistan - Find International Employment Opportunities</h1>
-        <p>
-          Browse Verified Overseas Jobs In Pakistan Through Ali Hajveri
-          International (Pvt.) Limited. We Connect Skilled, Semi-Skilled, And
-          Professional Pakistani Workers With Reputable International
-          Employers Across Gulf Countries, Central Asia, Europe, And East Asia.
-        </p>
-
-        <h2>Live Overseas Job Opportunities</h2>
-        <p>
-          Our Careers Page Lists All Active Overseas Job Openings Available
-          Through Our Licensed Recruitment Operations. New Opportunities Are
-          Posted Every Week Across Various Industries And Countries. All Jobs
-          Are Verified With Licensed International Employers Before Posting.
-        </p>
-
-        <h2>Job Categories We Recruit For</h2>
-        <ul>
-          <li>Skilled Workers - Engineers, Technicians, Welders, Electricians</li>
-          <li>Semi-Skilled Workers - Machine Operators, Drivers, Helpers</li>
-          <li>Unskilled Workers - General Labour, Loaders, Cleaners</li>
-          <li>Technical Staff - Supervisors, Draftsmen, Quality Control</li>
-          <li>Professional Staff - Accountants, IT Professionals, Nurses</li>
-          <li>Construction Workers - Masons, Steel Fixers, Carpenters</li>
-          <li>Hospitality Staff - Chefs, Waiters, Housekeeping</li>
-          <li>Healthcare Workers - Nurses, Lab Technicians</li>
-        </ul>
-
-        <h2>Countries With Active Job Openings</h2>
-        <p>
-          We Currently Have Active Job Openings In Saudi Arabia, United Arab
-          Emirates, Qatar, Oman, Kuwait, Bahrain, Tajikistan, Kazakhstan,
-          Kyrgyzstan, Uzbekistan, Turkmenistan, Romania, China, And Other
-          International Markets.
-        </p>
-
-        <h2>How To Apply For Overseas Jobs</h2>
-        <ol>
-          <li>Browse Our Live Job Listings Above</li>
-          <li>Click Apply Now On Jobs That Match Your Skills</li>
-          <li>Submit Your CV And Complete Registration</li>
-          <li>Our Team Reviews Your Profile Against Job Requirements</li>
-          <li>Attend Interview Or Trade Test If Shortlisted</li>
-          <li>Upon Selection, We Handle Documentation And Deployment</li>
-        </ol>
-
-        <h2>Why Apply Through Ali Hajveri International</h2>
-        <ul>
-          <li>Government-Licensed Overseas Employment Promoter</li>
-          <li>OEP License Number OP&HRD/5224/LHR/2026</li>
-          <li>Free To Apply - No Hidden Charges For Candidates</li>
-          <li>Verified Employers Only - All Job Orders Are Legitimate</li>
-          <li>Complete Support From Application To Deployment</li>
-          <li>5,000+ Workers Successfully Placed Worldwide</li>
-          <li>Post-Deployment Support For All Deployed Workers</li>
-        </ul>
-
-        <h2>Job Search Tips</h2>
-        <p>
-          Use The Search Bar To Find Jobs By Title, Company, Location, Or
-          Skill. Apply Filters To Narrow Results By Category Or Country.
-          Save Interesting Jobs To Review Later. Submit Your CV Even If No
-          Current Opening Matches Your Skills — New Opportunities Arrive
-          Every Week.
-        </p>
-
-        <h2>Contact Ali Hajveri International (Pvt.) Limited</h2>
-        <p>
-          For More Information About Overseas Jobs Or To Discuss Your
-          Application, Contact Ali Hajveri International (Pvt.) Limited.
-          Website: ahioep.com | Email: ahioep.com@gmail.com | Phone: +92 300
-          8578764
-        </p>
-
-        <h2>Internal Links</h2>
-        <nav>
-          <Link to="/submit-cv">Submit Your CV</Link>
-          <Link to="/services">Our Services</Link>
-          <Link to="/process">Recruitment Process</Link>
-          <Link to="/countries">Countries We Serve</Link>
-          <Link to="/about">About Us</Link>
-          <Link to="/contact">Contact Us</Link>
-          <Link to="/faq">FAQ</Link>
-        </nav>
-      </div>
 
       <style>{`
         @keyframes shimmer {
@@ -514,7 +440,7 @@ const Careers = () => {
                   alt="Find Overseas Jobs In Pakistan - Verified International Employment Opportunities"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                   loading="eager"
-                  fetchpriority="high"
+                  fetchPriority="high"
                   onError={(e) => {
                     e.target.style.display = "none";
                   }}

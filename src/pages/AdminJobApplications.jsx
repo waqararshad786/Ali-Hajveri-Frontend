@@ -25,7 +25,7 @@ const STATUS_COLORS = {
    APPLICATION FILE URL HELPER
 ============================================================ */
 const getAppFileUrl = (app, download = false) => {
-  if (!app || !app._id) return "";
+  if (!app || !app.id) return ""; // ✅ _id → id
 
   const token = (() => {
     try {
@@ -42,7 +42,7 @@ const getAppFileUrl = (app, download = false) => {
     return rawPath;
   }
 
-  const base = `${API_URL}/applications/${app._id}/file`;
+  const base = `${API_URL}/applications/${app.id}/file`; // ✅ _id → id
   const params = new URLSearchParams();
   if (token) params.set("token", token);
   if (download) params.set("download", "1");
@@ -144,7 +144,7 @@ const AdminJobApplications = () => {
       await applicationsApi.updateStatus(id, status);
       showToast(`Marked As ${status}`);
       fetchApps();
-      if (selected && selected._id === id) {
+      if (selected && selected.id === id) { // ✅ _id → id
         setSelected({ ...selected, status });
       }
     } catch (error) {
@@ -179,7 +179,7 @@ const AdminJobApplications = () => {
 
     setSendingReply(true);
     try {
-      const result = await applicationsApi.reply(replyModal._id, {
+      const result = await applicationsApi.reply(replyModal.id, { // ✅ _id → id
         replyMessage: replyText.trim(),
       });
 
@@ -751,7 +751,7 @@ const AdminJobApplications = () => {
 
                 {(!selected.status || selected.status === "pending") && (
                   <button
-                    onClick={() => handleStatusChange(selected._id, "reviewed")}
+                    onClick={() => handleStatusChange(selected.id, "reviewed")} // ✅ _id → id
                     className="inline-flex items-center gap-1.5 text-xs font-bold text-yellow-700 bg-yellow-50 border border-yellow-300 px-4 py-2 rounded-full hover:bg-yellow-100 hover:-translate-y-0.5 transition-all"
                   >
                     <FaEnvelopeOpen className="text-[10px]" />
@@ -762,7 +762,7 @@ const AdminJobApplications = () => {
                 <button
                   onClick={() =>
                     selected.status !== "shortlisted" &&
-                    handleStatusChange(selected._id, "shortlisted")
+                    handleStatusChange(selected.id, "shortlisted") // ✅ _id → id
                   }
                   disabled={selected.status === "shortlisted"}
                   className={`inline-flex items-center gap-1.5 text-xs font-bold px-4 py-2 rounded-full transition-all ${
@@ -780,7 +780,7 @@ const AdminJobApplications = () => {
                 <button
                   onClick={() =>
                     selected.status !== "rejected" &&
-                    handleStatusChange(selected._id, "rejected")
+                    handleStatusChange(selected.id, "rejected") // ✅ _id → id
                   }
                   disabled={selected.status === "rejected"}
                   className={`inline-flex items-center gap-1.5 text-xs font-bold px-4 py-2 rounded-full transition-all ${
@@ -794,7 +794,7 @@ const AdminJobApplications = () => {
                 </button>
 
                 <button
-                  onClick={() => setConfirmDelete(selected._id)}
+                  onClick={() => setConfirmDelete(selected.id)} // ✅ _id → id
                   className="ml-auto inline-flex items-center gap-1.5 text-xs font-bold text-red-500 bg-red-50 border border-red-200 px-4 py-2 rounded-full hover:bg-red-100 transition-all"
                 >
                   <FaTrash className="text-[10px]" />
@@ -881,7 +881,7 @@ const AdminJobApplications = () => {
             const status = app.status || "pending";
             return (
               <div
-                key={app._id || app.id}
+                key={app.id} // ✅ _id → id
                 className="group relative bg-white rounded-2xl border border-[#4FC3F7]/20 hover:border-[#4FC3F7]/50 p-4 transition-all duration-300 hover:shadow-[0_14px_35px_rgba(79,195,247,0.15)] overflow-hidden animate-slideUp"
               >
                 <span className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-[#4FC3F7] via-[#FFD54F] to-[#4FC3F7] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
@@ -971,7 +971,7 @@ const AdminJobApplications = () => {
 
                   {status === "pending" && (
                     <button
-                      onClick={() => handleStatusChange(app._id, "reviewed")}
+                      onClick={() => handleStatusChange(app.id, "reviewed")} // ✅ _id → id
                       className="inline-flex items-center gap-1.5 text-[11px] font-bold text-yellow-700 bg-yellow-50 border border-yellow-300 px-3 py-1.5 rounded-full transition-all hover:bg-yellow-100"
                     >
                       <FaEnvelopeOpen className="text-[9px]" />
@@ -982,7 +982,7 @@ const AdminJobApplications = () => {
                   <button
                     onClick={() =>
                       status !== "shortlisted" &&
-                      handleStatusChange(app._id, "shortlisted")
+                      handleStatusChange(app.id, "shortlisted") // ✅ _id → id
                     }
                     disabled={status === "shortlisted"}
                     className={`inline-flex items-center gap-1.5 text-[11px] font-bold px-3 py-1.5 rounded-full transition-all ${
@@ -998,7 +998,7 @@ const AdminJobApplications = () => {
                   <button
                     onClick={() =>
                       status !== "rejected" &&
-                      handleStatusChange(app._id, "rejected")
+                      handleStatusChange(app.id, "rejected") // ✅ _id → id
                     }
                     disabled={status === "rejected"}
                     className={`inline-flex items-center gap-1.5 text-[11px] font-bold px-3 py-1.5 rounded-full transition-all ${
@@ -1012,7 +1012,7 @@ const AdminJobApplications = () => {
                   </button>
 
                   <button
-                    onClick={() => setConfirmDelete(app._id)}
+                    onClick={() => setConfirmDelete(app.id)} // ✅ _id → id
                     className="ml-auto inline-flex items-center gap-1.5 text-[11px] font-bold text-red-500 bg-red-50 border border-red-200 px-3 py-1.5 rounded-full transition-all hover:bg-red-100"
                   >
                     <FaTrash className="text-[9px]" />

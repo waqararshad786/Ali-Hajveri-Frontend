@@ -58,7 +58,7 @@ const AdminMessages = () => {
       await contactApi.updateStatus(id, status);
       showToast("Status Updated");
       fetchMessages();
-      if (selected && selected._id === id) {
+      if (selected && selected.id === id) { // ✅ _id → id
         setSelected({ ...selected, status });
       }
     } catch (error) {
@@ -93,7 +93,7 @@ const AdminMessages = () => {
 
     setSendingReply(true);
     try {
-      const result = await contactApi.reply(replyModal._id, {
+      const result = await contactApi.reply(replyModal.id, { // ✅ _id → id
         replyMessage: replyText.trim(),
       });
 
@@ -469,7 +469,7 @@ const AdminMessages = () => {
 
                 {selected.status === "new" && (
                   <button
-                    onClick={() => handleStatusChange(selected._id, "read")}
+                    onClick={() => handleStatusChange(selected.id, "read")} // ✅ _id → id
                     className="inline-flex items-center gap-1.5 text-xs font-bold text-yellow-700 bg-yellow-50 hover:bg-yellow-100 border border-yellow-300 px-4 py-2 rounded-full transition-all"
                   >
                     <FaEnvelopeOpen className="text-[10px]" />
@@ -479,7 +479,7 @@ const AdminMessages = () => {
 
                 {selected.status !== "replied" && (
                   <button
-                    onClick={() => handleStatusChange(selected._id, "replied")}
+                    onClick={() => handleStatusChange(selected.id, "replied")} // ✅ _id → id
                     className="inline-flex items-center gap-1.5 text-xs font-bold text-green-700 bg-green-50 hover:bg-green-100 border border-green-300 px-4 py-2 rounded-full transition-all"
                   >
                     <FaCheckCircle className="text-[10px]" />
@@ -488,7 +488,7 @@ const AdminMessages = () => {
                 )}
 
                 <button
-                  onClick={() => setConfirmDelete(selected._id)}
+                  onClick={() => setConfirmDelete(selected.id)} // ✅ _id → id
                   className="ml-auto inline-flex items-center gap-1.5 text-xs font-bold text-red-500 bg-red-50 hover:bg-red-100 border border-red-200 px-4 py-2 rounded-full transition-all"
                 >
                   <FaTrash className="text-[10px]" />
@@ -523,7 +523,7 @@ const AdminMessages = () => {
         <div className="grid gap-3">
           {filtered.map((msg) => (
             <div
-              key={msg._id}
+              key={msg.id} // ✅ _id → id
               className="group relative bg-white rounded-2xl border border-[#4FC3F7]/20 hover:border-[#4FC3F7]/50 p-4 transition-all duration-300 hover:shadow-[0_14px_35px_rgba(79,195,247,0.15)] overflow-hidden animate-slideUp"
             >
               <span className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-[#4FC3F7] via-[#FFD54F] to-[#4FC3F7] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
@@ -602,7 +602,7 @@ const AdminMessages = () => {
 
                 {msg.status === "new" && (
                   <button
-                    onClick={() => handleStatusChange(msg._id, "read")}
+                    onClick={() => handleStatusChange(msg.id, "read")} // ✅ _id → id
                     className="inline-flex items-center gap-1.5 text-[11px] font-bold text-yellow-700 bg-yellow-50 hover:bg-yellow-100 border border-yellow-300 px-3 py-1.5 rounded-full transition-all"
                   >
                     <FaEnvelopeOpen className="text-[9px]" />
@@ -612,7 +612,7 @@ const AdminMessages = () => {
 
                 {msg.status !== "replied" && (
                   <button
-                    onClick={() => handleStatusChange(msg._id, "replied")}
+                    onClick={() => handleStatusChange(msg.id, "replied")} // ✅ _id → id
                     className="inline-flex items-center gap-1.5 text-[11px] font-bold text-green-700 bg-green-50 hover:bg-green-100 border border-green-300 px-3 py-1.5 rounded-full transition-all"
                   >
                     <FaCheckCircle className="text-[9px]" />
@@ -621,7 +621,7 @@ const AdminMessages = () => {
                 )}
 
                 <button
-                  onClick={() => setConfirmDelete(msg._id)}
+                  onClick={() => setConfirmDelete(msg.id)} // ✅ _id → id
                   className="ml-auto inline-flex items-center gap-1.5 text-[11px] font-bold text-red-500 bg-red-50 hover:bg-red-100 border border-red-200 px-3 py-1.5 rounded-full transition-all"
                 >
                   <FaTrash className="text-[9px]" />
